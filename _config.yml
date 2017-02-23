@@ -1,0 +1,23 @@
+title: frp
+subtitle: "A fast reverse proxy"
+description: "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet."
+author: fatedier
+language:
+    - zh-cn
+timezone: PRC
+url: http://gofrp.org
+root: /
+permalink: news/:year/:month/:day/:title/
+archive_dir: news
+public_dir: docs
+code_dir: downloads/code
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+post_asset_folder: true
+highlight:
+  enable: true
+  line_number: false
+per_page: 0
+
+theme: navy
+weibo: 1781358497
+github: fatedier/frp
