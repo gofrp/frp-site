@@ -922,6 +922,15 @@ a.article-title:hover {
     max-width: 800px;
   }
 }
+.qrcode-images {
+  padding: 20px;
+  text-align: center;
+}
+.qrcode-images img {
+  display: inline-block;
+  height: 300px;
+  margin: 0 20px;
+}
 #plugin-list-header {
   margin: 40px 0;
 }
