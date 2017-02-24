@@ -11,6 +11,7 @@ permalink: news/:year/:month/:day/:title/
 archive_dir: news
 public_dir: docs
 code_dir: downloads/code
+skip_render: googleb759e5789dfa8f4b.html
 new_post_name: :year-:month-:day-:title.md # File name of new posts
 post_asset_folder: true
 highlight:
@@ -21,3 +22,4 @@ per_page: 0
 theme: navy
 weibo: 1781358497
 github: fatedier/frp
+

@@ -1,3 +1,3 @@
 #!/bin/sh
-rm -rf ./docs/
+hexo clean
 hexo generate
