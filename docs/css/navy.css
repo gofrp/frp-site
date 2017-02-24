@@ -1392,6 +1392,7 @@ a.article-title:hover {
 @media screen and (min-width: 769px) {
   #footer-copyright {
     float: left;
+    margin-right: 10px;
   }
 }
 #footer-copyright a {
