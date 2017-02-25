@@ -38,33 +38,27 @@
   <link rel="alternate" href="/atom.xml" title="frp">
   <!-- Open Graph -->
   <meta name="description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
-
-修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 dns 的反向代理：
 # frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
-
 启动 frps：
-./frps -c ./frps">
+./frps">
 <meta property="og:type" content="website">
 <meta property="og:title" content="转发 DNS 查询请求">
 <meta property="og:url" content="http://gofrp.org/example/udp.html">
 <meta property="og:site_name" content="frp">
 <meta property="og:description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
-
-修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 dns 的反向代理：
 # frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
-
 启动 frps：
-./frps -c ./frps">
-<meta property="og:updated_time" content="2017-02-25T09:32:32.021Z">
+./frps">
+<meta property="og:updated_time" content="2017-02-25T09:40:47.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="转发 DNS 查询请求">
 <meta name="twitter:description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
-
-修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 dns 的反向代理：
 # frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
-
 启动 frps：
-./frps -c ./frps">
+./frps">
   <!-- Google Analytics -->
   
 <script>
@@ -120,27 +114,20 @@
               </header>
               <div class="article-content" itemprop="articleBody">
                 <p>DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。</p>
-<ol>
-<li><p>修改 frps.ini 文件，配置一个名为 dns 的反向代理：</p>
+<h2 id="部署服务器端-frps" class="article-heading"><a href="#部署服务器端-frps" class="headerlink" title="部署服务器端 frps"></a>部署服务器端 frps<a class="article-anchor" href="#部署服务器端-frps" aria-hidden="true"></a></h2><p>修改 frps.ini 文件，配置一个名为 dns 的反向代理：</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frps.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></div><div class="line"><span class="section"></span></div><div class="line">[dns]</div><div class="line"><span class="attr">type</span> = udp</div><div class="line"><span class="attr">listen_port</span> = <span class="number">6000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>启动 frps：</p>
+<p>启动 frps：</p>
 <p><code>./frps -c ./frps.ini</code></p>
-</li>
-<li><p>修改 frpc.ini 文件，设置 frps 所在服务器的 IP 为 x.x.x.x，转发到 Google 的 DNS 查询服务器 <code>8.8.8.8</code> 的 udp 53 端口：</p>
+<h2 id="部署客户端-frpc" class="article-heading"><a href="#部署客户端-frpc" class="headerlink" title="部署客户端 frpc"></a>部署客户端 frpc<a class="article-anchor" href="#部署客户端-frpc" aria-hidden="true"></a></h2><p>修改 frpc.ini 文件，设置 frps 所在服务器的 IP 为 x.x.x.x，转发到 Google 的 DNS 查询服务器 <code>8.8.8.8</code> 的 udp 53 端口：</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frpc.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">server_addr</span> = x.x.x.x</div><div class="line"><span class="attr">server_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div><div class="line"><span class="section"></span></div><div class="line">[dns]</div><div class="line"><span class="attr">type</span> = udp</div><div class="line"><span class="attr">local_ip</span> = <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line"><span class="attr">local_port</span> = <span class="number">53</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>启动 frpc：</p>
+<p>启动 frpc：</p>
 <p><code>./frpc -c ./frpc.ini</code></p>
-</li>
-<li><p>通过 dig 测试 UDP 包转发是否成功，预期会返回 <code>www.google.com</code> 域名的解析结果：</p>
+<h2 id="测试" class="article-heading"><a href="#测试" class="headerlink" title="测试"></a>测试<a class="article-anchor" href="#测试" aria-hidden="true"></a></h2><p>通过 dig 测试 UDP 包转发是否成功，预期会返回 <code>www.google.com</code> 域名的解析结果：</p>
 <p><code>dig @x.x.x.x -p 6000 www.goolge.com</code></p>
-</li>
-</ol>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-25T09:32:32.021Z" itemprop="dateModified">上次更新：2017-02-25</time>
+                <time class="article-footer-updated" datetime="2017-02-25T09:40:47.931Z" itemprop="dateModified">上次更新：2017-02-25</time>
                 <a href="https.html" class="article-footer-prev" title="HTTPS 服务示例"><i class="fa fa-chevron-left"></i><span>上一页</span></a>
               </footer>
             </div>
@@ -148,7 +135,7 @@
           <aside id="article-toc" role="navigation">
             <div id="article-toc-inner">
               <strong class="sidebar-title">目录</strong>
-              
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#部署服务器端-frps"><span class="toc-text">部署服务器端 frps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署客户端-frpc"><span class="toc-text">部署客户端 frpc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol>
               <a href="#" id="article-toc-top">回到顶部</a>
             </div>
           </aside>

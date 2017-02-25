@@ -38,24 +38,21 @@
   <link rel="alternate" href="/atom.xml" title="frp">
   <!-- Open Graph -->
   <meta name="description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
-
-修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
-# frps.ini[common]">
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.i">
 <meta property="og:type" content="website">
 <meta property="og:title" content="通过 自定义域名 http方式访问部署于内网的 web 服务器">
 <meta property="og:url" content="http://gofrp.org/example/http.html">
 <meta property="og:site_name" content="frp">
 <meta property="og:description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
-
-修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
-# frps.ini[common]">
-<meta property="og:updated_time" content="2017-02-25T09:32:32.021Z">
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.i">
+<meta property="og:updated_time" content="2017-02-25T09:41:12.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过 自定义域名 http方式访问部署于内网的 web 服务器">
 <meta name="twitter:description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
-
-修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
-# frps.ini[common]">
+部署服务器端 frps修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.i">
   <!-- Google Analytics -->
   
 <script>
@@ -111,28 +108,20 @@
               </header>
               <div class="article-content" itemprop="articleBody">
                 <p>有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。</p>
-<ol>
-<li><p>修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 <code>www.yourdomain.com</code>：</p>
+<h2 id="部署服务器端-frps" class="article-heading"><a href="#部署服务器端-frps" class="headerlink" title="部署服务器端 frps"></a>部署服务器端 frps<a class="article-anchor" href="#部署服务器端-frps" aria-hidden="true"></a></h2><p>修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 <code>www.yourdomain.com</code>：</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frps.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">vhost_http_port</span> = <span class="number">8080</span></div><div class="line"><span class="section"></span></div><div class="line">[web]</div><div class="line"><span class="attr">type</span> = http</div><div class="line"><span class="attr">custom_domains</span> = www.yourdomain.com</div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>启动 frps；</p>
+<p>启动 frps；</p>
 <p><code>./frps -c ./frps.ini</code></p>
-</li>
-<li><p>修改 frpc.ini 文件，设置 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口：</p>
+<h2 id="部署客户端-frpc" class="article-heading"><a href="#部署客户端-frpc" class="headerlink" title="部署客户端 frpc"></a>部署客户端 frpc<a class="article-anchor" href="#部署客户端-frpc" aria-hidden="true"></a></h2><p>修改 frpc.ini 文件，设置 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口：</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frpc.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">server_addr</span> = x.x.x.x</div><div class="line"><span class="attr">server_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div><div class="line"><span class="section"></span></div><div class="line">[web]</div><div class="line"><span class="attr">type</span> = http</div><div class="line"><span class="attr">local_port</span> = <span class="number">80</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>启动 frpc：</p>
+<p>启动 frpc:</p>
 <p><code>./frpc -c ./frpc.ini</code></p>
-</li>
-<li><p>将 <code>www.yourdomain.com</code> 的域名 A 记录解析到 IP <code>x.x.x.x</code>，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名。</p>
-</li>
-<li><p>通过浏览器访问 <code>http://www.yourdomain.com:8080</code> 即可访问到处于内网机器上的 web 服务。</p>
-</li>
-</ol>
+<h2 id="配置域名解析" class="article-heading"><a href="#配置域名解析" class="headerlink" title="配置域名解析"></a>配置域名解析<a class="article-anchor" href="#配置域名解析" aria-hidden="true"></a></h2><p>将 <code>www.yourdomain.com</code> 的域名 A 记录解析到 IP <code>x.x.x.x</code>，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名。</p>
+<h2 id="测试访问内网-web-服务" class="article-heading"><a href="#测试访问内网-web-服务" class="headerlink" title="测试访问内网 web 服务"></a>测试访问内网 web 服务<a class="article-anchor" href="#测试访问内网-web-服务" aria-hidden="true"></a></h2><p>通过浏览器访问 <code>http://www.yourdomain.com:8080</code> 即可访问到处于内网机器上的 web 服务。</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-25T09:32:32.021Z" itemprop="dateModified">上次更新：2017-02-25</time>
+                <time class="article-footer-updated" datetime="2017-02-25T09:41:12.739Z" itemprop="dateModified">上次更新：2017-02-25</time>
                 <a href="index.html" class="article-footer-prev" title="TCP 服务示例"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="https.html" class="article-footer-next" title="HTTPS 服务示例"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
@@ -140,7 +129,7 @@
           <aside id="article-toc" role="navigation">
             <div id="article-toc-inner">
               <strong class="sidebar-title">目录</strong>
-              
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#部署服务器端-frps"><span class="toc-text">部署服务器端 frps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署客户端-frpc"><span class="toc-text">部署客户端 frpc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置域名解析"><span class="toc-text">配置域名解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试访问内网-web-服务"><span class="toc-text">测试访问内网 web 服务</span></a></li></ol>
               <a href="#" id="article-toc-top">回到顶部</a>
             </div>
           </aside>

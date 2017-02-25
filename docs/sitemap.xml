@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://gofrp.org/example/http.html</loc>
+    <loc>http://gofrp.org/example/https.html</loc>
     
-    <lastmod>2017-02-25T09:32:32.021Z</lastmod>
+    <lastmod>2017-02-25T09:41:21.748Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://gofrp.org/example/https.html</loc>
+    <loc>http://gofrp.org/example/http.html</loc>
     
-    <lastmod>2017-02-25T09:32:32.021Z</lastmod>
+    <lastmod>2017-02-25T09:41:12.739Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://gofrp.org/example/udp.html</loc>
     
-    <lastmod>2017-02-25T09:32:32.021Z</lastmod>
+    <lastmod>2017-02-25T09:40:47.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gofrp.org/example/index.html</loc>
+    
+    <lastmod>2017-02-25T09:39:16.926Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>http://gofrp.org/docs/index.html</loc>
     
     <lastmod>2017-02-23T15:49:51.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gofrp.org/example/index.html</loc>
-    
-    <lastmod>2017-02-23T15:43:31.970Z</lastmod>
     
   </url>
   
