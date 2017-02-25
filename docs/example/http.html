@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
-  <title>frp</title>
+  <title>通过 自定义域名 http方式访问部署于内网的 web 服务器 | frp</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
@@ -37,16 +37,25 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="frp">
   <!-- Open Graph -->
-  <meta name="description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
+  <meta name="description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
+
+修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.ini[common]">
 <meta property="og:type" content="website">
-<meta property="og:title" content="frp">
+<meta property="og:title" content="通过 自定义域名 http方式访问部署于内网的 web 服务器">
 <meta property="og:url" content="http://gofrp.org/example/http.html">
 <meta property="og:site_name" content="frp">
-<meta property="og:description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
-<meta property="og:updated_time" content="2017-02-23T15:43:31.970Z">
+<meta property="og:description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
+
+修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.ini[common]">
+<meta property="og:updated_time" content="2017-02-25T09:32:32.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frp">
-<meta name="twitter:description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
+<meta name="twitter:title" content="通过 自定义域名 http方式访问部署于内网的 web 服务器">
+<meta name="twitter:description" content="有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。
+
+修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 www.yourdomain.com：
+# frps.ini[common]">
   <!-- Google Analytics -->
   
 <script>
@@ -97,14 +106,33 @@
           <div class="article">
             <div class="inner">
               <header class="article-header">
-                <h1 class="article-title" itemprop="name"></h1>
+                <h1 class="article-title" itemprop="name">通过 自定义域名 http方式访问部署于内网的 web 服务器</h1>
                 <a href="https://github.com/fatedier/frp-site/edit/master/source/example/http.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
               </header>
               <div class="article-content" itemprop="articleBody">
-                
+                <p>有时想要让其他人通过域名访问或者测试我们在本地搭建的 web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务。</p>
+<ol>
+<li><p>修改 frps.ini 文件，配置一个名为 web 的 http 反向代理，设置 http 访问端口为 8080，绑定自定义域名 <code>www.yourdomain.com</code>：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frps.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">vhost_http_port</span> = <span class="number">8080</span></div><div class="line"><span class="section"></span></div><div class="line">[web]</div><div class="line"><span class="attr">type</span> = http</div><div class="line"><span class="attr">custom_domains</span> = www.yourdomain.com</div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>启动 frps；</p>
+<p><code>./frps -c ./frps.ini</code></p>
+</li>
+<li><p>修改 frpc.ini 文件，设置 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frpc.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">server_addr</span> = x.x.x.x</div><div class="line"><span class="attr">server_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div><div class="line"><span class="section"></span></div><div class="line">[web]</div><div class="line"><span class="attr">type</span> = http</div><div class="line"><span class="attr">local_port</span> = <span class="number">80</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>启动 frpc：</p>
+<p><code>./frpc -c ./frpc.ini</code></p>
+</li>
+<li><p>将 <code>www.yourdomain.com</code> 的域名 A 记录解析到 IP <code>x.x.x.x</code>，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名。</p>
+</li>
+<li><p>通过浏览器访问 <code>http://www.yourdomain.com:8080</code> 即可访问到处于内网机器上的 web 服务。</p>
+</li>
+</ol>
+
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-23T15:43:31.970Z" itemprop="dateModified">上次更新：2017-02-23</time>
+                <time class="article-footer-updated" datetime="2017-02-25T09:32:32.021Z" itemprop="dateModified">上次更新：2017-02-25</time>
                 <a href="index.html" class="article-footer-prev" title="TCP 服务示例"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="https.html" class="article-footer-next" title="HTTPS 服务示例"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>

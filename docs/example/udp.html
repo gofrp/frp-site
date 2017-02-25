@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
-  <title>frp</title>
+  <title>转发 DNS 查询请求 | frp</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
@@ -37,16 +37,34 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="frp">
   <!-- Open Graph -->
-  <meta name="description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
+  <meta name="description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
+
+修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+# frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
+
+启动 frps：
+./frps -c ./frps">
 <meta property="og:type" content="website">
-<meta property="og:title" content="frp">
+<meta property="og:title" content="转发 DNS 查询请求">
 <meta property="og:url" content="http://gofrp.org/example/udp.html">
 <meta property="og:site_name" content="frp">
-<meta property="og:description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
-<meta property="og:updated_time" content="2017-02-23T15:43:31.970Z">
+<meta property="og:description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
+
+修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+# frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
+
+启动 frps：
+./frps -c ./frps">
+<meta property="og:updated_time" content="2017-02-25T09:32:32.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frp">
-<meta name="twitter:description" content="A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.">
+<meta name="twitter:title" content="转发 DNS 查询请求">
+<meta name="twitter:description" content="DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。
+
+修改 frps.ini 文件，配置一个名为 dns 的反向代理：
+# frps.ini[common]bind_port = 7000[dns]type = udplisten_port = 6000auth_token = 123
+
+启动 frps：
+./frps -c ./frps">
   <!-- Google Analytics -->
   
 <script>
@@ -97,14 +115,32 @@
           <div class="article">
             <div class="inner">
               <header class="article-header">
-                <h1 class="article-title" itemprop="name"></h1>
+                <h1 class="article-title" itemprop="name">转发 DNS 查询请求</h1>
                 <a href="https://github.com/fatedier/frp-site/edit/master/source/example/udp.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
               </header>
               <div class="article-content" itemprop="articleBody">
-                
+                <p>DNS 查询请求通常使用 UDP 协议，frp 支持对内网 UDP 服务的穿透，配置方式和 TCP 基本一致。</p>
+<ol>
+<li><p>修改 frps.ini 文件，配置一个名为 dns 的反向代理：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frps.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></div><div class="line"><span class="section"></span></div><div class="line">[dns]</div><div class="line"><span class="attr">type</span> = udp</div><div class="line"><span class="attr">listen_port</span> = <span class="number">6000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>启动 frps：</p>
+<p><code>./frps -c ./frps.ini</code></p>
+</li>
+<li><p>修改 frpc.ini 文件，设置 frps 所在服务器的 IP 为 x.x.x.x，转发到 Google 的 DNS 查询服务器 <code>8.8.8.8</code> 的 udp 53 端口：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment"># frpc.ini</span></div><div class="line"><span class="section">[common]</span></div><div class="line"><span class="attr">server_addr</span> = x.x.x.x</div><div class="line"><span class="attr">server_port</span> = <span class="number">7000</span></div><div class="line"><span class="attr">auth_token</span> = <span class="number">123</span></div><div class="line"><span class="section"></span></div><div class="line">[dns]</div><div class="line"><span class="attr">type</span> = udp</div><div class="line"><span class="attr">local_ip</span> = <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line"><span class="attr">local_port</span> = <span class="number">53</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>启动 frpc：</p>
+<p><code>./frpc -c ./frpc.ini</code></p>
+</li>
+<li><p>通过 dig 测试 UDP 包转发是否成功，预期会返回 <code>www.google.com</code> 域名的解析结果：</p>
+<p><code>dig @x.x.x.x -p 6000 www.goolge.com</code></p>
+</li>
+</ol>
+
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-23T15:43:31.970Z" itemprop="dateModified">上次更新：2017-02-23</time>
+                <time class="article-footer-updated" datetime="2017-02-25T09:32:32.021Z" itemprop="dateModified">上次更新：2017-02-25</time>
                 <a href="https.html" class="article-footer-prev" title="HTTPS 服务示例"><i class="fa fa-chevron-left"></i><span>上一页</span></a>
               </footer>
             </div>
