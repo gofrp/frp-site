@@ -13,4 +13,5 @@ cd $SITE_ROOT
 # copy docs to site
 cp -rf ./frp-doc/zh-cn/* ./source/
 
+hexo clean
 hexo generate
