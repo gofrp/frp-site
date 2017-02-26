@@ -4,3 +4,8 @@ db.json
 *.log
 node_modules/
 .deploy*/
+
+frp-doc/
+source/docs/
+source/example/
+source/_posts/
