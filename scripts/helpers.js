@@ -100,7 +100,9 @@ hexo.extend.helper.register('url_for_lang', function(path){
 });
 
 hexo.extend.helper.register('raw_link', function(path){
-  return 'https://github.com/fatedier/frp-site/edit/master/source/' + path;
+  var tmpLang = this.page.lang
+  if (tmpLang === 'zh-cn') path = 'zh-cn/' + path;
+  return 'https://github.com/fatedier/frp-doc/edit/master/' + path;
 });
 
 hexo.extend.helper.register('page_anchor', function(str){

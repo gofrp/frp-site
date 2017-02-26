@@ -27,6 +27,7 @@ before_script:
     - git config --global push.default simple
 
 script:
+    - git checkout master
     - npm install --no-optional
     - chmod 755 ./deploy.sh && ./deploy.sh
 
