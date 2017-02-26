@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gofrp.org/"/>
-  <updated>2017-02-26T19:00:56.864Z</updated>
+  <updated>2017-02-26T19:13:19.634Z</updated>
   <id>http://gofrp.org/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>frp 官网发布</title>
-    <link href="http://gofrp.org/news/2017/02/22/frp/"/>
-    <id>http://gofrp.org/news/2017/02/22/frp/</id>
+    <link href="http://gofrp.org/news/2017/02/23/frp/"/>
+    <id>http://gofrp.org/news/2017/02/23/frp/</id>
     <published>2017-02-22T16:00:00.000Z</published>
-    <updated>2017-02-26T19:00:56.864Z</updated>
+    <updated>2017-02-26T19:13:19.634Z</updated>
     
     <content type="html"><![CDATA[<p>为了便于大家更好的学习和使用 frp，将文档移至这个官网。</p>
 ]]></content>
