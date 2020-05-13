@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frp – 参考</title>
+    <link>/docs/reference/</link>
+    <description>Recent content in 参考 on frp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/docs/reference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 详细配置</title>
+      <link>/docs/reference/configures/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/reference/configures/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
