@@ -6,12 +6,10 @@ if [ -d "./frp-doc" ]; then
     cd ./frp-doc
     git pull
 else
-    git clone https://github.com/fatedier/frp-doc.git frp-doc
+    git clone --recurse-submodules --depth 1 https://github.com/fatedier/frp-doc.git frp-doc
 fi
 
 cd $SITE_ROOT
 # copy docs to site
-cp -rf ./frp-doc/zh-cn/* ./source/
-
-hexo clean
-hexo generate
+rm -rf ./source
+cp -rf ./frp-doc ./source

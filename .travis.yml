@@ -3,7 +3,7 @@ language: node_js
 sudo: false
 
 node_js:
-    - "4"
+    - "12"
 
 cache:
     apt: true
@@ -29,8 +29,9 @@ before_script:
 
 script:
     - git checkout master
-    - npm install --no-optional
+    #- npm install --no-optional
     - chmod 755 ./deploy.sh && ./deploy.sh
+    - chmod 755 ./generate.sh && ./generate.sh
 
 after_script:
     - git add -A ./docs/

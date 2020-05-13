@@ -1,9 +1,0 @@
-docs:
-  getting_started:
-    overview: index.html
-example:
-  simple_use:
-    tcp: index.html
-    http: http.html
-    https: https.html
-    udp: udp.html
