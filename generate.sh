@@ -10,6 +10,8 @@ tar -zxvf ./hugo_extended_0.67.1_Linux-64bit.tar.gz
 
 if [ -d "./public" ]; then
     rm -rf $SITE_ROOT/docs
+    touch ./public/CNAME
+    echo "gofrp.org" > ./public/CNAME
     cp -rf ./public $SITE_ROOT/docs
 fi
 
