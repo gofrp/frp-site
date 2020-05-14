@@ -30,7 +30,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-13T20:52:12+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-05-14T13:04:19+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
@@ -39,7 +39,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-13T20:52:12&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-14T13:04:19&#43;08:00" />
 <meta itemprop="wordCount" content="94">
 
 
@@ -64,6 +64,11 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
 
 
@@ -128,6 +133,19 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; 站内搜索…"
+  aria-label="站内搜索…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-base-href="/"
+>
+
 </div>
 </nav>
 
@@ -145,6 +163,19 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
   
   <form class="td-sidebar__search d-flex align-items-center">
     
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; 站内搜索…"
+  aria-label="站内搜索…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-base-href="/"
+>
+
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -761,7 +792,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 13, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/9685e4dfd66a362f357cc29f9b3224ab34ebcb40">update (9685e4d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 14, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/f9f1382e56fd6c935980be34c8065986110a0dae">add .travis.yaml (f9f1382)</a>
 </div>
 </div>
 
@@ -818,7 +849,9 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 
 
 
-<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+
+
+<script src="/js/main.min.3587468abafd7ee678f61330f7c574ba0376f12451f11e076f2283f1e0504095.js" integrity="sha256-NYdGirr9fuZ49hMw98V0ugN28SRR8R4HbyKD8eBQQJU=" crossorigin="anonymous"></script>
 
 
 
