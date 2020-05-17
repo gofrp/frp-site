@@ -30,7 +30,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-manage/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-14T13:25:01+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-05-17T11:14:44+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allow_ports 来指定：
 # frps.ini [common] allow_ports = 2000-3000,3001,3003,4000-50000 allow_ports 可以配置允许使用的某个指定端口或者是一个范围内的所有端口，以 , 分隔，指定的范围以 - 分隔。
@@ -39,7 +39,7 @@
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-14T13:25:01&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-17T11:14:44&#43;08:00" />
 <meta itemprop="wordCount" content="60">
 
 
@@ -142,7 +142,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -172,7 +172,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -659,7 +659,13 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceconfigures" href="/docs/reference/configures/">详细配置</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceserver-configures" href="/docs/reference/server-configures/">服务端配置</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceclient-configures" href="/docs/reference/client-configures/">客户端配置</a>
       
       
     </li>
@@ -795,7 +801,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 14, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/4189b97971b282a28fd36a82c891515c57a8e895"> Changed the copyright statement and license to cc-by 4.0 (4189b97)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/5298122bfae3f0469a34abd4e7c76f71b239efa6">update (5298122)</a>
 </div>
 </div>
 

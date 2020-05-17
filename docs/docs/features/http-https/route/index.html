@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/route/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-14T13:25:01+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-05-17T11:14:44+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="路由">
 <meta itemprop="description" content="URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = /news，则所有 URL 以 /news 开头的请求都会被转发到这个服务。
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-14T13:25:01&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-17T11:14:44&#43;08:00" />
 <meta itemprop="wordCount" content="58">
 
 
@@ -133,7 +133,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -163,7 +163,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -650,7 +650,13 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceconfigures" href="/docs/reference/configures/">详细配置</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceserver-configures" href="/docs/reference/server-configures/">服务端配置</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceclient-configures" href="/docs/reference/client-configures/">客户端配置</a>
       
       
     </li>
@@ -771,7 +777,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 14, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/4189b97971b282a28fd36a82c891515c57a8e895"> Changed the copyright statement and license to cc-by 4.0 (4189b97)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/5298122bfae3f0469a34abd4e7c76f71b239efa6">update (5298122)</a>
 </div>
 </div>
 

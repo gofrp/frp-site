@@ -21,22 +21,28 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>概述 | frp</title><meta property="og:title" content="概述" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。
+[ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 通过 type 指定代理类型。
+frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/tcp-udp/basic/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-14T13:25:01+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-05-17T11:14:44+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="概述">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。
+[ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 通过 type 指定代理类型。
+frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-14T13:25:01&#43;08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="dateModified" content="2020-05-17T11:14:44&#43;08:00" />
+<meta itemprop="wordCount" content="38">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="概述"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。
+[ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 通过 type 指定代理类型。
+frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。"/>
 
 
 
@@ -127,7 +133,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -157,7 +163,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f0d9b86663ab746023b61e1c65351595ac2358e6501713663afdd7803a618448835a228d4357bfe03113ed987fe6448629d0a1ecae370d3ea4aa1d54c9c6095a.json"
+  data-offline-search-index-json-src="/offline-search-index.94ad36086bebd939eb7c008c350bbabdd22692a374fc942438f5829d23a397c587a7bbfa970ccabb9e934a6b98b68eed1c6429fa8f76b946b096d54fc604cccf.json"
   data-offline-search-base-href="/"
 >
 
@@ -644,7 +650,13 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceconfigures" href="/docs/reference/configures/">详细配置</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceserver-configures" href="/docs/reference/server-configures/">服务端配置</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceclient-configures" href="/docs/reference/client-configures/">客户端配置</a>
       
       
     </li>
@@ -746,10 +758,18 @@
 <div class="td-content">
 	<h1>概述</h1>
 	
+	<p>TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#204a87;font-weight:bold">[ssh]</span>
+<span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
+<span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
+<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
+<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
+</code></pre></div><p>通过 type 指定代理类型。</p>
+<p>frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。</p>
+
 	
 	
-	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 14, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/4189b97971b282a28fd36a82c891515c57a8e895"> Changed the copyright statement and license to cc-by 4.0 (4189b97)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/5298122bfae3f0469a34abd4e7c76f71b239efa6">update (5298122)</a>
 </div>
 </div>
 

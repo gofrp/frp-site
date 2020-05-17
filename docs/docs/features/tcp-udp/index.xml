@@ -22,7 +22,15 @@
       <description>
         
         
-        
+        &lt;p&gt;TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[ssh]&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcp&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_ip&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;127.0.0.1&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;22&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;6000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过 type 指定代理类型。&lt;/p&gt;
+&lt;p&gt;frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。&lt;/p&gt;
+
       </description>
     </item>
     
