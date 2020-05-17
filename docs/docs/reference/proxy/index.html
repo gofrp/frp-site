@@ -20,44 +20,26 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Web 界面 | frp</title><meta property="og:title" content="Web 界面" />
-<meta property="og:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
-服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
-注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，默认都为 admin，如果不需要，需要主动设置为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，用户名密码默认为 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127." />
+<title>代理配置 | frp</title><meta property="og:title" content="代理配置" />
+<meta property="og:description" content="frp 代理的详细配置说明。
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/features/common/ui/" />
+<meta property="og:url" content="/docs/reference/proxy/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-05-17T20:02:43+08:00" /><meta property="og:site_name" content="frp" />
-<meta itemprop="name" content="Web 界面">
-<meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
-服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
-注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，默认都为 admin，如果不需要，需要主动设置为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，用户名密码默认为 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127.">
+<meta itemprop="name" content="代理配置">
+<meta itemprop="description" content="frp 代理的详细配置说明。
+">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-05-17T20:02:43&#43;08:00" />
-<meta itemprop="wordCount" content="100">
+<meta itemprop="wordCount" content="404">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Web 界面"/>
-<meta name="twitter:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
-服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
-注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，默认都为 admin，如果不需要，需要主动设置为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，用户名密码默认为 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127."/>
+<meta name="twitter:title" content="代理配置"/>
+<meta name="twitter:description" content="frp 代理的详细配置说明。
+"/>
 
 
 
@@ -78,7 +60,7 @@
   crossorigin="anonymous"></script>
 
 
-    <title>Web 界面 | frp</title>
+    <title>代理配置 | frp</title>
   </head>
   <body class="td-page">
     <header>
@@ -368,10 +350,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">功能特性</a>
+    <a  href="/docs/features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">功能特性</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsfeatures">
+    <li class="collapse " id="docsfeatures">
       
       
       
@@ -385,10 +367,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">通用功能</a>
+    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">通用功能</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsfeaturescommon">
+    <li class="collapse " id="docsfeaturescommon">
       
       
       
@@ -413,7 +395,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsfeaturescommonui" href="/docs/features/common/ui/">Web 界面</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonui" href="/docs/features/common/ui/">Web 界面</a>
       
       
       
@@ -655,10 +637,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">参考</a>
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">参考</a>
   </li>
   <ul>
-    <li class="collapse " id="docsreference">
+    <li class="collapse show" id="docsreference">
       
       
       
@@ -677,7 +659,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceproxy" href="/docs/reference/proxy/">代理配置</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsreferenceproxy" href="/docs/reference/proxy/">代理配置</a>
       
       
     </li>
@@ -711,8 +693,8 @@
 
 
 
-<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Features/common/ui.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
-<a href="https://github.com/gofrp/frp-doc/issues/new?title=Web%20%e7%95%8c%e9%9d%a2" target="_blank"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
+<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Reference/proxy.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/gofrp/frp-doc/issues/new?title=%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae" target="_blank"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
 
 
 <a href="https://github.com/fatedier/frp/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 提交项目问题</a>
@@ -728,8 +710,14 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#服务端-dashboard">服务端 Dashboard</a></li>
-        <li><a href="#客户端管理界面">客户端管理界面</a></li>
+        <li><a href="#通用配置">通用配置</a></li>
+        <li><a href="#tcp">TCP</a></li>
+        <li><a href="#udp">UDP</a></li>
+        <li><a href="#http">HTTP</a></li>
+        <li><a href="#https">HTTPS</a></li>
+        <li><a href="#stcp">STCP</a></li>
+        <li><a href="#sudp">SUDP</a></li>
+        <li><a href="#xtcp">XTCP</a></li>
       </ul>
     </li>
   </ul>
@@ -755,9 +743,6 @@
 
 
 
-
-
-
 <li class="breadcrumb-item" >
 	<a href="/docs/">文档</a>
 </li>
@@ -766,21 +751,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/features/">功能特性</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="/docs/features/common/">通用功能</a>
+	<a href="/docs/reference/">参考</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/features/common/ui/">Web 界面</a>
+	<a href="/docs/reference/proxy/">代理配置</a>
 </li>
 
 	</ol>
@@ -788,37 +766,471 @@
 
             
 <div class="td-content">
-	<h1>Web 界面</h1>
-	
-	<p>目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。</p>
-<h3 id="服务端-dashboard">服务端 Dashboard</h3>
-<p>服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。</p>
-<p><strong>注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。</strong></p>
-<p>需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">dashboard_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7500</span>
-<span style="color:#8f5902;font-style:italic"># dashboard 用户名密码，默认都为 admin，如果不需要，需要主动设置为空</span>
-<span style="color:#c4a000">dashboard_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-<span style="color:#c4a000">dashboard_pwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-</code></pre></div><p>打开浏览器通过 <code>http://[server_addr]:7500</code> 访问 Dashboard 界面，用户名密码默认为 <code>admin</code>。</p>
-<h3 id="客户端管理界面">客户端管理界面</h3>
-<p>frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。</p>
-<p>需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">admin_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-<span style="color:#c4a000">admin_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-<span style="color:#c4a000">admin_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-<span style="color:#c4a000">admin_pwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-</code></pre></div><p>打开浏览器通过 <code>http://127.0.0.1:7400</code> 访问 Admin UI，用户名密码默认为 <code>admin</code>。</p>
-<p>如果想要在外网环境访问 Admin UI，可以将 7400 端口通过 frp 映射出去即可，但需要重视安全风险。</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-<span style="color:#204a87;font-weight:bold">[admin_ui]</span>
-<span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-</code></pre></div>
+	<h1>代理配置</h1>
+	<div class="lead">frp 代理的详细配置说明。</div>
+	<h3 id="通用配置">通用配置</h3>
+<p>通用配置是指不同类型的代理共同使用的一些配置参数。</p>
+<h4 id="基础配置">基础配置</h4>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+<th align="left">是否必须</th>
+<th align="left">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">type</td>
+<td align="left">string</td>
+<td align="left">代理类型</td>
+<td align="left">是</td>
+<td align="left">tcp</td>
+<td align="left">tcp, udp, http, https, stcp, sudp, xtcp, tcpmux</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">use_encryption</td>
+<td align="left">bool</td>
+<td align="left">是否启用加密功能</td>
+<td align="left">否</td>
+<td align="left">false</td>
+<td align="left"></td>
+<td align="left">启用后该代理和服务端之间的通信内容都会被加密传输</td>
+</tr>
+<tr>
+<td align="left">user_compression</td>
+<td align="left">bool</td>
+<td align="left">是否启用压缩功能</td>
+<td align="left">否</td>
+<td align="left">false</td>
+<td align="left"></td>
+<td align="left">启用后该代理和服务端之间的通信内容都会被压缩传输</td>
+</tr>
+<tr>
+<td align="left">proxy_protocol_version</td>
+<td align="left">string</td>
+<td align="left">启用 proxy protocol 协议的版本</td>
+<td align="left">否</td>
+<td align="left"></td>
+<td align="left">v1, v2</td>
+<td align="left">如果启用，则 frpc 和本地服务建立连接后会发送 proxy protocol 的协议，包含了原请求的 IP 地址和端口等内容</td>
+</tr>
+<tr>
+<td align="left">bandwidth_limit</td>
+<td align="left">string</td>
+<td align="left">设置单个 proxy 的带宽限流</td>
+<td align="left">否</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">单位为 MB 或 KB，0 表示不限制，如果启用，会作用于对应的 frpc</td>
+</tr>
+</tbody>
+</table>
+<h4 id="本地服务配置">本地服务配置</h4>
+<p><code>local_ip</code> 和 <code>plugin</code> 的配置必须配置一个，且只能生效一个，如果配置了 <code>plugin</code>，则 <code>local_ip</code> 配置无效。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">local_ip</td>
+<td align="center">string</td>
+<td align="left">本地服务 IP</td>
+<td align="center">是</td>
+<td align="center">127.0.0.1</td>
+<td align="left"></td>
+<td align="left">需要被代理的本地服务的 IP 地址，可以为所在 frpc 能访问到的任意 IP 地址</td>
+</tr>
+<tr>
+<td align="left">local_port</td>
+<td align="center">int</td>
+<td align="left">本地服务端口</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">配合 local_ip</td>
+</tr>
+<tr>
+<td align="left">plugin</td>
+<td align="center">string</td>
+<td align="left">客户端插件名称</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left">见客户端插件的功能说明</td>
+<td align="left">用于扩展 frpc 的能力，能够提供一些简单的本地服务，如果配置了 plugin，则 local_ip 和 local_port 无效，两者只能配置一个</td>
+</tr>
+<tr>
+<td align="left">plugin_params</td>
+<td align="center">map</td>
+<td align="left">客户端插件参数</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">map 结构，key 需要都以 &ldquo;plugin_&rdquo; 开头，每一个 plugin 需要的参数也不一样，具体见客户端插件参数中的内容</td>
+</tr>
+</tbody>
+</table>
+<h4 id="负载均衡和健康检查">负载均衡和健康检查</h4>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">group</td>
+<td align="center">string</td>
+<td align="left">负载均衡分组名称</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用户请求会以轮询的方式发送给同一个 group 中的代理</td>
+</tr>
+<tr>
+<td align="left">group_key</td>
+<td align="center">string</td>
+<td align="left">负载均衡分组密钥</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用于对负载均衡分组进行鉴权，group_key 相同的代理才会被加入到同一个分组中</td>
+</tr>
+<tr>
+<td align="left">health_check_type</td>
+<td align="center">string</td>
+<td align="left">健康检查类型</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left">tcp,http</td>
+<td align="left">配置后启用健康检查功能，tcp 是连接成功则认为服务健康，http 要求接口返回 2xx 的状态码则认为服务健康</td>
+</tr>
+<tr>
+<td align="left">health_check_timeout_s</td>
+<td align="center">int</td>
+<td align="left">健康检查超时时间(秒)</td>
+<td align="center">否</td>
+<td align="center">3</td>
+<td align="left"></td>
+<td align="left">执行检查任务的超时时间</td>
+</tr>
+<tr>
+<td align="left">health_check_max_failed</td>
+<td align="center">int</td>
+<td align="left">健康检查连续错误次数</td>
+<td align="center">否</td>
+<td align="center">1</td>
+<td align="left"></td>
+<td align="left">连续检查错误多少次认为服务不健康</td>
+</tr>
+<tr>
+<td align="left">health_check_interval_s</td>
+<td align="center">int</td>
+<td align="left">健康检查周期(秒)</td>
+<td align="center">否</td>
+<td align="center">10</td>
+<td align="left"></td>
+<td align="left">每隔多长时间进行一次健康检查</td>
+</tr>
+<tr>
+<td align="left">health_check_url</td>
+<td align="center">string</td>
+<td align="left">健康检查的 HTTP 接口</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">如果 health_check_type 类型是 http，则需要配置此参数，指定发送 http 请求的 url，例如 &ldquo;/health&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tcp">TCP</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">remote_port</td>
+<td align="center">int</td>
+<td align="left">服务端绑定的端口</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用户访问此端口的请求会被转发到 local_ip:local_port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="udp">UDP</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">remote_port</td>
+<td align="center">int</td>
+<td align="left">服务端绑定的端口</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用户访问此端口的请求会被转发到 local_ip:local_port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="http">HTTP</h3>
+<p><code>custom_domains</code> 和 <code>sub_domain</code> 必须要配置其中一个，两者可以同时生效。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">custom_domains</td>
+<td align="center">[]string</td>
+<td align="left">服务器绑定自定义域名</td>
+<td align="center">是(和 sub_domain 两者必须配置一个)</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用户通过 vhost_http_port 访问的 HTTP 请求如果 Host 在 custom_domains 配置的域名中，则会被路由到此代理配置的本地服务</td>
+</tr>
+<tr>
+<td align="left">sub_domain</td>
+<td align="center">string</td>
+<td align="left">自定义子域名</td>
+<td align="center">是(和 custom_domains 两者必须配置一个)</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">和 custom_domains 作用相同，但是只需要指定子域名前缀，会结合服务端的 subdomain_host 生成最终绑定的域名</td>
+</tr>
+<tr>
+<td align="left">locations</td>
+<td align="center">[]string</td>
+<td align="left">URL 路由配置</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">采用最大前缀匹配的规则，用户请求匹配响应的 location 配置，则会被路由到此代理</td>
+</tr>
+<tr>
+<td align="left">http_user</td>
+<td align="center">string</td>
+<td align="left">用户名</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">如果配置此参数，暴露出去的 HTTP 服务需要采用 Basic Auth 的鉴权才能访问</td>
+</tr>
+<tr>
+<td align="left">http_pwd</td>
+<td align="center">string</td>
+<td align="left">密码</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">结合 http_user 使用</td>
+</tr>
+<tr>
+<td align="left">host_header_rewrite</td>
+<td align="center">string</td>
+<td align="left">替换 Host header</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">替换发送到本地服务 HTTP 请求中的 Host 字段</td>
+</tr>
+<tr>
+<td align="left">headers</td>
+<td align="center">map</td>
+<td align="left">替换 header</td>
+<td align="center">否</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">map 中的 key 是要替换的 header 的 key，value 是替换后的内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="https">HTTPS</h3>
+<p><code>custom_domains</code> 和 <code>sub_domain</code> 必须要配置其中一个，两者可以同时生效。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">custom_domains</td>
+<td align="center">[]string</td>
+<td align="left">服务器绑定自定义域名</td>
+<td align="center">是(和 sub_domain 两者必须配置一个)</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">用户通过 vhost_http_port 访问的 HTTP 请求如果 Host 在 custom_domains 配置的域名中，则会被路由到此代理配置的本地服务</td>
+</tr>
+<tr>
+<td align="left">sub_domain</td>
+<td align="center">string</td>
+<td align="left">自定义子域名</td>
+<td align="center">是(和 custom_domains 两者必须配置一个)</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">和 custom_domains 作用相同，但是只需要指定子域名前缀，会结合服务端的 subdomain_host 生成最终绑定的域名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stcp">STCP</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">role</td>
+<td align="center">string</td>
+<td align="left">角色</td>
+<td align="center">是</td>
+<td align="center">server</td>
+<td align="left">server,visitor</td>
+<td align="left">server 表示服务端，visitor 表示访问端</td>
+</tr>
+<tr>
+<td align="left">sk</td>
+<td align="center">string</td>
+<td align="left">密钥</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sudp">SUDP</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">role</td>
+<td align="center">string</td>
+<td align="left">角色</td>
+<td align="center">是</td>
+<td align="center">server</td>
+<td align="left">server,visitor</td>
+<td align="left">server 表示服务端，visitor 表示访问端</td>
+</tr>
+<tr>
+<td align="left">sk</td>
+<td align="center">string</td>
+<td align="left">密钥</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
+</tr>
+</tbody>
+</table>
+<h3 id="xtcp">XTCP</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">类型</th>
+<th align="left">说明</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+<th align="left">可选值</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">role</td>
+<td align="center">string</td>
+<td align="left">角色</td>
+<td align="center">是</td>
+<td align="center">server</td>
+<td align="left">server,visitor</td>
+<td align="left">server 表示服务端，visitor 表示访问端</td>
+</tr>
+<tr>
+<td align="left">sk</td>
+<td align="center">string</td>
+<td align="left">密钥</td>
+<td align="center">是</td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
+</tr>
+</tbody>
+</table>
+
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/eef8e028ecf6e8af95300f5fd2d182cf675aff7a">update (eef8e02)</a>
