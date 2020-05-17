@@ -405,113 +405,6 @@
     </item>
     
     <item>
-      <title>Docs: 概述</title>
-      <link>/docs/features/http-https/basic/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/features/http-https/basic/</guid>
-      <description>
-        
-        
-        &lt;p&gt;HTTP 和 HTTPS 是 frp 中针对这两种协议额外提供了一些特殊的能力。本质上目前这两种应用层协议的底层协议都是 TCP。&lt;/p&gt;
-&lt;p&gt;如果不需要用到相关的特殊功能，可以直接使用 TCP 类型的代理，更加简单方便。&lt;/p&gt;
-&lt;p&gt;HTTP 和 HTTPS 协议的一个特点是发送的请求都具有 Host 字段，通过该字段描述要访问的服务。基于这个特点，frp 服务端只需要监听在一个端口(通过 &lt;code&gt;vhost_http_port&lt;/code&gt; 和 &lt;code&gt;vhost_https_port&lt;/code&gt; 指定)。就可以根据请求的 Host 来决定需要路由给哪一个代理，而不需要像 TCP 类型那样为每一个服务绑定一个端口。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 概述</title>
-      <link>/docs/features/stcp-sudp/basic/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/features/stcp-sudp/basic/</guid>
-      <description>
-        
-        
-        &lt;p&gt;STCP 和 SUDP 的 (S) 的含义是 Secret。其作用是为 TCP 和 UDP 类型的服务提供一种安全访问的能力，避免让端口直接暴露在公网上导致任何人都能访问到。&lt;/p&gt;
-&lt;p&gt;这两种代理要求在被访问服务的机器上以及要访问的用户的机器上都部署上 frp 的客户端。被访问的服务所在机器叫做服务端，另一端叫做访问端。&lt;/p&gt;
-&lt;p&gt;frp 会在访问端监听一个端口和服务端的端口做映射。访问端的用户需要提供相同的密钥才能连接成功，从而保证安全性。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 概述</title>
-      <link>/docs/features/tcp-udp/basic/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/features/tcp-udp/basic/</guid>
-      <description>
-        
-        
-        &lt;p&gt;TCP 和 UDP 是 frp 中两种最基础的代理类型，用于代理监听在 TCP 和 UDP 端口的服务。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[ssh]&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcp&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;local_ip&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;127.0.0.1&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;22&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;6000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过 type 指定代理类型。&lt;/p&gt;
-&lt;p&gt;frp 会为本地服务的 22 端口，在 frps 所在的服务端监听 6000 端口，将 6000 端口接收到的连接和本地服务的 22 端口关联，透传流量，从而实现让用户在外部访问到内部服务。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 概述</title>
-      <link>/docs/features/tcpmux/basic/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/features/tcpmux/basic/</guid>
-      <description>
-        
-        
-        &lt;p&gt;frp 支持将单个端口收到的连接路由到不同的代理，类似 &lt;code&gt;vhost_http_port&lt;/code&gt; 和 &lt;code&gt;vhost_https_port&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;目前支持的复用器只有 &lt;code&gt;httpconnect&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;当在 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;[common]&lt;/code&gt; 中设置 &lt;code&gt;tcpmux_httpconnect_port&lt;/code&gt;，frps 将会监听在这个端口，接收 HTTP CONNECT 请求。&lt;/p&gt;
-&lt;p&gt;frps 会根据 HTTP CONNECT 请求中的 host 路由到不同的后端代理。&lt;/p&gt;
-&lt;p&gt;示例配置如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini&lt;/span&gt;
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;bind_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;7000&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;tcpmux_httpconnect_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;1337&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;server_addr&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;x.x.x.x&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;server_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;7000&lt;/span&gt;
-
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[proxy1]&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcpmux&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;multiplexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;httpconnect&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test1&lt;/span&gt;
-
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[proxy2]&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcpmux&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;multiplexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;httpconnect&lt;/span&gt;
-&lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过上面的配置，frps 如果接收到 HTTP CONNECT 请求内容:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;CONNECT test1 HTTP/1.1\r\n\r\n
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该连接将会被路由到 proxy1 。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 概述</title>
-      <link>/docs/features/xtcp/basic/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/features/xtcp/basic/</guid>
-      <description>
-        
-        
-        &lt;p&gt;XTCP 的配置方式和 STCP 很类似。但是会采用 P2P 的方式进行打洞穿透，如果成功，后续的流量将不会经过 frps，而是直接通信，不再受到 frps 所在服务器的带宽限制。&lt;/p&gt;
-&lt;p&gt;由于打洞成功率较低，所以 XTCP 的可用性和稳定性无法保证。在需要可靠连接的情况下，建议使用 STCP 替代。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: 配置文件</title>
       <link>/docs/features/common/configure/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
@@ -559,7 +452,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 ./frpc -c ./frpc.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 &lt;code&gt;.Envs&lt;/code&gt; 为前缀。&lt;/p&gt;
 &lt;h3 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h3&gt;
-&lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在参考中查看。&lt;/p&gt;
+&lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 &lt;a href=&#34;/docs/reference&#34;&gt;参考&lt;/a&gt; 中查看。&lt;/p&gt;
 
       </description>
     </item>

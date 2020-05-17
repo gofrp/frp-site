@@ -61,7 +61,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 ./frpc -c ./frpc.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 &lt;code&gt;.Envs&lt;/code&gt; 为前缀。&lt;/p&gt;
 &lt;h3 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h3&gt;
-&lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在参考中查看。&lt;/p&gt;
+&lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 &lt;a href=&#34;/docs/reference&#34;&gt;参考&lt;/a&gt; 中查看。&lt;/p&gt;
 
       </description>
     </item>

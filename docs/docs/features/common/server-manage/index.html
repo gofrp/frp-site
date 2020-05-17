@@ -30,7 +30,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-manage/" />
 <meta property="article:published_time" content="2020-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-17T20:02:43+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-05-17T21:40:26+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allow_ports 来指定：
 # frps.ini [common] allow_ports = 2000-3000,3001,3003,4000-50000 allow_ports 可以配置允许使用的某个指定端口或者是一个范围内的所有端口，以 , 分隔，指定的范围以 - 分隔。
@@ -39,7 +39,7 @@
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。">
 <meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-17T20:02:43&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-17T21:40:26&#43;08:00" />
 <meta itemprop="wordCount" content="60">
 
 
@@ -102,17 +102,7 @@
 				
 				
 				
-				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/faq/" ><span>FAQ</span></a>
+				<a class="nav-link" href="/blog/" ><span>新闻</span></a>
 			</li>
 			
 			
@@ -142,7 +132,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e55d3cb730eb79e7dca59ccea732b192768de82d8712a91303061ecd606d08a80d7e5bf42ed0da2a263d123834dfbe6e097526e7001479c9ba9b8988404c48ba.json"
+  data-offline-search-index-json-src="/offline-search-index.78b044a1e136fce2c4335edefa6356da44c26b8b7ccd71c1cde3e0d8d36fc6a5e007e038a42192b092a02b6c42d3049941271f4ef3baa25f53845fcfe970bf06.json"
   data-offline-search-base-href="/"
 >
 
@@ -172,7 +162,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e55d3cb730eb79e7dca59ccea732b192768de82d8712a91303061ecd606d08a80d7e5bf42ed0da2a263d123834dfbe6e097526e7001479c9ba9b8988404c48ba.json"
+  data-offline-search-index-json-src="/offline-search-index.78b044a1e136fce2c4335edefa6356da44c26b8b7ccd71c1cde3e0d8d36fc6a5e007e038a42192b092a02b6c42d3049941271f4ef3baa25f53845fcfe970bf06.json"
   data-offline-search-base-href="/"
 >
 
@@ -481,12 +471,6 @@
       
       
       
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturestcp-udpbasic" href="/docs/features/tcp-udp/basic/">概述</a>
-      
-      
     </li>
   </ul>
 </ul>
@@ -508,12 +492,6 @@
   <ul>
     <li class="collapse " id="docsfeatureshttp-https">
       
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeatureshttp-httpsbasic" href="/docs/features/http-https/basic/">概述</a>
       
       
       
@@ -563,12 +541,6 @@
       
       
       
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturesstcp-sudpbasic" href="/docs/features/stcp-sudp/basic/">概述</a>
-      
-      
     </li>
   </ul>
 </ul>
@@ -592,12 +564,6 @@
       
       
       
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturesxtcpbasic" href="/docs/features/xtcp/basic/">概述</a>
-      
-      
     </li>
   </ul>
 </ul>
@@ -619,12 +585,6 @@
   <ul>
     <li class="collapse " id="docsfeaturestcpmux">
       
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturestcpmuxbasic" href="/docs/features/tcpmux/basic/">概述</a>
       
       
     </li>
@@ -672,6 +632,29 @@
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceproxy" href="/docs/reference/proxy/">代理配置</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/faq/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">FAQ</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsfaq">
+      
       
       
     </li>
@@ -807,7 +790,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/eef8e028ecf6e8af95300f5fd2d182cf675aff7a">update (eef8e02)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/cc3306547837c363719e8658d55ea8987406a25b">update (cc33065)</a>
 </div>
 </div>
 
