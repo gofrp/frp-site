@@ -539,7 +539,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;log_file&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;日志文件地址&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;./frps.log&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;./frpc.log&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;如果设置为 console，会将日志打印在标准输出中&lt;/td&gt;
 &lt;/tr&gt;

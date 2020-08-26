@@ -27,13 +27,13 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com http_user = abc http_pwd = abc 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/auth/" />
-<meta property="article:modified_time" content="2020-05-17T22:29:47+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-08-26T11:55:37+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="设置 BasicAuth 鉴权">
 <meta itemprop="description" content="由于所有客户端共用一个 frps 的 HTTP 服务端口，任何知道你的域名和 URL 的人都能访问到你部署在内网的服务，但是在某些场景下需要确保只有限定的用户才能访问。
 frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通过用户名和密码才能访问到你的服务。
 该功能目前仅限于 HTTP 类型的代理，需要在 frpc 的代理配置中添加用户名和密码的设置。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com http_user = abc http_pwd = abc 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。">
-<meta itemprop="dateModified" content="2020-05-17T22:29:47&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-26T11:55:37&#43;08:00" />
 <meta itemprop="wordCount" content="40">
 
 
@@ -124,7 +124,7 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.ff7daeefc16189df15050c73bab1e07685a226cef44b991de59cbbbd89ebd04039e0a19ad00ab571f799c3f4ec17ce9ad0ca0e7c743684108a83d0b41370ab2a.json"
+  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.ff7daeefc16189df15050c73bab1e07685a226cef44b991de59cbbbd89ebd04039e0a19ad00ab571f799c3f4ec17ce9ad0ca0e7c743684108a83d0b41370ab2a.json"
+  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
   data-offline-search-base-href="/"
 >
 
@@ -762,7 +762,7 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 17, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/37f624a398a952d30cd88bebad19f69c026a62fc">update (37f624a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/d91d8e4eccd58de3c769851c6ab9ea64d3109372">update default client log file (#4) (d91d8e4)</a>
 </div>
 </div>
 
