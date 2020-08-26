@@ -30,7 +30,7 @@ http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations �
 在每一个 proxy 的配置下加上 health_check_type = {type} 来启用健康检查功能。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/load-balancer/" />
-<meta property="article:modified_time" content="2020-08-26T11:55:37+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="负载均衡与健康检查">
 <meta itemprop="description" content="负载均衡 可以将多个相同类型的代理加入到同一个 group 中，从而实现负载均衡的能力。
 目前支持的代理类型：tcp, http, tcpmux
@@ -39,7 +39,7 @@ tcp 类型代理要求 group_key 相同，做权限验证，且 remote_port 相�
 http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations 相同。
 健康检查 通过给代理配置健康检查的参数，可以在要反向代理的服务出现故障时，将这个服务从 frps 中摘除，搭配负载均衡的功能，可以用来实现高可用的架构，避免服务单点故障。
 在每一个 proxy 的配置下加上 health_check_type = {type} 来启用健康检查功能。">
-<meta itemprop="dateModified" content="2020-08-26T11:55:37&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
 <meta itemprop="wordCount" content="175">
 
 
@@ -133,7 +133,7 @@ http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations �
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -163,7 +163,7 @@ http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations �
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -824,7 +824,7 @@ http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations �
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/d91d8e4eccd58de3c769851c6ab9ea64d3109372">update default client log file (#4) (d91d8e4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
 </div>
 </div>
 

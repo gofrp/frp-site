@@ -30,7 +30,7 @@
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/subdomain/" />
-<meta property="article:modified_time" content="2020-08-26T11:55:37+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义二级域名">
 <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
 通过在 frps 的配置文件中配置 subdomain_host，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 custom_domains，而是配置一个 subdomain 参数。
@@ -39,7 +39,7 @@
 # frpc.ini [web] type = http local_port = 80 subdomain = test frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomain_host，则 custom_domains 中不能是属于 subdomain_host 的子域名或者泛域名。
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。">
-<meta itemprop="dateModified" content="2020-08-26T11:55:37&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
 <meta itemprop="wordCount" content="77">
 
 
@@ -133,7 +133,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -163,7 +163,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -775,7 +775,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/d91d8e4eccd58de3c769851c6ab9ea64d3109372">update default client log file (#4) (d91d8e4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
 </div>
 </div>
 

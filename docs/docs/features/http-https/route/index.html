@@ -26,12 +26,12 @@
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/route/" />
-<meta property="article:modified_time" content="2020-08-26T11:55:37+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="路由">
 <meta itemprop="description" content="URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = /news，则所有 URL 以 /news 开头的请求都会被转发到这个服务。
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。">
-<meta itemprop="dateModified" content="2020-08-26T11:55:37&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
 <meta itemprop="wordCount" content="58">
 
 
@@ -121,7 +121,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -151,7 +151,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dd2981b22aa09ca147ea26e5e7c38c1190305dbc6ddd13299f63b0c262ef18ddb54984c3e7e13ba18cfe1fbbf4a02706ff10f027f6f24a751760010b8d33d95a.json"
+  data-offline-search-index-json-src="/offline-search-index.9a394b0b7cf4b87f86d9aadff2be938a3b41bfd05563f0c3db347403f38cdd662413073373c0556623bcd494eee8a1d7f8b9c1f6d21d47fe57702bcbb6e5809c.json"
   data-offline-search-base-href="/"
 >
 
@@ -764,7 +764,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/d91d8e4eccd58de3c769851c6ab9ea64d3109372">update default client log file (#4) (d91d8e4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
 </div>
 </div>
 

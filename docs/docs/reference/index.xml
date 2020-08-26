@@ -949,7 +949,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;sub_domain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;subdomain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -973,7 +973,7 @@
 &lt;td align=&#34;left&#34;&gt;用户通过 vhost_http_port 访问的 HTTP 请求如果 Host 在 custom_domains 配置的域名中，则会被路由到此代理配置的本地服务&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;sub_domain&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;subdomain&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;string&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;自定义子域名&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;是(和 custom_domains 两者必须配置一个)&lt;/td&gt;
