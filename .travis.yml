@@ -36,4 +36,4 @@ script:
 after_script:
     - git add -A ./docs/
     - git commit -am "Auto deploy by travis-ci."
-    - git push --force --quiet "https://${GH_TOKEN}@github.com/fatedier/frp-site.git" master:master
+    - git push --force --quiet "https://${GH_TOKEN}@github.com/gofrp/frp-site.git" master:master
