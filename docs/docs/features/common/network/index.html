@@ -31,7 +31,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 通过将 frps.ini 的 [common] 中 tls_only 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
@@ -41,7 +41,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功能，使 frpc 和 frps 之间的流量都通过 TLS 协议加密传输，安全性更高。
 为了端口复用，frp 建立 TLS 连接的第一个字节为 0x17。
 通过将 frps.ini 的 [common] 中 tls_only 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="186">
 
 
@@ -65,15 +65,13 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>通信安全及优化 | frp</title>
@@ -840,7 +838,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 

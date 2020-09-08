@@ -31,7 +31,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
    参数 可选 描述     plugin_http_user 是 HTTP 代理用户名   plugin_http_passwd 是 HTTP 代理密码    socks5 SOCKS5 代理。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/client-plugin/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="客户端插件">
 <meta itemprop="description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
 通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
@@ -41,7 +41,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 # frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
 http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
    参数 可选 描述     plugin_http_user 是 HTTP 代理用户名   plugin_http_passwd 是 HTTP 代理密码    socks5 SOCKS5 代理。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="186">
 
 
@@ -65,15 +65,13 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>客户端插件 | frp</title>
@@ -954,7 +952,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 

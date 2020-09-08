@@ -28,14 +28,14 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
 内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="39">
 
 
@@ -56,15 +56,13 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>监控 | frp</title>
@@ -761,7 +759,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 

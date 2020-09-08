@@ -27,13 +27,13 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com http_user = abc http_pwd = abc 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/auth/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="设置 BasicAuth 鉴权">
 <meta itemprop="description" content="由于所有客户端共用一个 frps 的 HTTP 服务端口，任何知道你的域名和 URL 的人都能访问到你部署在内网的服务，但是在某些场景下需要确保只有限定的用户才能访问。
 frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通过用户名和密码才能访问到你的服务。
 该功能目前仅限于 HTTP 类型的代理，需要在 frpc 的代理配置中添加用户名和密码的设置。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com http_user = abc http_pwd = abc 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="40">
 
 
@@ -53,15 +53,13 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>设置 BasicAuth 鉴权 | frp</title>
@@ -762,7 +760,7 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 

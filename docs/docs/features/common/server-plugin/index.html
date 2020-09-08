@@ -35,7 +35,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-plugin/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -49,7 +49,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="320">
 
 
@@ -77,15 +77,13 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>服务端插件 | frp</title>
@@ -958,7 +956,7 @@ meta_id = 123
 </code></pre>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 

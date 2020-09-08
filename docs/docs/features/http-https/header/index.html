@@ -27,13 +27,13 @@
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com header_X-From-Where = frp 对于参数配置中所有以 header_ 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 X-From-Where: frp。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/header/" />
-<meta property="article:modified_time" content="2020-08-26T15:13:49+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-08T22:11:43+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com header_X-From-Where = frp 对于参数配置中所有以 header_ 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 X-From-Where: frp。">
-<meta itemprop="dateModified" content="2020-08-26T15:13:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-08T22:11:43&#43;08:00" />
 <meta itemprop="wordCount" content="82">
 
 
@@ -53,15 +53,13 @@
 <link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
+
 
 
     <title>修改 HTTP 请求 Header | frp</title>
@@ -781,7 +779,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 26, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/c23281e1a28721179327e8c4b1a581689e11d130">Update proxy.md (#5) (c23281e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 8, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/6a372b781ec555e1e51d941fcc9e2e21c38410cb">put jquery to local (#8) (6a372b7)</a>
 </div>
 </div>
 
