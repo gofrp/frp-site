@@ -884,7 +884,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;启用后该代理和服务端之间的通信内容都会被加密传输&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;user_compression&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;use_compression&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;bool&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;是否启用压缩功能&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;否&lt;/td&gt;
