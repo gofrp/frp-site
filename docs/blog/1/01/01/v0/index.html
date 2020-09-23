@@ -24,10 +24,10 @@
 <meta property="og:description" content="v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.32.0  [new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。 [new] 可选通过配置不返回创建 proxy 失败的具体信息。 [new] 支持 prometheus 监控。 [new] 支持可选 OIDC 身份验证。 [new] 新增 tcpmux 类型代理，通过 HTTP CONNECT 复用单一端口连接后端不同服务。 [fix] 修复限流配置在 Reload 时没有正确比对的问题。 [fix] 修复连接数统计不准确的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
 <meta itemprop="description" content="v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.32.0  [new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。 [new] 可选通过配置不返回创建 proxy 失败的具体信息。 [new] 支持 prometheus 监控。 [new] 支持可选 OIDC 身份验证。 [new] 新增 tcpmux 类型代理，通过 HTTP CONNECT 复用单一端口连接后端不同服务。 [fix] 修复限流配置在 Reload 时没有正确比对的问题。 [fix] 修复连接数统计不准确的问题。  v0.">
-<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
 <meta itemprop="wordCount" content="884">
 
 
@@ -113,7 +113,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -143,7 +143,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 

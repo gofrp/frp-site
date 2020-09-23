@@ -931,7 +931,33 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;p&gt;如果出现上述报错，是因为 go 1.15 版本开始&lt;a href=&#34;https://golang.org/doc/go1.15#commonname&#34;&gt;废弃 CommonName&lt;/a&gt;，因此推荐使用 SAN 证书。
 如果想兼容之前的方式，需要设置环境变量 &lt;strong&gt;GODEBUG&lt;/strong&gt; 为 &lt;code&gt;x509ignoreCN=0&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;下面简单示例如何用 openssl 生成 ca 和双方 SAN 证书。&lt;/p&gt;
-&lt;p&gt;生成默认 ca:&lt;/p&gt;
+&lt;p&gt;准备默认 OpenSSL 配置文件于当前目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; my-openssl.cnf &amp;lt;&amp;lt; EOF
+[ ca ]
+default_ca = CA_default
+[ CA_default ]
+x509_extensions = usr_cert
+[ req ]
+default_bits        = 2048
+default_md          = sha256
+default_keyfile     = privkey.pem
+distinguished_name  = req_distinguished_name
+attributes          = req_attributes
+x509_extensions     = v3_ca
+string_mask         = utf8only
+[ req_distinguished_name ]
+[ req_attributes ]
+[ usr_cert ]
+basicConstraints       = CA:FALSE
+nsComment              = &amp;quot;OpenSSL Generated Certificate&amp;quot;
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+[ v3_ca ]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints       = CA:true
+EOF
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;生成默认 ca:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;openssl genrsa -out ca.key 2048
 openssl req -x509 -new -nodes -key ca.key -subj &amp;quot;/CN=example.ca.com&amp;quot; -days 5000 -out ca.crt
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;生成 frps 证书:&lt;/p&gt;
@@ -940,7 +966,7 @@ openssl req -x509 -new -nodes -key ca.key -subj &amp;quot;/CN=example.ca.com&amp
 openssl req -new -sha256 -key server.key \
     -subj &amp;quot;/C=XX/ST=DEFAULT/L=DEFAULT/O=DEFAULT/CN=server.com&amp;quot; \
     -reqexts SAN \
-    -config &amp;lt;(cat /etc/pki/tls/openssl.cnf &amp;lt;(printf &amp;quot;\n[SAN]\nsubjectAltName=DNS:localhost,IP:127.0.0.1,DNS:example.server.com&amp;quot;)) \
+    -config &amp;lt;(cat my-openssl.cnf &amp;lt;(printf &amp;quot;\n[SAN]\nsubjectAltName=DNS:localhost,IP:127.0.0.1,DNS:example.server.com&amp;quot;)) \
     -out server.csr
 
 openssl x509 -req -days 365 \
@@ -952,7 +978,7 @@ openssl x509 -req -days 365 \
 openssl req -new -sha256 -key client.key \
     -subj &amp;quot;/C=XX/ST=DEFAULT/L=DEFAULT/O=DEFAULT/CN=client.com&amp;quot; \
     -reqexts SAN \
-    -config &amp;lt;(cat /etc/pki/tls/openssl.cnf &amp;lt;(printf &amp;quot;\n[SAN]\nsubjectAltName=DNS:client.com,DNS:example.client.com&amp;quot;)) \
+    -config &amp;lt;(cat my-openssl.cnf &amp;lt;(printf &amp;quot;\n[SAN]\nsubjectAltName=DNS:client.com,DNS:example.client.com&amp;quot;)) \
     -out client.csr
 
 openssl x509 -req -days 365 \

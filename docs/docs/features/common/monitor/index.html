@@ -28,14 +28,14 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" />
-<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
 内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
 <meta itemprop="wordCount" content="39">
 
 
@@ -125,7 +125,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -155,7 +155,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -788,7 +788,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/91015b75c22b596d8c3eadb84695cf8910586b1a">Add default openssl.cnf (#10) (91015b7)</a>
 </div>
 </div>
 

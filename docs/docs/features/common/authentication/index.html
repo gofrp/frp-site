@@ -30,7 +30,7 @@ OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials G
 # frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/authentication/" />
-<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="身份认证">
 <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。
 通过 frpc.ini 和 frps.ini 的 [common] 段落中配置 authentication_method 来指定要使用的身份验证方式。
@@ -39,7 +39,7 @@ Token 基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps �
 OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials Grant。
 启用这一验证方式，参考配置如下：
 # frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience.">
-<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
 <meta itemprop="wordCount" content="89">
 
 
@@ -131,7 +131,7 @@ OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials G
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -161,7 +161,7 @@ OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials G
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -842,7 +842,7 @@ OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials G
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/91015b75c22b596d8c3eadb84695cf8910586b1a">Add default openssl.cnf (#10) (91015b7)</a>
 </div>
 </div>
 

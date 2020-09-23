@@ -30,7 +30,7 @@
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/subdomain/" />
-<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义二级域名">
 <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
 通过在 frps 的配置文件中配置 subdomain_host，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 custom_domains，而是配置一个 subdomain 参数。
@@ -39,7 +39,7 @@
 # frpc.ini [web] type = http local_port = 80 subdomain = test frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomain_host，则 custom_domains 中不能是属于 subdomain_host 的子域名或者泛域名。
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。">
-<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
 <meta itemprop="wordCount" content="77">
 
 
@@ -131,7 +131,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -161,7 +161,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -802,7 +802,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/91015b75c22b596d8c3eadb84695cf8910586b1a">Add default openssl.cnf (#10) (91015b7)</a>
 </div>
 </div>
 

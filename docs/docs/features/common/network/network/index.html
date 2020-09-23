@@ -31,7 +31,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network/" />
-<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
@@ -41,7 +41,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
 该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
 <meta itemprop="wordCount" content="148">
 
 
@@ -134,7 +134,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -164,7 +164,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
+  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
   data-offline-search-base-href="/"
 >
 
@@ -871,7 +871,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/91015b75c22b596d8c3eadb84695cf8910586b1a">Add default openssl.cnf (#10) (91015b7)</a>
 </div>
 </div>
 
