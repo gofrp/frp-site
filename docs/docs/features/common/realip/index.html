@@ -29,7 +29,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" />
-<meta property="article:modified_time" content="2020-09-15T16:22:16+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
@@ -37,7 +37,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2020-09-15T16:22:16&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
 <meta itemprop="wordCount" content="94">
 
 
@@ -128,7 +128,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f810b1af7c0e1ce9305544246452f525a2c8073e1a46e70eb41f25251f2f3bb002e24122a231348b4c107037f4b95c2507566f048540b67a01a86e4210613ba5.json"
+  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
   data-offline-search-base-href="/"
 >
 
@@ -158,7 +158,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f810b1af7c0e1ce9305544246452f525a2c8073e1a46e70eb41f25251f2f3bb002e24122a231348b4c107037f4b95c2507566f048540b67a01a86e4210613ba5.json"
+  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
   data-offline-search-base-href="/"
 >
 
@@ -398,8 +398,37 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
       
       
       
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/features/common/network/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">通信安全及优化</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsfeaturescommonnetwork">
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetwork" href="/docs/features/common/network/">通信安全及优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetworknetwork" href="/docs/features/common/network/network/">通信安全及优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetworknetwork-tls" href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
@@ -783,7 +812,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 15, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/a67bf09486c272c7b6716c88b1c8133beca06ee4">Update proxy.md (#9) (a67bf09)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
 </div>
 </div>
 

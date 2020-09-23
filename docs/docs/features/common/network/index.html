@@ -7,6 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/features/common/network/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,41 +22,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>通信安全及优化 | frp</title><meta property="og:title" content="通信安全及优化" />
-<meta property="og:description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
-加密算法采用 aes-128-cfb，压缩算法采用 snappy。
-在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
-TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功能，使 frpc 和 frps 之间的流量都通过 TLS 协议加密传输，安全性更高。
-为了端口复用，frp 建立 TLS 连接的第一个字节为 0x17。
-通过将 frps.ini 的 [common] 中 tls_only 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。" />
-<meta property="og:type" content="article" />
+<meta property="og:description" content="提供更丰富的通信协议和安全。
+" />
+<meta property="og:type" content="website" />
 <meta property="og:url" content="/docs/features/common/network/" />
-<meta property="article:modified_time" content="2020-09-15T16:22:16+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
-<meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
-加密算法采用 aes-128-cfb，压缩算法采用 snappy。
-在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
-TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功能，使 frpc 和 frps 之间的流量都通过 TLS 协议加密传输，安全性更高。
-为了端口复用，frp 建立 TLS 连接的第一个字节为 0x17。
-通过将 frps.ini 的 [common] 中 tls_only 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。">
-<meta itemprop="dateModified" content="2020-09-15T16:22:16&#43;08:00" />
-<meta itemprop="wordCount" content="186">
-
-
-
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="提供更丰富的通信协议和安全。
+"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通信安全及优化"/>
-<meta name="twitter:description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
-加密算法采用 aes-128-cfb，压缩算法采用 snappy。
-在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
-TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功能，使 frpc 和 frps 之间的流量都通过 TLS 协议加密传输，安全性更高。
-为了端口复用，frp 建立 TLS 连接的第一个字节为 0x17。
-通过将 frps.ini 的 [common] 中 tls_only 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。"/>
+<meta name="twitter:description" content="提供更丰富的通信协议和安全。
+"/>
 
 
 
@@ -76,7 +53,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 
     <title>通信安全及优化 | frp</title>
   </head>
-  <body class="td-page">
+  <body class="td-section">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -134,7 +111,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f810b1af7c0e1ce9305544246452f525a2c8073e1a46e70eb41f25251f2f3bb002e24122a231348b4c107037f4b95c2507566f048540b67a01a86e4210613ba5.json"
+  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
   data-offline-search-base-href="/"
 >
 
@@ -164,7 +141,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f810b1af7c0e1ce9305544246452f525a2c8073e1a46e70eb41f25251f2f3bb002e24122a231348b4c107037f4b95c2507566f048540b67a01a86e4210613ba5.json"
+  data-offline-search-index-json-src="/offline-search-index.5154d0be17549bfe18af40ebb4a2c54f09ab41a066e236d4a36f6275c83ea934190cfa9ce0c2170dcd788df45484f6135b9c46ab369e0cf827d7f3f468e9818b.json"
   data-offline-search-base-href="/"
 >
 
@@ -371,7 +348,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">通用功能</a>
+    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">通用功能</a>
   </li>
   <ul>
     <li class="collapse show" id="docsfeaturescommon">
@@ -404,8 +381,37 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
       
       
       
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/features/common/network/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">通信安全及优化</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsfeaturescommonnetwork">
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsfeaturescommonnetwork" href="/docs/features/common/network/">通信安全及优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetworknetwork" href="/docs/features/common/network/network/">通信安全及优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetworknetwork-tls" href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
@@ -690,7 +696,7 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 
 
 
-<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Features/common/network.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Features/common/network/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
 <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e9%80%9a%e4%bf%a1%e5%ae%89%e5%85%a8%e5%8f%8a%e4%bc%98%e5%8c%96" target="_blank"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
 
 
@@ -702,20 +708,6 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
 
 
 
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#加密与压缩">加密与压缩</a></li>
-        <li><a href="#tls">TLS</a></li>
-        <li><a href="#tcp-多路复用">TCP 多路复用</a></li>
-        <li><a href="#连接池">连接池</a></li>
-        <li><a href="#支持-kcp-协议">支持 KCP 协议</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
 
 
 
@@ -771,77 +763,123 @@ TLS 通过在 frpc.ini 的 [common] 中配置 tls_enable = true 来启用此功�
             
 <div class="td-content">
 	<h1>通信安全及优化</h1>
+	<div class="lead">提供更丰富的通信协议和安全。</div>
 	
-	<h3 id="加密与压缩">加密与压缩</h3>
-<p>每一个代理都可以选择是否启用加密和压缩的功能。</p>
-<p>加密算法采用 aes-128-cfb，压缩算法采用 snappy。</p>
-<p>在每一个代理的配置中使用如下参数指定：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-<span style="color:#204a87;font-weight:bold">[ssh]</span>
-<span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-<span style="color:#c4a000">use_encryption</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
-<span style="color:#c4a000">use_compression</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
-</code></pre></div><p>通过设置 <code>use_encryption = true</code>，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。</p>
-<p>如果传输的报文长度较长，通过设置 <code>use_compression = true</code> 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。</p>
-<h3 id="tls">TLS</h3>
-<p>通过在 <code>frpc.ini</code> 的 <code>[common]</code> 中配置 <code>tls_enable = true</code> 来启用此功能，使 frpc 和 frps 之间的流量都通过 TLS 协议加密传输，安全性更高。</p>
-<p>为了端口复用，frp 建立 TLS 连接的第一个字节为 0x17。</p>
-<p>通过将 <code>frps.ini</code> 的 <code>[common]</code> 中 <code>tls_only</code> 设置为 true，可以强制 frps 只接受 TLS 连接的客户端。</p>
-<p><strong>注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密</strong></p>
-<h3 id="tcp-多路复用">TCP 多路复用</h3>
-<p>客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。</p>
-<p>该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frps.ini 和 frpc.ini 中</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">tcp_mux</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">false</span>
-</code></pre></div><h3 id="连接池">连接池</h3>
-<p>默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。</p>
-<p>这一功能适合有大量短连接请求时开启。</p>
-<ol>
-<li>
-<p>首先可以在 frps.ini 中设置每个代理可以创建的连接池上限，避免大量资源占用，客户端设置超过此配置后会被调整到当前值：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">max_pool_count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">5</span>
-</code></pre></div></li>
-<li>
-<p>在 frpc.ini 中为客户端启用连接池，指定预创建连接的数量：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">pool_count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">1</span>
-</code></pre></div></li>
-</ol>
-<h3 id="支持-kcp-协议">支持 KCP 协议</h3>
-<p>底层通信协议支持选择 KCP 协议，相比于 TCP，在弱网环境下传输效率提升明显，但是会有一些额外的流量消耗。</p>
-<p>开启 KCP 协议支持：</p>
-<ol>
-<li>
-<p>在 frps.ini 中启用 KCP 协议支持，指定一个 udp 端口用于接收客户端请求：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-<span style="color:#8f5902;font-style:italic"># kcp 绑定的是 udp 端口，可以和 bind_port 一样</span>
-<span style="color:#c4a000">kcp_bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</code></pre></div></li>
-<li>
-<p>在 frpc.ini 指定需要使用的协议类型，目前只支持 TCP 和 KCP。其他代理配置不需要变更：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-<span style="color:#204a87;font-weight:bold">[common]</span>
-<span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-<span style="color:#8f5902;font-style:italic"># server_port 指定为 frps 的 kcp_bind_port</span>
-<span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-<span style="color:#c4a000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">kcp</span>
-</code></pre></div></li>
-</ol>
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/features/common/network/network/">通信安全及优化</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 15, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/a67bf09486c272c7b6716c88b1c8133beca06ee4">Update proxy.md (#9) (a67bf09)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
 </div>
 </div>
-
 
           </main>
         </div>

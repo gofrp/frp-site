@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="/docs/overview/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +20,36 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>概览 | frp</title><meta property="og:title" content="概览" />
-<meta property="og:description" content="一些概述，便于您快速的了解 frp。
-" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/docs/overview/" />
-<meta property="og:site_name" content="frp" />
-<meta itemprop="name" content="概览">
-<meta itemprop="description" content="一些概述，便于您快速的了解 frp。
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="概览"/>
-<meta name="twitter:description" content="一些概述，便于您快速的了解 frp。
-"/>
+<title>自定义 TLS 协议加密 | frp</title><meta property="og:title" content="自定义 TLS 协议加密" />
+<meta property="og:description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
+当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
+注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
+frpc 单向校验 frps 身份 # frpc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/features/common/network/network-tls/" />
+<meta property="article:modified_time" content="2020-09-23T13:43:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta itemprop="name" content="自定义 TLS 协议加密">
+<meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
+当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
+注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
+frpc 单向校验 frps 身份 # frpc.">
+<meta itemprop="dateModified" content="2020-09-23T13:43:38&#43;08:00" />
+<meta itemprop="wordCount" content="366">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自定义 TLS 协议加密"/>
+<meta name="twitter:description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
+当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
+注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
+frpc 单向校验 frps 身份 # frpc."/>
 
 
 
@@ -51,9 +68,9 @@
 
 
 
-    <title>概览 | frp</title>
+    <title>自定义 TLS 协议加密 | frp</title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -94,7 +111,7 @@
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/overview/">English</a>
+	<a class="dropdown-item" href="/en/">English</a>
 	
 </div>
 			</li>
@@ -160,7 +177,7 @@
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/overview/">English</a>
+	<a class="dropdown-item" href="/en/">English</a>
 	
 </div>
     </div>
@@ -191,10 +208,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/overview/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">概览</a>
+    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">概览</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsoverview">
+    <li class="collapse " id="docsoverview">
       
       
       
@@ -331,10 +348,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">功能特性</a>
+    <a  href="/docs/features/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">功能特性</a>
   </li>
   <ul>
-    <li class="collapse " id="docsfeatures">
+    <li class="collapse show" id="docsfeatures">
       
       
       
@@ -348,10 +365,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">通用功能</a>
+    <a  href="/docs/features/common/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">通用功能</a>
   </li>
   <ul>
-    <li class="collapse " id="docsfeaturescommon">
+    <li class="collapse show" id="docsfeaturescommon">
       
       
       
@@ -389,10 +406,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/features/common/network/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">通信安全及优化</a>
+    <a  href="/docs/features/common/network/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">通信安全及优化</a>
   </li>
   <ul>
-    <li class="collapse " id="docsfeaturescommonnetwork">
+    <li class="collapse show" id="docsfeaturescommonnetwork">
       
       
       
@@ -405,7 +422,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfeaturescommonnetworknetwork-tls" href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsfeaturescommonnetworknetwork-tls" href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
       
       
     </li>
@@ -696,8 +713,8 @@
 
 
 
-<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Overview/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
-<a href="https://github.com/gofrp/frp-doc/issues/new?title=%e6%a6%82%e8%a7%88" target="_blank"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
+<a href="https://github.com/gofrp/frp-doc/edit/master/content/zh/docs/Features/common/network/network-tls.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/gofrp/frp-doc/issues/new?title=%e8%87%aa%e5%ae%9a%e4%b9%89%20TLS%20%e5%8d%8f%e8%ae%ae%e5%8a%a0%e5%af%86" target="_blank"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
 
 
 <a href="https://github.com/fatedier/frp/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 提交项目问题</a>
@@ -711,9 +728,15 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#frp-是什么">frp 是什么？</a></li>
-    <li><a href="#为什么使用-frp">为什么使用 frp？</a></li>
-    <li><a href="#下一步">下一步？</a></li>
+    <li>
+      <ul>
+        <li><a href="#tls-默认开启方式">TLS 默认开启方式</a></li>
+        <li><a href="#frpc-单向校验-frps-身份">frpc 单向校验 frps 身份</a></li>
+        <li><a href="#frps-单向验证-frpc-的身份">frps 单向验证 frpc 的身份</a></li>
+        <li><a href="#双向验证">双向验证</a></li>
+        <li><a href="#openssl-生成证书示例">OpenSSL 生成证书示例</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -734,6 +757,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <li class="breadcrumb-item" >
 	<a href="/docs/">文档</a>
 </li>
@@ -741,8 +773,29 @@
 
 
 
+<li class="breadcrumb-item" >
+	<a href="/docs/features/">功能特性</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/features/common/">通用功能</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/features/common/network/">通信安全及优化</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/overview/">概览</a>
+	<a href="/docs/features/common/network/network-tls/">自定义 TLS 协议加密</a>
 </li>
 
 	</ol>
@@ -750,128 +803,96 @@
 
             
 <div class="td-content">
-	<h1>概览</h1>
-	<div class="lead">一些概述，便于您快速的了解 frp。</div>
-	<h2 id="frp-是什么">frp 是什么？</h2>
-<p>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</p>
-<h2 id="为什么使用-frp">为什么使用 frp？</h2>
-<p>通过在具有公网 IP 的节点上部署 frp 服务端，可以轻松地将内网服务穿透到公网，同时提供诸多专业的功能特性，这包括：</p>
-<ul>
-<li>客户端服务端通信支持 TCP、KCP 以及 Websocket 等多种协议。</li>
-<li>采用 TCP 连接流式复用，在单个连接间承载更多请求，节省连接建立时间。</li>
-<li>代理组间的负载均衡。</li>
-<li>端口复用，多个服务通过同一个服务端端口暴露。</li>
-<li>多个原生支持的客户端插件（静态文件查看，HTTP、SOCK5 代理等），便于独立使用 frp 客户端完成某些工作。</li>
-<li>高度扩展性的服务端插件系统，方便结合自身需求进行功能扩展。</li>
-<li>服务端和客户端 UI 页面。</li>
-</ul>
-<h2 id="下一步">下一步？</h2>
-<ul>
-<li><a href="/docs/setup/">安装</a>：安装 frp。</li>
-<li><a href="/docs/examples/">示例</a>：通过简单示例了解 frp 的应用场景。</li>
-</ul>
+	<h1>自定义 TLS 协议加密</h1>
+	
+	<p><code>use_encryption</code> 和 <code>STCP</code> 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。</p>
+<p>当 <code>frpc.ini</code> 的 <code>common</code> 中 <code>tls_enable = true</code> 时，表示开启 TLS 协议加密。</p>
+<p>当 <code>frps.ini</code> 的 <code>common</code> 中 <code>tls_only = true</code> 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 <code>frps.ini</code> 的 <code>common</code> 中 <code>tls_trusted_ca_file</code> 内容是有效的话，那么默认就会开启 <code>tls_only = true</code>。</p>
+<p><strong>注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密</strong></p>
+<h3 id="tls-默认开启方式">TLS 默认开启方式</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_enable</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true </span>
+</code></pre></div><p>frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。</p>
+<h3 id="frpc-单向校验-frps-身份">frpc 单向校验 frps 身份</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_enable</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
+<span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
 
-        <div class="section-index">
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-</div>
+<span style="color:#8f5902;font-style:italic"># frps.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/server.crt</span>
+<span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/server.key</span>
+</code></pre></div><p>frpc 需要额外加载 ca 证书，frps 需要额外指定 TLS 配置。frpc 通过 ca 证书单向验证 frps
+的身份。这就要求 frps 的 <code>server.crt</code> 对 frpc 的 ca 是合法的。</p>
+<p>合法: 如果证书是 ca 签发的，或者证书是在 ca 的信任链中，那即认为: 该证书对 ca 而言是合法的。</p>
+<h3 id="frps-单向验证-frpc-的身份">frps 单向验证 frpc 的身份</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_enable</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
+<span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/client.crt</span>
+<span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/client.key</span>
+
+<span style="color:#8f5902;font-style:italic"># frps.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+</code></pre></div><p>frpc 需要额外加载 TLS 配置，frps 需要额外加载 ca 证书。frps 通过 ca 证书单向验证 frpc 的身份。这就要求 frpc 的 <code>client.crt</code> 对 frps 的 ca 是合法的。</p>
+<h3 id="双向验证">双向验证</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_enable</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
+<span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/client.crt</span>
+<span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/client.key</span>
+<span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+
+<span style="color:#8f5902;font-style:italic"># frps.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/server.crt</span>
+<span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/server.key</span>
+<span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+</code></pre></div><p>双向验证即 frpc 和 frps 通过本地 ca 证书去验证对方的身份。理论上 frpc 和 frps 的 ca 证书可以不同，只要能验证对方身份即可。</p>
+<h3 id="openssl-生成证书示例">OpenSSL 生成证书示例</h3>
+<p><code>x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0</code></p>
+<p>如果出现上述报错，是因为 go 1.15 版本开始<a href="https://golang.org/doc/go1.15#commonname">废弃 CommonName</a>，因此推荐使用 SAN 证书。
+如果想兼容之前的方式，需要设置环境变量 <strong>GODEBUG</strong> 为 <code>x509ignoreCN=0</code>。</p>
+<p>下面简单示例如何用 openssl 生成 ca 和双方 SAN 证书。</p>
+<p>生成默认 ca:</p>
+<pre><code>openssl genrsa -out ca.key 2048
+openssl req -x509 -new -nodes -key ca.key -subj &quot;/CN=example.ca.com&quot; -days 5000 -out ca.crt
+</code></pre><p>生成 frps 证书:</p>
+<pre><code>openssl genrsa -out server.key 2048
+
+openssl req -new -sha256 -key server.key \
+    -subj &quot;/C=XX/ST=DEFAULT/L=DEFAULT/O=DEFAULT/CN=server.com&quot; \
+    -reqexts SAN \
+    -config &lt;(cat /etc/pki/tls/openssl.cnf &lt;(printf &quot;\n[SAN]\nsubjectAltName=DNS:localhost,IP:127.0.0.1,DNS:example.server.com&quot;)) \
+    -out server.csr
+
+openssl x509 -req -days 365 \
+	-in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial \
+	-extfile &lt;(printf &quot;subjectAltName=DNS:localhost,IP:127.0.0.1,DNS:example.server.com&quot;) \
+	-out server.crt
+</code></pre><p>生成 frpc 的证书:</p>
+<pre><code>openssl genrsa -out client.key 2048
+openssl req -new -sha256 -key client.key \
+    -subj &quot;/C=XX/ST=DEFAULT/L=DEFAULT/O=DEFAULT/CN=client.com&quot; \
+    -reqexts SAN \
+    -config &lt;(cat /etc/pki/tls/openssl.cnf &lt;(printf &quot;\n[SAN]\nsubjectAltName=DNS:client.com,DNS:example.client.com&quot;)) \
+    -out client.csr
+
+openssl x509 -req -days 365 \
+    -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial \
+	-extfile &lt;(printf &quot;subjectAltName=DNS:client.com,DNS:example.client.com&quot;) \
+	-out client.crt
+</code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/27d050868f4c70628d8b56d1b7be82bd49bedbb6">Add tls docs (#7) (27d0508)</a>
 </div>
 </div>
+
 
           </main>
         </div>
