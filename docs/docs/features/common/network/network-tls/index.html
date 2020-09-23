@@ -29,7 +29,7 @@ TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS �
 frpc 单向校验 frps 身份 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network-tls/" />
-<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:32:34+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
@@ -37,8 +37,8 @@ frpc 单向校验 frps 身份 # frpc." />
 注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
 TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
-<meta itemprop="wordCount" content="446">
+<meta itemprop="dateModified" content="2020-09-23T20:32:34&#43;08:00" />
+<meta itemprop="wordCount" content="456">
 
 
 
@@ -128,7 +128,7 @@ frpc 单向校验 frps 身份 # frpc."/>
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
+  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
   data-offline-search-base-href="/"
 >
 
@@ -158,7 +158,7 @@ frpc 单向校验 frps 身份 # frpc."/>
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
+  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
   data-offline-search-base-href="/"
 >
 
@@ -857,7 +857,8 @@ frpc 单向校验 frps 身份 # frpc."/>
 <p>如果出现上述报错，是因为 go 1.15 版本开始<a href="https://golang.org/doc/go1.15#commonname">废弃 CommonName</a>，因此推荐使用 SAN 证书。
 如果想兼容之前的方式，需要设置环境变量 <strong>GODEBUG</strong> 为 <code>x509ignoreCN=0</code>。</p>
 <p>下面简单示例如何用 openssl 生成 ca 和双方 SAN 证书。</p>
-<p>准备默认 OpenSSL 配置文件于当前目录</p>
+<p>准备默认 OpenSSL 配置文件于当前目录。此配置文件在 linux 系统下通常位于 <code>/etc/pki/tls/openssl.cnf</code>，在 mac 系统下通常位于 <code>/System/Library/OpenSSL/openssl.cnf</code>。</p>
+<p>如果存在，则直接拷贝到当前目录，例如 <code>cp /etc/pki/tls/openssl.cnf ./my-openssl.cnf</code>。如果不存在可以使用下面的命令来创建。</p>
 <pre><code>cat &gt; my-openssl.cnf &lt;&lt; EOF
 [ ca ]
 default_ca = CA_default
@@ -915,7 +916,7 @@ openssl x509 -req -days 365 \
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/91015b75c22b596d8c3eadb84695cf8910586b1a">Add default openssl.cnf (#10) (91015b7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 23, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/d00e41574026200dbecae7e3285edcba52305c83">update network-tls (d00e415)</a>
 </div>
 </div>
 

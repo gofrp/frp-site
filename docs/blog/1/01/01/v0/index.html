@@ -21,20 +21,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>v0 | frp</title><meta property="og:title" content="v0" />
-<meta property="og:description" content="v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.32.0  [new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。 [new] 可选通过配置不返回创建 proxy 失败的具体信息。 [new] 支持 prometheus 监控。 [new] 支持可选 OIDC 身份验证。 [new] 新增 tcpmux 类型代理，通过 HTTP CONNECT 复用单一端口连接后端不同服务。 [fix] 修复限流配置在 Reload 时没有正确比对的问题。 [fix] 修复连接数统计不准确的问题。  v0." />
+<meta property="og:description" content="v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2020-09-23T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-23T20:32:34+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
-<meta itemprop="description" content="v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.32.0  [new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。 [new] 可选通过配置不返回创建 proxy 失败的具体信息。 [new] 支持 prometheus 监控。 [new] 支持可选 OIDC 身份验证。 [new] 新增 tcpmux 类型代理，通过 HTTP CONNECT 复用单一端口连接后端不同服务。 [fix] 修复限流配置在 Reload 时没有正确比对的问题。 [fix] 修复连接数统计不准确的问题。  v0.">
-<meta itemprop="dateModified" content="2020-09-23T20:25:28&#43;08:00" />
-<meta itemprop="wordCount" content="884">
+<meta itemprop="description" content="v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.">
+<meta itemprop="dateModified" content="2020-09-23T20:32:34&#43;08:00" />
+<meta itemprop="wordCount" content="908">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v0"/>
-<meta name="twitter:description" content="v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.32.0  [new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。 [new] 可选通过配置不返回创建 proxy 失败的具体信息。 [new] 支持 prometheus 监控。 [new] 支持可选 OIDC 身份验证。 [new] 新增 tcpmux 类型代理，通过 HTTP CONNECT 复用单一端口连接后端不同服务。 [fix] 修复限流配置在 Reload 时没有正确比对的问题。 [fix] 修复连接数统计不准确的问题。  v0."/>
+<meta name="twitter:description" content="v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0."/>
 
 
 
@@ -113,7 +113,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
+  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
   data-offline-search-base-href="/"
 >
 
@@ -143,7 +143,7 @@
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.25e6721c6572a8c7369bac36fc49edceccb3bbd4f6f538243a63a4c0f8276365691735c9cf5625773b7580e88183bbb776a19bdeab997d89e87dfd77ee5943ff.json"
+  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
   data-offline-search-base-href="/"
 >
 
@@ -265,7 +265,15 @@
 		
 		<time datetime="0001-01-01" class="text-muted">Monday, January 01, 0001</time>
 	</div>
-	<h4 id="v0330">v0.33.0</h4>
+	<h4 id="v0340">v0.34.0</h4>
+<ul>
+<li>[new] 支持设置 udp 包的大小，默认为 1500 字节。</li>
+<li>[new] 支持配置 TLS 证书，支持双向认证。</li>
+<li>[new] 新的 e2e 测试框架。</li>
+<li>[fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。</li>
+<li>[change] 将调用 plugins 的顺序修改为固定顺序。</li>
+</ul>
+<h4 id="v0330">v0.33.0</h4>
 <ul>
 <li>[new] Server Plugin 增加 <code>NewUserConn</code> 接口。</li>
 <li>[new] 新增 <code>sudp</code> 类型代理，支持以安全的方式转发 udp 端口。</li>
@@ -282,7 +290,7 @@
 </ul>
 <h4 id="v0320">v0.32.0</h4>
 <ul>
-<li>[new] frps 支持 tls_only 参数，如果启用，服务端只接受 TLS 连接。</li>
+<li>[new] frps 支持 <code>tls_only</code> 参数，如果启用，服务端只接受 TLS 连接。</li>
 <li>[new] 可选通过配置不返回创建 proxy 失败的具体信息。</li>
 <li>[new] 支持 prometheus 监控。</li>
 <li>[new] 支持可选 OIDC 身份验证。</li>
@@ -310,7 +318,7 @@
 </ul>
 <h4 id="v0291">v0.29.1</h4>
 <ul>
-<li>[fix] 修复 xtcp 启用 use_encryption 不能正常工作的问题。</li>
+<li>[fix] 修复 xtcp 启用 <code>use_encryption</code> 不能正常工作的问题。</li>
 </ul>
 <h4 id="v0290">v0.29.0</h4>
 <ul>
@@ -332,7 +340,7 @@
 <h4 id="v0280">v0.28.0</h4>
 <ul>
 <li>[new] 负载均衡支持 HTTP 类型的代理。</li>
-<li>[fix] 修复 login_fail_exit 为 false 时的连接泄露问题。</li>
+<li>[fix] 修复 <code>login_fail_exit</code> 为 false 时的连接泄露问题。</li>
 </ul>
 <h4 id="v0271">v0.27.1</h4>
 <ul>
@@ -340,7 +348,7 @@
 </ul>
 <h4 id="v0270">v0.27.0</h4>
 <ul>
-<li>[new] Proxy Protocol 支持 plugin unix_domain_socket。</li>
+<li>[new] Proxy Protocol 支持 plugin <code>unix_domain_socket</code>。</li>
 <li>[new] HTTP 支持自定义 404 页面。</li>
 </ul>
 <h4 id="v0260">v0.26.0</h4>
@@ -351,7 +359,7 @@
 </ul>
 <h4 id="v0253">v0.25.3</h4>
 <ul>
-<li>[fix] 修复 tls_enable 为 true 时重连 panic 的问题。</li>
+<li>[fix] 修复 <code>tls_enable</code> 为 true 时重连 panic 的问题。</li>
 </ul>
 <h4 id="v0252">v0.25.2</h4>
 <ul>
@@ -361,7 +369,7 @@
 <h4 id="v0251">v0.25.1</h4>
 <ul>
 <li>[fix] 修复多级子域名匹配问题。</li>
-<li>[fix] 修复 frps &ndash;log_file 不生效的问题。</li>
+<li>[fix] 修复 <code>frps --log_file</code> 不生效的问题。</li>
 </ul>
 <h4 id="v0250">v0.25.0</h4>
 <ul>
@@ -419,13 +427,13 @@
 <ul>
 <li>[change] frps dashboard ui 更新。</li>
 <li>[improve] xtcp 在没有服务端和鉴权错误的情况下更快的返回错误，而不是等待超时。</li>
-<li>[fix] 修复命令行启动 stcp 和 xtcp 缺少 bind_port 配置的问题。</li>
-<li>[fix] 修复 http 类型的 proxy 在服务端未启用 vhost_http_port 会导致 panic 的问题。</li>
+<li>[fix] 修复命令行启动 stcp 和 xtcp 缺少 <code>bind_port</code> 配置的问题。</li>
+<li>[fix] 修复 http 类型的 proxy 在服务端未启用 <code>vhost_http_port</code> 会导致 panic 的问题。</li>
 </ul>
 <h4 id="v0190">v0.19.0</h4>
 <ul>
 <li>[new] frpc 支持通过 socks5 proxy 连接 frps。</li>
-<li>[new] vhost_http_port 和 vhost_https_port 可以设置为和 bind_port 一样的端口，支持端口复用。</li>
+<li>[new] <code>vhost_http_port</code> 和 <code>vhost_https_port</code> 可以设置为和 <code>bind_port</code> 一样的端口，支持端口复用。</li>
 <li>[new] Dashboard 总览页面增加一些参数显示。</li>
 <li>[change] 部分 package 迁移到 golib 中，方便复用。</li>
 </ul>
@@ -447,21 +455,21 @@
 </ul>
 <h4 id="v0160">v0.16.0</h4>
 <ul>
-<li>[new] 新的 plugin static_file，通过 http 接口对外提供文件访问服务。</li>
+<li>[new] 新的 plugin <code>static_file</code>，通过 http 接口对外提供文件访问服务。</li>
 <li>[new] socks5 plugin 支持设置用户名密码。</li>
 <li>[new] 配置文件支持范围端口映射。</li>
 <li>[new] frps 可配置单个客户端最多允许使用的端口数量。</li>
 </ul>
 <h4 id="v0151">v0.15.1</h4>
 <ul>
-<li>[change] 默认 privilege_allow_ports 为 1 - 65535。</li>
+<li>[change] 默认 <code>privilege_allow_ports</code> 为 1 - 65535。</li>
 <li>[fix] 重构后的 http 反向代理不支持 websocket。</li>
-<li>[fix] Plugin http_proxy 无法正常工作的问题。</li>
+<li>[fix] Plugin <code>http_proxy</code> 无法正常工作的问题。</li>
 </ul>
 <h4 id="v0150">v0.15.0</h4>
 <ul>
 <li>[new] frpc 增加 status 命令用于查看本地 proxy 状态信息。</li>
-<li>[new] remote_port 支持设置为 0，则由服务端随机绑定一个远程端口。</li>
+<li>[new] <code>remote_port</code> 支持设置为 0，则由服务端随机绑定一个远程端口。</li>
 <li>[change] frpc 的 &ndash;reload 命令修改为 reload。</li>
 <li>[fix] HTTP 类型的 proxy 没有流量统计信息。</li>
 <li>[fix] 修复 socks5 plugin 使用加密压缩功能会 panic 的问题。</li>
@@ -485,9 +493,9 @@
 <li>[new] frpc 支持动态加载配置文件。</li>
 <li>[new] 对于 http 类型的代理，每个连接的第一个请求附加上 X-Forwarded-For 和 X-Real-IP 的 header，用于传递用户真实 IP。</li>
 <li>[new] 新增 socks5 plugin。</li>
-<li>[new] frps 新增参数 proxy_bind_addr，指定代理在服务端绑定的 ip 地址。</li>
+<li>[new] frps 新增参数 <code>proxy_bind_addr</code>，指定代理在服务端绑定的 ip 地址。</li>
 <li>[improvement] 优化使用 kcp 时退出程序时延迟断开连接的问题。</li>
-<li>[fix] 修复 host_header_rewirte 功能出错的问题。 #248</li>
+<li>[fix] 修复 <code>host_header_rewirte</code> 功能出错的问题。 #248</li>
 </ul>
 <h4 id="v0120">v0.12.0</h4>
 <ul>
@@ -495,19 +503,19 @@
 <li>[improvement] 对于 domain 不存在的情况返回 404 Not Found 页面。 #175</li>
 <li>[fix] 修复启用加密压缩后，连接不能正常断开的问题。 #322</li>
 <li>[fix] 修复启用加密压缩后，内存占用异常的问题。#345</li>
-<li>[fix] 修复 http_proxy plugin 无法使用加密和压缩的问题。</li>
+<li>[fix] 修复 <code>http_proxy</code> plugin 无法使用加密和压缩的问题。</li>
 </ul>
 <h4 id="v0110">v0.11.0</h4>
 <ul>
 <li>[new] 增加代理 unix域套接字 的 Plugin。</li>
 <li>[new] 增加 http proxy Plugin。</li>
-<li>[new] frpc 新增 login_fail_exit 配置项，如果为 false，则启动时连接服务器失败将不会退出，而是定期重连。</li>
+<li>[new] frpc 新增 <code>login_fail_exit</code> 配置项，如果为 false，则启动时连接服务器失败将不会退出，而是定期重连。</li>
 <li>[new] frpc 新增 start 配置项，可以选择启用指定的 proxy，默认为空，表示全部。</li>
 <li>[improvement] dashboard 自动清除 7天内没有使用的 proxy 的统计信息。</li>
 <li>[improvement] dashboard 增加 frps 版本信息以及 proxy 最近一次启动和退出的时间信息。</li>
 <li>[improvement] dashboard 启用 gzip，缩小页面体积。</li>
 <li>[fix] 修复 frpc -v 失败的问题。</li>
-<li>[fix] 修复 HTTP_PROXY 存在转义字符鉴权失败的问题。 #275</li>
+<li>[fix] 修复 <code>HTTP_PROXY</code> 存在转义字符鉴权失败的问题。 #275</li>
 <li>[fix] 修复 dashboard 鉴权错误的问题。 #339</li>
 </ul>
 <h4 id="v0100">v0.10.0</h4>
@@ -537,7 +545,7 @@
 <ul>
 <li>[new] 支持 url 路由。</li>
 <li>[fix] 修复 subdomain 对于 https 类型不生效的问题。</li>
-<li>[fix] 修复 ssh 启用了 pool_count 后无法正常连接的问题。</li>
+<li>[fix] 修复 ssh 启用了 <code>pool_count</code> 后无法正常连接的问题。</li>
 <li>[fix] 修复一个可能导致 frpc 连接 frps 时一直无响应的问题。</li>
 </ul>
 <h4 id="v090">v0.9.0</h4>
@@ -545,11 +553,11 @@
 <li>[new] UDP 协议支持。</li>
 <li>[new] Dashboard 增加身份验证机制。</li>
 <li>[new] http 服务支持身份验证，可在 frpc 端设置用户名密码。</li>
-<li>[new] frpc 支持通过 http_proxy 连接 frps。</li>
+<li>[new] frpc 支持通过 <code>http_proxy</code> 连接 frps。</li>
 <li>[new] http,https 服务支持泛域名。</li>
 <li>[new] http 及 https 类型支持 subdomain 设置。</li>
 <li>[new] 增加 Docker 支持。</li>
-<li>[improvement] 支持设置身份验证的超时时间 authentication_timeout。</li>
+<li>[improvement] 支持设置身份验证的超时时间 <code>authentication_timeout</code>。</li>
 <li>[fix] 修复连接池不生效的问题。</li>
 <li>[fix] 修复多个客户端同时登录可能会导致 frps 异常退出的问题。</li>
 </ul>
@@ -576,7 +584,7 @@
 <li>[new] 可选是否启用数据压缩。</li>
 <li>[new] 新增特权模式，免 server 端配置启动代理。</li>
 <li>[improvement] 优化数据传输，取消base64转码。</li>
-<li>[fix] 修复 vhost_http_port 未指定时 frps 异常退出的问题。</li>
+<li>[fix] 修复 <code>vhost_http_port</code> 未指定时 frps 异常退出的问题。</li>
 <li><strong>交互协议与旧版本不兼容</strong></li>
 </ul>
 <h4 id="v060">v0.6.0</h4>
@@ -597,7 +605,7 @@
 <ul>
 <li>[new] 可以通过配置对frpc和frps之间通信内容进行加密处理。</li>
 <li>[new] 新的身份认证机制，避免明文传输密码，提高安全性。</li>
-<li>[change] 配置文件中 passwd 替换为 全局的 auth_token。</li>
+<li>[change] 配置文件中 passwd 替换为 全局的 <code>auth_token</code>。</li>
 <li>[improvement] 代码结构优化。</li>
 <li><strong>配置文件及协议与旧版本不兼容</strong></li>
 </ul>

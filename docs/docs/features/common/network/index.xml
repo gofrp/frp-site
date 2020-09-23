@@ -145,7 +145,8 @@
 &lt;p&gt;如果出现上述报错，是因为 go 1.15 版本开始&lt;a href=&#34;https://golang.org/doc/go1.15#commonname&#34;&gt;废弃 CommonName&lt;/a&gt;，因此推荐使用 SAN 证书。
 如果想兼容之前的方式，需要设置环境变量 &lt;strong&gt;GODEBUG&lt;/strong&gt; 为 &lt;code&gt;x509ignoreCN=0&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;下面简单示例如何用 openssl 生成 ca 和双方 SAN 证书。&lt;/p&gt;
-&lt;p&gt;准备默认 OpenSSL 配置文件于当前目录&lt;/p&gt;
+&lt;p&gt;准备默认 OpenSSL 配置文件于当前目录。此配置文件在 linux 系统下通常位于 &lt;code&gt;/etc/pki/tls/openssl.cnf&lt;/code&gt;，在 mac 系统下通常位于 &lt;code&gt;/System/Library/OpenSSL/openssl.cnf&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果存在，则直接拷贝到当前目录，例如 &lt;code&gt;cp /etc/pki/tls/openssl.cnf ./my-openssl.cnf&lt;/code&gt;。如果不存在可以使用下面的命令来创建。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cat &amp;gt; my-openssl.cnf &amp;lt;&amp;lt; EOF
 [ ca ]
 default_ca = CA_default
