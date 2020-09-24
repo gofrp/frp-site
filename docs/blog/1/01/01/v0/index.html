@@ -24,10 +24,10 @@
 <meta property="og:description" content="v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2020-09-23T20:32:34+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
 <meta itemprop="description" content="v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.32.1  [new] Server Plugin 增加 Ping 和 NewWorkConn 的接口。 [new] Server Plugin 在 http 请求 Query 中增加 apiVersion 和 op 字段。 [improve] 采用指数退避算法避免登录成功后立即断开连接的情况下的频繁重连。 [fix] 修复 frpc 在不断重连的情况下内存泄露的问题。  v0.">
-<meta itemprop="dateModified" content="2020-09-23T20:32:34&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
 <meta itemprop="wordCount" content="908">
 
 
@@ -45,6 +45,17 @@
 
 
 <script src="/js/jquery-3.3.1.min.js"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+      var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3e71b775dd51aa4d6720c9f6e0dca126";
+          var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 <script
   src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
