@@ -29,7 +29,7 @@ TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS �
 frpc 单向校验 frps 身份 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network-tls/" />
-<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
@@ -37,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc." />
 注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
 TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
 <meta itemprop="wordCount" content="456">
 
 
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -927,7 +927,7 @@ openssl x509 -req -days 365 \
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 24, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/1681258cd04079121320644d4d521626ebb7f126">add baidu stats (1681258)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
 </div>
 </div>
 

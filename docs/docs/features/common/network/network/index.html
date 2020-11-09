@@ -31,7 +31,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network/" />
-<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
@@ -41,7 +41,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
 该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
 <meta itemprop="wordCount" content="148">
 
 
@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -175,7 +175,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -882,7 +882,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 24, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/1681258cd04079121320644d4d521626ebb7f126">add baidu stats (1681258)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
 </div>
 </div>
 

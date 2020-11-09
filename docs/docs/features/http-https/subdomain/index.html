@@ -30,7 +30,7 @@
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/subdomain/" />
-<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义二级域名">
 <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
 通过在 frps 的配置文件中配置 subdomain_host，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 custom_domains，而是配置一个 subdomain 参数。
@@ -39,7 +39,7 @@
 # frpc.ini [web] type = http local_port = 80 subdomain = test frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomain_host，则 custom_domains 中不能是属于 subdomain_host 的子域名或者泛域名。
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。">
-<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
 <meta itemprop="wordCount" content="77">
 
 
@@ -142,7 +142,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -813,7 +813,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 24, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/1681258cd04079121320644d4d521626ebb7f126">add baidu stats (1681258)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
 </div>
 </div>
 

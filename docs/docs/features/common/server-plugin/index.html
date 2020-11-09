@@ -35,7 +35,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-plugin/" />
-<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -49,7 +49,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
 <meta itemprop="wordCount" content="320">
 
 
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -996,7 +996,7 @@ meta_id = 123
 </code></pre>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 24, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/1681258cd04079121320644d4d521626ebb7f126">add baidu stats (1681258)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
 </div>
 </div>
 

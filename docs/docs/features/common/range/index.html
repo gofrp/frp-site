@@ -27,13 +27,13 @@
 # frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6006,6007 remote_port = 6000-6006,6007 实际连接成功后会创建 8 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_7。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/range/" />
-<meta property="article:modified_time" content="2020-09-24T16:56:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="范围端口映射">
 <meta itemprop="description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
 例如要映射本地 6000-6005, 6007 这6个端口，主要配置如下：
 # frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6006,6007 remote_port = 6000-6006,6007 实际连接成功后会创建 8 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_7。">
-<meta itemprop="dateModified" content="2020-09-24T16:56:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
 <meta itemprop="wordCount" content="40">
 
 
@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -163,7 +163,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.69e460f17417b4ce2906ff50e5d4de28ad4e0619bce216a99fd35d5e8a8291d091d044302f24721cd4e10db01d1c01bf61bea19a2ca3b4a284d55e818da9ff25.json"
+  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
   data-offline-search-base-href="/"
 >
 
@@ -799,7 +799,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 September 24, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/1681258cd04079121320644d4d521626ebb7f126">add baidu stats (1681258)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
 </div>
 </div>
 
