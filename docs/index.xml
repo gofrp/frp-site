@@ -21,7 +21,18 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0340&#34;&gt;v0.34.0&lt;/h4&gt;
+        &lt;h4 id=&#34;v0342&#34;&gt;v0.34.2&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[fix] 修复了 HTTP 类型代理，对于 Chunked 等流式数据传输延迟的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0341&#34;&gt;v0.34.1&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] http proxy 支持 ntlm 协议。&lt;/li&gt;
+&lt;li&gt;[new] 提供官方 docker 镜像。&lt;/li&gt;
+&lt;li&gt;[fix] 修复重连的 proxy 的统计数据过七天后会从 Dashboard 消失的问题。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 TLS 证书验证出错的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0340&#34;&gt;v0.34.0&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[new] 支持设置 udp 包的大小，默认为 1500 字节。&lt;/li&gt;
 &lt;li&gt;[new] 支持配置 TLS 证书，支持双向认证。&lt;/li&gt;

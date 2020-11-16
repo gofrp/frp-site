@@ -28,14 +28,14 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" />
-<meta property="article:modified_time" content="2020-11-09T11:53:14+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-11-16T20:33:56+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
 内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2020-11-09T11:53:14&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-16T20:33:56&#43;08:00" />
 <meta itemprop="wordCount" content="39">
 
 
@@ -136,7 +136,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
+  data-offline-search-index-json-src="/offline-search-index.ce4b3423cee190723898feba80c307efa323ef46569636b451e6d394e0c60f028c9aeb4f0ea2cd76a10f28c50b0d10ed57619f692359508d2d2d2ed24d64c2a5.json"
   data-offline-search-base-href="/"
 >
 
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.92ff303e0cd08505cb1e024995cfff2f630d6d4b0d740a27d6f4a159b6a5ab28191888d9fc885f8e09085a99f32ae642933272a6096745066ef7643ae991ceb5.json"
+  data-offline-search-index-json-src="/offline-search-index.ce4b3423cee190723898feba80c307efa323ef46569636b451e6d394e0c60f028c9aeb4f0ea2cd76a10f28c50b0d10ed57619f692359508d2d2d2ed24d64c2a5.json"
   data-offline-search-base-href="/"
 >
 
@@ -799,7 +799,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/fc22833553b238b20b892b9d61cfac88dbec7a3b">fix: typo of supervisor (#13) (fc22833)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 16, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/2468f6f5dcf294288fb121f34aa2c15c182e1eff">add release note (2468f6f)</a>
 </div>
 </div>
 
