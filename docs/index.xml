@@ -21,7 +21,11 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0342&#34;&gt;v0.34.2&lt;/h4&gt;
+        &lt;h4 id=&#34;v0343&#34;&gt;v0.34.3&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] 支持通过命令行参数启用 prometheus。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0342&#34;&gt;v0.34.2&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[fix] 修复了 HTTP 类型代理，对于 Chunked 等流式数据传输延迟的问题。&lt;/li&gt;
 &lt;/ul&gt;
