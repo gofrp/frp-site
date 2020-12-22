@@ -346,7 +346,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;span style=&#34;color:#c4a000&#34;&gt;server_addr&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;x.x.x.x&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;server_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;7000&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;http_proxy&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;http://user:pwd@192.168.1.128:8080&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将 &lt;code&gt;http_proxy&lt;/code&gt; 设置为 &lt;code&gt;socks5//user:pwd@192.168.1.128:8080&lt;/code&gt; 也可以连接到 SOCKS5 代理。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将 &lt;code&gt;http_proxy&lt;/code&gt; 设置为 &lt;code&gt;socks5://user:pwd@192.168.1.128:8080&lt;/code&gt; 也可以连接到 SOCKS5 代理。&lt;/p&gt;
 
       </description>
     </item>

@@ -34,7 +34,7 @@ frpc reload -c ./frpc.ini
 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/client/" />
-<meta property="article:modified_time" content="2020-11-20T20:25:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2020-12-22T11:04:50+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="客户端">
 <meta itemprop="description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
 启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
@@ -47,7 +47,7 @@ frpc reload -c ./frpc.ini
 可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
 仅在 protocol = tcp 时生效。
 # frpc.">
-<meta itemprop="dateModified" content="2020-11-20T20:25:28&#43;08:00" />
+<meta itemprop="dateModified" content="2020-12-22T11:04:50&#43;08:00" />
 <meta itemprop="wordCount" content="88">
 
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.130fe70bb33f81656551b4cfadd8dc941e4a1ea68bd120ab15db20847ae623834d4fcf19b6e315d8f85c8aa95924a1feda002c4c248364460365193effa92568.json"
+  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
   data-offline-search-base-href="/"
 >
 
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.130fe70bb33f81656551b4cfadd8dc941e4a1ea68bd120ab15db20847ae623834d4fcf19b6e315d8f85c8aa95924a1feda002c4c248364460365193effa92568.json"
+  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
   data-offline-search-base-href="/"
 >
 
@@ -841,11 +841,11 @@ var _hmt = _hmt || [];
 <span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
 <span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
 <span style="color:#c4a000">http_proxy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">http://user:pwd@192.168.1.128:8080</span>
-</code></pre></div><p>将 <code>http_proxy</code> 设置为 <code>socks5//user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
+</code></pre></div><p>将 <code>http_proxy</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 20, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/8b1d2b161cb78e695d46e2a9c56760b2fa92ca2d">new version (8b1d2b1)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 December 22, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/5e8d1bbe1478106e0eb17eda049a49e0019bc6dc">fix: typo of socks5:// (#17) (5e8d1bb)</a>
 </div>
 </div>
 
