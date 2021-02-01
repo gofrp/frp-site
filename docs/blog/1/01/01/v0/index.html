@@ -24,10 +24,10 @@
 <meta property="og:description" content="v0.34.3  [new] 支持通过命令行参数启用 prometheus。  v0.34.2  [fix] 修复了 HTTP 类型代理，对于 Chunked 等流式数据传输延迟的问题。  v0.34.1  [new] http proxy 支持 ntlm 协议。 [new] 提供官方 docker 镜像。 [fix] 修复重连的 proxy 的统计数据过七天后会从 Dashboard 消失的问题。 [fix] 修复 TLS 证书验证出错的问题。  v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2020-12-22T11:04:50+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-02-01T17:08:52+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
 <meta itemprop="description" content="v0.34.3  [new] 支持通过命令行参数启用 prometheus。  v0.34.2  [fix] 修复了 HTTP 类型代理，对于 Chunked 等流式数据传输延迟的问题。  v0.34.1  [new] http proxy 支持 ntlm 协议。 [new] 提供官方 docker 镜像。 [fix] 修复重连的 proxy 的统计数据过七天后会从 Dashboard 消失的问题。 [fix] 修复 TLS 证书验证出错的问题。  v0.34.0  [new] 支持设置 udp 包的大小，默认为 1500 字节。 [new] 支持配置 TLS 证书，支持双向认证。 [new] 新的 e2e 测试框架。 [fix] 修复 udp, sudp 类型的代理不支持压缩和加密的问题。 [change] 将调用 plugins 的顺序修改为固定顺序。  v0.33.0  [new] Server Plugin 增加 NewUserConn 接口。 [new] 新增 sudp 类型代理，支持以安全的方式转发 udp 端口。 [new] tcpmux 类型代理支持负载均衡。 [fix] 修复 frpc AuthenticateNewWorkConns 参数未生效的问题。 [fix] 修复一处并发导致的接受新连接时可能会 panic 的问题。  v0.">
-<meta itemprop="dateModified" content="2020-12-22T11:04:50&#43;08:00" />
+<meta itemprop="dateModified" content="2021-02-01T17:08:52&#43;08:00" />
 <meta itemprop="wordCount" content="940">
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
+  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
+  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
   data-offline-search-base-href="/"
 >
 
@@ -692,7 +692,7 @@ var _hmt = _hmt || [];
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2020 The frp Authors All Rights Reserved</small>
+        <small class="text-white">&copy; 2021 The frp Authors All Rights Reserved</small>
         
 	
 		

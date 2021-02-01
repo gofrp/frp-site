@@ -23,17 +23,17 @@
 <title>范围端口映射 | frp</title><meta property="og:title" content="范围端口映射" />
 <meta property="og:description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
-例如要映射本地 6000-6005, 6007 这6个端口，主要配置如下：
-# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6006,6007 remote_port = 6000-6006,6007 实际连接成功后会创建 8 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_7。" />
+例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：
+# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6005,6007 remote_port = 6000-6005,6007 实际连接成功后会创建 7 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_6。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/range/" />
-<meta property="article:modified_time" content="2020-12-22T11:04:50+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-02-01T17:08:52+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="范围端口映射">
 <meta itemprop="description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
-例如要映射本地 6000-6005, 6007 这6个端口，主要配置如下：
-# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6006,6007 remote_port = 6000-6006,6007 实际连接成功后会创建 8 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_7。">
-<meta itemprop="dateModified" content="2020-12-22T11:04:50&#43;08:00" />
+例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：
+# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6005,6007 remote_port = 6000-6005,6007 实际连接成功后会创建 7 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_6。">
+<meta itemprop="dateModified" content="2021-02-01T17:08:52&#43;08:00" />
 <meta itemprop="wordCount" content="40">
 
 
@@ -42,8 +42,8 @@
 <meta name="twitter:title" content="范围端口映射"/>
 <meta name="twitter:description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
-例如要映射本地 6000-6005, 6007 这6个端口，主要配置如下：
-# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6006,6007 remote_port = 6000-6006,6007 实际连接成功后会创建 8 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_7。"/>
+例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：
+# frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6005,6007 remote_port = 6000-6005,6007 实际连接成功后会创建 7 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_6。"/>
 
 
 
@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
+  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
   data-offline-search-base-href="/"
 >
 
@@ -163,7 +163,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.912e40b314975d1c518a25d4759dbd387beaf358c8f34b11fbc7d02e15b00b1a61cb315176feb117052446a0d54dd913e607b06cea3f27034655c62578854623.json"
+  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
   data-offline-search-base-href="/"
 >
 
@@ -788,18 +788,18 @@ var _hmt = _hmt || [];
 	
 	<p>在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。</p>
 <p>这一功能通过 <code>range:</code> 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。</p>
-<p>例如要映射本地 6000-6005, 6007 这6个端口，主要配置如下：</p>
+<p>例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
 <span style="color:#204a87;font-weight:bold">[range:test_tcp]</span>
 <span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
 <span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000-6006,6007</span>
-<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000-6006,6007</span>
-</code></pre></div><p>实际连接成功后会创建 8 个 proxy，命名为 <code>test_tcp_0, test_tcp_1 ... test_tcp_7</code>。</p>
+<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000-6005,6007</span>
+<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000-6005,6007</span>
+</code></pre></div><p>实际连接成功后会创建 7 个 proxy，命名为 <code>test_tcp_0, test_tcp_1 ... test_tcp_6</code>。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 December 22, 2020: <a  href="https://github.com/gofrp/frp-doc/commit/5e8d1bbe1478106e0eb17eda049a49e0019bc6dc">fix: typo of socks5:// (#17) (5e8d1bb)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 February 1, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/b77c307f156b399dd7c9409135cdf2b404509ff5">Fixed an example description error in rang.md. (#19) (b77c307)</a>
 </div>
 </div>
 
@@ -834,7 +834,7 @@ var _hmt = _hmt || [];
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2020 The frp Authors All Rights Reserved</small>
+        <small class="text-white">&copy; 2021 The frp Authors All Rights Reserved</small>
         
 	
 		
