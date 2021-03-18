@@ -21,7 +21,28 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0343&#34;&gt;v0.34.3&lt;/h4&gt;
+        &lt;h4 id=&#34;v0361&#34;&gt;v0.36.1&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[fix] 修复 &lt;code&gt;bind_udp_port&lt;/code&gt; 绑定端口错误的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0360&#34;&gt;v0.36.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] 新增 https2https 插件。&lt;/li&gt;
+&lt;li&gt;[new] frpc 新增 &lt;code&gt;tls_server_name&lt;/code&gt; 参数。&lt;/li&gt;
+&lt;li&gt;[improve] 增加客户端由于网络连接错误时的重试频率。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 xtcp 代理某些情况下会导致程序 panic 的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0351&#34;&gt;v0.35.1&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[fix] 减小 Release 二进制文件体积。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0350&#34;&gt;v0.35.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] Server Plugin 支持 HTTPS 协议。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 IPv6 地址解析异常的问题。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 HTTP 类型代理转发 Websocket Connection Header 设置错误的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0343&#34;&gt;v0.34.3&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[new] 支持通过命令行参数启用 prometheus。&lt;/li&gt;
 &lt;/ul&gt;

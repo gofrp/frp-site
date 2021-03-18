@@ -31,7 +31,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network/" />
-<meta property="article:modified_time" content="2021-02-01T17:08:52+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-03-18T14:50:38+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
@@ -41,7 +41,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
 该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2021-02-01T17:08:52&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-18T14:50:38&#43;08:00" />
 <meta itemprop="wordCount" content="148">
 
 
@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
+  data-offline-search-index-json-src="/offline-search-index.8539b3d589a9ea6499183da5f7e885c879e98e68581d7f8afb3f79d60f3629d933315fec9c74ce2c3099629aec9c8e36cb43b78034d1e68fdd290fa89b2b1f1c.json"
   data-offline-search-base-href="/"
 >
 
@@ -175,7 +175,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.dbf0a92b2e5a535bbfceb31451a0c5db8ee90ff0662051f27355e7a352bf95f61d235c080c41a83f1dac46229939db8659b8e4c5cf1f8c2e135a3cd9705785da.json"
+  data-offline-search-index-json-src="/offline-search-index.8539b3d589a9ea6499183da5f7e885c879e98e68581d7f8afb3f79d60f3629d933315fec9c74ce2c3099629aec9c8e36cb43b78034d1e68fdd290fa89b2b1f1c.json"
   data-offline-search-base-href="/"
 >
 
@@ -882,7 +882,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 February 1, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/b77c307f156b399dd7c9409135cdf2b404509ff5">Fixed an example description error in rang.md. (#19) (b77c307)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 March 18, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/23d06caadf0ddca78cf4347c16a5799ef253405c">update release note (23d06ca)</a>
 </div>
 </div>
 
