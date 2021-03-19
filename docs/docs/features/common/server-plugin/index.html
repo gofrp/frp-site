@@ -35,7 +35,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-plugin/" />
-<meta property="article:modified_time" content="2021-03-18T14:50:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-03-19T17:54:54+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -49,8 +49,8 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
 { &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2021-03-18T14:50:38&#43;08:00" />
-<meta itemprop="wordCount" content="320">
+<meta itemprop="dateModified" content="2021-03-19T17:54:54&#43;08:00" />
+<meta itemprop="wordCount" content="331">
 
 
 
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.8539b3d589a9ea6499183da5f7e885c879e98e68581d7f8afb3f79d60f3629d933315fec9c74ce2c3099629aec9c8e36cb43b78034d1e68fdd290fa89b2b1f1c.json"
+  data-offline-search-index-json-src="/offline-search-index.68542c9e102dfe3dbc1fa0cd36dbdf37544dd08ed4d4f0ef270c4b464cad5e6d759128ca5d209f0295765bf4e7e8081358bc92298ba04c93126a52f0a0bf84c2.json"
   data-offline-search-base-href="/"
 >
 
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.8539b3d589a9ea6499183da5f7e885c879e98e68581d7f8afb3f79d60f3629d933315fec9c74ce2c3099629aec9c8e36cb43b78034d1e68fdd290fa89b2b1f1c.json"
+  data-offline-search-index-json-src="/offline-search-index.68542c9e102dfe3dbc1fa0cd36dbdf37544dd08ed4d4f0ef270c4b464cad5e6d759128ca5d209f0295765bf4e7e8081358bc92298ba04c93126a52f0a0bf84c2.json"
   data-offline-search-base-href="/"
 >
 
@@ -971,12 +971,14 @@ X-Frp-Reqid: 用于追踪请求
 <span style="color:#c4a000">ops</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">Login</span>
 
 <span style="color:#204a87;font-weight:bold">[plugin.port-manager]</span>
-<span style="color:#c4a000">addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1:9001</span>
+<span style="color:#c4a000">addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https://127.0.0.1:9001</span>
 <span style="color:#c4a000">path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/handler</span>
 <span style="color:#c4a000">ops</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">NewProxy</span>
-</code></pre></div><p>addr: 插件监听的网络地址。
-path: 插件监听的 HTTP 请求路径。
-ops: 插件需要处理的操作列表，多个 op 以英文逗号分隔。</p>
+<span style="color:#c4a000">tls_verify</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
+</code></pre></div><p>addr: 插件监听的网络地址，支持 HTTP 和 HTTPS，默认为 HTTP。
+path: 插件监听的请求路径。
+ops: 插件需要处理的操作列表，多个 op 以英文逗号分隔。
+tls_verify: 如果是 HTTPS 协议，支持忽略 TLS 身份验证。</p>
 <h3 id="元数据">元数据</h3>
 <p>为了减少 frps 的代码修改，同时提高管理插件的扩展能力，在 frpc 的配置文件中引入自定义元数据的概念。元数据会在调用 RPC 请求时发送给插件。</p>
 <p>元数据以 <code>meta_</code> 开头，可以配置多个，元数据分为两种，一种配置在 <code>common</code> 下，一种配置在各个 <code>proxy</code> 中。</p>
@@ -996,7 +998,7 @@ meta_id = 123
 </code></pre>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 March 18, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/23d06caadf0ddca78cf4347c16a5799ef253405c">update release note (23d06ca)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 March 19, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/f1b297a37f8a6290853de9b3a4a4a06b649e6296">update docs (f1b297a)</a>
 </div>
 </div>
 
