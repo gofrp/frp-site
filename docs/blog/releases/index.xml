@@ -22,7 +22,12 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0361&#34;&gt;v0.36.1&lt;/h4&gt;
+        &lt;h4 id=&#34;v0362&#34;&gt;v0.36.2&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 config 解析的一些错误逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0361&#34;&gt;v0.36.1&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[fix] 修复 &lt;code&gt;bind_udp_port&lt;/code&gt; 绑定端口错误的问题。&lt;/li&gt;
 &lt;/ul&gt;
