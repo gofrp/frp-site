@@ -29,7 +29,7 @@ TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS �
 frpc 单向校验 frps 身份 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network-tls/" />
-<meta property="article:modified_time" content="2021-05-10T22:54:03+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-05-18T09:49:39+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
@@ -37,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc." />
 注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
 TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2021-05-10T22:54:03&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-18T09:49:39&#43;08:00" />
 <meta itemprop="wordCount" content="456">
 
 
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.65b9d9c7ec2df8e6a2c9ad70e3c2532ecfda57ad386d760d5cdb08789d0749fca715a1927184c421d53f8dddb1c70441a2c50fec17650dd9401abaea16ba18e4.json"
+  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
   data-offline-search-base-href="/"
 >
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.65b9d9c7ec2df8e6a2c9ad70e3c2532ecfda57ad386d760d5cdb08789d0749fca715a1927184c421d53f8dddb1c70441a2c50fec17650dd9401abaea16ba18e4.json"
+  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
   data-offline-search-base-href="/"
 >
 
@@ -927,7 +927,7 @@ openssl x509 -req -days 365 \
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 10, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/8a9bc9c3ae39475623b6a65fcac8b1c4cd996e68">update configures (8a9bc9c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 18, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/069074be20ace2dc94c6c57d29c6b40fed7bb5cb">Update server-configures.md (#28) (069074b)</a>
 </div>
 </div>
 

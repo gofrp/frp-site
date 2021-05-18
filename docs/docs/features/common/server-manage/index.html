@@ -29,7 +29,7 @@
 # frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-manage/" />
-<meta property="article:modified_time" content="2021-05-10T22:54:03+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-05-18T09:49:39+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allow_ports 来指定：
 # frps.ini [common] allow_ports = 2000-3000,3001,3003,4000-50000 allow_ports 可以配置允许使用的某个指定端口或者是一个范围内的所有端口，以 , 分隔，指定的范围以 - 分隔。
@@ -37,7 +37,7 @@
 例如在某些限制较严格的网络环境中，可以将 bind_port 和 vhost_https_port 都设置为 443。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。">
-<meta itemprop="dateModified" content="2021-05-10T22:54:03&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-18T09:49:39&#43;08:00" />
 <meta itemprop="wordCount" content="60">
 
 
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.65b9d9c7ec2df8e6a2c9ad70e3c2532ecfda57ad386d760d5cdb08789d0749fca715a1927184c421d53f8dddb1c70441a2c50fec17650dd9401abaea16ba18e4.json"
+  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
   data-offline-search-base-href="/"
 >
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.65b9d9c7ec2df8e6a2c9ad70e3c2532ecfda57ad386d760d5cdb08789d0749fca715a1927184c421d53f8dddb1c70441a2c50fec17650dd9401abaea16ba18e4.json"
+  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
   data-offline-search-base-href="/"
 >
 
@@ -826,7 +826,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 10, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/8a9bc9c3ae39475623b6a65fcac8b1c4cd996e68">update configures (8a9bc9c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 18, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/069074be20ace2dc94c6c57d29c6b40fed7bb5cb">Update server-configures.md (#28) (069074b)</a>
 </div>
 </div>
 

@@ -110,7 +110,7 @@
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;detailed_errors_to_client&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;bool&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;禁用服务端返回详细错误信息给客户端&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;服务端返回详细错误信息给客户端&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;true&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
