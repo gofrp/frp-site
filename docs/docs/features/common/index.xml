@@ -60,6 +60,25 @@
 export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 ./frpc -c ./frpc.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 &lt;code&gt;.Envs&lt;/code&gt; 为前缀。&lt;/p&gt;
+&lt;h3 id=&#34;配置校验&#34;&gt;配置校验&lt;/h3&gt;
+&lt;p&gt;通过执行 &lt;code&gt;frpc verify -c ./frpc.ini&lt;/code&gt; 或 &lt;code&gt;frps verify -c ./frps.ini&lt;/code&gt; 可以对配置文件中的参数进行预先校验。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;frpc: the configuration file ./frpc.ini syntax is ok
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。&lt;/p&gt;
+&lt;h3 id=&#34;配置拆分&#34;&gt;配置拆分&lt;/h3&gt;
+&lt;p&gt;通过 &lt;code&gt;includes&lt;/code&gt; 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;server_addr&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;x.x.x.x&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;server_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;7000&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;includes&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;./confd/*.ini&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ./confd/test.ini&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[ssh]&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcp&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_ip&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;127.0.0.1&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;22&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;6000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述配置在 frpc.ini 中通过 includes 额外包含了 &lt;code&gt;./confd&lt;/code&gt; 目录下所有的 ini 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。&lt;/p&gt;
+&lt;p&gt;需要注意的是 includes 指定的文件中只能包含代理配置，common 段落的配置只能放在主配置文件中。&lt;/p&gt;
 &lt;h3 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h3&gt;
 &lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 &lt;a href=&#34;/docs/reference&#34;&gt;参考&lt;/a&gt; 中查看。&lt;/p&gt;
 

@@ -34,7 +34,7 @@ frps 配置：
 # frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/configure/" />
-<meta property="article:modified_time" content="2021-05-18T09:49:39+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-06-03T01:25:42+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="配置文件">
 <meta itemprop="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
 frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
@@ -47,8 +47,8 @@ frps 配置：
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
 # frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
-<meta itemprop="dateModified" content="2021-05-18T09:49:39&#43;08:00" />
-<meta itemprop="wordCount" content="102">
+<meta itemprop="dateModified" content="2021-06-03T01:25:42&#43;08:00" />
+<meta itemprop="wordCount" content="167">
 
 
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
+  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
   data-offline-search-base-href="/"
 >
 
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.070064bc1ff12f7e88927d234ed096db24726fc57608935a4dbad2747ed8fa3dfde4bdb10fe105f8ef1d9c9d895bac138cf60bfd54b292c1276f39997474a3ab.json"
+  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
   data-offline-search-base-href="/"
 >
 
@@ -758,6 +758,8 @@ var _hmt = _hmt || [];
       <ul>
         <li><a href="#格式">格式</a></li>
         <li><a href="#模版渲染">模版渲染</a></li>
+        <li><a href="#配置校验">配置校验</a></li>
+        <li><a href="#配置拆分">配置拆分</a></li>
         <li><a href="#完整配置参数">完整配置参数</a></li>
       </ul>
     </li>
@@ -857,12 +859,31 @@ var _hmt = _hmt || [];
 export FRP_SSH_REMOTE_PORT=&quot;6000&quot;
 ./frpc -c ./frpc.ini
 </code></pre><p>frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 <code>.Envs</code> 为前缀。</p>
+<h3 id="配置校验">配置校验</h3>
+<p>通过执行 <code>frpc verify -c ./frpc.ini</code> 或 <code>frps verify -c ./frps.ini</code> 可以对配置文件中的参数进行预先校验。</p>
+<pre><code>frpc: the configuration file ./frpc.ini syntax is ok
+</code></pre><p>如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。</p>
+<h3 id="配置拆分">配置拆分</h3>
+<p>通过 <code>includes</code> 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
+<span style="color:#204a87;font-weight:bold">[common]</span>
+<span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
+<span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<span style="color:#c4a000">includes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">./confd/*.ini</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#8f5902;font-style:italic"># ./confd/test.ini</span>
+<span style="color:#204a87;font-weight:bold">[ssh]</span>
+<span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
+<span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
+<span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
+<span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
+</code></pre></div><p>上述配置在 frpc.ini 中通过 includes 额外包含了 <code>./confd</code> 目录下所有的 ini 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。</p>
+<p>需要注意的是 includes 指定的文件中只能包含代理配置，common 段落的配置只能放在主配置文件中。</p>
 <h3 id="完整配置参数">完整配置参数</h3>
 <p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="/docs/reference">参考</a> 中查看。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 May 18, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/069074be20ace2dc94c6c57d29c6b40fed7bb5cb">Update server-configures.md (#28) (069074b)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 June 3, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/6ad9db9066a818ea0b055471529c5e91b33f4b0f">update doc for v0.37.0 (6ad9db9)</a>
 </div>
 </div>
 

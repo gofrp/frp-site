@@ -22,7 +22,15 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0362&#34;&gt;v0.36.2&lt;/h4&gt;
+        &lt;h4 id=&#34;v0370&#34;&gt;v0.37.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， &lt;code&gt;frpc verify -c ./frpc.ini&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;[new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。&lt;/li&gt;
+&lt;li&gt;[new] Dashboard 支持 sudp 类型代理。&lt;/li&gt;
+&lt;li&gt;[fix] Dashboard 用户名密码默认为空。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 &lt;code&gt;protocol = kcp&lt;/code&gt; 时 &lt;code&gt;login_fail_exit&lt;/code&gt; 无效的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0362&#34;&gt;v0.36.2&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。&lt;/li&gt;
 &lt;li&gt;[fix] 修复 config 解析的一些错误逻辑。&lt;/li&gt;
