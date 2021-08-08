@@ -21,20 +21,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>v0 | frp</title><meta property="og:title" content="v0" />
-<meta property="og:description" content="v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0.36.1  [fix] 修复 bind_udp_port 绑定端口错误的问题。  v0.36.0  [new] 新增 https2https 插件。 [new] frpc 新增 tls_server_name 参数。 [improve] 增加客户端由于网络连接错误时的重试频率。 [fix] 修复 xtcp 代理某些情况下会导致程序 panic 的问题。  v0." />
+<meta property="og:description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2021-06-03T01:25:42+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-08-08T22:31:56+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
-<meta itemprop="description" content="v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0.36.1  [fix] 修复 bind_udp_port 绑定端口错误的问题。  v0.36.0  [new] 新增 https2https 插件。 [new] frpc 新增 tls_server_name 参数。 [improve] 增加客户端由于网络连接错误时的重试频率。 [fix] 修复 xtcp 代理某些情况下会导致程序 panic 的问题。  v0.">
-<meta itemprop="dateModified" content="2021-06-03T01:25:42&#43;08:00" />
-<meta itemprop="wordCount" content="1032">
+<meta itemprop="description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0.">
+<meta itemprop="dateModified" content="2021-08-08T22:31:56&#43;08:00" />
+<meta itemprop="wordCount" content="1054">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v0"/>
-<meta name="twitter:description" content="v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0.36.1  [fix] 修复 bind_udp_port 绑定端口错误的问题。  v0.36.0  [new] 新增 https2https 插件。 [new] frpc 新增 tls_server_name 参数。 [improve] 增加客户端由于网络连接错误时的重试频率。 [fix] 修复 xtcp 代理某些情况下会导致程序 panic 的问题。  v0."/>
+<meta name="twitter:description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0."/>
 
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
+  data-offline-search-index-json-src="/offline-search-index.2cf429a7b90bc43a30c6ae99d6d99f10c858c9ad648f567e51c6f95c62cba8409769aa238f00dfe9fe9899c925faee0f720a460337b5b0b8a3ee14d422cb51e4.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
+  data-offline-search-index-json-src="/offline-search-index.2cf429a7b90bc43a30c6ae99d6d99f10c858c9ad648f567e51c6f95c62cba8409769aa238f00dfe9fe9899c925faee0f720a460337b5b0b8a3ee14d422cb51e4.json"
   data-offline-search-base-href="/"
 >
 
@@ -276,7 +276,13 @@ var _hmt = _hmt || [];
 		
 		<time datetime="0001-01-01" class="text-muted">Monday, January 01, 0001</time>
 	</div>
-	<h4 id="v0370">v0.37.0</h4>
+	<h4 id="v0371">v0.37.1</h4>
+<ul>
+<li>[fix] 修复 <code>https2https</code> 不可用的问题。</li>
+<li>[fix] 修复 <code>http_proxy</code> HTTP 请求复用同一个连接会出现 context canceled 的问题。</li>
+<li>[fix] 修复某些情况下 <code>https</code> 类型 proxy 获取 server name 出错的问题。</li>
+</ul>
+<h4 id="v0370">v0.37.0</h4>
 <ul>
 <li>[new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， <code>frpc verify -c ./frpc.ini</code> 。</li>
 <li>[new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。</li>

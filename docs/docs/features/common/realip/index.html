@@ -29,7 +29,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" />
-<meta property="article:modified_time" content="2021-06-03T01:25:42+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-08-08T22:31:56+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
@@ -37,7 +37,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2021-06-03T01:25:42&#43;08:00" />
+<meta itemprop="dateModified" content="2021-08-08T22:31:56&#43;08:00" />
 <meta itemprop="wordCount" content="94">
 
 
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
+  data-offline-search-index-json-src="/offline-search-index.2cf429a7b90bc43a30c6ae99d6d99f10c858c9ad648f567e51c6f95c62cba8409769aa238f00dfe9fe9899c925faee0f720a460337b5b0b8a3ee14d422cb51e4.json"
   data-offline-search-base-href="/"
 >
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d7b770269c445cfb3b04065b077e2e5edc5ef1cd7b085773fd2d04c8283a7e3620e4bd2529c20dea75e799ce0b4e0d0d2b346892b574030f1ea2e3900a370073.json"
+  data-offline-search-index-json-src="/offline-search-index.2cf429a7b90bc43a30c6ae99d6d99f10c858c9ad648f567e51c6f95c62cba8409769aa238f00dfe9fe9899c925faee0f720a460337b5b0b8a3ee14d422cb51e4.json"
   data-offline-search-base-href="/"
 >
 
@@ -823,7 +823,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 June 3, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/6ad9db9066a818ea0b055471529c5e91b33f4b0f">update doc for v0.37.0 (6ad9db9)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 August 8, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/e4f87c45d8206ca3c36358cdffa5eafd4ee16810">update doc for v0.37.1 (e4f87c4)</a>
 </div>
 </div>
 

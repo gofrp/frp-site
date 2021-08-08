@@ -21,7 +21,13 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0370&#34;&gt;v0.37.0&lt;/h4&gt;
+        &lt;h4 id=&#34;v0371&#34;&gt;v0.37.1&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[fix] 修复 &lt;code&gt;https2https&lt;/code&gt; 不可用的问题。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 &lt;code&gt;http_proxy&lt;/code&gt; HTTP 请求复用同一个连接会出现 context canceled 的问题。&lt;/li&gt;
+&lt;li&gt;[fix] 修复某些情况下 &lt;code&gt;https&lt;/code&gt; 类型 proxy 获取 server name 出错的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0370&#34;&gt;v0.37.0&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， &lt;code&gt;frpc verify -c ./frpc.ini&lt;/code&gt; 。&lt;/li&gt;
 &lt;li&gt;[new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。&lt;/li&gt;
