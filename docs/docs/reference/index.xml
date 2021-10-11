@@ -116,7 +116,7 @@
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;heart_beat_timeout&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;heartbeat_timeout&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;int&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;服务端和客户端心跳连接的超时时间&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;90&lt;/td&gt;
