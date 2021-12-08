@@ -21,20 +21,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>v0 | frp</title><meta property="og:title" content="v0" />
-<meta property="og:description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0." />
+<meta property="og:description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2021-11-09T11:04:05+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-12-08T18:46:21+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
-<meta itemprop="description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0.">
-<meta itemprop="dateModified" content="2021-11-09T11:04:05&#43;08:00" />
-<meta itemprop="wordCount" content="1054">
+<meta itemprop="description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.">
+<meta itemprop="dateModified" content="2021-12-08T18:46:21&#43;08:00" />
+<meta itemprop="wordCount" content="1079">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v0"/>
-<meta name="twitter:description" content="v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.36.2  [improve] Dashboard 支持在增加 URL Path 前缀的反向代理后被正常访问。 [fix] 修复 config 解析的一些错误逻辑。  v0."/>
+<meta name="twitter:description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0."/>
 
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.9afcbc848662b989f3ceb732795163e5ac86ed54e96a5e516a37058edd536d5bd58245994c8e990ad4b942c24c782562717769f37fdf064f208b16d37b68b6ea.json"
+  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.9afcbc848662b989f3ceb732795163e5ac86ed54e96a5e516a37058edd536d5bd58245994c8e990ad4b942c24c782562717769f37fdf064f208b16d37b68b6ea.json"
+  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
   data-offline-search-base-href="/"
 >
 
@@ -276,7 +276,13 @@ var _hmt = _hmt || [];
 		
 		<time datetime="0001-01-01" class="text-muted">Monday, January 01, 0001</time>
 	</div>
-	<h4 id="v0371">v0.37.1</h4>
+	<h4 id="v0380">v0.38.0</h4>
+<ul>
+<li>[new] 增加 <code>/healthz</code> API。</li>
+<li>[new] frpc 增加 <code>disable_custom_tls_first_byte</code> ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。</li>
+<li>[improve] 使用标准库 embed 包替换 statik。</li>
+</ul>
+<h4 id="v0371">v0.37.1</h4>
 <ul>
 <li>[fix] 修复 <code>https2https</code> 不可用的问题。</li>
 <li>[fix] 修复 <code>http_proxy</code> HTTP 请求复用同一个连接会出现 context canceled 的问题。</li>

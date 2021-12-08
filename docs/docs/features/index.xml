@@ -121,11 +121,13 @@
 &lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcpmux&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;multiplexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;httpconnect&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test1&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;80&lt;/span&gt;
 
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[proxy2]&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;tcpmux&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;multiplexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;httpconnect&lt;/span&gt;
 &lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test2&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;8080&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过上面的配置，frps 如果接收到 HTTP CONNECT 请求内容:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;CONNECT test1 HTTP/1.1\r\n\r\n
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该连接将会被路由到 proxy1 。&lt;/p&gt;

@@ -29,7 +29,7 @@ TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS �
 frpc 单向校验 frps 身份 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network-tls/" />
-<meta property="article:modified_time" content="2021-11-09T11:04:05+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2021-12-08T18:46:21+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frpc.ini 的 common 中 tls_enable = true 时，表示开启 TLS 协议加密。
@@ -37,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc." />
 注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密
 TLS 默认开启方式 # frpc.ini [common] tls_enable = true  frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2021-11-09T11:04:05&#43;08:00" />
+<meta itemprop="dateModified" content="2021-12-08T18:46:21&#43;08:00" />
 <meta itemprop="wordCount" content="456">
 
 
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.9afcbc848662b989f3ceb732795163e5ac86ed54e96a5e516a37058edd536d5bd58245994c8e990ad4b942c24c782562717769f37fdf064f208b16d37b68b6ea.json"
+  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
   data-offline-search-base-href="/"
 >
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.9afcbc848662b989f3ceb732795163e5ac86ed54e96a5e516a37058edd536d5bd58245994c8e990ad4b942c24c782562717769f37fdf064f208b16d37b68b6ea.json"
+  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
   data-offline-search-base-href="/"
 >
 
@@ -927,7 +927,7 @@ openssl x509 -req -days 365 \
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 November 9, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/019f17aa236eb852d6bda1a019511a2a26ea44d0">add disable_custom_tls_first_byte (#37) (019f17a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 December 8, 2021: <a  href="https://github.com/gofrp/frp-doc/commit/ee31a2e32e2486dd74e507d05ce26ce4e1c9863f">update tcpmux (ee31a2e)</a>
 </div>
 </div>
 

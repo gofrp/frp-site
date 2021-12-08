@@ -22,7 +22,13 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0371&#34;&gt;v0.37.1&lt;/h4&gt;
+        &lt;h4 id=&#34;v0380&#34;&gt;v0.38.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] 增加 &lt;code&gt;/healthz&lt;/code&gt; API。&lt;/li&gt;
+&lt;li&gt;[new] frpc 增加 &lt;code&gt;disable_custom_tls_first_byte&lt;/code&gt; ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。&lt;/li&gt;
+&lt;li&gt;[improve] 使用标准库 embed 包替换 statik。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0371&#34;&gt;v0.37.1&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[fix] 修复 &lt;code&gt;https2https&lt;/code&gt; 不可用的问题。&lt;/li&gt;
 &lt;li&gt;[fix] 修复 &lt;code&gt;http_proxy&lt;/code&gt; HTTP 请求复用同一个连接会出现 context canceled 的问题。&lt;/li&gt;
