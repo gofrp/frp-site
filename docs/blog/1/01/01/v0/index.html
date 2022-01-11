@@ -24,10 +24,10 @@
 <meta property="og:description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2021-12-08T18:46:21+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-01-11T11:00:06+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
 <meta itemprop="description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.">
-<meta itemprop="dateModified" content="2021-12-08T18:46:21&#43;08:00" />
+<meta itemprop="dateModified" content="2022-01-11T11:00:06&#43;08:00" />
 <meta itemprop="wordCount" content="1079">
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
+  data-offline-search-index-json-src="/offline-search-index.14de23aefc29b7d7721323eab784ff3f0054d9f03102c5f322a02cd3d72a94a876e72bd5b870cfba008f852fb53be0310963027f3ce8612eb9d9642ca441ecfa.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.15875caf15b68412d05a6ced6aceb63f951c9441d8ec4e5be881ddae31a8068e0c74aaf2b1b0cbf4e77c72dd76288cdeb1f92d4cff116a3c3dcd1235df9f6de2.json"
+  data-offline-search-index-json-src="/offline-search-index.14de23aefc29b7d7721323eab784ff3f0054d9f03102c5f322a02cd3d72a94a876e72bd5b870cfba008f852fb53be0310963027f3ce8612eb9d9642ca441ecfa.json"
   data-offline-search-base-href="/"
 >
 
@@ -738,7 +738,7 @@ var _hmt = _hmt || [];
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The frp Authors All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 The frp Authors All Rights Reserved</small>
         
 	
 		
