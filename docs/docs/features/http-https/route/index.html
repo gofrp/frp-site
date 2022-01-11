@@ -26,12 +26,12 @@
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/route/" />
-<meta property="article:modified_time" content="2022-01-11T11:00:06+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-01-11T16:39:01+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="路由">
 <meta itemprop="description" content="URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = /news，则所有 URL 以 /news 开头的请求都会被转发到这个服务。
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。">
-<meta itemprop="dateModified" content="2022-01-11T11:00:06&#43;08:00" />
+<meta itemprop="dateModified" content="2022-01-11T16:39:01&#43;08:00" />
 <meta itemprop="wordCount" content="58">
 
 
@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.14de23aefc29b7d7721323eab784ff3f0054d9f03102c5f322a02cd3d72a94a876e72bd5b870cfba008f852fb53be0310963027f3ce8612eb9d9642ca441ecfa.json"
+  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
   data-offline-search-base-href="/"
 >
 
@@ -160,7 +160,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.14de23aefc29b7d7721323eab784ff3f0054d9f03102c5f322a02cd3d72a94a876e72bd5b870cfba008f852fb53be0310963027f3ce8612eb9d9642ca441ecfa.json"
+  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
   data-offline-search-base-href="/"
 >
 
@@ -802,7 +802,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 January 11, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/897c5971ab3cee2f156955af0256b194f93712da">Update xtcp.md (#41) (897c597)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 January 11, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/949ff947773ba60165297673d83033b3d7158d3b">update server plugin Login (949ff94)</a>
 </div>
 </div>
 

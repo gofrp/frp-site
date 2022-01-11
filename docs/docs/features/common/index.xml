@@ -694,7 +694,8 @@ X-Frp-Reqid: 用于追踪请求
         &amp;quot;privilege_key&amp;quot;: &amp;lt;string&amp;gt;,
         &amp;quot;run_id&amp;quot;: &amp;lt;string&amp;gt;,
         &amp;quot;pool_count&amp;quot;: &amp;lt;int&amp;gt;,
-        &amp;quot;metas&amp;quot;: map&amp;lt;string&amp;gt;string
+        &amp;quot;metas&amp;quot;: map&amp;lt;string&amp;gt;string,
+        &amp;quot;client_address&amp;quot;: &amp;lt;string&amp;gt;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;newproxy&#34;&gt;NewProxy&lt;/h4&gt;
