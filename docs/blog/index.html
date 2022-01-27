@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
+  data-offline-search-index-json-src="/offline-search-index.555b147edf09276b843f7eab9fccfe9770c5dc89dcfd861c4d3ad6e15bf660e5b2d74aa88899f4acce89ba94329bf3b92864ffbdea120603adbc66cc80940bcf.json"
   data-offline-search-base-href="/"
 >
 
@@ -149,7 +149,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
+  data-offline-search-index-json-src="/offline-search-index.555b147edf09276b843f7eab9fccfe9770c5dc89dcfd861c4d3ad6e15bf660e5b2d74aa88899f4acce89ba94329bf3b92864ffbdea120603adbc66cc80940bcf.json"
   data-offline-search-base-href="/"
 >
 
@@ -287,7 +287,7 @@ var _hmt = _hmt || [];
 
 
 
-					<p class="pt-0 mt-0">v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP …</p>
+					<p class="pt-0 mt-0">v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 …</p>
 					<p class="pt-0"><a href="/blog/1/01/01/v0/">更多</a></p>
 				</div>
 			</li>

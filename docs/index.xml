@@ -21,7 +21,14 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0380&#34;&gt;v0.38.0&lt;/h4&gt;
+        &lt;h4 id=&#34;v0390&#34;&gt;v0.39.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] frpc 新增 &lt;code&gt;connect_server_local_ip&lt;/code&gt; 支持指定连接 frps 时绑定指定的本地 IP。&lt;/li&gt;
+&lt;li&gt;[new] frpc 和 frps 新增 &lt;code&gt;tcp_mux_keepalive_interval&lt;/code&gt; 参数支持配置 &lt;code&gt;tcp_mux&lt;/code&gt; 的 keepalive 间隔，仅当 &lt;code&gt;tcp_mux&lt;/code&gt; 为 true 时生效。配置此参数后，可以将 &lt;code&gt;heartbeat_interval&lt;/code&gt; 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。&lt;/li&gt;
+&lt;li&gt;[improve] Server Plugin 的 Login Operation 增加 Client Address 字段。&lt;/li&gt;
+&lt;li&gt;[fix] /healthz API 移除鉴权。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0380&#34;&gt;v0.38.0&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[new] 增加 &lt;code&gt;/healthz&lt;/code&gt; API。&lt;/li&gt;
 &lt;li&gt;[new] frpc 增加 &lt;code&gt;disable_custom_tls_first_byte&lt;/code&gt; ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。&lt;/li&gt;

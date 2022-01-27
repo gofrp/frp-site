@@ -21,20 +21,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>v0 | frp</title><meta property="og:title" content="v0" />
-<meta property="og:description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0." />
+<meta property="og:description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2022-01-11T16:39:01+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-01-27T16:56:08+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
-<meta itemprop="description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0.">
-<meta itemprop="dateModified" content="2022-01-11T16:39:01&#43;08:00" />
-<meta itemprop="wordCount" content="1079">
+<meta itemprop="description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.">
+<meta itemprop="dateModified" content="2022-01-27T16:56:08&#43;08:00" />
+<meta itemprop="wordCount" content="1120">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v0"/>
-<meta name="twitter:description" content="v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.37.1  [fix] 修复 https2https 不可用的问题。 [fix] 修复 http_proxy HTTP 请求复用同一个连接会出现 context canceled 的问题。 [fix] 修复某些情况下 https 类型 proxy 获取 server name 出错的问题。  v0.37.0  [new] frpc 增加 verify 命令，检测配置文件是否有明显的错误， frpc verify -c ./frpc.ini 。 [new] frpc 配置文件支持 includes 语法，支持拆分 proxy 配置到多个文件或目录。 [new] Dashboard 支持 sudp 类型代理。 [fix] Dashboard 用户名密码默认为空。 [fix] 修复 protocol = kcp 时 login_fail_exit 无效的问题。  v0."/>
+<meta name="twitter:description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0."/>
 
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
+  data-offline-search-index-json-src="/offline-search-index.555b147edf09276b843f7eab9fccfe9770c5dc89dcfd861c4d3ad6e15bf660e5b2d74aa88899f4acce89ba94329bf3b92864ffbdea120603adbc66cc80940bcf.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.941ee502f7c6abdc52fbb6c825be89d692ae25fc8b1e1b3ee37a364b7dce0ae0b667f8224fd8672c109e3efd12ea2662ec522af7a377d5bd77b2b590dd477463.json"
+  data-offline-search-index-json-src="/offline-search-index.555b147edf09276b843f7eab9fccfe9770c5dc89dcfd861c4d3ad6e15bf660e5b2d74aa88899f4acce89ba94329bf3b92864ffbdea120603adbc66cc80940bcf.json"
   data-offline-search-base-href="/"
 >
 
@@ -276,7 +276,14 @@ var _hmt = _hmt || [];
 		
 		<time datetime="0001-01-01" class="text-muted">Monday, January 01, 0001</time>
 	</div>
-	<h4 id="v0380">v0.38.0</h4>
+	<h4 id="v0390">v0.39.0</h4>
+<ul>
+<li>[new] frpc 新增 <code>connect_server_local_ip</code> 支持指定连接 frps 时绑定指定的本地 IP。</li>
+<li>[new] frpc 和 frps 新增 <code>tcp_mux_keepalive_interval</code> 参数支持配置 <code>tcp_mux</code> 的 keepalive 间隔，仅当 <code>tcp_mux</code> 为 true 时生效。配置此参数后，可以将 <code>heartbeat_interval</code> 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。</li>
+<li>[improve] Server Plugin 的 Login Operation 增加 Client Address 字段。</li>
+<li>[fix] /healthz API 移除鉴权。</li>
+</ul>
+<h4 id="v0380">v0.38.0</h4>
 <ul>
 <li>[new] 增加 <code>/healthz</code> API。</li>
 <li>[new] frpc 增加 <code>disable_custom_tls_first_byte</code> ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。</li>
