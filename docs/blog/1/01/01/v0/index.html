@@ -21,20 +21,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>v0 | frp</title><meta property="og:title" content="v0" />
-<meta property="og:description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0." />
+<meta property="og:description" content="v0.39.1  [fix] 修复 IPv6 地址解析出错的问题。  v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/1/01/01/v0/" />
-<meta property="article:modified_time" content="2022-01-27T17:58:47+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-02-09T16:18:18+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="v0">
-<meta itemprop="description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.">
-<meta itemprop="dateModified" content="2022-01-27T17:58:47&#43;08:00" />
-<meta itemprop="wordCount" content="1120">
+<meta itemprop="description" content="v0.39.1  [fix] 修复 IPv6 地址解析出错的问题。  v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0.">
+<meta itemprop="dateModified" content="2022-02-09T16:18:18&#43;08:00" />
+<meta itemprop="wordCount" content="1125">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v0"/>
-<meta name="twitter:description" content="v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0."/>
+<meta name="twitter:description" content="v0.39.1  [fix] 修复 IPv6 地址解析出错的问题。  v0.39.0  [new] frpc 新增 connect_server_local_ip 支持指定连接 frps 时绑定指定的本地 IP。 [new] frpc 和 frps 新增 tcp_mux_keepalive_interval 参数支持配置 tcp_mux 的 keepalive 间隔，仅当 tcp_mux 为 true 时生效。配置此参数后，可以将 heartbeat_interval 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。 [improve] Server Plugin 的 Login Operation 增加 Client Address 字段。 [fix] /healthz API 移除鉴权。  v0.38.0  [new] 增加 /healthz API。 [new] frpc 增加 disable_custom_tls_first_byte ，当此参数为 true 时， frpc 通过 TLS 连接 frps 时不会发送一个自定义的字节，而是直接发送 TLS 内容。 [improve] 使用标准库 embed 包替换 statik。  v0."/>
 
 
 
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.c5ca3847d0a68b54b714a68bd0070b437619f7a250cc05ec99a2b44780277cb40ff2b19d546c7c30b86bf5a803ac99c174cbb51cc721a1098a4719f5406db003.json"
+  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
   data-offline-search-base-href="/"
 >
 
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.c5ca3847d0a68b54b714a68bd0070b437619f7a250cc05ec99a2b44780277cb40ff2b19d546c7c30b86bf5a803ac99c174cbb51cc721a1098a4719f5406db003.json"
+  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
   data-offline-search-base-href="/"
 >
 
@@ -276,7 +276,11 @@ var _hmt = _hmt || [];
 		
 		<time datetime="0001-01-01" class="text-muted">Monday, January 01, 0001</time>
 	</div>
-	<h4 id="v0390">v0.39.0</h4>
+	<h4 id="v0391">v0.39.1</h4>
+<ul>
+<li>[fix] 修复 IPv6 地址解析出错的问题。</li>
+</ul>
+<h4 id="v0390">v0.39.0</h4>
 <ul>
 <li>[new] frpc 新增 <code>connect_server_local_ip</code> 支持指定连接 frps 时绑定指定的本地 IP。</li>
 <li>[new] frpc 和 frps 新增 <code>tcp_mux_keepalive_interval</code> 参数支持配置 <code>tcp_mux</code> 的 keepalive 间隔，仅当 <code>tcp_mux</code> 为 true 时生效。配置此参数后，可以将 <code>heartbeat_interval</code> 设置为 -1，禁用应用层的心跳探测以减少流量消耗。(需要服务端也更新到最新版本)。</li>

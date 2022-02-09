@@ -30,7 +30,7 @@
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/subdomain/" />
-<meta property="article:modified_time" content="2022-01-27T17:58:47+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-02-09T16:18:18+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="自定义二级域名">
 <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
 通过在 frps 的配置文件中配置 subdomain_host，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 custom_domains，而是配置一个 subdomain 参数。
@@ -39,7 +39,7 @@
 # frpc.ini [web] type = http local_port = 80 subdomain = test frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomain_host，则 custom_domains 中不能是属于 subdomain_host 的子域名或者泛域名。
 同一个 HTTP 或 HTTPS 类型的代理中 custom_domains 和 subdomain 可以同时配置。">
-<meta itemprop="dateModified" content="2022-01-27T17:58:47&#43;08:00" />
+<meta itemprop="dateModified" content="2022-02-09T16:18:18&#43;08:00" />
 <meta itemprop="wordCount" content="77">
 
 
@@ -142,7 +142,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.c5ca3847d0a68b54b714a68bd0070b437619f7a250cc05ec99a2b44780277cb40ff2b19d546c7c30b86bf5a803ac99c174cbb51cc721a1098a4719f5406db003.json"
+  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
   data-offline-search-base-href="/"
 >
 
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.c5ca3847d0a68b54b714a68bd0070b437619f7a250cc05ec99a2b44780277cb40ff2b19d546c7c30b86bf5a803ac99c174cbb51cc721a1098a4719f5406db003.json"
+  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
   data-offline-search-base-href="/"
 >
 
@@ -813,7 +813,7 @@ var _hmt = _hmt || [];
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 January 27, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/cc7159fea3b44935183a8d43fe929939242d1afa">add new params (cc7159f)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 February 9, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/55a42a2379b53adaa866f07fe5fc3fdabca0406e">add release note (55a42a2)</a>
 </div>
 </div>
 
