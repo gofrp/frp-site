@@ -21,7 +21,15 @@
       <description>
         
         
-        &lt;h4 id=&#34;v0391&#34;&gt;v0.39.1&lt;/h4&gt;
+        &lt;h4 id=&#34;v0400&#34;&gt;v0.40.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[new] frpc 新增 &lt;code&gt;dial_server_timeout&lt;/code&gt; ，支持配置连接服务端的超时时间。&lt;/li&gt;
+&lt;li&gt;[new] OIDC 支持配置额外的 EndpointParams。&lt;/li&gt;
+&lt;li&gt;[new] ServerPlugin 新增 &lt;code&gt;CloseProxy&lt;/code&gt; 类型的 operation。&lt;/li&gt;
+&lt;li&gt;[improve] frpc 的重连时间间隔引入一些随机性。&lt;/li&gt;
+&lt;li&gt;[fix] 修复 &lt;code&gt;tls_trusted_ca_file&lt;/code&gt; 未设置时，TLS server name 没有正确设置的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;v0391&#34;&gt;v0.39.1&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;[fix] 修复 IPv6 地址解析出错的问题。&lt;/li&gt;
 &lt;/ul&gt;

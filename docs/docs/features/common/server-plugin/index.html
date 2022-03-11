@@ -32,10 +32,10 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 拒绝执行操作
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
-{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。" />
+{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-plugin/" />
-<meta property="article:modified_time" content="2022-02-09T16:18:18+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-03-11T20:00:01+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -48,9 +48,9 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 拒绝执行操作
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
-{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2022-02-09T16:18:18&#43;08:00" />
-<meta itemprop="wordCount" content="333">
+{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。">
+<meta itemprop="dateModified" content="2022-03-11T20:00:01&#43;08:00" />
+<meta itemprop="wordCount" content="357">
 
 
 
@@ -67,7 +67,7 @@ POST /handler?version=0.1.0&amp;op=Login { &quot;content&quot;: { ... // 具体�
 拒绝执行操作
 { &quot;reject&quot;: true, &quot;reject_reason&quot;: &quot;invalid user&quot; } 允许且内容不需要变动
 { &quot;reject&quot;: false, &quot;unchange&quot;: true } 允许且需要替换操作内容
-{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、Ping、NewWorkConn 和 NewUserConn。"/>
+{ &quot;unchange&quot;: &quot;false&quot;, &quot;content&quot;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。"/>
 
 
 
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
+  data-offline-search-index-json-src="/offline-search-index.fb23700f76420176aaad8be64db9b9c26522d4510851cf733227d76ad08d3b480fc5a7ef46d613461da3e399546026e39e7d57f8f09ea9d896c517b29c706b42.json"
   data-offline-search-base-href="/"
 >
 
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.3b0f6a3bb9f49a3961c6c1e23c88773075837a2d3b3f8df7fa0985502074f27d393bb126445962220e0245a9b0b08a8f00be0ad314ef025f988f24756e86d4a0.json"
+  data-offline-search-index-json-src="/offline-search-index.fb23700f76420176aaad8be64db9b9c26522d4510851cf733227d76ad08d3b480fc5a7ef46d613461da3e399546026e39e7d57f8f09ea9d896c517b29c706b42.json"
   data-offline-search-base-href="/"
 >
 
@@ -866,7 +866,7 @@ X-Frp-Reqid: 用于追踪请求
     }
 }
 </code></pre><h3 id="操作类型">操作类型</h3>
-<p>目前插件支持管理的操作类型有 <code>Login</code>、<code>NewProxy</code>、<code>Ping</code>、<code>NewWorkConn</code> 和 <code>NewUserConn</code>。</p>
+<p>目前插件支持管理的操作类型有 <code>Login</code>、<code>NewProxy</code>、<code>CloseProxy</code>、<code>Ping</code>、<code>NewWorkConn</code> 和 <code>NewUserConn</code>。</p>
 <h4 id="login">Login</h4>
 <p>用户登录操作信息</p>
 <pre><code>{
@@ -919,6 +919,19 @@ X-Frp-Reqid: 用于追踪请求
         &quot;multiplexer&quot;: &lt;string&gt;
 
         &quot;metas&quot;: map&lt;string&gt;string
+    }
+}
+</code></pre><h4 id="closeproxy">CloseProxy</h4>
+<p>代理关闭。(仅用于通知)</p>
+<p>注意: 当单个 frpc 会注册大量 proxy 时，慎重使用此接口，可能会由于连接数超限而影响服务的可用性。</p>
+<pre><code>{
+    &quot;content&quot;: {
+        &quot;user&quot;: {
+            &quot;user&quot;: &lt;string&gt;,
+            &quot;metas&quot;: map&lt;string&gt;string
+            &quot;run_id&quot;: &lt;string&gt;
+        },
+        &quot;proxy_name&quot;: &lt;string&gt;
     }
 }
 </code></pre><h4 id="ping">Ping</h4>
@@ -999,7 +1012,7 @@ meta_id = 123
 </code></pre>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最后修改 February 9, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/55a42a2379b53adaa866f07fe5fc3fdabca0406e">add release note (55a42a2)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最后修改 March 11, 2022: <a  href="https://github.com/gofrp/frp-doc/commit/628bca0a708a4a30ff39b94b9baceb0ca6c85029">add release note (628bca0)</a>
 </div>
 </div>
 

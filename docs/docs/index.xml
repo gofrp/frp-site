@@ -666,6 +666,14 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;dial_server_timeout&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;int&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;连接服务端的超时时间&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;http_proxy&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;连接服务端使用的代理地址&lt;/td&gt;
@@ -807,7 +815,7 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;向服务端发送心跳包的间隔时间&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;30&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;建议启用 tcp_mux_keepalive_interval，将此值设置为 -1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;heartbeat_timeout&lt;/td&gt;
@@ -832,6 +840,14 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;当配置了较多代理，但是只希望启用其中部分时可以通过此参数指定，默认为全部启用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;meta_xxx&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;map&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;附加元数据&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;会传递给服务端插件，提供附加能力&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -911,6 +927,14 @@ export FRP_SSH_REMOTE_PORT=&amp;quot;6000&amp;quot;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;oidc_additional_xxx&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;map&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;OIDC 附加参数&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;map 结构，key 需要以 &lt;code&gt;oidc_additional_&lt;/code&gt; 开头&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2603,7 +2627,7 @@ X-Frp-Reqid: 用于追踪请求
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;操作类型&#34;&gt;操作类型&lt;/h3&gt;
-&lt;p&gt;目前插件支持管理的操作类型有 &lt;code&gt;Login&lt;/code&gt;、&lt;code&gt;NewProxy&lt;/code&gt;、&lt;code&gt;Ping&lt;/code&gt;、&lt;code&gt;NewWorkConn&lt;/code&gt; 和 &lt;code&gt;NewUserConn&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;目前插件支持管理的操作类型有 &lt;code&gt;Login&lt;/code&gt;、&lt;code&gt;NewProxy&lt;/code&gt;、&lt;code&gt;CloseProxy&lt;/code&gt;、&lt;code&gt;Ping&lt;/code&gt;、&lt;code&gt;NewWorkConn&lt;/code&gt; 和 &lt;code&gt;NewUserConn&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&#34;login&#34;&gt;Login&lt;/h4&gt;
 &lt;p&gt;用户登录操作信息&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
@@ -2656,6 +2680,19 @@ X-Frp-Reqid: 用于追踪请求
         &amp;quot;multiplexer&amp;quot;: &amp;lt;string&amp;gt;
 
         &amp;quot;metas&amp;quot;: map&amp;lt;string&amp;gt;string
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;closeproxy&#34;&gt;CloseProxy&lt;/h4&gt;
+&lt;p&gt;代理关闭。(仅用于通知)&lt;/p&gt;
+&lt;p&gt;注意: 当单个 frpc 会注册大量 proxy 时，慎重使用此接口，可能会由于连接数超限而影响服务的可用性。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;content&amp;quot;: {
+        &amp;quot;user&amp;quot;: {
+            &amp;quot;user&amp;quot;: &amp;lt;string&amp;gt;,
+            &amp;quot;metas&amp;quot;: map&amp;lt;string&amp;gt;string
+            &amp;quot;run_id&amp;quot;: &amp;lt;string&amp;gt;
+        },
+        &amp;quot;proxy_name&amp;quot;: &amp;lt;string&amp;gt;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;ping&#34;&gt;Ping&lt;/h4&gt;
