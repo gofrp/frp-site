@@ -22,7 +22,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
+        &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -173,7 +173,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;权限验证&#34;&gt;权限验证&lt;/h3&gt;
+&lt;h2 id=&#34;权限验证&#34;&gt;权限验证&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -252,7 +252,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;管理配置&#34;&gt;管理配置&lt;/h3&gt;
+&lt;h2 id=&#34;管理配置&#34;&gt;管理配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -299,7 +299,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;dashboard-监控&#34;&gt;Dashboard, 监控&lt;/h3&gt;
+&lt;h2 id=&#34;dashboard-监控&#34;&gt;Dashboard, 监控&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -362,7 +362,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;http--https&#34;&gt;HTTP &amp;amp; HTTPS&lt;/h3&gt;
+&lt;h2 id=&#34;http--https&#34;&gt;HTTP &amp;amp; HTTPS&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -417,7 +417,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;tcpmux&#34;&gt;TCPMUX&lt;/h3&gt;
+&lt;h2 id=&#34;tcpmux&#34;&gt;TCPMUX&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -453,7 +453,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
+        &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -676,7 +676,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;权限验证&#34;&gt;权限验证&lt;/h3&gt;
+&lt;h2 id=&#34;权限验证&#34;&gt;权限验证&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -763,7 +763,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;ui&#34;&gt;UI&lt;/h3&gt;
+&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -831,9 +831,9 @@
       <description>
         
         
-        &lt;h3 id=&#34;通用配置&#34;&gt;通用配置&lt;/h3&gt;
+        &lt;h2 id=&#34;通用配置&#34;&gt;通用配置&lt;/h2&gt;
 &lt;p&gt;通用配置是指不同类型的代理共同使用的一些配置参数。&lt;/p&gt;
-&lt;h4 id=&#34;基础配置&#34;&gt;基础配置&lt;/h4&gt;
+&lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -894,7 +894,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h4&gt;
+&lt;h3 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;local_ip&lt;/code&gt; 和 &lt;code&gt;plugin&lt;/code&gt; 的配置必须配置一个，且只能生效一个，如果配置了 &lt;code&gt;plugin&lt;/code&gt;，则 &lt;code&gt;local_ip&lt;/code&gt; 配置无效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -947,7 +947,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;负载均衡和健康检查&#34;&gt;负载均衡和健康检查&lt;/h4&gt;
+&lt;h3 id=&#34;负载均衡和健康检查&#34;&gt;负载均衡和健康检查&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1026,7 +1026,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;tcp&#34;&gt;TCP&lt;/h3&gt;
+&lt;h2 id=&#34;tcp&#34;&gt;TCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1051,7 +1051,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;udp&#34;&gt;UDP&lt;/h3&gt;
+&lt;h2 id=&#34;udp&#34;&gt;UDP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1076,7 +1076,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
+&lt;h2 id=&#34;http&#34;&gt;HTTP&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;subdomain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1156,7 +1156,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;https&#34;&gt;HTTPS&lt;/h3&gt;
+&lt;h2 id=&#34;https&#34;&gt;HTTPS&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;subdomain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1191,7 +1191,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;stcp&#34;&gt;STCP&lt;/h3&gt;
+&lt;h2 id=&#34;stcp&#34;&gt;STCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1225,7 +1225,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;sudp&#34;&gt;SUDP&lt;/h3&gt;
+&lt;h2 id=&#34;sudp&#34;&gt;SUDP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1259,7 +1259,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;xtcp&#34;&gt;XTCP&lt;/h3&gt;
+&lt;h2 id=&#34;xtcp&#34;&gt;XTCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;

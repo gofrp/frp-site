@@ -22,7 +22,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;修改-host-header&#34;&gt;修改 Host Header&lt;/h3&gt;
+        &lt;h2 id=&#34;修改-host-header&#34;&gt;修改 Host Header&lt;/h2&gt;
 &lt;p&gt;通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[web]&lt;/span&gt;
@@ -31,7 +31,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test.yourdomain.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;host_header_rewrite&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;dev.yourdomain.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原来 HTTP 请求中的 Host 字段 &lt;code&gt;test.yourdomain.com&lt;/code&gt; 转发到后端服务时会被替换为 &lt;code&gt;dev.yourdomain.com&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;设置普通-header&#34;&gt;设置普通 Header&lt;/h3&gt;
+&lt;h2 id=&#34;设置普通-header&#34;&gt;设置普通 Header&lt;/h2&gt;
 &lt;p&gt;对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[web]&lt;/span&gt;
@@ -106,7 +106,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;url-路由&#34;&gt;URL 路由&lt;/h3&gt;
+        &lt;h2 id=&#34;url-路由&#34;&gt;URL 路由&lt;/h2&gt;
 &lt;p&gt;frp 支持根据请求的 URL 路径路由转发到不同的后端服务。&lt;/p&gt;
 &lt;p&gt;通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 &lt;code&gt;locations = /news&lt;/code&gt;，则所有 URL 以 &lt;code&gt;/news&lt;/code&gt; 开头的请求都会被转发到这个服务。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;

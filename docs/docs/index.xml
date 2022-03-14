@@ -22,7 +22,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
+        &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -173,7 +173,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;权限验证&#34;&gt;权限验证&lt;/h3&gt;
+&lt;h2 id=&#34;权限验证&#34;&gt;权限验证&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -252,7 +252,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;管理配置&#34;&gt;管理配置&lt;/h3&gt;
+&lt;h2 id=&#34;管理配置&#34;&gt;管理配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -299,7 +299,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;dashboard-监控&#34;&gt;Dashboard, 监控&lt;/h3&gt;
+&lt;h2 id=&#34;dashboard-监控&#34;&gt;Dashboard, 监控&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -362,7 +362,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;http--https&#34;&gt;HTTP &amp;amp; HTTPS&lt;/h3&gt;
+&lt;h2 id=&#34;http--https&#34;&gt;HTTP &amp;amp; HTTPS&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -417,7 +417,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;tcpmux&#34;&gt;TCPMUX&lt;/h3&gt;
+&lt;h2 id=&#34;tcpmux&#34;&gt;TCPMUX&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -453,7 +453,7 @@
       <description>
         
         
-        &lt;h3 id=&#34;加密与压缩&#34;&gt;加密与压缩&lt;/h3&gt;
+        &lt;h2 id=&#34;加密与压缩&#34;&gt;加密与压缩&lt;/h2&gt;
 &lt;p&gt;每一个代理都可以选择是否启用加密和压缩的功能。&lt;/p&gt;
 &lt;p&gt;加密算法采用 aes-128-cfb，压缩算法采用 snappy。&lt;/p&gt;
 &lt;p&gt;在每一个代理的配置中使用如下参数指定：&lt;/p&gt;
@@ -466,13 +466,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;use_compression&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过设置 &lt;code&gt;use_encryption = true&lt;/code&gt;，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。&lt;/p&gt;
 &lt;p&gt;如果传输的报文长度较长，通过设置 &lt;code&gt;use_compression = true&lt;/code&gt; 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。&lt;/p&gt;
-&lt;h3 id=&#34;tcp-多路复用&#34;&gt;TCP 多路复用&lt;/h3&gt;
+&lt;h2 id=&#34;tcp-多路复用&#34;&gt;TCP 多路复用&lt;/h2&gt;
 &lt;p&gt;客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。&lt;/p&gt;
 &lt;p&gt;该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini 和 frpc.ini 中&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tcp_mux&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;连接池&#34;&gt;连接池&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;连接池&#34;&gt;连接池&lt;/h2&gt;
 &lt;p&gt;默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。&lt;/p&gt;
 &lt;p&gt;这一功能适合有大量短连接请求时开启。&lt;/p&gt;
 &lt;ol&gt;
@@ -489,7 +489,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;pool_count&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;支持-kcp-协议&#34;&gt;支持 KCP 协议&lt;/h3&gt;
+&lt;h2 id=&#34;支持-kcp-协议&#34;&gt;支持 KCP 协议&lt;/h2&gt;
 &lt;p&gt;底层通信协议支持选择 KCP 协议，相比于 TCP，在弱网环境下传输效率提升明显，但是会有一些额外的流量消耗。&lt;/p&gt;
 &lt;p&gt;开启 KCP 协议支持：&lt;/p&gt;
 &lt;ol&gt;
@@ -526,7 +526,7 @@
         
         &lt;p&gt;frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。&lt;/p&gt;
 &lt;p&gt;frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。&lt;/p&gt;
-&lt;h3 id=&#34;格式&#34;&gt;格式&lt;/h3&gt;
+&lt;h2 id=&#34;格式&#34;&gt;格式&lt;/h2&gt;
 &lt;p&gt;目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。&lt;/p&gt;
 &lt;p&gt;frps 配置：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
@@ -544,7 +544,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;[common]&lt;/code&gt; 是固定名称的段落，用于配置通用参数。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;[ssh]&lt;/code&gt; 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。&lt;/p&gt;
 &lt;p&gt;同一个客户端可以配置多个代理。&lt;/p&gt;
-&lt;h3 id=&#34;模版渲染&#34;&gt;模版渲染&lt;/h3&gt;
+&lt;h2 id=&#34;模版渲染&#34;&gt;模版渲染&lt;/h2&gt;
 &lt;p&gt;配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。&lt;/p&gt;
 &lt;p&gt;示例配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
@@ -562,11 +562,11 @@
 export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 ./frpc -c ./frpc.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 &lt;code&gt;.Envs&lt;/code&gt; 为前缀。&lt;/p&gt;
-&lt;h3 id=&#34;配置校验&#34;&gt;配置校验&lt;/h3&gt;
+&lt;h2 id=&#34;配置校验&#34;&gt;配置校验&lt;/h2&gt;
 &lt;p&gt;通过执行 &lt;code&gt;frpc verify -c ./frpc.ini&lt;/code&gt; 或 &lt;code&gt;frps verify -c ./frps.ini&lt;/code&gt; 可以对配置文件中的参数进行预先校验。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;frpc: the configuration file ./frpc.ini syntax is ok
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。&lt;/p&gt;
-&lt;h3 id=&#34;配置拆分&#34;&gt;配置拆分&lt;/h3&gt;
+&lt;h2 id=&#34;配置拆分&#34;&gt;配置拆分&lt;/h2&gt;
 &lt;p&gt;通过 &lt;code&gt;includes&lt;/code&gt; 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
@@ -581,7 +581,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;6000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述配置在 frpc.ini 中通过 includes 额外包含了 &lt;code&gt;./confd&lt;/code&gt; 目录下所有的 ini 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。&lt;/p&gt;
 &lt;p&gt;需要注意的是 includes 指定的文件中只能包含代理配置，common 段落的配置只能放在主配置文件中。&lt;/p&gt;
-&lt;h3 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h3&gt;
+&lt;h2 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h2&gt;
 &lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 &lt;a href=&#34;/docs/reference&#34;&gt;参考&lt;/a&gt; 中查看。&lt;/p&gt;
 
       </description>
@@ -596,7 +596,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
       <description>
         
         
-        &lt;h3 id=&#34;修改-host-header&#34;&gt;修改 Host Header&lt;/h3&gt;
+        &lt;h2 id=&#34;修改-host-header&#34;&gt;修改 Host Header&lt;/h2&gt;
 &lt;p&gt;通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[web]&lt;/span&gt;
@@ -605,7 +605,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;custom_domains&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;test.yourdomain.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;host_header_rewrite&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;dev.yourdomain.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原来 HTTP 请求中的 Host 字段 &lt;code&gt;test.yourdomain.com&lt;/code&gt; 转发到后端服务时会被替换为 &lt;code&gt;dev.yourdomain.com&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;设置普通-header&#34;&gt;设置普通 Header&lt;/h3&gt;
+&lt;h2 id=&#34;设置普通-header&#34;&gt;设置普通 Header&lt;/h2&gt;
 &lt;p&gt;对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[web]&lt;/span&gt;
@@ -628,7 +628,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
       <description>
         
         
-        &lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
+        &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -851,7 +851,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;权限验证&#34;&gt;权限验证&lt;/h3&gt;
+&lt;h2 id=&#34;权限验证&#34;&gt;权限验证&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -938,7 +938,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;ui&#34;&gt;UI&lt;/h3&gt;
+&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1007,10 +1007,10 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
         
         
         &lt;p&gt;目前 frps 服务端支持内存和 Prometheus 两种监控系统。&lt;/p&gt;
-&lt;h3 id=&#34;内存&#34;&gt;内存&lt;/h3&gt;
+&lt;h2 id=&#34;内存&#34;&gt;内存&lt;/h2&gt;
 &lt;p&gt;内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。&lt;/p&gt;
 &lt;p&gt;内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。&lt;/p&gt;
-&lt;h3 id=&#34;prometheus&#34;&gt;Prometheus&lt;/h3&gt;
+&lt;h2 id=&#34;prometheus&#34;&gt;Prometheus&lt;/h2&gt;
 &lt;p&gt;由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。&lt;/p&gt;
 &lt;p&gt;在 frps.ini 中启用 Dashboard，并设置 &lt;code&gt;enable_prometheus = true&lt;/code&gt;，则通过 &lt;code&gt;http://{dashboard_addr}/metrics&lt;/code&gt; 可以获取到 Prometheus 的监控数据。&lt;/p&gt;
 
@@ -1030,12 +1030,12 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;p&gt;当 &lt;code&gt;frpc.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_enable = true&lt;/code&gt; 时，表示开启 TLS 协议加密。&lt;/p&gt;
 &lt;p&gt;当 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_only = true&lt;/code&gt; 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_trusted_ca_file&lt;/code&gt; 内容是有效的话，那么默认就会开启 &lt;code&gt;tls_only = true&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;tls-默认开启方式&#34;&gt;TLS 默认开启方式&lt;/h3&gt;
+&lt;h2 id=&#34;tls-默认开启方式&#34;&gt;TLS 默认开启方式&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true &lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。&lt;/p&gt;
-&lt;h3 id=&#34;frpc-单向校验-frps-身份&#34;&gt;frpc 单向校验 frps 身份&lt;/h3&gt;
+&lt;h2 id=&#34;frpc-单向校验-frps-身份&#34;&gt;frpc 单向校验 frps 身份&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
@@ -1048,7 +1048,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frpc 需要额外加载 ca 证书，frps 需要额外指定 TLS 配置。frpc 通过 ca 证书单向验证 frps
 的身份。这就要求 frps 的 &lt;code&gt;server.crt&lt;/code&gt; 对 frpc 的 ca 是合法的。&lt;/p&gt;
 &lt;p&gt;合法: 如果证书是 ca 签发的，或者证书是在 ca 的信任链中，那即认为: 该证书对 ca 而言是合法的。&lt;/p&gt;
-&lt;h3 id=&#34;frps-单向验证-frpc-的身份&#34;&gt;frps 单向验证 frpc 的身份&lt;/h3&gt;
+&lt;h2 id=&#34;frps-单向验证-frpc-的身份&#34;&gt;frps 单向验证 frpc 的身份&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
@@ -1059,7 +1059,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_trusted_ca_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/ca/path/ca.crt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frpc 需要额外加载 TLS 配置，frps 需要额外加载 ca 证书。frps 通过 ca 证书单向验证 frpc 的身份。这就要求 frpc 的 &lt;code&gt;client.crt&lt;/code&gt; 对 frps 的 ca 是合法的。&lt;/p&gt;
-&lt;h3 id=&#34;双向验证&#34;&gt;双向验证&lt;/h3&gt;
+&lt;h2 id=&#34;双向验证&#34;&gt;双向验证&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
@@ -1073,7 +1073,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_key_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/key/path/server.key&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_trusted_ca_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/ca/path/ca.crt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;双向验证即 frpc 和 frps 通过本地 ca 证书去验证对方的身份。理论上 frpc 和 frps 的 ca 证书可以不同，只要能验证对方身份即可。&lt;/p&gt;
-&lt;h3 id=&#34;openssl-生成证书示例&#34;&gt;OpenSSL 生成证书示例&lt;/h3&gt;
+&lt;h2 id=&#34;openssl-生成证书示例&#34;&gt;OpenSSL 生成证书示例&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;如果出现上述报错，是因为 go 1.15 版本开始&lt;a href=&#34;https://golang.org/doc/go1.15#commonname&#34;&gt;废弃 CommonName&lt;/a&gt;，因此推荐使用 SAN 证书。
 如果想兼容之前的方式，需要设置环境变量 &lt;strong&gt;GODEBUG&lt;/strong&gt; 为 &lt;code&gt;x509ignoreCN=0&lt;/code&gt;。&lt;/p&gt;
@@ -1188,9 +1188,9 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;通用配置&#34;&gt;通用配置&lt;/h3&gt;
+        &lt;h2 id=&#34;通用配置&#34;&gt;通用配置&lt;/h2&gt;
 &lt;p&gt;通用配置是指不同类型的代理共同使用的一些配置参数。&lt;/p&gt;
-&lt;h4 id=&#34;基础配置&#34;&gt;基础配置&lt;/h4&gt;
+&lt;h3 id=&#34;基础配置&#34;&gt;基础配置&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1251,7 +1251,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h4&gt;
+&lt;h3 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;local_ip&lt;/code&gt; 和 &lt;code&gt;plugin&lt;/code&gt; 的配置必须配置一个，且只能生效一个，如果配置了 &lt;code&gt;plugin&lt;/code&gt;，则 &lt;code&gt;local_ip&lt;/code&gt; 配置无效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1304,7 +1304,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;负载均衡和健康检查&#34;&gt;负载均衡和健康检查&lt;/h4&gt;
+&lt;h3 id=&#34;负载均衡和健康检查&#34;&gt;负载均衡和健康检查&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1383,7 +1383,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;tcp&#34;&gt;TCP&lt;/h3&gt;
+&lt;h2 id=&#34;tcp&#34;&gt;TCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1408,7 +1408,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;udp&#34;&gt;UDP&lt;/h3&gt;
+&lt;h2 id=&#34;udp&#34;&gt;UDP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1433,7 +1433,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
+&lt;h2 id=&#34;http&#34;&gt;HTTP&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;subdomain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1513,7 +1513,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;https&#34;&gt;HTTPS&lt;/h3&gt;
+&lt;h2 id=&#34;https&#34;&gt;HTTPS&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;custom_domains&lt;/code&gt; 和 &lt;code&gt;subdomain&lt;/code&gt; 必须要配置其中一个，两者可以同时生效。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1548,7 +1548,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;stcp&#34;&gt;STCP&lt;/h3&gt;
+&lt;h2 id=&#34;stcp&#34;&gt;STCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1582,7 +1582,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;sudp&#34;&gt;SUDP&lt;/h3&gt;
+&lt;h2 id=&#34;sudp&#34;&gt;SUDP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1616,7 +1616,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;xtcp&#34;&gt;XTCP&lt;/h3&gt;
+&lt;h2 id=&#34;xtcp&#34;&gt;XTCP&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1690,9 +1690,9 @@ openssl x509 -req -days 365 \
         &lt;p&gt;目前 frpc 和 frps 之间支持两种身份验证方式，&lt;code&gt;token&lt;/code&gt; 和 &lt;code&gt;oidc&lt;/code&gt;，默认为 &lt;code&gt;token&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;通过 &lt;code&gt;frpc.ini&lt;/code&gt; 和 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;[common]&lt;/code&gt; 段落中配置 &lt;code&gt;authentication_method&lt;/code&gt; 来指定要使用的身份验证方式。&lt;/p&gt;
 &lt;p&gt;只有通过身份验证的客户端(frpc)才能成功连接 frps。&lt;/p&gt;
-&lt;h3 id=&#34;token&#34;&gt;Token&lt;/h3&gt;
+&lt;h2 id=&#34;token&#34;&gt;Token&lt;/h2&gt;
 &lt;p&gt;基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 &lt;code&gt;[common]&lt;/code&gt; 段落中配置上相同的 &lt;code&gt;token&lt;/code&gt; 参数即可。&lt;/p&gt;
-&lt;h3 id=&#34;oidc&#34;&gt;OIDC&lt;/h3&gt;
+&lt;h2 id=&#34;oidc&#34;&gt;OIDC&lt;/h2&gt;
 &lt;p&gt;OIDC 是 &lt;code&gt;OpenID Connect&lt;/code&gt; 的简称，验证流程参考 &lt;a href=&#34;https://tools.ietf.org/html/rfc6749#section-4.4&#34;&gt;Client Credentials Grant&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;启用这一验证方式，参考配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini&lt;/span&gt;
@@ -1707,7 +1707,7 @@ openssl x509 -req -days 365 \
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;oidc_client_secret&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;oidc_secret&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;oidc_audience&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;https://oidc-audience.com/.default&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;oidc_token_endpoint_url&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;https://example-oidc-endpoint.com/oauth2/v2.0/token&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;参数说明&#34;&gt;参数说明&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;参数说明&#34;&gt;参数说明&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1791,7 +1791,7 @@ openssl x509 -req -days 365 \
         
         
         &lt;p&gt;目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。&lt;/p&gt;
-&lt;h3 id=&#34;服务端-dashboard&#34;&gt;服务端 Dashboard&lt;/h3&gt;
+&lt;h2 id=&#34;服务端-dashboard&#34;&gt;服务端 Dashboard&lt;/h2&gt;
 &lt;p&gt;服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：&lt;/p&gt;
@@ -1802,7 +1802,7 @@ openssl x509 -req -days 365 \
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;dashboard_user&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;admin&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;dashboard_pwd&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;admin&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开浏览器通过 &lt;code&gt;http://[server_addr]:7500&lt;/code&gt; 访问 Dashboard 界面，输入用户名密码 &lt;code&gt;admin&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;客户端管理界面&#34;&gt;客户端管理界面&lt;/h3&gt;
+&lt;h2 id=&#34;客户端管理界面&#34;&gt;客户端管理界面&lt;/h2&gt;
 &lt;p&gt;frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。&lt;/p&gt;
 &lt;p&gt;需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
@@ -1900,7 +1900,7 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;url-路由&#34;&gt;URL 路由&lt;/h3&gt;
+        &lt;h2 id=&#34;url-路由&#34;&gt;URL 路由&lt;/h2&gt;
 &lt;p&gt;frp 支持根据请求的 URL 路径路由转发到不同的后端服务。&lt;/p&gt;
 &lt;p&gt;通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 &lt;code&gt;locations = /news&lt;/code&gt;，则所有 URL 以 &lt;code&gt;/news&lt;/code&gt; 开头的请求都会被转发到这个服务。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
@@ -2012,7 +2012,7 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;负载均衡&#34;&gt;负载均衡&lt;/h3&gt;
+        &lt;h2 id=&#34;负载均衡&#34;&gt;负载均衡&lt;/h2&gt;
 &lt;p&gt;可以将多个相同类型的代理加入到同一个 &lt;code&gt;group&lt;/code&gt; 中，从而实现负载均衡的能力。&lt;/p&gt;
 &lt;p&gt;目前支持的代理类型：&lt;code&gt;tcp&lt;/code&gt;, &lt;code&gt;http&lt;/code&gt;, &lt;code&gt;tcpmux&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
@@ -2032,7 +2032,7 @@ openssl x509 -req -days 365 \
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;用户连接 frps 服务器的 80 端口，frps 会将接收到的用户连接随机分发给其中一个存活的 proxy。这样可以在一台 frpc 机器挂掉后仍然有其他节点能够提供服务。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;tcp&lt;/code&gt; 类型代理要求 &lt;code&gt;group_key&lt;/code&gt; 相同，做权限验证，且 &lt;code&gt;remote_port&lt;/code&gt; 相同。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;http&lt;/code&gt; 类型代理要求 &lt;code&gt;group_key&lt;/code&gt;, &lt;code&gt;custom_domains&lt;/code&gt; 或 &lt;code&gt;subdomain&lt;/code&gt; 和 &lt;code&gt;locations&lt;/code&gt; 相同。&lt;/p&gt;
-&lt;h3 id=&#34;健康检查&#34;&gt;健康检查&lt;/h3&gt;
+&lt;h2 id=&#34;健康检查&#34;&gt;健康检查&lt;/h2&gt;
 &lt;p&gt;通过给代理配置健康检查的参数，可以在要反向代理的服务出现故障时，将这个服务从 frps 中摘除，搭配负载均衡的功能，可以用来实现高可用的架构，避免服务单点故障。&lt;/p&gt;
 &lt;p&gt;在每一个 proxy 的配置下加上 &lt;code&gt;health_check_type = {type}&lt;/code&gt; 来启用健康检查功能。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;type&lt;/code&gt; 目前可选 &lt;code&gt;tcp&lt;/code&gt; 和 &lt;code&gt;http&lt;/code&gt;。&lt;/p&gt;
@@ -2123,9 +2123,9 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;http-x-forwarded-for&#34;&gt;HTTP X-Forwarded-For&lt;/h3&gt;
+        &lt;h2 id=&#34;http-x-forwarded-for&#34;&gt;HTTP X-Forwarded-For&lt;/h2&gt;
 &lt;p&gt;目前只有 &lt;code&gt;HTTP&lt;/code&gt; 类型的代理支持这一功能，可以通过用户请求的 header 中的 &lt;code&gt;X-Forwarded-For&lt;/code&gt; 来获取用户真实 IP，默认启用。&lt;/p&gt;
-&lt;h3 id=&#34;proxy-protocol&#34;&gt;Proxy Protocol&lt;/h3&gt;
+&lt;h2 id=&#34;proxy-protocol&#34;&gt;Proxy Protocol&lt;/h2&gt;
 &lt;p&gt;frp 支持通过 &lt;code&gt;Proxy Protocol&lt;/code&gt; 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Proxy Protocol&lt;/code&gt; 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 &lt;code&gt;Proxy Protocol&lt;/code&gt; 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&lt;/p&gt;
 &lt;p&gt;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 &lt;code&gt;Proxy Protocol&lt;/code&gt; 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&lt;/p&gt;
@@ -2232,7 +2232,7 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;热加载配置文件&#34;&gt;热加载配置文件&lt;/h3&gt;
+        &lt;h2 id=&#34;热加载配置文件&#34;&gt;热加载配置文件&lt;/h2&gt;
 &lt;p&gt;当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。&lt;/p&gt;
 &lt;p&gt;启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
@@ -2243,9 +2243,9 @@ openssl x509 -req -days 365 \
 &lt;p&gt;&lt;code&gt;frpc reload -c ./frpc.ini&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。&lt;/p&gt;
 &lt;p&gt;需要注意的是，[common] 中的参数除了 start 外目前无法被修改。&lt;/p&gt;
-&lt;h3 id=&#34;命令行查看代理状态&#34;&gt;命令行查看代理状态&lt;/h3&gt;
+&lt;h2 id=&#34;命令行查看代理状态&#34;&gt;命令行查看代理状态&lt;/h2&gt;
 &lt;p&gt;frpc 支持通过 &lt;code&gt;frpc status -c ./frpc.ini&lt;/code&gt; 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。&lt;/p&gt;
-&lt;h3 id=&#34;通过代理连接-frps&#34;&gt;通过代理连接 frps&lt;/h3&gt;
+&lt;h2 id=&#34;通过代理连接-frps&#34;&gt;通过代理连接 frps&lt;/h2&gt;
 &lt;p&gt;在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。&lt;/p&gt;
 &lt;p&gt;可以通过设置 &lt;code&gt;HTTP_PROXY&lt;/code&gt; 系统环境变量或者通过在 frpc 的配置文件中设置 &lt;code&gt;http_proxy&lt;/code&gt; 参数来使用此功能。&lt;/p&gt;
 &lt;p&gt;仅在 &lt;code&gt;protocol = tcp&lt;/code&gt; 时生效。&lt;/p&gt;
@@ -2326,17 +2326,17 @@ openssl x509 -req -days 365 \
       <description>
         
         
-        &lt;h3 id=&#34;端口白名单&#34;&gt;端口白名单&lt;/h3&gt;
+        &lt;h2 id=&#34;端口白名单&#34;&gt;端口白名单&lt;/h2&gt;
 &lt;p&gt;为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 &lt;code&gt;allow_ports&lt;/code&gt; 来指定：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;allow_ports&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;2000-3000,3001,3003,4000-50000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;allow_ports&lt;/code&gt; 可以配置允许使用的某个指定端口或者是一个范围内的所有端口，以 &lt;code&gt;,&lt;/code&gt; 分隔，指定的范围以 &lt;code&gt;-&lt;/code&gt; 分隔。&lt;/p&gt;
-&lt;h3 id=&#34;端口复用&#34;&gt;端口复用&lt;/h3&gt;
+&lt;h2 id=&#34;端口复用&#34;&gt;端口复用&lt;/h2&gt;
 &lt;p&gt;目前 frps 中的 &lt;code&gt;vhost_http_port&lt;/code&gt; 和 &lt;code&gt;vhost_https_port&lt;/code&gt; 支持配置成和 &lt;code&gt;bind_port&lt;/code&gt; 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。&lt;/p&gt;
 &lt;p&gt;例如在某些限制较严格的网络环境中，可以将 &lt;code&gt;bind_port&lt;/code&gt; 和 &lt;code&gt;vhost_https_port&lt;/code&gt; 都设置为 443。&lt;/p&gt;
-&lt;h3 id=&#34;限速&#34;&gt;限速&lt;/h3&gt;
-&lt;h4 id=&#34;代理限速&#34;&gt;代理限速&lt;/h4&gt;
+&lt;h2 id=&#34;限速&#34;&gt;限速&lt;/h2&gt;
+&lt;h3 id=&#34;代理限速&#34;&gt;代理限速&lt;/h3&gt;
 &lt;p&gt;目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[ssh]&lt;/span&gt;
@@ -2371,7 +2371,7 @@ openssl x509 -req -days 365 \
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;plugin_http_user&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;abc&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;plugin_http_passwd&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;abc&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;plugin_http_user&lt;/code&gt; 和 &lt;code&gt;plugin_http_passwd&lt;/code&gt; 即为 &lt;code&gt;http_proxy&lt;/code&gt; 插件可选的配置参数。&lt;/p&gt;
-&lt;h3 id=&#34;http_proxy&#34;&gt;http_proxy&lt;/h3&gt;
+&lt;h2 id=&#34;http_proxy&#34;&gt;http_proxy&lt;/h2&gt;
 &lt;p&gt;HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2394,7 +2394,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;socks5&#34;&gt;socks5&lt;/h3&gt;
+&lt;h2 id=&#34;socks5&#34;&gt;socks5&lt;/h2&gt;
 &lt;p&gt;SOCKS5 代理。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2417,7 +2417,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;static_file&#34;&gt;static_file&lt;/h3&gt;
+&lt;h2 id=&#34;static_file&#34;&gt;static_file&lt;/h2&gt;
 &lt;p&gt;静态文件浏览服务，通过暴露一个简单的 HTTP 服务查看指定的目录下的文件。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2450,7 +2450,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;unix_domain_socket&#34;&gt;unix_domain_socket&lt;/h3&gt;
+&lt;h2 id=&#34;unix_domain_socket&#34;&gt;unix_domain_socket&lt;/h2&gt;
 &lt;p&gt;代理本地 Unix 域套接字的服务。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2468,7 +2468,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;http2https&#34;&gt;http2https&lt;/h3&gt;
+&lt;h2 id=&#34;http2https&#34;&gt;http2https&lt;/h2&gt;
 &lt;p&gt;将本地的 HTTPS 服务以 HTTP 的形式暴露出去。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2496,7 +2496,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;https2http&#34;&gt;https2http&lt;/h3&gt;
+&lt;h2 id=&#34;https2http&#34;&gt;https2http&lt;/h2&gt;
 &lt;p&gt;将本地的 HTTP 服务以 HTTPS 的形式暴露出去。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2534,7 +2534,7 @@ openssl x509 -req -days 365 \
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;https2https&#34;&gt;https2https&lt;/h3&gt;
+&lt;h2 id=&#34;https2https&#34;&gt;https2https&lt;/h2&gt;
 &lt;p&gt;将本地的 HTTPS 服务以 HTTPS 的形式暴露出去。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -2588,14 +2588,14 @@ openssl x509 -req -days 365 \
         &lt;p&gt;frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。&lt;/p&gt;
 &lt;p&gt;frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。&lt;/p&gt;
 &lt;p&gt;frps 在执行某些操作前，会根据配置向服务端插件发送 RPC 请求，根据插件的响应来执行相应的操作。&lt;/p&gt;
-&lt;h3 id=&#34;rpc-请求&#34;&gt;RPC 请求&lt;/h3&gt;
+&lt;h2 id=&#34;rpc-请求&#34;&gt;RPC 请求&lt;/h2&gt;
 &lt;p&gt;服务端插件接收到操作请求后，可以给出三种回应。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;拒绝操作，需要返回拒绝操作的原因。&lt;/li&gt;
 &lt;li&gt;允许操作，不需要修改操作内容。&lt;/li&gt;
 &lt;li&gt;允许操作，对操作请求进行修改后，返回修改后的内容。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;接口&#34;&gt;接口&lt;/h3&gt;
+&lt;h2 id=&#34;接口&#34;&gt;接口&lt;/h2&gt;
 &lt;p&gt;接口路径可以在 frps 配置中为每个插件单独配置，这里以 &lt;code&gt;/handler&lt;/code&gt; 为例。&lt;/p&gt;
 &lt;p&gt;Request&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST /handler?version=0.1.0&amp;amp;op=Login
@@ -2626,9 +2626,9 @@ X-Frp-Reqid: 用于追踪请求
         ... // 替换后的操作信息，格式必须和请求时的一致
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;操作类型&#34;&gt;操作类型&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;操作类型&#34;&gt;操作类型&lt;/h2&gt;
 &lt;p&gt;目前插件支持管理的操作类型有 &lt;code&gt;Login&lt;/code&gt;、&lt;code&gt;NewProxy&lt;/code&gt;、&lt;code&gt;CloseProxy&lt;/code&gt;、&lt;code&gt;Ping&lt;/code&gt;、&lt;code&gt;NewWorkConn&lt;/code&gt; 和 &lt;code&gt;NewUserConn&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;login&#34;&gt;Login&lt;/h4&gt;
+&lt;h3 id=&#34;login&#34;&gt;Login&lt;/h3&gt;
 &lt;p&gt;用户登录操作信息&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
     &amp;#34;content&amp;#34;: {
@@ -2645,7 +2645,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;client_address&amp;#34;: &amp;lt;string&amp;gt;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;newproxy&#34;&gt;NewProxy&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newproxy&#34;&gt;NewProxy&lt;/h3&gt;
 &lt;p&gt;创建代理的相关信息&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
     &amp;#34;content&amp;#34;: {
@@ -2682,7 +2682,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;closeproxy&#34;&gt;CloseProxy&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;closeproxy&#34;&gt;CloseProxy&lt;/h3&gt;
 &lt;p&gt;代理关闭。(仅用于通知)&lt;/p&gt;
 &lt;p&gt;注意: 当单个 frpc 会注册大量 proxy 时，慎重使用此接口，可能会由于连接数超限而影响服务的可用性。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
@@ -2695,7 +2695,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;proxy_name&amp;#34;: &amp;lt;string&amp;gt;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;ping&#34;&gt;Ping&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;ping&#34;&gt;Ping&lt;/h3&gt;
 &lt;p&gt;心跳相关信息&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
     &amp;#34;content&amp;#34;: {
@@ -2708,7 +2708,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;privilege_key&amp;#34;: &amp;lt;string&amp;gt;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;newworkconn&#34;&gt;NewWorkConn&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newworkconn&#34;&gt;NewWorkConn&lt;/h3&gt;
 &lt;p&gt;创建工作连接&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
     &amp;#34;content&amp;#34;: {
@@ -2722,7 +2722,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;privilege_key&amp;#34;: &amp;lt;string&amp;gt;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;newuserconn&#34;&gt;NewUserConn&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newuserconn&#34;&gt;NewUserConn&lt;/h3&gt;
 &lt;p&gt;创建用户连接 (支持 &lt;code&gt;tcp&lt;/code&gt;、&lt;code&gt;stcp&lt;/code&gt;、&lt;code&gt;https&lt;/code&gt; 和 &lt;code&gt;tcpmux&lt;/code&gt; 协议)。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
     &amp;#34;content&amp;#34;: {
@@ -2736,7 +2736,7 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;remote_addr&amp;#34;: &amp;lt;string&amp;gt;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;frps-中插件配置&#34;&gt;frps 中插件配置&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;frps-中插件配置&#34;&gt;frps 中插件配置&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;bind_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;7000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -2754,7 +2754,7 @@ X-Frp-Reqid: 用于追踪请求
 path: 插件监听的请求路径。
 ops: 插件需要处理的操作列表，多个 op 以英文逗号分隔。
 tls_verify: 如果是 HTTPS 协议，支持忽略 TLS 身份验证。&lt;/p&gt;
-&lt;h3 id=&#34;元数据&#34;&gt;元数据&lt;/h3&gt;
+&lt;h2 id=&#34;元数据&#34;&gt;元数据&lt;/h2&gt;
 &lt;p&gt;为了减少 frps 的代码修改，同时提高管理插件的扩展能力，在 frpc 的配置文件中引入自定义元数据的概念。元数据会在调用 RPC 请求时发送给插件。&lt;/p&gt;
 &lt;p&gt;元数据以 &lt;code&gt;meta_&lt;/code&gt; 开头，可以配置多个，元数据分为两种，一种配置在 &lt;code&gt;common&lt;/code&gt; 下，一种配置在各个 &lt;code&gt;proxy&lt;/code&gt; 中。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# frpc.ini
