@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/en/docs/overview/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
@@ -15,9 +14,7 @@
                 hreflang="en"
                 href="/en/docs/overview/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/setup/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -30,9 +27,7 @@
                 hreflang="en"
                 href="/en/docs/setup/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/concepts/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -45,9 +40,7 @@
                 hreflang="en"
                 href="/en/docs/concepts/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/examples/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -60,9 +53,7 @@
                 hreflang="en"
                 href="/en/docs/examples/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/features/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -75,9 +66,7 @@
                 hreflang="en"
                 href="/en/docs/features/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/reference/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -90,9 +79,7 @@
                 hreflang="en"
                 href="/en/docs/reference/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/faq/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -105,9 +92,7 @@
                 hreflang="en"
                 href="/en/docs/faq/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/docs/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -120,9 +105,7 @@
                 hreflang="en"
                 href="/en/docs/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/index.json</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -135,9 +118,7 @@
                 hreflang="en"
                 href="/en/index.json"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -150,9 +131,7 @@
                 hreflang="en"
                 href="/en/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/en/search/</loc>
     <lastmod>2022-03-11T20:00:01+08:00</lastmod>
     <xhtml:link
@@ -166,5 +145,4 @@
                 href="/en/search/"
                 />
   </url>
-  
 </urlset>
