@@ -33,7 +33,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-04-27T12:53:54+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-05-10T19:14:16+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
@@ -42,7 +42,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com  # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2022-04-27T12:53:54+08:00" />
+<meta itemprop="dateModified" content="2022-05-10T19:14:16+08:00" />
 <meta itemprop="wordCount" content="94">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="获取用户真实 IP"/>
@@ -149,7 +149,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d6e8b9b654e138316dc3d64130ed0478.json"
+  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d6e8b9b654e138316dc3d64130ed0478.json"
+  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -499,7 +499,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 27, 2022: <a href="https://github.com/gofrp/frp-doc/commit/cac9cc5ea743d6c2b8e08a7bd5eef157f4f8c342">Update README.md (#49) (cac9cc5)</a>
+  最后修改 May 10, 2022: <a href="https://github.com/gofrp/frp-doc/commit/798884b7a7335c485492e1d754fcccd2ffce4159">add release note (798884b)</a>
 </div>
 
 </div>
