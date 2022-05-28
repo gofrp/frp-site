@@ -33,7 +33,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-10T19:14:16+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-05-28T16:13:07+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
@@ -42,7 +42,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com  # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2022-05-10T19:14:16+08:00" />
+<meta itemprop="dateModified" content="2022-05-28T16:13:07+08:00" />
 <meta itemprop="wordCount" content="94">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="获取用户真实 IP"/>
@@ -149,7 +149,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
+  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
+  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -244,6 +244,10 @@ var _hmt = _hmt || [];
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesxtcp-li">
   <input type="checkbox" id="m-docsexamplesxtcp-check"/>
   <label for="m-docsexamplesxtcp-check"><a href="/docs/examples/xtcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessystemd-li">
+  <input type="checkbox" id="m-docsexamplessystemd-check"/>
+  <label for="m-docsexamplessystemd-check"><a href="/docs/examples/systemd/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplessystemd"><span class="">使用systemd控制frp</span></a></label>
   
 </li>
   </ul>
@@ -499,7 +503,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 10, 2022: <a href="https://github.com/gofrp/frp-doc/commit/798884b7a7335c485492e1d754fcccd2ffce4159">add release note (798884b)</a>
+  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/fe3bc75c658516ebc32867784b977f6ae1d9d7f0">systemd (#50) (fe3bc75)</a>
 </div>
 
 </div>

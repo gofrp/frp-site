@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/reference/proxy/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-10T19:14:16+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-05-28T16:13:07+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="代理配置">
 <meta itemprop="description" content="frp 代理的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2022-05-10T19:14:16+08:00" />
-<meta itemprop="wordCount" content="404">
+<meta itemprop="dateModified" content="2022-05-28T16:13:07+08:00" />
+<meta itemprop="wordCount" content="465">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="代理配置"/>
 <meta name="twitter:description" content="frp 代理的详细配置说明。
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
+  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.67468b6e60d96146c22e940facb561bb.json"
+  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -230,6 +230,10 @@ var _hmt = _hmt || [];
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesxtcp-li">
   <input type="checkbox" id="m-docsexamplesxtcp-check"/>
   <label for="m-docsexamplesxtcp-check"><a href="/docs/examples/xtcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessystemd-li">
+  <input type="checkbox" id="m-docsexamplessystemd-check"/>
+  <label for="m-docsexamplessystemd-check"><a href="/docs/examples/systemd/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplessystemd"><span class="">使用systemd控制frp</span></a></label>
   
 </li>
   </ul>
@@ -406,6 +410,7 @@ var _hmt = _hmt || [];
     <li><a href="#stcp">STCP</a></li>
     <li><a href="#sudp">SUDP</a></li>
     <li><a href="#xtcp">XTCP</a></li>
+    <li><a href="#tcpmux">TCPMUX</a></li>
   </ul>
 </nav></div>
 
@@ -761,6 +766,15 @@ var _hmt = _hmt || [];
 <td style="text-align:left">采用最大前缀匹配的规则，用户请求匹配响应的 location 配置，则会被路由到此代理</td>
 </tr>
 <tr>
+<td style="text-align:left">route_by_http_user</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">根据 HTTP Basic Auth user 路由</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
 <td style="text-align:left">http_user</td>
 <td style="text-align:center">string</td>
 <td style="text-align:left">用户名</td>
@@ -935,11 +949,64 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<h2 id="tcpmux">TCPMUX</h2>
+<p><code>custom_domains</code> 和 <code>subdomain</code> 必须要配置其中一个，两者可以同时生效。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:center">是否必须</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:left">可选值</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">multiplexer</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">复用器类型</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">httpconnect</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">custom_domains</td>
+<td style="text-align:center">[]string</td>
+<td style="text-align:left">服务器绑定自定义域名</td>
+<td style="text-align:center">是(和 subdomain 两者必须配置一个)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">用户通过 tcpmux_httpconnect_port 访问的 CONNECT 请求如果 Host 在 custom_domains 配置的域名中，则会被路由到此代理配置的本地服务</td>
+</tr>
+<tr>
+<td style="text-align:left">subdomain</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">自定义子域名</td>
+<td style="text-align:center">是(和 custom_domains 两者必须配置一个)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">和 custom_domains 作用相同，但是只需要指定子域名前缀，会结合服务端的 subdomain_host 生成最终绑定的域名</td>
+</tr>
+<tr>
+<td style="text-align:left">route_by_http_user</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">根据 HTTP Basic Auth user 路由</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 10, 2022: <a href="https://github.com/gofrp/frp-doc/commit/798884b7a7335c485492e1d754fcccd2ffce4159">add release note (798884b)</a>
+  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/fe3bc75c658516ebc32867784b977f6ae1d9d7f0">systemd (#50) (fe3bc75)</a>
 </div>
 
 </div>
