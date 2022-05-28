@@ -29,13 +29,13 @@ frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/route/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-28T16:13:07+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-05-28T16:26:56+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="路由">
 <meta itemprop="description" content="URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = /news，则所有 URL 以 /news 开头的请求都会被转发到这个服务。
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = /  [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。">
-<meta itemprop="dateModified" content="2022-05-28T16:13:07+08:00" />
+<meta itemprop="dateModified" content="2022-05-28T16:26:56+08:00" />
 <meta itemprop="wordCount" content="58">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="路由"/>
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
+  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
+  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -190,10 +190,17 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-docsoverview-check"/>
   <label for="m-docsoverview-check"><a href="/docs/overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsoverview"><span class="">概览</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssetup-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docssetup-li">
   <input type="checkbox" id="m-docssetup-check"/>
   <label for="m-docssetup-check"><a href="/docs/setup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docssetup"><span class="">安装</span></a></label>
   
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssetupsystemd-li">
+  <input type="checkbox" id="m-docssetupsystemd-check"/>
+  <label for="m-docssetupsystemd-check"><a href="/docs/setup/systemd/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docssetupsystemd"><span class="">使用 systemd</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconcepts-li">
   <input type="checkbox" id="m-docsconcepts-check"/>
   <label for="m-docsconcepts-check"><a href="/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">概念</span></a></label>
@@ -234,10 +241,6 @@ var _hmt = _hmt || [];
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesxtcp-li">
   <input type="checkbox" id="m-docsexamplesxtcp-check"/>
   <label for="m-docsexamplesxtcp-check"><a href="/docs/examples/xtcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplessystemd-li">
-  <input type="checkbox" id="m-docsexamplessystemd-check"/>
-  <label for="m-docsexamplessystemd-check"><a href="/docs/examples/systemd/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplessystemd"><span class="">使用systemd控制frp</span></a></label>
   
 </li>
   </ul>
@@ -491,7 +494,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/fe3bc75c658516ebc32867784b977f6ae1d9d7f0">systemd (#50) (fe3bc75)</a>
+  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/0536614f8d2439da96397fbcf5a77741ab5b1e00">update doc (#52) (0536614)</a>
 </div>
 
 </div>

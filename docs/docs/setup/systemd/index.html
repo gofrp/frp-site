@@ -18,25 +18,25 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>使用systemd控制frp | frp</title>
-<meta name="description" content="这个示例将会演示使用在Linux系统下使用systemd控制frps及配置开机自启。
+<title>使用 systemd | frp</title>
+<meta name="description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
 ">
-<meta property="og:title" content="使用systemd控制frp" />
-<meta property="og:description" content="这个示例将会演示使用在Linux系统下使用systemd控制frps及配置开机自启。
+<meta property="og:title" content="使用 systemd" />
+<meta property="og:description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/examples/systemd/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="/docs/setup/systemd/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-28T16:13:07+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-05-28T16:26:56+08:00" /><meta property="og:site_name" content="frp" />
 
-<meta itemprop="name" content="使用systemd控制frp">
-<meta itemprop="description" content="这个示例将会演示使用在Linux系统下使用systemd控制frps及配置开机自启。
+<meta itemprop="name" content="使用 systemd">
+<meta itemprop="description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
 ">
-<meta itemprop="dateModified" content="2022-05-28T16:13:07+08:00" />
-<meta itemprop="wordCount" content="71">
+<meta itemprop="dateModified" content="2022-05-28T16:26:56+08:00" />
+<meta itemprop="wordCount" content="102">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="使用systemd控制frp"/>
-<meta name="twitter:description" content="这个示例将会演示使用在Linux系统下使用systemd控制frps及配置开机自启。
+<meta name="twitter:title" content="使用 systemd"/>
+<meta name="twitter:description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
 "/>
 
 
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
+  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6d3da8c383e81421b61825be7dd4c0f7.json"
+  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -186,16 +186,23 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-docsoverview-check"/>
   <label for="m-docsoverview-check"><a href="/docs/overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsoverview"><span class="">概览</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssetup-li">
-  <input type="checkbox" id="m-docssetup-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docssetup-li">
+  <input type="checkbox" id="m-docssetup-check" checked/>
   <label for="m-docssetup-check"><a href="/docs/setup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docssetup"><span class="">安装</span></a></label>
   
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docssetupsystemd-li">
+  <input type="checkbox" id="m-docssetupsystemd-check" checked/>
+  <label for="m-docssetupsystemd-check"><a href="/docs/setup/systemd/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docssetupsystemd"><span class="td-sidebar-nav-active-item">使用 systemd</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconcepts-li">
   <input type="checkbox" id="m-docsconcepts-check"/>
   <label for="m-docsconcepts-check"><a href="/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">概念</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsexamples-li">
-  <input type="checkbox" id="m-docsexamples-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
+  <input type="checkbox" id="m-docsexamples-check"/>
   <label for="m-docsexamples-check"><a href="/docs/examples/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">示例</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -230,10 +237,6 @@ var _hmt = _hmt || [];
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesxtcp-li">
   <input type="checkbox" id="m-docsexamplesxtcp-check"/>
   <label for="m-docsexamplesxtcp-check"><a href="/docs/examples/xtcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsexamplessystemd-li">
-  <input type="checkbox" id="m-docsexamplessystemd-check" checked/>
-  <label for="m-docsexamplessystemd-check"><a href="/docs/examples/systemd/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsexamplessystemd"><span class="td-sidebar-nav-active-item">使用systemd控制frp</span></a></label>
   
 </li>
   </ul>
@@ -383,10 +386,10 @@ var _hmt = _hmt || [];
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Examples/systemd.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> 查看页面源码</a>
-  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Examples/systemd.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
-  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Examples/systemd.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> 添加子页面</a>
-  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e4%bd%bf%e7%94%a8systemd%e6%8e%a7%e5%88%b6frp" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Setup/systemd.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Setup/systemd.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Setup/systemd.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e4%bd%bf%e7%94%a8%20systemd" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> 提交项目问题</a>
   
 </div>
@@ -432,17 +435,17 @@ var _hmt = _hmt || [];
     <a href="/docs/">文档</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="/docs/examples/">示例</a>
+    <a href="/docs/setup/">安装</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/docs/examples/systemd/">使用systemd控制frp</a>
+    <a href="/docs/setup/systemd/">使用 systemd</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>使用systemd控制frp</h1>
-	<div class="lead">这个示例将会演示使用在Linux系统下使用systemd控制frps及配置开机自启。</div>
+	<h1>使用 systemd</h1>
+	<div class="lead">这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。</div>
 	<header class="article-meta">
 		
 
@@ -460,18 +463,18 @@ var _hmt = _hmt || [];
 
 		
 	</header>    
-	<p>在Linux系统下，使用<code>systemd</code>可以方便地控制frp服务端<code>frps</code>的启动和停止、配置后台运行和开启自启。</p>
-<p>要使用<code>systemd</code>来控制<code>frps</code>，需要先安装<code>systemd</code>，然后在<code>/etc/systemd/system</code>目录下创建一个frps.service文件。</p>
+	<p>在 Linux 系统下，使用<code>systemd</code> 可以方便地控制 frp 服务端 <code>frps</code> 的启动和停止、配置后台运行和开启自启。</p>
+<p>要使用 <code>systemd</code> 来控制 <code>frps</code>，需要先安装 <code>systemd</code>，然后在 <code>/etc/systemd/system</code> 目录下创建一个 frps.service 文件。</p>
 <ol>
 <li>
-<p>如Linux服务端上没有安装<code>systemd</code>，可以使用<code>yum</code>或<code>apt</code>等命令安装<code>systemd</code>。</p>
+<p>如Linux服务端上没有安装 <code>systemd</code>，可以使用 <code>yum</code> 或 <code>apt</code> 等命令安装 <code>systemd</code>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># yum</span>
 </span></span><span style="display:flex;"><span>yum install systemd
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># apt</span>
 </span></span><span style="display:flex;"><span>apt install systemd
 </span></span></code></pre></div></li>
 <li>
-<p>使用文本编辑器，如<code>vim</code>创建并编辑<code>frps.service</code>文件。</p>
+<p>使用文本编辑器，如 <code>vim</code> 创建并编辑 <code>frps.service</code> 文件。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vim /etc/systemd/system/frps.service
 </span></span></code></pre></div><p>写入内容</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Unit]</span>
@@ -482,14 +485,14 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Service]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">simple</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#启动frps的命令，需修改为您的frps的安装路径</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 启动frps的命令，需修改为您的frps的安装路径</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">ExecStart</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/path/to/frps -c /path/to/frps.ini</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Install]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">WantedBy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">multi-user.target</span>
 </span></span></code></pre></div></li>
 <li>
-<p>使用<code>systemd</code>命令，管理frps。</p>
+<p>使用 <code>systemd</code> 命令，管理 frps。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 启动frp</span>
 </span></span><span style="display:flex;"><span>systemctl start frps
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 停止frp</span>
@@ -500,7 +503,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>systemctl status frps
 </span></span></code></pre></div></li>
 <li>
-<p>配置frp开机自启。</p>
+<p>配置 frps 开机自启。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl <span style="color:#204a87">enable</span> frps
 </span></span></code></pre></div></li>
 </ol>
@@ -508,7 +511,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/fe3bc75c658516ebc32867784b977f6ae1d9d7f0">systemd (#50) (fe3bc75)</a>
+  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/0536614f8d2439da96397fbcf5a77741ab5b1e00">update doc (#52) (0536614)</a>
 </div>
 
 </div>
