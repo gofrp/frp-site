@@ -29,13 +29,13 @@
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
 # frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127." />
+你也可以通过配置 TLS 证书来启用 HTTPS 接口:
+dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/ui/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-28T16:26:56+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-07-11T00:20:26+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="Web 界面">
 <meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
@@ -43,11 +43,11 @@
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
 # frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127.">
-<meta itemprop="dateModified" content="2022-05-28T16:26:56+08:00" />
-<meta itemprop="wordCount" content="98">
+你也可以通过配置 TLS 证书来启用 HTTPS 接口:
+dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：">
+<meta itemprop="dateModified" content="2022-07-11T00:20:26+08:00" />
+<meta itemprop="wordCount" content="112">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Web 界面"/>
 <meta name="twitter:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
@@ -55,9 +55,9 @@
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
 # frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
-客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 admin_user = admin admin_pwd = admin 打开浏览器通过 http://127."/>
+你也可以通过配置 TLS 证书来启用 HTTPS 接口:
+dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能："/>
 
 
 
@@ -155,7 +155,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
+  data-offline-search-index-json-src="/offline-search-index.1c69956ce5fbc7b9191051ae2f4cad9e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.f2c13e40eeeff817c17129319849692c.json"
+  data-offline-search-index-json-src="/offline-search-index.1c69956ce5fbc7b9191051ae2f4cad9e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -503,7 +503,11 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_pwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
 </span></span></code></pre></div><p>打开浏览器通过 <code>http://[server_addr]:7500</code> 访问 Dashboard 界面，输入用户名密码 <code>admin</code>。</p>
-<h2 id="客户端管理界面">客户端管理界面</h2>
+<p>你也可以通过配置 TLS 证书来启用 HTTPS 接口:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_mode</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">server.crt</span>
+</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">server.key</span>
+</span></span></code></pre></div><h2 id="客户端管理界面">客户端管理界面</h2>
 <p>frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。</p>
 <p>需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
@@ -523,7 +527,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 28, 2022: <a href="https://github.com/gofrp/frp-doc/commit/0536614f8d2439da96397fbcf5a77741ab5b1e00">update doc (#52) (0536614)</a>
+  最后修改 July 11, 2022: <a href="https://github.com/gofrp/frp-doc/commit/aecdbe5116f30dd5b683df4d7abc40ff8d19c16c">update (aecdbe5)</a>
 </div>
 
 </div>
