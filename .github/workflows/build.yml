@@ -4,10 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       debug:
-        default: 'false'
-  workflow_call:
-    inputs:
-      debug:
+        type: string
         default: 'false'
 
 jobs:
