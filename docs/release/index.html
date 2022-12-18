@@ -20,11 +20,14 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>版本历史 | frp</title>
-<meta name="description" content="v0.44.0
+<meta name="description" content="v0.46.0
 
-[new] https2https 和 https2http 插件中，如果 plugin_key_path 和 plugin_crt_path 都为空，则使用自动创建的证书。
-[new] frps dashboard 支持配置 TLS 证书。
-[fix] 修复 XTCP …">
+[new] frpc 增加 oidc_scope 配置。
+[new] frpc 和 frps 之间的通信协议支持选择 quic。
+
+v0.45.0
+
+[improve] http group 的负载均衡调整为每一个请求都会以轮询的方式转发到 group 中的所有 frpc …">
 <meta property="og:title" content="版本历史" />
 <meta property="og:description" content="frp official website" />
 <meta property="og:type" content="website" />
@@ -131,7 +134,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.be47f4de1603eae10fe8a21333795002.json"
+  data-offline-search-index-json-src="/offline-search-index.962566418bfa3ace14be6ff5db4272b6.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -153,7 +156,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.be47f4de1603eae10fe8a21333795002.json"
+  data-offline-search-index-json-src="/offline-search-index.962566418bfa3ace14be6ff5db4272b6.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -265,7 +268,16 @@ var _hmt = _hmt || [];
 
 		
 	</header>
-	<h4 id="v0440">v0.44.0</h4>
+	<h4 id="v0460">v0.46.0</h4>
+<ul>
+<li>[new] frpc 增加 <code>oidc_scope</code> 配置。</li>
+<li>[new] frpc 和 frps 之间的通信协议支持选择 quic。</li>
+</ul>
+<h4 id="v0450">v0.45.0</h4>
+<ul>
+<li>[improve] http group 的负载均衡调整为每一个请求都会以轮询的方式转发到 group 中的所有 frpc proxy。之前单个并发时会始终转发到同一个 proxy。</li>
+</ul>
+<h4 id="v0440">v0.44.0</h4>
 <ul>
 <li>[new] <code>https2https</code> 和 <code>https2http</code> 插件中，如果 <code>plugin_key_path</code> 和 <code>plugin_crt_path</code> 都为空，则使用自动创建的证书。</li>
 <li>[new] frps dashboard 支持配置 TLS 证书。</li>
@@ -741,7 +753,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 August 16, 2022: <a href="https://github.com/gofrp/frp-doc/commit/5907f0e7cd3488bdd4a6df7e38c3f33803255d2d">update (5907f0e)</a>
+  最后修改 December 18, 2022: <a href="https://github.com/gofrp/frp-doc/commit/9ebf6ce2ae49747fbc91d5a0fa23cd2b5b4a1009">add trigger workflow (9ebf6ce)</a>
 </div>
 
 </div>

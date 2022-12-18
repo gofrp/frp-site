@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/reference/server-configures/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-16T20:54:08+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2022-12-18T22:32:10+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="服务端配置">
 <meta itemprop="description" content="frp 服务端详细配置说明。
 ">
-<meta itemprop="dateModified" content="2022-08-16T20:54:08+08:00" />
-<meta itemprop="wordCount" content="316">
+<meta itemprop="dateModified" content="2022-12-18T22:32:10+08:00" />
+<meta itemprop="wordCount" content="347">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端配置"/>
 <meta name="twitter:description" content="frp 服务端详细配置说明。
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.be47f4de1603eae10fe8a21333795002.json"
+  data-offline-search-index-json-src="/offline-search-index.962566418bfa3ace14be6ff5db4272b6.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.be47f4de1603eae10fe8a21333795002.json"
+  data-offline-search-index-json-src="/offline-search-index.962566418bfa3ace14be6ff5db4272b6.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -516,6 +516,38 @@ var _hmt = _hmt || [];
 <td style="text-align:left">0</td>
 <td style="text-align:left"></td>
 <td style="text-align:left">用于接收采用 KCP 连接的 frpc</td>
+</tr>
+<tr>
+<td style="text-align:left">quic_bind_port</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">服务端监听 QUIC 协议端口</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">用于接收采用 QUIC 连接的 frpc</td>
+</tr>
+<tr>
+<td style="text-align:left">quic_keepalive_period</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">quic 协议 keepalive 间隔，单位: 秒</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">quic_max_idle_timeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">quic 协议的最大空闲超时时间，单位: 秒</td>
+<td style="text-align:left">30</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">quic_max_incoming_streams</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">quic 协议最大并发 stream 数</td>
+<td style="text-align:left">100000</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left">proxy_bind_addr</td>
@@ -942,7 +974,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 August 16, 2022: <a href="https://github.com/gofrp/frp-doc/commit/5907f0e7cd3488bdd4a6df7e38c3f33803255d2d">update (5907f0e)</a>
+  最后修改 December 18, 2022: <a href="https://github.com/gofrp/frp-doc/commit/9ebf6ce2ae49747fbc91d5a0fa23cd2b5b4a1009">add trigger workflow (9ebf6ce)</a>
 </div>
 
 </div>
