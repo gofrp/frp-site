@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        default: 'false'
+  workflow_call:
+    inputs:
+      debug:
+        default: 'false'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Deploy
+      run: chmod 755 ./deploy.sh && ./deploy.sh
+    - name: Generate
+      run: chmod 755 ./generate.sh && ./generate.sh
+    - name: Git Push
+      run: |
+        export TZ='Asia/Shanghai'
+        git config --global user.name "fatedier"
+        git config --global user.email "fatedier@gmail.com"
+        git config --global push.default simple
+        git add -A ./docs/
+        git commit -am "Auto deploy by travis-ci."
+        git push --force --quiet "https://${GH_TOKEN}@github.com/gofrp/frp-site.git" master:master
