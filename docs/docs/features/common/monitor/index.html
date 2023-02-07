@@ -32,7 +32,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-01-10T22:28:59+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-02-07T22:56:01+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
@@ -40,7 +40,7 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2023-01-10T22:28:59+08:00" />
+<meta itemprop="dateModified" content="2023-02-07T22:56:01+08:00" />
 <meta itemprop="wordCount" content="39">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="监控"/>
@@ -146,7 +146,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6b5defa89290088607fbe9747c206067.json"
+  data-offline-search-index-json-src="/offline-search-index.e19b7f7ee8db822ed5d9834b7bb3eace.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -168,7 +168,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.6b5defa89290088607fbe9747c206067.json"
+  data-offline-search-index-json-src="/offline-search-index.e19b7f7ee8db822ed5d9834b7bb3eace.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -493,7 +493,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 January 10, 2023: <a href="https://github.com/gofrp/frp-doc/commit/1a442c7d3f10c73cea4679ce875cd0df19577784">update release (1a442c7)</a>
+  最后修改 February 7, 2023: <a href="https://github.com/gofrp/frp-doc/commit/8b566a154ba8c19254f1d297f767ba8410bf1200">Update stcp.md (#58) (8b566a1)</a>
 </div>
 
 </div>
