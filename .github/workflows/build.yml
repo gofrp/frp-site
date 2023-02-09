@@ -28,5 +28,5 @@ jobs:
         git config --global user.email "fatedier@gmail.com"
         git config --global push.default simple
         git add -A ./docs/
-        git commit -am "Auto deploy by travis-ci."
+        git commit -am "Automate deploy."
         git push --force --quiet "https://${GH_TOKEN}@github.com/gofrp/frp-site.git" master:master
