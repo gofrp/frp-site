@@ -31,11 +31,12 @@ allow_ports 可以配置允许使用的某个指定端 …">
 端口复用 目前 frps 中的 vhost_http_port 和 vhost_https_port 支持配置成和 bind_port 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。
 例如在某些限制较严格的网络环境中，可以将 bind_port 和 vhost_https_port 都设置为 443。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。" />
+# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。
+限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 bandwidth_limit_mode = server。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-manage/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-02-07T22:56:01+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-02-09T23:50:20+08:00" /><meta property="og:site_name" content="frp" />
 
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allow_ports 来指定：
@@ -43,9 +44,10 @@ allow_ports 可以配置允许使用的某个指定端 …">
 端口复用 目前 frps 中的 vhost_http_port 和 vhost_https_port 支持配置成和 bind_port 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。
 例如在某些限制较严格的网络环境中，可以将 bind_port 和 vhost_https_port 都设置为 443。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。">
-<meta itemprop="dateModified" content="2023-02-07T22:56:01+08:00" />
-<meta itemprop="wordCount" content="60">
+# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。
+限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 bandwidth_limit_mode = server。">
+<meta itemprop="dateModified" content="2023-02-09T23:50:20+08:00" />
+<meta itemprop="wordCount" content="64">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端管理"/>
 <meta name="twitter:description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allow_ports 来指定：
@@ -53,7 +55,8 @@ allow_ports 可以配置允许使用的某个指定端 …">
 端口复用 目前 frps 中的 vhost_http_port 和 vhost_https_port 支持配置成和 bind_port 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。
 例如在某些限制较严格的网络环境中，可以将 bind_port 和 vhost_https_port 都设置为 443。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。"/>
+# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 bandwidth_limit = 1MB 在代理配置中增加 bandwidth_limit 字段启用此功能，目前仅支持 MB 和 KB 单位。
+限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 bandwidth_limit_mode = server。"/>
 
 
 
@@ -151,7 +154,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e19b7f7ee8db822ed5d9834b7bb3eace.json"
+  data-offline-search-index-json-src="/offline-search-index.10feb8ba9913849af795895bf5534ad0.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -173,7 +176,7 @@ var _hmt = _hmt || [];
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e19b7f7ee8db822ed5d9834b7bb3eace.json"
+  data-offline-search-index-json-src="/offline-search-index.10feb8ba9913849af795895bf5534ad0.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -511,11 +514,12 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">bandwidth_limit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">1MB</span>
 </span></span></code></pre></div><p>在代理配置中增加 <code>bandwidth_limit</code> 字段启用此功能，目前仅支持 <code>MB</code> 和 <code>KB</code> 单位。</p>
+<p>限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 <code>bandwidth_limit_mode = server</code>。</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 7, 2023: <a href="https://github.com/gofrp/frp-doc/commit/8b566a154ba8c19254f1d297f767ba8410bf1200">Update stcp.md (#58) (8b566a1)</a>
+  最后修改 February 9, 2023: <a href="https://github.com/gofrp/frp-doc/commit/773397526902db6ae4922f182dca8edafa7f306f">update release notes (7733975)</a>
 </div>
 
 </div>

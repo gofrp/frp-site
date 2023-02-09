@@ -1020,6 +1020,15 @@
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;单位为 MB 或 KB，0 表示不限制，如果启用，会作用于对应的 frpc&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;bandwidth_limit_mode&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;限流类型，客户端限流或服务端限流&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;否&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;client&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;client, server&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h3&gt;

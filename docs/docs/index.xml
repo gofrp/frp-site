@@ -1456,6 +1456,15 @@ openssl x509 -req -days 365 -sha256 \
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;单位为 MB 或 KB，0 表示不限制，如果启用，会作用于对应的 frpc&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;bandwidth_limit_mode&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;限流类型，客户端限流或服务端限流&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;否&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;client&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;client, server&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;本地服务配置&#34;&gt;本地服务配置&lt;/h3&gt;
@@ -2618,6 +2627,7 @@ openssl x509 -req -days 365 -sha256 \
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;6000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;bandwidth_limit&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;1MB&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在代理配置中增加 &lt;code&gt;bandwidth_limit&lt;/code&gt; 字段启用此功能，目前仅支持 &lt;code&gt;MB&lt;/code&gt; 和 &lt;code&gt;KB&lt;/code&gt; 单位。&lt;/p&gt;
+&lt;p&gt;限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 &lt;code&gt;bandwidth_limit_mode = server&lt;/code&gt;。&lt;/p&gt;
 
       </description>
     </item>
