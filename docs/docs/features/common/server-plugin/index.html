@@ -38,7 +38,7 @@ POST /handler?version=0.1.0&amp;op=Login { &#34;content&#34;: { ... // 具体的
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/server-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-02-10T02:19:38+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-02-13T11:30:57+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -52,8 +52,8 @@ POST /handler?version=0.1.0&amp;op=Login { &#34;content&#34;: { ... // 具体的
 { &#34;reject&#34;: true, &#34;reject_reason&#34;: &#34;invalid user&#34; } 允许且内容不需要变动
 { &#34;reject&#34;: false, &#34;unchange&#34;: true } 允许且需要替换操作内容
 { &#34;unchange&#34;: &#34;false&#34;, &#34;content&#34;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2023-02-10T02:19:38+08:00" />
-<meta itemprop="wordCount" content="357">
+<meta itemprop="dateModified" content="2023-02-13T11:30:57+08:00" />
+<meta itemprop="wordCount" content="361">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端插件"/>
 <meta name="twitter:description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.85c34ed030416163de8a78831e749248.json"
+    data-offline-search-index-json-src="/offline-search-index.26b51a20f19820cecc3b9a98bf3f49a9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.85c34ed030416163de8a78831e749248.json"
+    data-offline-search-index-json-src="/offline-search-index.26b51a20f19820cecc3b9a98bf3f49a9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -559,6 +559,8 @@ X-Frp-Reqid: 用于追踪请求
         &#34;proxy_type&#34;: &lt;string&gt;,
         &#34;use_encryption&#34;: &lt;bool&gt;,
         &#34;use_compression&#34;: &lt;bool&gt;,
+        &#34;bandwidth_limit&#34;: &lt;string&gt;,
+        &#34;bandwidth_limit_mode&#34;: &lt;string&gt;,
         &#34;group&#34;: &lt;string&gt;,
         &#34;group_key&#34;: &lt;string&gt;,
 
@@ -675,7 +677,7 @@ meta_id = 123
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 10, 2023: <a href="https://github.com/gofrp/frp-doc/commit/61a047baa8d1a1e6d7cea1b9c82d031847588347">upgrade docsy theme (61a047b)</a>
+  最后修改 February 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/f99175f21f77cfab0741392c31ea73ddbabe7618">update server-plugin.md (f99175f)</a>
 </div>
 
 </div>

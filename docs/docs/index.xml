@@ -2941,6 +2941,8 @@ X-Frp-Reqid: 用于追踪请求
         &amp;#34;proxy_type&amp;#34;: &amp;lt;string&amp;gt;,
         &amp;#34;use_encryption&amp;#34;: &amp;lt;bool&amp;gt;,
         &amp;#34;use_compression&amp;#34;: &amp;lt;bool&amp;gt;,
+        &amp;#34;bandwidth_limit&amp;#34;: &amp;lt;string&amp;gt;,
+        &amp;#34;bandwidth_limit_mode&amp;#34;: &amp;lt;string&amp;gt;,
         &amp;#34;group&amp;#34;: &amp;lt;string&amp;gt;,
         &amp;#34;group_key&amp;#34;: &amp;lt;string&amp;gt;,
 
