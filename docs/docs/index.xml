@@ -1926,6 +1926,24 @@ openssl x509 -req -days 365 -sha256 \
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;http_user&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;用户名&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;否&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;如果配置此参数，通过 HTTP CONNECT 建立连接时需要通过 Proxy-Authorization 附加上正确的身份信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;http_pwd&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;密码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;否&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;结合 http_user 使用&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 

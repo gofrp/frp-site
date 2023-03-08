@@ -29,12 +29,12 @@ frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/route/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-02-13T11:30:57+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-03-08T12:01:34+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="路由">
 <meta itemprop="description" content="URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = /news，则所有 URL 以 /news 开头的请求都会被转发到这个服务。
 # frpc.ini [web01] type = http local_port = 80 custom_domains = web.yourdomain.com locations = / [web02] type = http local_port = 81 custom_domains = web.yourdomain.com locations = /news,/about 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。">
-<meta itemprop="dateModified" content="2023-02-13T11:30:57+08:00" />
+<meta itemprop="dateModified" content="2023-03-08T12:01:34+08:00" />
 <meta itemprop="wordCount" content="58">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="路由"/>
@@ -45,8 +45,8 @@ frp 支持根据请求的 URL 路径路由转发到不同的后端服务。
 
 
 
-<link rel="preload" href="/scss/main.min.73bc65c1e18bb0cbd02b071f40b73b018bed23b1835e915c0f4f73a772a6713b.css" as="style">
-<link href="/scss/main.min.73bc65c1e18bb0cbd02b071f40b73b018bed23b1835e915c0f4f73a772a6713b.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.28fd99d0bf350c81aa6dfea3cd1cce4850517d1eb5031be24bae1d4206149c02.css" as="style">
+<link href="/scss/main.min.28fd99d0bf350c81aa6dfea3cd1cce4850517d1eb5031be24bae1d4206149c02.css" rel="stylesheet" integrity="">
 
 <script
   src="/js/jquery-3.6.3.min.js"
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.26b51a20f19820cecc3b9a98bf3f49a9.json"
+    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.26b51a20f19820cecc3b9a98bf3f49a9.json"
+    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -362,9 +362,9 @@ var _hmt = _hmt || [];
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/gofrp/frp-doc/tree/main/content/zh-cn/docs/Features/http-https/route.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-  <a href="https://github.com/gofrp/frp-doc/edit/main/content/zh-cn/docs/Features/http-https/route.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-  <a href="https://github.com/gofrp/frp-doc/new/main/content/zh-cn/docs/Features/http-https/route.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/http-https/route.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/http-https/route.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Features/http-https/route.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
   <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e8%b7%af%e7%94%b1" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a>
   
@@ -466,7 +466,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/f99175f21f77cfab0741392c31ea73ddbabe7618">update server-plugin.md (f99175f)</a>
+  最后修改 March 8, 2023: <a href="https://github.com/gofrp/frp-doc/commit/0dd542511363d7ba1ff71dc837c5e0060f2c59bf">update for new release (0dd5425)</a>
 </div>
 
 </div>
