@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/examples/xtcp/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-03-08T12:01:34+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-05-29T01:48:45+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="点对点内网穿透">
 <meta itemprop="description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
 ">
-<meta itemprop="dateModified" content="2023-03-08T12:01:34+08:00" />
-<meta itemprop="wordCount" content="97">
+<meta itemprop="dateModified" content="2023-05-29T01:48:45+08:00" />
+<meta itemprop="wordCount" content="112">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="点对点内网穿透"/>
 <meta name="twitter:description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
@@ -103,7 +103,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
+    data-offline-search-index-json-src="/offline-search-index.8ce556ab29636bb91dfebe4432aafc52.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
+    data-offline-search-index-json-src="/offline-search-index.8ce556ab29636bb91dfebe4432aafc52.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -437,19 +437,15 @@ var _hmt = _hmt || [];
 	</header>    
 	<p>frp 提供了一种新的代理类型 <code>xtcp</code> 用于应对在希望传输大量数据且流量不经过服务器的场景。</p>
 <p>使用方式同 <code>stcp</code> 类似，需要在两边都部署上 frpc 用于建立直接的连接。</p>
-<p><strong>目前处于开发的初级阶段，并不能穿透所有类型的 NAT 设备，所以穿透成功率较低。穿透失败时可以尝试 <code>stcp</code> 的方式。</strong></p>
+<p><strong>XTCP 并不能穿透所有类型的 NAT 设备，穿透失败时可以尝试 <code>stcp</code> 的方式。</strong></p>
 <ol>
-<li>
-<p>frps.ini 内容如下，需要额外配置监听一个 UDP 端口用于支持该类型的客户端：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_udp_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span></code></pre></div></li>
 <li>
 <p>在需要暴露到外网的机器上部署 frpc，且配置如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当默认的 stun server 不可用时，可以配置一个新的</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># nat_hole_stun_server = xxx</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[p2p_ssh]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">xtcp</span>
@@ -463,6 +459,8 @@ var _hmt = _hmt || [];
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当默认的 stun server 不可用时，可以配置一个新的</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># nat_hole_stun_server = xxx</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[p2p_ssh_visitor]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">xtcp</span>
@@ -474,6 +472,8 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 绑定本地端口用于访问 ssh 服务</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当需要自动保持隧道打开时，设置为 true</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># keep_tunnel_open = false</span>
 </span></span></code></pre></div></li>
 <li>
 <p>通过 SSH 访问内网机器，假设用户名为 test：</p>
@@ -484,7 +484,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 March 8, 2023: <a href="https://github.com/gofrp/frp-doc/commit/0dd542511363d7ba1ff71dc837c5e0060f2c59bf">update for new release (0dd5425)</a>
+  最后修改 May 29, 2023: <a href="https://github.com/gofrp/frp-doc/commit/df6f812cb9f4df0ed6e9e3e41a7330c88d54ef61">update release notes (df6f812)</a>
 </div>
 
 </div>

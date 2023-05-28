@@ -99,7 +99,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
+    data-offline-search-index-json-src="/offline-search-index.8ce556ab29636bb91dfebe4432aafc52.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ccebdc3b879149a2cde6542ca1c7cc9e.json"
+    data-offline-search-index-json-src="/offline-search-index.8ce556ab29636bb91dfebe4432aafc52.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -432,7 +432,9 @@ var _hmt = _hmt || [];
 		
 	</header>
 	<p>XTCP 的配置方式和 STCP 很类似。但是会采用 P2P 的方式进行打洞穿透，如果成功，后续的流量将不会经过 frps，而是直接通信，不再受到 frps 所在服务器的带宽限制。</p>
-<p>由于打洞成功率较低，所以 XTCP 的可用性和稳定性无法保证。在需要可靠连接的情况下，建议使用 STCP 替代。</p>
+<p>由于打洞成功率取决于所处网络的 NAT 类型，所以 XTCP 的可用性和稳定性无法保证。在需要可靠连接的情况下，建议使用 STCP 替代。</p>
+<p>当 visitor 配置了 <code>keep_tunnel_open = true</code> 时，frpc 会定期检测隧道是否打开，如果没有，则会尝试打洞建立隧道，这样可以始终保持隧道打开，在需要连接对端服务时，可以避免延迟。</p>
+<p>默认情况下，visitor 会在接收到用户连接后尝试打洞，如果打洞失败，可以尝试多次建立连接，程序会尝试其他的打洞策略，有可能在多次重试后成功打洞。一旦打洞成功，后续新增连接不必重复打洞，而是可以复用隧道。</p>
 
         <div class="section-index">
     
@@ -449,7 +451,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 March 8, 2023: <a href="https://github.com/gofrp/frp-doc/commit/0dd542511363d7ba1ff71dc837c5e0060f2c59bf">update for new release (0dd5425)</a>
+  最后修改 May 29, 2023: <a href="https://github.com/gofrp/frp-doc/commit/df6f812cb9f4df0ed6e9e3e41a7330c88d54ef61">update release notes (df6f812)</a>
 </div>
 
 </div>
