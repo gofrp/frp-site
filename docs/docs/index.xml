@@ -1932,6 +1932,15 @@ openssl x509 -req -days 365 -sha256 \
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;仅在 keep_tunnel_open 为 true 时有效&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;protocol&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;隧道底层通信协议&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;否&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;quic&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;quic, kcp&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;tcpmux&#34;&gt;TCPMUX&lt;/h2&gt;
