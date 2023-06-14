@@ -40,7 +40,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-05-30T14:12:46+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-06-14T11:30:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
@@ -50,7 +50,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
 该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
 # frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2023-05-30T14:12:46+08:00" />
+<meta itemprop="dateModified" content="2023-06-14T11:30:28+08:00" />
 <meta itemprop="wordCount" content="202">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通信安全及优化"/>
@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.378973d2c312540dca67d593d9daac09.json"
+    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -153,7 +153,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.378973d2c312540dca67d593d9daac09.json"
+    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -558,7 +558,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 30, 2023: <a href="https://github.com/gofrp/frp-doc/commit/08c31c0ff34bd3ac062fc1882cde572027bb0d00">update reference (08c31c0)</a>
+  最后修改 June 14, 2023: <a href="https://github.com/gofrp/frp-doc/commit/96bfbb2cc71c7d326e4b52cc5ca91f787c847bad">remove `bind_udp_port` (#62) (96bfbb2)</a>
 </div>
 
 </div>

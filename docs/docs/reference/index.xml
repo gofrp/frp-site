@@ -52,14 +52,6 @@
 &lt;td style=&#34;text-align:left&#34;&gt;接收 frpc 的连接&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;bind_udp_port&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;int&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;服务端监听 UDP 端口&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;用于辅助创建 P2P 连接&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;kcp_bind_port&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;int&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;服务端监听 KCP 协议端口&lt;/td&gt;

@@ -32,14 +32,14 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-05-30T14:12:46+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-06-14T11:30:28+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
 内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2023-05-30T14:12:46+08:00" />
+<meta itemprop="dateModified" content="2023-06-14T11:30:28+08:00" />
 <meta itemprop="wordCount" content="39">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="监控"/>
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.378973d2c312540dca67d593d9daac09.json"
+    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.378973d2c312540dca67d593d9daac09.json"
+    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -465,7 +465,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 30, 2023: <a href="https://github.com/gofrp/frp-doc/commit/08c31c0ff34bd3ac062fc1882cde572027bb0d00">update reference (08c31c0)</a>
+  最后修改 June 14, 2023: <a href="https://github.com/gofrp/frp-doc/commit/96bfbb2cc71c7d326e4b52cc5ca91f787c847bad">remove `bind_udp_port` (#62) (96bfbb2)</a>
 </div>
 
 </div>
