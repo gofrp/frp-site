@@ -115,19 +115,16 @@
       <description>
         
         
-        &lt;p&gt;&lt;code&gt;use_encryption&lt;/code&gt; 和 &lt;code&gt;STCP&lt;/code&gt; 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的威胁。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。&lt;/p&gt;
-&lt;p&gt;当 &lt;code&gt;frpc.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_enable = true&lt;/code&gt; 时，表示开启 TLS 协议加密。&lt;/p&gt;
+        &lt;p&gt;&lt;code&gt;use_encryption&lt;/code&gt; 和 &lt;code&gt;STCP&lt;/code&gt; 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。&lt;/p&gt;
 &lt;p&gt;当 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_only = true&lt;/code&gt; 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 &lt;code&gt;frps.ini&lt;/code&gt; 的 &lt;code&gt;common&lt;/code&gt; 中 &lt;code&gt;tls_trusted_ca_file&lt;/code&gt; 内容是有效的话，那么默认就会开启 &lt;code&gt;tls_only = true&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：启用此功能后除 xtcp 外，可以不用再设置 use_encryption 重复加密&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;tls-默认开启方式&#34;&gt;TLS 默认开启方式&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frpc 开启 TLS 加密功能，但是默认不校验 frps 的证书。&lt;/p&gt;
+&lt;p&gt;从 v0.50.0 开始，&lt;code&gt;tls_enable&lt;/code&gt; 的默认值将会为 true，默认开启 TLS 协议加密。&lt;/p&gt;
+&lt;p&gt;如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。&lt;/p&gt;
+&lt;p&gt;默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。&lt;/p&gt;
 &lt;h2 id=&#34;frpc-单向校验-frps-身份&#34;&gt;frpc 单向校验 frps 身份&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_trusted_ca_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/ca/path/ca.crt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini&lt;/span&gt;
@@ -140,7 +137,6 @@
 &lt;h2 id=&#34;frps-单向验证-frpc-的身份&#34;&gt;frps 单向验证 frpc 的身份&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_cert_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/cert/path/client.crt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_key_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/key/path/client.key&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -151,7 +147,6 @@
 &lt;h2 id=&#34;双向验证&#34;&gt;双向验证&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.ini&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[common]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_cert_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/cert/path/client.crt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_key_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/key/path/client.key&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;tls_trusted_ca_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;/to/ca/path/ca.crt&lt;/span&gt;
@@ -164,8 +159,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;双向验证即 frpc 和 frps 通过本地 ca 证书去验证对方的身份。理论上 frpc 和 frps 的 ca 证书可以不同，只要能验证对方身份即可。&lt;/p&gt;
 &lt;h2 id=&#34;openssl-生成证书示例&#34;&gt;OpenSSL 生成证书示例&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;如果出现上述报错，是因为 go 1.15 版本开始&lt;a href=&#34;https://golang.org/doc/go1.15#commonname&#34;&gt;废弃 CommonName&lt;/a&gt;，因此推荐使用 SAN 证书。
-如果想兼容之前的方式，需要设置环境变量 &lt;strong&gt;GODEBUG&lt;/strong&gt; 为 &lt;code&gt;x509ignoreCN=0&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果出现上述报错，是因为 go 1.15 版本开始&lt;a href=&#34;https://golang.org/doc/go1.15#commonname&#34;&gt;废弃 CommonName&lt;/a&gt;，因此推荐使用 SAN 证书。&lt;/p&gt;
 &lt;p&gt;下面简单示例如何用 openssl 生成 ca 和双方 SAN 证书。&lt;/p&gt;
 &lt;p&gt;准备默认 OpenSSL 配置文件于当前目录。此配置文件在 linux 系统下通常位于 &lt;code&gt;/etc/pki/tls/openssl.cnf&lt;/code&gt;，在 mac 系统下通常位于 &lt;code&gt;/System/Library/OpenSSL/openssl.cnf&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;如果存在，则直接拷贝到当前目录，例如 &lt;code&gt;cp /etc/pki/tls/openssl.cnf ./my-openssl.cnf&lt;/code&gt;。如果不存在可以使用下面的命令来创建。&lt;/p&gt;

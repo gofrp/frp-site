@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/reference/proxy/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-14T11:30:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-06-26T21:26:05+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="代理配置">
 <meta itemprop="description" content="frp 代理的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2023-06-14T11:30:28+08:00" />
-<meta itemprop="wordCount" content="532">
+<meta itemprop="dateModified" content="2023-06-26T21:26:05+08:00" />
+<meta itemprop="wordCount" content="527">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="代理配置"/>
 <meta name="twitter:description" content="frp 代理的详细配置说明。
@@ -103,7 +103,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -341,6 +341,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-docsreferenceproxy-check" checked/>
   <label for="m-docsreferenceproxy-check"><a href="/docs/reference/proxy/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsreferenceproxy"><span class="td-sidebar-nav-active-item">代理配置</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferencevisitor-li">
+  <input type="checkbox" id="m-docsreferencevisitor-check"/>
+  <label for="m-docsreferencevisitor-check"><a href="/docs/reference/visitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsreferencevisitor"><span class="">visitor 配置</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -385,7 +389,6 @@ var _hmt = _hmt || [];
     <li><a href="#stcp">STCP</a></li>
     <li><a href="#sudp">SUDP</a></li>
     <li><a href="#xtcp">XTCP</a></li>
-    <li><a href="#xtcp-visitor">XTCP visitor</a></li>
     <li><a href="#tcpmux">TCPMUX</a></li>
   </ul>
 </nav></div>
@@ -852,8 +855,8 @@ var _hmt = _hmt || [];
 <td style="text-align:left">角色</td>
 <td style="text-align:center">是</td>
 <td style="text-align:center">server</td>
-<td style="text-align:left">server,visitor</td>
-<td style="text-align:left">server 表示服务端，visitor 表示访问端</td>
+<td style="text-align:left">server</td>
+<td style="text-align:left">server 表示服务端</td>
 </tr>
 <tr>
 <td style="text-align:left">sk</td>
@@ -863,6 +866,15 @@ var _hmt = _hmt || [];
 <td style="text-align:center"></td>
 <td style="text-align:left"></td>
 <td style="text-align:left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
+</tr>
+<tr>
+<td style="text-align:left">allow_users</td>
+<td style="text-align:center">[]string</td>
+<td style="text-align:left">允许访问的 visitor 用户</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">默认只允许同一用户下的 visitor 访问，配置为 * 则允许任何 visitor 访问</td>
 </tr>
 </tbody>
 </table>
@@ -898,6 +910,15 @@ var _hmt = _hmt || [];
 <td style="text-align:left"></td>
 <td style="text-align:left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
 </tr>
+<tr>
+<td style="text-align:left">allow_users</td>
+<td style="text-align:center">[]string</td>
+<td style="text-align:left">允许访问的 visitor 用户</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">默认只允许同一用户下的 visitor 访问，配置为 * 则允许任何 visitor 访问</td>
+</tr>
 </tbody>
 </table>
 <h2 id="xtcp">XTCP</h2>
@@ -932,57 +953,14 @@ var _hmt = _hmt || [];
 <td style="text-align:left"></td>
 <td style="text-align:left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
 </tr>
-</tbody>
-</table>
-<h2 id="xtcp-visitor">XTCP visitor</h2>
-<table>
-<thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:center">是否必须</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">keep_tunnel_open</td>
-<td style="text-align:center">bool</td>
-<td style="text-align:left">是否保持隧道打开</td>
+<td style="text-align:left">allow_users</td>
+<td style="text-align:center">[]string</td>
+<td style="text-align:left">允许访问的 visitor 用户</td>
 <td style="text-align:center">否</td>
-<td style="text-align:center">false</td>
+<td style="text-align:center"></td>
 <td style="text-align:left"></td>
-<td style="text-align:left">如果开启，会定期检查隧道状态并尝试保持打开</td>
-</tr>
-<tr>
-<td style="text-align:left">max_retries_an_hour</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">每小时尝试打开隧道的次数</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">8</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">仅在 keep_tunnel_open 为 true 时有效</td>
-</tr>
-<tr>
-<td style="text-align:left">min_retry_interval</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">重试打开隧道的最小间隔时间，单位: 秒</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">90</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">仅在 keep_tunnel_open 为 true 时有效</td>
-</tr>
-<tr>
-<td style="text-align:left">protocol</td>
-<td style="text-align:center">string</td>
-<td style="text-align:left">隧道底层通信协议</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">quic</td>
-<td style="text-align:left">quic, kcp</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">默认只允许同一用户下的 visitor 访问，配置为 * 则允许任何 visitor 访问</td>
 </tr>
 </tbody>
 </table>
@@ -1061,7 +1039,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 June 14, 2023: <a href="https://github.com/gofrp/frp-doc/commit/96bfbb2cc71c7d326e4b52cc5ca91f787c847bad">remove `bind_udp_port` (#62) (96bfbb2)</a>
+  最后修改 June 26, 2023: <a href="https://github.com/gofrp/frp-doc/commit/00fd746802379f98658263e43cad328fb775a71b">update docs for v0.50.0 (00fd746)</a>
 </div>
 
 </div>

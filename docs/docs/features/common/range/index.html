@@ -30,13 +30,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/range/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-14T11:30:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-06-26T21:26:05+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="范围端口映射">
 <meta itemprop="description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
 例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：
 # frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6005,6007 remote_port = 6000-6005,6007 实际连接成功后会创建 7 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_6。">
-<meta itemprop="dateModified" content="2023-06-14T11:30:28+08:00" />
+<meta itemprop="dateModified" content="2023-06-26T21:26:05+08:00" />
 <meta itemprop="wordCount" content="40">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="范围端口映射"/>
@@ -110,7 +110,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -348,6 +348,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-docsreferenceproxy-check"/>
   <label for="m-docsreferenceproxy-check"><a href="/docs/reference/proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsreferenceproxy"><span class="">代理配置</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferencevisitor-li">
+  <input type="checkbox" id="m-docsreferencevisitor-check"/>
+  <label for="m-docsreferencevisitor-check"><a href="/docs/reference/visitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsreferencevisitor"><span class="">visitor 配置</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfaq-li">
@@ -459,7 +463,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 June 14, 2023: <a href="https://github.com/gofrp/frp-doc/commit/96bfbb2cc71c7d326e4b52cc5ca91f787c847bad">remove `bind_udp_port` (#62) (96bfbb2)</a>
+  最后修改 June 26, 2023: <a href="https://github.com/gofrp/frp-doc/commit/00fd746802379f98658263e43cad328fb775a71b">update docs for v0.50.0 (00fd746)</a>
 </div>
 
 </div>

@@ -34,7 +34,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/client-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-14T11:30:28+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-06-26T21:26:05+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="客户端插件">
 <meta itemprop="description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
 通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
@@ -44,7 +44,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 # frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
 http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
 参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。">
-<meta itemprop="dateModified" content="2023-06-14T11:30:28+08:00" />
+<meta itemprop="dateModified" content="2023-06-26T21:26:05+08:00" />
 <meta itemprop="wordCount" content="213">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端插件"/>
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.599dfee7231e95db11c7648ec7e01713.json"
+    data-offline-search-index-json-src="/offline-search-index.5481bf807cad07c615ef1d1461b02c1a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -359,6 +359,10 @@ var _hmt = _hmt || [];
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferenceproxy-li">
   <input type="checkbox" id="m-docsreferenceproxy-check"/>
   <label for="m-docsreferenceproxy-check"><a href="/docs/reference/proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsreferenceproxy"><span class="">代理配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferencevisitor-li">
+  <input type="checkbox" id="m-docsreferencevisitor-check"/>
+  <label for="m-docsreferencevisitor-check"><a href="/docs/reference/visitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsreferencevisitor"><span class="">visitor 配置</span></a></label>
   
 </li>
   </ul>
@@ -685,7 +689,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 June 14, 2023: <a href="https://github.com/gofrp/frp-doc/commit/96bfbb2cc71c7d326e4b52cc5ca91f787c847bad">remove `bind_udp_port` (#62) (96bfbb2)</a>
+  最后修改 June 26, 2023: <a href="https://github.com/gofrp/frp-doc/commit/00fd746802379f98658263e43cad328fb775a71b">update docs for v0.50.0 (00fd746)</a>
 </div>
 
 </div>
