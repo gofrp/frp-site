@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/examples/vhost-http/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-30T11:27:05+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-07-01T23:26:48+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="通过自定义域名访问内网的 Web 服务">
 <meta itemprop="description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
 ">
-<meta itemprop="dateModified" content="2023-06-30T11:27:05+08:00" />
-<meta itemprop="wordCount" content="91">
+<meta itemprop="dateModified" content="2023-07-01T23:26:48+08:00" />
+<meta itemprop="wordCount" content="110">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过自定义域名访问内网的 Web 服务"/>
 <meta name="twitter:description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
@@ -103,7 +103,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df097d90b634f2f0473b32d3b8891cac.json"
+    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df097d90b634f2f0473b32d3b8891cac.json"
+    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -181,6 +181,10 @@ var _hmt = _hmt || [];
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesssh-li">
   <input type="checkbox" id="m-docsexamplesssh-check"/>
   <label for="m-docsexamplesssh-check"><a href="/docs/examples/ssh/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesssh"><span class="">通过 SSH 访问内网机器</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesmultiple-ssh-over-same-port-li">
+  <input type="checkbox" id="m-docsexamplesmultiple-ssh-over-same-port-check"/>
+  <label for="m-docsexamplesmultiple-ssh-over-same-port-check"><a href="/docs/examples/multiple-ssh-over-same-port/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesmultiple-ssh-over-same-port"><span class="">多个 SSH 服务复用同一端口</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsexamplesvhost-http-li">
   <input type="checkbox" id="m-docsexamplesvhost-http-check" checked/>
@@ -440,13 +444,15 @@ var _hmt = _hmt || [];
 		
 	</header>    
 	<p>HTTP 类型的代理相比于 TCP 类型，不仅在服务端只需要监听一个额外的端口 <code>vhost_http_port</code> 用于接收 HTTP 请求，还额外提供了基于 HTTP 协议的诸多功能。</p>
+<p>HTTPS 与此类似，但是需要注意，frp 的 https 代理需要本地服务是 HTTPS 服务，frps 端不会做 TLS 终止。也可以结合 https2http 插件来实现将本地的 HTTP 服务以 HTTPS 协议暴露出去。</p>
 <ol>
 <li>
 <p>修改 frps.ini 文件，设置监听 HTTP 请求端口为 8080：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">vhost_http_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">8080</span>
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>https 代理的话需要配置 <code>vhost_https_port</code>。</p>
+</li>
 <li>
 <p>修改 frpc.ini 文件，假设 frps 所在的服务器的 IP 为 x.x.x.x，<code>local_port</code> 为本地机器上 Web 服务监听的端口, 绑定自定义域名为 <code>custom_domains</code>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
@@ -477,7 +483,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 June 30, 2023: <a href="https://github.com/gofrp/frp-doc/commit/7f713f0fad76e7ee9df86add23964c914b7603f6">update https2http doc (7f713f0)</a>
+  最后修改 July 1, 2023: <a href="https://github.com/gofrp/frp-doc/commit/636adffdfe33565f22e31984bf9a2ebadbacd122">update docs (636adff)</a>
 </div>
 
 </div>

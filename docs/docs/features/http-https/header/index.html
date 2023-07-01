@@ -29,13 +29,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/header/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-30T11:27:05+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-07-01T23:26:48+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com header_X-From-Where = frp 对于参数配置中所有以 header_ 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 X-From-Where: frp。">
-<meta itemprop="dateModified" content="2023-06-30T11:27:05+08:00" />
+<meta itemprop="dateModified" content="2023-07-01T23:26:48+08:00" />
 <meta itemprop="wordCount" content="82">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改 HTTP 请求 Header"/>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df097d90b634f2f0473b32d3b8891cac.json"
+    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df097d90b634f2f0473b32d3b8891cac.json"
+    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -187,6 +187,10 @@ var _hmt = _hmt || [];
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesssh-li">
   <input type="checkbox" id="m-docsexamplesssh-check"/>
   <label for="m-docsexamplesssh-check"><a href="/docs/examples/ssh/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesssh"><span class="">通过 SSH 访问内网机器</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesmultiple-ssh-over-same-port-li">
+  <input type="checkbox" id="m-docsexamplesmultiple-ssh-over-same-port-check"/>
+  <label for="m-docsexamplesmultiple-ssh-over-same-port-check"><a href="/docs/examples/multiple-ssh-over-same-port/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsexamplesmultiple-ssh-over-same-port"><span class="">多个 SSH 服务复用同一端口</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesvhost-http-li">
   <input type="checkbox" id="m-docsexamplesvhost-http-check"/>
@@ -476,7 +480,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 June 30, 2023: <a href="https://github.com/gofrp/frp-doc/commit/7f713f0fad76e7ee9df86add23964c914b7603f6">update https2http doc (7f713f0)</a>
+  最后修改 July 1, 2023: <a href="https://github.com/gofrp/frp-doc/commit/636adffdfe33565f22e31984bf9a2ebadbacd122">update docs (636adff)</a>
 </div>
 
 </div>
