@@ -925,7 +925,7 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
 &lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;连接服务端的通信协议&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;tcp&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;tcp, kcp, quic, websocket&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;tcp, kcp, quic, websocket, wss&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;

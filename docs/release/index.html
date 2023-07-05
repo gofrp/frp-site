@@ -20,10 +20,12 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>版本历史 | frp</title>
-<meta name="description" content="v0.50.0
+<meta name="description" content="v0.51.0
 
-[new] stcp, sudp, xtcp 支持 allow_users，默认只允许同 user 访问，* 表示允许任何用户访问，visitor 配置支持 server_user，以支持连接到其他用户的代理。
-[new] xtcp 连接失败时支持 fallback …">
+[new] frpc 支持通过 wss 连接 frps。
+[new] frpc 支持通过 stop 命令停止服务。
+[improve] Service.Run 支持传入 context。
+[fix] 修复一处由于 yamux 的 bug 导致 wss 在某些插件中无法正常工作的问 …">
 <meta property="og:title" content="版本历史" />
 <meta property="og:description" content="frp official website" />
 <meta property="og:type" content="website" />
@@ -98,7 +100,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
+    data-offline-search-index-json-src="/offline-search-index.1a376d35acb6f3f11263393157719417.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -123,7 +125,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.977a737fb92e93a0e7e3f399a51827cc.json"
+    data-offline-search-index-json-src="/offline-search-index.1a376d35acb6f3f11263393157719417.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -236,7 +238,14 @@ var _hmt = _hmt || [];
 
 		
 	</header>
-	<h4 id="v0500">v0.50.0</h4>
+	<h4 id="v0510">v0.51.0</h4>
+<ul>
+<li>[new] frpc 支持通过 wss 连接 frps。</li>
+<li>[new] frpc 支持通过 stop 命令停止服务。</li>
+<li>[improve] <code>Service.Run</code> 支持传入 context。</li>
+<li>[fix] 修复一处由于 yamux 的 bug 导致 wss 在某些插件中无法正常工作的问题。</li>
+</ul>
+<h4 id="v0500">v0.50.0</h4>
 <ul>
 <li>[new] stcp, sudp, xtcp 支持 <code>allow_users</code>，默认只允许同 user 访问，<code>*</code> 表示允许任何用户访问，visitor 配置支持 <code>server_user</code>，以支持连接到其他用户的代理。</li>
 <li>[new] xtcp 连接失败时支持 fallback 到指定的其他 visitor。</li>
@@ -753,7 +762,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 July 1, 2023: <a href="https://github.com/gofrp/frp-doc/commit/636adffdfe33565f22e31984bf9a2ebadbacd122">update docs (636adff)</a>
+  最后修改 July 5, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20ea901fd693b91d8dfa299f8d435f6b22808771">add release notes (20ea901)</a>
 </div>
 
 </div>
