@@ -30,13 +30,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/range/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-07-05T22:22:58+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-07-20T22:12:22+08:00" /><meta property="og:site_name" content="frp" />
 <meta itemprop="name" content="范围端口映射">
 <meta itemprop="description" content="在 frpc 的配置文件中可以指定映射多个端口，目前只支持 TCP 和 UDP 的代理类型。
 这一功能通过 range: 段落标记来实现，客户端会解析这个标记中的配置，将其拆分成多个 proxy，每一个 proxy 以数字为后缀命名。
 例如要映射本地 6000-6005, 6007 这7个端口，主要配置如下：
 # frpc.ini [range:test_tcp] type = tcp local_ip = 127.0.0.1 local_port = 6000-6005,6007 remote_port = 6000-6005,6007 实际连接成功后会创建 7 个 proxy，命名为 test_tcp_0, test_tcp_1 ... test_tcp_6。">
-<meta itemprop="dateModified" content="2023-07-05T22:22:58+08:00" />
+<meta itemprop="dateModified" content="2023-07-20T22:12:22+08:00" />
 <meta itemprop="wordCount" content="40">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="范围端口映射"/>
@@ -110,7 +110,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a376d35acb6f3f11263393157719417.json"
+    data-offline-search-index-json-src="/offline-search-index.35cabda252ca46dbac5a0602d4ddb6d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a376d35acb6f3f11263393157719417.json"
+    data-offline-search-index-json-src="/offline-search-index.35cabda252ca46dbac5a0602d4ddb6d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -467,7 +467,7 @@ var _hmt = _hmt || [];
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 July 5, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20ea901fd693b91d8dfa299f8d435f6b22808771">add release notes (20ea901)</a>
+  最后修改 July 20, 2023: <a href="https://github.com/gofrp/frp-doc/commit/485968d924c71d178b5322fbb2e59157efe8fb37">update (485968d)</a>
 </div>
 
 </div>
