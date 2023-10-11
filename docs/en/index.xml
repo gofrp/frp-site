@@ -1,9 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>frp – Goldydocs</title>
+    <title>frp – frp</title>
     <link>/en/</link>
-    <description>Recent content in Goldydocs on frp</description>
+    <description>Recent content on frp</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     
 	  <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     

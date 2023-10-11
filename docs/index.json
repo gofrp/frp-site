@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.119.0">
 <meta name="robots" content="index, follow">
 
 
@@ -25,10 +25,10 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/index.json" /><meta property="article:section" content="" />
 
-<meta property="article:modified_time" content="2023-10-11T19:51:12+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="name" content="">
 <meta itemprop="description" content="">
-<meta itemprop="dateModified" content="2023-10-11T19:51:12+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="wordCount" content="0">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
@@ -43,10 +43,6 @@
 <script
   src="/js/jquery-3.6.3.min.js"
   integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE"
-  crossorigin="anonymous"></script>
-<script
-  src="/js/lunr-2.3.9.min.js"
-  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
 <script>
 var _hmt = _hmt || [];
@@ -81,27 +77,13 @@ var _hmt = _hmt || [];
         <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/index.json">English</a></li>
+    <li><a class="dropdown-item" href="/en/">English</a></li>
     </ul>
 </div></li>
       </ul>
   </div>
   <div class="d-none d-lg-block">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
   </div>
 </div>
 </nav>
@@ -145,7 +127,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <script src="/js/main.min.99abe30f7fb05785a480d405ee1665ebd520cec6bbadffe966b7737e103675b8.js" integrity="sha256-mavjD3&#43;wV4WkgNQF7hZl69Ugzsa7rf/pZrdzfhA2dbg=" crossorigin="anonymous"></script>
+  <script src="/js/main.min.bfefba6b7ccbf88710915ea7a0df9461124cad8959623d18119929418a2da080.js" integrity="sha256-v&#43;&#43;6a3zL&#43;IcQkV6noN&#43;UYRJMrYlZYj0YEZkpQYotoIA=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 

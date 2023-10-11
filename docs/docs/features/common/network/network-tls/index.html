@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.119.0">
 <meta name="robots" content="index, follow">
 
 
@@ -20,7 +20,12 @@
 
 <title>自定义 TLS 协议加密 | frp</title>
 <meta name="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
-当 frps.ini …">
+当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
+注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 true，默认开启 TLS 协议加密。
+如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
+默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
+frpc 单向校验 frps 身份 # frpc.">
 <meta property="og:title" content="自定义 TLS 协议加密" />
 <meta property="og:description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
@@ -32,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/network/network-tls/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T19:51:12+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
@@ -41,7 +46,7 @@ TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 tru
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2023-10-11T19:51:12+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="wordCount" content="444">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 TLS 协议加密"/>
@@ -62,10 +67,6 @@ frpc 单向校验 frps 身份 # frpc."/>
 <script
   src="/js/jquery-3.6.3.min.js"
   integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE"
-  crossorigin="anonymous"></script>
-<script
-  src="/js/lunr-2.3.9.min.js"
-  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
 <script>
 var _hmt = _hmt || [];
@@ -106,21 +107,7 @@ var _hmt = _hmt || [];
       </ul>
   </div>
   <div class="d-none d-lg-block">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
   </div>
 </div>
 </nav>
@@ -131,21 +118,7 @@ var _hmt = _hmt || [];
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div id="td-sidebar-menu" class="td-sidebar__inner">
   <form class="td-sidebar__search d-flex align-items-center">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
@@ -382,10 +355,7 @@ var _hmt = _hmt || [];
   
 </div>
 
-            
-
-
-<div class="td-toc"><nav id="TableOfContents">
+            <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#tls-默认开启方式">TLS 默认开启方式</a></li>
     <li><a href="#frpc-单向校验-frps-身份">frpc 单向校验 frps 身份</a></li>
@@ -394,9 +364,6 @@ var _hmt = _hmt || [];
     <li><a href="#openssl-生成证书示例">OpenSSL 生成证书示例</a></li>
   </ul>
 </nav></div>
-
-
-
 
             
 	
@@ -530,7 +497,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/3a68dac0467d2a5576db8a3272f6d4d31a36de91">update docsy version to v0.7.1 (#63) (3a68dac)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
 </div>
 
 </div>
@@ -574,7 +541,7 @@ openssl x509 -req -days 365 -sha256 \
 </footer>
     </div>
     
-  <script src="/js/main.min.99abe30f7fb05785a480d405ee1665ebd520cec6bbadffe966b7737e103675b8.js" integrity="sha256-mavjD3&#43;wV4WkgNQF7hZl69Ugzsa7rf/pZrdzfhA2dbg=" crossorigin="anonymous"></script>
+  <script src="/js/main.min.bfefba6b7ccbf88710915ea7a0df9461124cad8959623d18119929418a2da080.js" integrity="sha256-v&#43;&#43;6a3zL&#43;IcQkV6noN&#43;UYRJMrYlZYj0YEZkpQYotoIA=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 

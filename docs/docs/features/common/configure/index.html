@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.119.0">
 <meta name="robots" content="index, follow">
 
 
@@ -21,10 +21,15 @@
 <title>配置文件 | frp</title>
 <meta name="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
 frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
-格式
-目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
+格式 目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
 frps 配置：
-[common] …">
+[common] bind_port = 7000 frpc 配置：
+[common] server_addr = x.x.x.x server_port = 7000 [ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 [common] 是固定名称的段落，用于配置通用参数。
+[ssh] 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。
+同一个客户端可以配置多个代理。
+模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
+示例配置如下：
+# frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
 <meta property="og:title" content="配置文件" />
 <meta property="og:description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
 frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
@@ -40,7 +45,7 @@ frps 配置：
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/configure/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T19:51:12+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="name" content="配置文件">
 <meta itemprop="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
 frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
@@ -53,7 +58,7 @@ frps 配置：
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
 # frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
-<meta itemprop="dateModified" content="2023-10-11T19:51:12+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="wordCount" content="167">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置文件"/>
@@ -78,10 +83,6 @@ frps 配置：
 <script
   src="/js/jquery-3.6.3.min.js"
   integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE"
-  crossorigin="anonymous"></script>
-<script
-  src="/js/lunr-2.3.9.min.js"
-  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
 <script>
 var _hmt = _hmt || [];
@@ -122,21 +123,7 @@ var _hmt = _hmt || [];
       </ul>
   </div>
   <div class="d-none d-lg-block">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
   </div>
 </div>
 </nav>
@@ -147,21 +134,7 @@ var _hmt = _hmt || [];
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div id="td-sidebar-menu" class="td-sidebar__inner">
   <form class="td-sidebar__search d-flex align-items-center">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
@@ -398,10 +371,7 @@ var _hmt = _hmt || [];
   
 </div>
 
-            
-
-
-<div class="td-toc"><nav id="TableOfContents">
+            <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#格式">格式</a></li>
     <li><a href="#模版渲染">模版渲染</a></li>
@@ -410,9 +380,6 @@ var _hmt = _hmt || [];
     <li><a href="#完整配置参数">完整配置参数</a></li>
   </ul>
 </nav></div>
-
-
-
 
             
 	
@@ -501,7 +468,7 @@ export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 <p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="/docs/reference">参考</a> 中查看。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/3a68dac0467d2a5576db8a3272f6d4d31a36de91">update docsy version to v0.7.1 (#63) (3a68dac)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
 </div>
 
 </div>
@@ -545,7 +512,7 @@ export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 </footer>
     </div>
     
-  <script src="/js/main.min.99abe30f7fb05785a480d405ee1665ebd520cec6bbadffe966b7737e103675b8.js" integrity="sha256-mavjD3&#43;wV4WkgNQF7hZl69Ugzsa7rf/pZrdzfhA2dbg=" crossorigin="anonymous"></script>
+  <script src="/js/main.min.bfefba6b7ccbf88710915ea7a0df9461124cad8959623d18119929418a2da080.js" integrity="sha256-v&#43;&#43;6a3zL&#43;IcQkV6noN&#43;UYRJMrYlZYj0YEZkpQYotoIA=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 

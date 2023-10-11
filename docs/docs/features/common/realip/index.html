@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.119.0">
 <meta name="robots" content="index, follow">
 
 
@@ -19,10 +19,12 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>获取用户真实 IP | frp</title>
-<meta name="description" content="HTTP X-Forwarded-For
-目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
-Proxy Protocol
-frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的 …">
+<meta name="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
+Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
+Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。
+需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
+这里以 HTTPS 类型为例:
+# frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
 <meta property="og:title" content="获取用户真实 IP" />
 <meta property="og:description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
@@ -33,7 +35,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/realip/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T19:51:12+08:00" /><meta property="og:site_name" content="frp" />
+<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
@@ -41,7 +43,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2023-10-11T19:51:12+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
 <meta itemprop="wordCount" content="94">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="获取用户真实 IP"/>
@@ -61,10 +63,6 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <script
   src="/js/jquery-3.6.3.min.js"
   integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE"
-  crossorigin="anonymous"></script>
-<script
-  src="/js/lunr-2.3.9.min.js"
-  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
 <script>
 var _hmt = _hmt || [];
@@ -105,21 +103,7 @@ var _hmt = _hmt || [];
       </ul>
   </div>
   <div class="d-none d-lg-block">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
   </div>
 </div>
 </nav>
@@ -130,21 +114,7 @@ var _hmt = _hmt || [];
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div id="td-sidebar-menu" class="td-sidebar__inner">
   <form class="td-sidebar__search d-flex align-items-center">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="站内搜索…"
-    aria-label="站内搜索…"
-    autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.43fde74ff5f4bfbcd6800f5fa7099d5c.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
@@ -381,18 +351,12 @@ var _hmt = _hmt || [];
   
 </div>
 
-            
-
-
-<div class="td-toc"><nav id="TableOfContents">
+            <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#http-x-forwarded-for">HTTP X-Forwarded-For</a></li>
     <li><a href="#proxy-protocol">Proxy Protocol</a></li>
   </ul>
 </nav></div>
-
-
-
 
             
 	
@@ -439,7 +403,7 @@ var _hmt = _hmt || [];
 <p>本地的 HTTPS 服务可以通过在 nginx 的配置中启用 <code>Proxy Protocol</code> 的解析并将结果设置在 <code>X-Real-IP</code> 这个 Header 中就可以在自己的 Web 服务中通过 <code>X-Real-IP</code> 获取到用户的真实 IP。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/3a68dac0467d2a5576db8a3272f6d4d31a36de91">update docsy version to v0.7.1 (#63) (3a68dac)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
 </div>
 
 </div>
@@ -483,7 +447,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <script src="/js/main.min.99abe30f7fb05785a480d405ee1665ebd520cec6bbadffe966b7737e103675b8.js" integrity="sha256-mavjD3&#43;wV4WkgNQF7hZl69Ugzsa7rf/pZrdzfhA2dbg=" crossorigin="anonymous"></script>
+  <script src="/js/main.min.bfefba6b7ccbf88710915ea7a0df9461124cad8959623d18119929418a2da080.js" integrity="sha256-v&#43;&#43;6a3zL&#43;IcQkV6noN&#43;UYRJMrYlZYj0YEZkpQYotoIA=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 
