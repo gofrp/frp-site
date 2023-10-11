@@ -33,14 +33,14 @@ Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/monitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
+<meta property="article:modified_time" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
 内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
 内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
 Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
 在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="wordCount" content="39">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="监控"/>
@@ -71,6 +71,9 @@ var _hmt = _hmt || [];
 </script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+  integrity="sha512-O6ywtjtiV4QGgC6cD75C2Tf04SlTn9vvka8oV/dYpDL1JWM4lVP0QoZbdZt5RLtOWDpaP+MObzUrwl43ssqfvg=="
+  crossorigin="anonymous" />
 
   </head>
   <body class="td-page">
@@ -389,7 +392,7 @@ var _hmt = _hmt || [];
 <p>在 frps.ini 中启用 Dashboard，并设置 <code>enable_prometheus = true</code>，则通过 <code>http://{dashboard_addr}/metrics</code> 可以获取到 Prometheus 的监控数据。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/2c0e804e4a21accd89345c2741dba0055d4808f6">update config.toml (#65) (2c0e804)</a>
 </div>
 
 </div>

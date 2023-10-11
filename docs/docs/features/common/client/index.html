@@ -45,7 +45,7 @@ frpc reload -c ./frpc.ini
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/client/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
+<meta property="article:modified_time" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="name" content="客户端">
 <meta itemprop="description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
 启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
@@ -58,7 +58,7 @@ frpc reload -c ./frpc.ini
 可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
 仅在 protocol = tcp 时生效。
 # frpc.">
-<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="wordCount" content="88">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端"/>
@@ -95,6 +95,9 @@ var _hmt = _hmt || [];
 </script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+  integrity="sha512-O6ywtjtiV4QGgC6cD75C2Tf04SlTn9vvka8oV/dYpDL1JWM4lVP0QoZbdZt5RLtOWDpaP+MObzUrwl43ssqfvg=="
+  crossorigin="anonymous" />
 
   </head>
   <body class="td-page">
@@ -430,7 +433,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>将 <code>http_proxy</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/2c0e804e4a21accd89345c2741dba0055d4808f6">update config.toml (#65) (2c0e804)</a>
 </div>
 
 </div>

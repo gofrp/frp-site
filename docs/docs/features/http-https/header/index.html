@@ -31,13 +31,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/http-https/header/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
+<meta property="article:modified_time" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com header_X-From-Where = frp 对于参数配置中所有以 header_ 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 X-From-Where: frp。">
-<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="wordCount" content="82">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改 HTTP 请求 Header"/>
@@ -67,6 +67,9 @@ var _hmt = _hmt || [];
 </script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+  integrity="sha512-O6ywtjtiV4QGgC6cD75C2Tf04SlTn9vvka8oV/dYpDL1JWM4lVP0QoZbdZt5RLtOWDpaP+MObzUrwl43ssqfvg=="
+  crossorigin="anonymous" />
 
   </head>
   <body class="td-page">
@@ -397,7 +400,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>对于参数配置中所有以 <code>header_</code> 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 <code>X-From-Where: frp</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/2c0e804e4a21accd89345c2741dba0055d4808f6">update config.toml (#65) (2c0e804)</a>
 </div>
 
 </div>

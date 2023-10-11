@@ -45,7 +45,7 @@ frps 配置：
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/configure/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
+<meta property="article:modified_time" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="name" content="配置文件">
 <meta itemprop="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
 frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
@@ -58,7 +58,7 @@ frps 配置：
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
 # frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
-<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="wordCount" content="167">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置文件"/>
@@ -95,6 +95,9 @@ var _hmt = _hmt || [];
 </script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+  integrity="sha512-O6ywtjtiV4QGgC6cD75C2Tf04SlTn9vvka8oV/dYpDL1JWM4lVP0QoZbdZt5RLtOWDpaP+MObzUrwl43ssqfvg=="
+  crossorigin="anonymous" />
 
   </head>
   <body class="td-page">
@@ -468,7 +471,7 @@ export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 <p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="/docs/reference">参考</a> 中查看。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/2c0e804e4a21accd89345c2741dba0055d4808f6">update config.toml (#65) (2c0e804)</a>
 </div>
 
 </div>

@@ -39,7 +39,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/features/common/client-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-11T20:16:47+08:00" />
+<meta property="article:modified_time" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="name" content="客户端插件">
 <meta itemprop="description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
 通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
@@ -49,7 +49,7 @@ http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给�
 # frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
 http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
 参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。">
-<meta itemprop="dateModified" content="2023-10-11T20:16:47+08:00" />
+<meta itemprop="dateModified" content="2023-10-11T20:32:32+08:00" />
 <meta itemprop="wordCount" content="213">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端插件"/>
@@ -83,6 +83,9 @@ var _hmt = _hmt || [];
 </script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+  integrity="sha512-O6ywtjtiV4QGgC6cD75C2Tf04SlTn9vvka8oV/dYpDL1JWM4lVP0QoZbdZt5RLtOWDpaP+MObzUrwl43ssqfvg=="
+  crossorigin="anonymous" />
 
   </head>
   <body class="td-page">
@@ -613,7 +616,7 @@ var _hmt = _hmt || [];
 </table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/04f8896c94c6e714357bdd4fe44487c0a11945b3">update hugo version (#64) (04f8896)</a>
+  最后修改 October 11, 2023: <a href="https://github.com/gofrp/frp-doc/commit/2c0e804e4a21accd89345c2741dba0055d4808f6">update config.toml (#65) (2c0e804)</a>
 </div>
 
 </div>
