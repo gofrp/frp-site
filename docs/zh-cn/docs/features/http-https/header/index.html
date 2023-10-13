@@ -31,13 +31,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/http-https/header/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.ini [web] type = http local_port = 80 custom_domains = test.yourdomain.com host_header_rewrite = dev.yourdomain.com header_X-From-Where = frp 对于参数配置中所有以 header_ 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 X-From-Where: frp。">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="wordCount" content="82">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改 HTTP 请求 Header"/>
@@ -400,7 +400,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>对于参数配置中所有以 <code>header_</code> 开头的参数(支持同时配置多个)，都会被添加到 HTTP 请求的 Header 中，根据如上的配置，会在请求的 Header 中加上 <code>X-From-Where: frp</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

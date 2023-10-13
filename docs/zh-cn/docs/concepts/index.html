@@ -20,18 +20,18 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>概念 | frp</title>
-<meta name="description" content="一些概念，理解它们有助于您更好地了解和使用 frp。
+<meta name="description" content="了解以下概念有助于更好地理解和使用 frp。
 ">
 <meta property="og:title" content="概念" />
-<meta property="og:description" content="一些概念，理解它们有助于您更好地了解和使用 frp。
+<meta property="og:description" content="了解以下概念有助于更好地理解和使用 frp。
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/zh-cn/docs/concepts/" />
 <meta itemprop="name" content="概念">
-<meta itemprop="description" content="一些概念，理解它们有助于您更好地了解和使用 frp。
+<meta itemprop="description" content="了解以下概念有助于更好地理解和使用 frp。
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="概念"/>
-<meta name="twitter:description" content="一些概念，理解它们有助于您更好地了解和使用 frp。
+<meta name="twitter:description" content="了解以下概念有助于更好地理解和使用 frp。
 "/>
 
 
@@ -336,7 +336,7 @@ var _hmt = _hmt || [];
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#原理">原理</a></li>
+    <li><a href="#工作原理">工作原理</a></li>
     <li><a href="#代理">代理</a></li>
     <li><a href="#代理类型">代理类型</a></li>
   </ul>
@@ -360,60 +360,28 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>概念</h1>
-  <div class="lead">一些概念，理解它们有助于您更好地了解和使用 frp。</div>
+  <div class="lead">了解以下概念有助于更好地理解和使用 frp。</div>
 	<header class="article-meta">
 		
   </header>
-	<h2 id="原理">原理</h2>
-<p>frp 主要由 <strong>客户端(frpc)</strong> 和 <strong>服务端(frps)</strong> 组成，服务端通常部署在具有公网 IP 的机器上，客户端通常部署在需要穿透的内网服务所在的机器上。</p>
-<p>内网服务由于没有公网 IP，不能被非局域网内的其他用户访问。</p>
-<p>用户通过访问服务端的 frps，由 frp 负责根据请求的端口或其他信息将请求路由到对应的内网机器，从而实现通信。</p>
+	<h2 id="工作原理">工作原理</h2>
+<p>frp 主要由两个组件组成：客户端(frpc) 和 服务端(frps)。通常情况下，服务端部署在具有公网 IP 地址的机器上，而客户端部署在需要穿透的内网服务所在的机器上。</p>
+<p>由于内网服务缺乏公网 IP 地址，因此无法直接被非局域网内的用户访问。用户通过访问服务端的 frps，frp 负责根据请求的端口或其他信息将请求路由到相应的内网机器，从而实现通信。</p>
 <h2 id="代理">代理</h2>
-<p>在 frp 中一个代理对应一个需要暴露的内网服务。一个客户端支持同时配置多个代理。</p>
+<p>在 frp 中，一个代理对应一个需要公开访问的内网服务。一个客户端可以同时配置多个代理，以满足不同的需求。</p>
 <h2 id="代理类型">代理类型</h2>
-<p>frp 支持多种代理类型来适配不同的使用场景。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">tcp</td>
-<td style="text-align:left">单纯的 TCP 端口映射，服务端会根据不同的端口路由到不同的内网服务。</td>
-</tr>
-<tr>
-<td style="text-align:left">udp</td>
-<td style="text-align:left">单纯的 UDP 端口映射，服务端会根据不同的端口路由到不同的内网服务。</td>
-</tr>
-<tr>
-<td style="text-align:left">http</td>
-<td style="text-align:left">针对 HTTP 应用定制了一些额外的功能，例如修改 Host Header，增加鉴权。</td>
-</tr>
-<tr>
-<td style="text-align:left">https</td>
-<td style="text-align:left">针对 HTTPS 应用定制了一些额外的功能。</td>
-</tr>
-<tr>
-<td style="text-align:left">stcp</td>
-<td style="text-align:left">安全的 TCP 内网代理，需要在被访问者和访问者的机器上都部署 frpc，不需要在服务端暴露端口。</td>
-</tr>
-<tr>
-<td style="text-align:left">sudp</td>
-<td style="text-align:left">安全的 UDP 内网代理，需要在被访问者和访问者的机器上都部署 frpc，不需要在服务端暴露端口。</td>
-</tr>
-<tr>
-<td style="text-align:left">xtcp</td>
-<td style="text-align:left">点对点内网穿透代理，功能同 stcp，但是流量不需要经过服务器中转。</td>
-</tr>
-<tr>
-<td style="text-align:left">tcpmux</td>
-<td style="text-align:left">支持服务端 TCP 端口的多路复用，通过同一个端口访问不同的内网服务。</td>
-</tr>
-</tbody>
-</table>
+<p>frp 支持多种代理类型，以适应不同的使用场景。以下是一些常见的代理类型：</p>
+<ul>
+<li><strong>TCP</strong>：提供纯粹的 TCP 端口映射，使服务端能够根据不同的端口将请求路由到不同的内网服务。</li>
+<li><strong>UDP</strong>：提供纯粹的 UDP 端口映射，与 TCP 代理类似，但用于 UDP 流量。</li>
+<li><strong>HTTP</strong>：专为 HTTP 应用设计，支持修改 Host Header 和增加鉴权等额外功能。</li>
+<li><strong>HTTPS</strong>：类似于 HTTP 代理，但专门用于处理 HTTPS 流量。</li>
+<li><strong>STCP</strong>：提供安全的 TCP 内网代理，要求在被访问者和访问者的机器上都部署 frpc，不需要在服务端暴露端口。</li>
+<li><strong>SUDP</strong>：提供安全的 UDP 内网代理，与 STCP 类似，需要在被访问者和访问者的机器上都部署 frpc，不需要在服务端暴露端口。</li>
+<li><strong>XTCP</strong>：点对点内网穿透代理，与 STCP 类似，但流量不需要经过服务器中转。</li>
+<li><strong>TCPMUX</strong>：支持服务端 TCP 端口的多路复用，允许通过同一端口访问不同的内网服务。</li>
+</ul>
+<p>每种代理类型适用于不同的使用情境，您可以根据需求选择合适的代理类型来配置 frp。</p>
 
   <div class="section-index">
     
@@ -427,7 +395,7 @@ var _hmt = _hmt || [];
     
 </div>
 <div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 </div>
 

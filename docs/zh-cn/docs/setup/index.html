@@ -368,20 +368,30 @@ var _hmt = _hmt || [];
 	
 
 <div class="pageinfo pageinfo-primary">
-<p>frp 采用 Golang 编写，支持跨平台，仅需下载对应平台的二进制文件即可执行，没有额外依赖。</p>
+<p>frp 采用 Go 语言编写，支持跨平台，只需下载适用于您平台的二进制文件即可执行，无需额外依赖。</p>
 
 </div>
 
 <h2 id="系统需求">系统需求</h2>
-<p>由于采用 Golang 编写，所以系统需求和最新的 Golang 对系统和平台的要求一致，具体可以参考 <a href="https://golang.org/doc/install#requirements">Golang System requirements</a>。</p>
+<p>由于采用 Go 语言编写，因此系统需求与最新的 Go 语言对系统和平台的要求一致，具体请参考 <a href="https://golang.org/doc/install#requirements">Golang System requirements</a>。</p>
 <h2 id="下载">下载</h2>
-<p>目前可以在 Github 的 <a href="https://github.com/fatedier/frp/releases">Release</a> 页面中下载到最新版本的客户端和服务端二进制文件，所有文件被打包在一个压缩包中。</p>
+<p>您可以从 GitHub 的 <a href="https://github.com/fatedier/frp/releases">Release</a> 页面中下载最新版本的客户端和服务器二进制文件。所有文件都打包在一个压缩包中，还包含了一份完整的配置参数说明。</p>
 <h2 id="部署">部署</h2>
-<p>解压缩下载的压缩包，将其中的 frpc 拷贝到内网服务所在的机器上，将 frps 拷贝到具有公网 IP 的机器上，放置在任意目录。</p>
+<ol>
+<li>解压下载的压缩包。</li>
+<li>将 <code>frpc</code> 复制到内网服务所在的机器上。</li>
+<li>将 <code>frps</code> 复制到拥有公网 IP 地址的机器上，并将它们放在任意目录。</li>
+</ol>
 <h2 id="开始使用">开始使用！</h2>
-<p>编写配置文件，先通过 <code>./frps -c ./frps.ini</code> 启动服务端，再通过 <code>./frpc -c ./frpc.ini</code> 启动客户端。如果需要在后台长期运行，建议结合其他工具使用，例如 <a href="/docs/setup/systemd/">systemd</a> 和 <code>supervisor</code>。</p>
-<p>如果是 Windows 用户，需要在 cmd 终端中执行命令。</p>
-<p>配置文件如何编写可以参考 <a href="/docs/examples/">示例</a> 中的内容。</p>
+<ol>
+<li>编写配置文件，目前支持的文件格式包括 TOML/YAML/JSON，旧的 INI 格式仍然支持，但已经不再推荐。</li>
+<li>使用以下命令启动服务器：<code>./frps -c ./frps.toml</code>。</li>
+<li>使用以下命令启动客户端：<code>./frpc -c ./frpc.toml</code>。</li>
+<li>如果需要在后台长期运行，建议结合其他工具，如 <a href="/docs/setup/systemd/">systemd</a> 和 <code>supervisor</code>。</li>
+</ol>
+<p>如果您是 Windows 用户，需要在命令提示符中执行相同的命令。</p>
+<p>有关如何编写配置文件，请参考 <a href="../examples/">示例</a> 部分中的内容。</p>
+<p>完整的配置项说明，请参考 <a href="../reference/">Reference</a> 中的内容。</p>
 
   <div class="section-index">
     
@@ -399,13 +409,13 @@ var _hmt = _hmt || [];
                 <h5>
                     <a href="/zh-cn/docs/setup/systemd/">使用 systemd</a>
                 </h5>
-                <p>这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。</p>
+                <p>此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。</p>
             </div>
         
     
 </div>
 <div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 </div>
 

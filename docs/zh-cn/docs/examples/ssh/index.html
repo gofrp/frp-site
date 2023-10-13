@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>通过 SSH 访问内网机器 | frp</title>
-<meta name="description" content="这个示例通过简单配置 TCP 类型的代理让用户访问到内网的服务器。
+<meta name="description" content="通过简单配置 TCP 类型的代理，使用户能够访问内网服务器。
 ">
 <meta property="og:title" content="通过 SSH 访问内网机器" />
-<meta property="og:description" content="这个示例通过简单配置 TCP 类型的代理让用户访问到内网的服务器。
+<meta property="og:description" content="通过简单配置 TCP 类型的代理，使用户能够访问内网服务器。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/ssh/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="通过 SSH 访问内网机器">
-<meta itemprop="description" content="这个示例通过简单配置 TCP 类型的代理让用户访问到内网的服务器。
+<meta itemprop="description" content="通过简单配置 TCP 类型的代理，使用户能够访问内网服务器。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="68">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="78">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过 SSH 访问内网机器"/>
-<meta name="twitter:description" content="这个示例通过简单配置 TCP 类型的代理让用户访问到内网的服务器。
+<meta name="twitter:description" content="通过简单配置 TCP 类型的代理，使用户能够访问内网服务器。
 "/>
 
 
@@ -338,7 +338,15 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents"></nav></div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
             
 	
@@ -360,41 +368,47 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>通过 SSH 访问内网机器</h1>
-	<div class="lead">这个示例通过简单配置 TCP 类型的代理让用户访问到内网的服务器。</div>
+	<div class="lead">通过简单配置 TCP 类型的代理，使用户能够访问内网服务器。</div>
 	<header class="article-meta">
 		
   </header>
-	<ol>
+	<h3 id="步骤">步骤</h3>
+<ol>
 <li>
-<p>在具有公网 IP 的机器上部署 frps，修改 frps.ini 文件，这里使用了最简化的配置，设置了 frp 服务器用户接收客户端连接的端口：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>在具有公网 IP 的机器上部署 frps</strong></p>
+<p>部署 frps 并编辑 frps.toml 文件。以下是简化的配置，其中设置了 frp 服务器用于接收客户端连接的端口：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span></code></pre></div></li>
 <li>
-<p>在需要被访问的内网机器上（SSH 服务通常监听在 22 端口）部署 frpc，修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>在需要被访问的内网机器上部署 frpc</strong></p>
+<p>部署 frpc 并编辑 frpc.toml 文件，假设 frps 所在服务器的公网 IP 地址为 x.x.x.x。以下是示例配置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span></code></pre></div><p><code>local_ip</code> 和 <code>local_port</code> 配置为本地需要暴露到公网的服务地址和端口。<code>remote_port</code> 表示在 frp 服务端监听的端口，访问此端口的流量将会被转发到本地服务对应的端口。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localIP</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span></code></pre></div><ul>
+<li><code>localIP</code> 和 <code>localPort</code> 配置为需要从公网访问的内网服务的地址和端口。</li>
+<li><code>remotePort</code> 表示在 frp 服务端监听的端口，访问此端口的流量将被转发到本地服务的相应端口。</li>
+</ul>
 </li>
 <li>
-<p>分别启动 frps 和 frpc。</p>
+<p><strong>启动 frps 和 frpc</strong></p>
 </li>
 <li>
-<p>通过 SSH 访问内网机器，假设用户名为 test：</p>
-<p><code>ssh -oPort=6000 test@x.x.x.x</code></p>
-<p>frp 会将请求 <code>x.x.x.x:6000</code> 的流量转发到内网机器的 22 端口。</p>
+<p><strong>通过 SSH 访问内网机器</strong></p>
+<p>使用以下命令通过 SSH 访问内网机器，假设用户名为 test：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -o <span style="color:#000">Port</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">6000</span> test@x.x.x.x
+</span></span></code></pre></div><p>frp 将请求发送到 <code>x.x.x.x:6000</code> 的流量转发到内网机器的 22 端口。</p>
 </li>
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>点对点内网穿透 | frp</title>
-<meta name="description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
+<meta name="description" content="这个示例将演示如何通过点对点 (P2P) 连接来访问内网服务，流量不会通过服务器中转。
 ">
 <meta property="og:title" content="点对点内网穿透" />
-<meta property="og:description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
+<meta property="og:description" content="这个示例将演示如何通过点对点 (P2P) 连接来访问内网服务，流量不会通过服务器中转。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/xtcp/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="点对点内网穿透">
-<meta itemprop="description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
+<meta itemprop="description" content="这个示例将演示如何通过点对点 (P2P) 连接来访问内网服务，流量不会通过服务器中转。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="112">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="131">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="点对点内网穿透"/>
-<meta name="twitter:description" content="这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。
+<meta name="twitter:description" content="这个示例将演示如何通过点对点 (P2P) 连接来访问内网服务，流量不会通过服务器中转。
 "/>
 
 
@@ -338,7 +338,15 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents"></nav></div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
             
 	
@@ -360,58 +368,60 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>点对点内网穿透</h1>
-	<div class="lead">这个示例将会演示一种不通过服务器中转流量的方式来访问内网服务。</div>
+	<div class="lead">这个示例将演示如何通过点对点 (P2P) 连接来访问内网服务，流量不会通过服务器中转。</div>
 	<header class="article-meta">
 		
   </header>
-	<p>frp 提供了一种新的代理类型 <code>xtcp</code> 用于应对在希望传输大量数据且流量不经过服务器的场景。</p>
-<p>使用方式同 <code>stcp</code> 类似，需要在两边都部署上 frpc 用于建立直接的连接。</p>
-<p><strong>XTCP 并不能穿透所有类型的 NAT 设备，穿透失败时可以尝试 <code>stcp</code> 的方式。</strong></p>
+	<p>frp 提供了一种新的代理类型 <code>xtcp</code>，用于在需要传输大量数据且不希望流量经过服务器的情况下实现内网穿透。</p>
+<p>与 <code>stcp</code> 类似，使用 <code>xtcp</code> 需要在两端都部署 frpc 以建立直接连接。</p>
+<p>需要注意的是，<code>xtcp</code> 并不适用于所有类型的 NAT 设备，如果穿透失败，可以尝试使用 <code>stcp</code> 代理。</p>
+<h3 id="步骤">步骤</h3>
 <ol>
 <li>
-<p>在需要暴露到外网的机器上部署 frpc，且配置如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当默认的 stun server 不可用时，可以配置一个新的</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># nat_hole_stun_server = xxx</span>
+<p><strong>配置需要暴露到外网的机器上的 frpc.toml 文件</strong></p>
+<p>在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口以及共享密钥 (<code>secretKey</code>)，以及本地服务的 IP 地址和端口：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 如果默认的 STUN 服务器不可用，可以配置一个新的 STUN 服务器</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># natHoleStunServer = &#34;xxx&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[p2p_ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">xtcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 只有 sk 一致的用户才能访问到此服务</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">sk</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abcdefg</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;p2p_ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;xtcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 只有共享密钥 (secretKey) 与服务器端一致的用户才能访问该服务</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">secretKey</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abcdefg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localIP</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
 </span></span></code></pre></div></li>
 <li>
-<p>在想要访问内网服务的机器上也部署 frpc，且配置如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当默认的 stun server 不可用时，可以配置一个新的</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># nat_hole_stun_server = xxx</span>
+<p><strong>在想要访问内网服务的机器上部署 frpc</strong></p>
+<p>在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口，共享密钥 (<code>secretKey</code>) 以及要访问的 P2P 代理的名称：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 如果默认的 STUN 服务器不可用，可以配置一个新的 STUN 服务器</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># natHoleStunServer = &#34;xxx&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[p2p_ssh_visitor]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">xtcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># xtcp 的访问者</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">role</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">visitor</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 要访问的 xtcp 代理的名字</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">p2p_ssh</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">sk</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abcdefg</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 绑定本地端口用于访问 ssh 服务</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 当需要自动保持隧道打开时，设置为 true</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># keep_tunnel_open = false</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">visitors</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;p2p_ssh_visitor&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;xtcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 要访问的 P2P 代理的名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverName</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;p2p_ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">secretKey</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abcdefg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 绑定本地端口以访问 SSH 服务</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bindAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 如果需要自动保持隧道打开，将其设置为 true</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># keepTunnelOpen = false</span>
 </span></span></code></pre></div></li>
 <li>
-<p>通过 SSH 访问内网机器，假设用户名为 test：</p>
-<p><code>ssh -oPort=6000 test@127.0.0.1</code></p>
-</li>
+<p><strong>通过 SSH 访问内网机器</strong></p>
+<p>使用 SSH 命令访问内网机器，假设用户名为 <code>test</code>：</p>
+<pre tabindex="0"><code>ssh -oPort=6000 test@127.0.0.1
+</code></pre></li>
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

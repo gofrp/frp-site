@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>为本地 HTTP 服务启用 HTTPS | frp</title>
-<meta name="description" content="通过 `https2http` 插件可以让本地 HTTP 服务转换成 HTTPS 服务对外提供。
+<meta name="description" content="使用 `https2http` 插件将本地 HTTP 服务转换为 HTTPS 服务，以供外部访问。
 ">
 <meta property="og:title" content="为本地 HTTP 服务启用 HTTPS" />
-<meta property="og:description" content="通过 `https2http` 插件可以让本地 HTTP 服务转换成 HTTPS 服务对外提供。
+<meta property="og:description" content="使用 `https2http` 插件将本地 HTTP 服务转换为 HTTPS 服务，以供外部访问。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/https2http/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="为本地 HTTP 服务启用 HTTPS">
-<meta itemprop="description" content="通过 `https2http` 插件可以让本地 HTTP 服务转换成 HTTPS 服务对外提供。
+<meta itemprop="description" content="使用 `https2http` 插件将本地 HTTP 服务转换为 HTTPS 服务，以供外部访问。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="52">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="65">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="为本地 HTTP 服务启用 HTTPS"/>
-<meta name="twitter:description" content="通过 `https2http` 插件可以让本地 HTTP 服务转换成 HTTPS 服务对外提供。
+<meta name="twitter:description" content="使用 `https2http` 插件将本地 HTTP 服务转换为 HTTPS 服务，以供外部访问。
 "/>
 
 
@@ -338,7 +338,15 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents"></nav></div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
             
 	
@@ -360,46 +368,50 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>为本地 HTTP 服务启用 HTTPS</h1>
-	<div class="lead">通过 <code>https2http</code> 插件可以让本地 HTTP 服务转换成 HTTPS 服务对外提供。</div>
+	<div class="lead">使用 <code>https2http</code> 插件将本地 HTTP 服务转换为 HTTPS 服务，以供外部访问。</div>
 	<header class="article-meta">
 		
   </header>
-	<ol>
+	<h3 id="步骤">步骤</h3>
+<ol>
 <li>
-<p>frps.ini 内容如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">vhost_https_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">443</span>
+<p><strong>配置 frps.toml</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">vhostHTTPSPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">443</span>
 </span></span></code></pre></div></li>
 <li>
-<p>frpc.ini 内容如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>配置 frpc.toml</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[test_htts2http]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">custom_domains</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">test.yourdomain.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;test_htts2http&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">customDomains</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;test.yourdomain.com&#34;</span><span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https2http</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_local_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1:80</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">plugin</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https2http&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1:80&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># HTTPS 证书相关的配置</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_crt_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">./server.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_key_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">./server.key</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_host_header_rewrite</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_header_X-From-Where</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">frp</span>
-</span></span></code></pre></div></li>
-<li>
-<p>分别启动 frps 和 frpc。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000">crtPath</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;./server.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">keyPath</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;./server.key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">hostHeaderRewrite</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">requestHeaders</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">x-from-where</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;frp&#34;</span>
+</span></span></code></pre></div><p>请注意，您需要根据您的域名和证书路径自行更改上述配置。</p>
 </li>
 <li>
-<p>通过浏览器访问 <code>https://test.yourdomain.com</code>。</p>
+<p><strong>启动 frps 和 frpc</strong></p>
+</li>
+<li>
+<p><strong>访问 HTTPS 服务</strong></p>
+<p>打开您的 Web 浏览器，访问 <code>https://test.yourdomain.com</code>。</p>
 </li>
 </ol>
+<p>通过按照以上步骤进行配置，您将能够为本地 HTTP 服务启用 HTTPS，以实现安全的外部访问。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

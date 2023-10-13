@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>通过自定义域名访问内网的 Web 服务 | frp</title>
-<meta name="description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
+<meta name="description" content="通过简单配置 HTTP 类型的代理，您可以让用户通过自定义域名访问内网的 Web 服务。
 ">
 <meta property="og:title" content="通过自定义域名访问内网的 Web 服务" />
-<meta property="og:description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
+<meta property="og:description" content="通过简单配置 HTTP 类型的代理，您可以让用户通过自定义域名访问内网的 Web 服务。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/vhost-http/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="通过自定义域名访问内网的 Web 服务">
-<meta itemprop="description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
+<meta itemprop="description" content="通过简单配置 HTTP 类型的代理，您可以让用户通过自定义域名访问内网的 Web 服务。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="110">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="116">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过自定义域名访问内网的 Web 服务"/>
-<meta name="twitter:description" content="这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。
+<meta name="twitter:description" content="通过简单配置 HTTP 类型的代理，您可以让用户通过自定义域名访问内网的 Web 服务。
 "/>
 
 
@@ -338,7 +338,15 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents"></nav></div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
             
 	
@@ -360,49 +368,54 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>通过自定义域名访问内网的 Web 服务</h1>
-	<div class="lead">这个示例通过简单配置 HTTP 类型的代理让用户访问到内网的 Web 服务。</div>
+	<div class="lead">通过简单配置 HTTP 类型的代理，您可以让用户通过自定义域名访问内网的 Web 服务。</div>
 	<header class="article-meta">
 		
   </header>
-	<p>HTTP 类型的代理相比于 TCP 类型，不仅在服务端只需要监听一个额外的端口 <code>vhost_http_port</code> 用于接收 HTTP 请求，还额外提供了基于 HTTP 协议的诸多功能。</p>
+	<p>HTTP 类型的代理非常适合将内网的 Web 服务通过自定义域名提供给外部用户。相比于 TCP 类型代理，HTTP 代理不仅可以复用端口，还提供了基于 HTTP 协议的许多功能。</p>
 <p>HTTPS 与此类似，但是需要注意，frp 的 https 代理需要本地服务是 HTTPS 服务，frps 端不会做 TLS 终止。也可以结合 https2http 插件来实现将本地的 HTTP 服务以 HTTPS 协议暴露出去。</p>
+<h3 id="步骤">步骤</h3>
 <ol>
 <li>
-<p>修改 frps.ini 文件，设置监听 HTTP 请求端口为 8080：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">vhost_http_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">8080</span>
-</span></span></code></pre></div><p>https 代理的话需要配置 <code>vhost_https_port</code>。</p>
+<p><strong>配置 frps.toml</strong></p>
+<p>在 frps.toml 文件中添加以下内容，以指定 HTTP 请求的监听端口为 8080：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">vhostHTTPPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">8080</span>
+</span></span></code></pre></div><p>如果需要配置 HTTPS 代理，还需要设置 <code>vhostHTTPSPort</code>。</p>
 </li>
 <li>
-<p>修改 frpc.ini 文件，假设 frps 所在的服务器的 IP 为 x.x.x.x，<code>local_port</code> 为本地机器上 Web 服务监听的端口, 绑定自定义域名为 <code>custom_domains</code>。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>配置 frpc.toml</strong></p>
+<p>在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器 IP 地址、本地 Web 服务监听端口和自定义域名：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[web]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">http</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">80</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">custom_domains</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">www.yourdomain.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;web&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">customDomains</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;www.yourdomain.com&#34;</span><span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[web2]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">http</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">8080</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">custom_domains</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">www.yourdomain2.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;web2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">customDomains</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;www.yourdomain2.com&#34;</span><span style="color:#000;font-weight:bold">]</span>
 </span></span></code></pre></div></li>
 <li>
-<p>分别启动 frps 和 frpc。</p>
+<p><strong>启动 frps 和 frpc</strong></p>
 </li>
 <li>
-<p>将 <code>www.yourdomain.com</code> 和 <code>www.yourdomain2.com</code> 的域名 A 记录解析到 IP <code>x.x.x.x</code>，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名。或者可以通过修改 HTTP 请求的 Host 字段来实现同样的效果。</p>
+<p><strong>域名解析</strong></p>
+<p>将 <code>www.yourdomain.com</code> 和 <code>www.yourdomain2.com</code> 的域名 A 记录解析到服务器的 IP 地址 <code>x.x.x.x</code>。如果服务器已经有对应的域名，您还可以将 CNAME 记录解析到原始域名。另外，通过修改 HTTP 请求的 Host 字段也可以实现相同的效果。</p>
 </li>
 <li>
-<p>通过浏览器访问 <code>http://www.yourdomain.com:8080</code> 即可访问到处于内网机器上 80 端口的服务，访问 <code>http://www.yourdomain2.com:8080</code> 则访问到内网机器上 8080 端口的服务。</p>
+<p><strong>通过浏览器访问</strong></p>
+<p>使用浏览器访问 <code>http://www.yourdomain.com:8080</code> 即可访问内网机器上的 80 端口服务，访问 <code>http://www.yourdomain2.com:8080</code> 可以访问内网机器上的 8080 端口服务。</p>
 </li>
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

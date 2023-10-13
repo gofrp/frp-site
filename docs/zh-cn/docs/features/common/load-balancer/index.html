@@ -37,7 +37,7 @@ http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations �
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/load-balancer/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="负载均衡与健康检查">
 <meta itemprop="description" content="负载均衡 可以将多个相同类型的代理加入到同一个 group 中，从而实现负载均衡的能力。
 目前支持的代理类型：tcp, http, tcpmux
@@ -46,7 +46,7 @@ tcp 类型代理要求 group_key 相同，做权限验证，且 remote_port 相�
 http 类型代理要求 group_key, custom_domains 或 subdomain 和 locations 相同。
 健康检查 通过给代理配置健康检查的参数，可以在要反向代理的服务出现故障时，将这个服务从 frps 中摘除，搭配负载均衡的功能，可以用来实现高可用的架构，避免服务单点故障。
 在每一个 proxy 的配置下加上 health_check_type = {type} 来启用健康检查功能。">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="wordCount" content="175">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="负载均衡与健康检查"/>
@@ -446,7 +446,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">health_check_timeout_s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">3</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

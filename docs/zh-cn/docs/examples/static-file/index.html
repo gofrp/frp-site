@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>对外提供简单的文件访问服务 | frp</title>
-<meta name="description" content="这个示例通过配置 `static_file` 客户端插件来将本地文件暴露在公网上供其他人访问。
+<meta name="description" content="通过配置 `static_file` 客户端插件，您可以将本地文件暴露在公网上，以供其他人访问。
 ">
 <meta property="og:title" content="对外提供简单的文件访问服务" />
-<meta property="og:description" content="这个示例通过配置 `static_file` 客户端插件来将本地文件暴露在公网上供其他人访问。
+<meta property="og:description" content="通过配置 `static_file` 客户端插件，您可以将本地文件暴露在公网上，以供其他人访问。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/static-file/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="对外提供简单的文件访问服务">
-<meta itemprop="description" content="这个示例通过配置 `static_file` 客户端插件来将本地文件暴露在公网上供其他人访问。
+<meta itemprop="description" content="通过配置 `static_file` 客户端插件，您可以将本地文件暴露在公网上，以供其他人访问。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="57">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="69">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="对外提供简单的文件访问服务"/>
-<meta name="twitter:description" content="这个示例通过配置 `static_file` 客户端插件来将本地文件暴露在公网上供其他人访问。
+<meta name="twitter:description" content="通过配置 `static_file` 客户端插件，您可以将本地文件暴露在公网上，以供其他人访问。
 "/>
 
 
@@ -338,7 +338,15 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents"></nav></div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
             
 	
@@ -360,44 +368,49 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>对外提供简单的文件访问服务</h1>
-	<div class="lead">这个示例通过配置 <code>static_file</code> 客户端插件来将本地文件暴露在公网上供其他人访问。</div>
+	<div class="lead">通过配置 <code>static_file</code> 客户端插件，您可以将本地文件暴露在公网上，以供其他人访问。</div>
 	<header class="article-meta">
 		
   </header>
-	<p>通过 <code>static_file</code> 插件可以对外提供一个简单的基于 HTTP 的文件访问服务。</p>
+	<p>通过使用 <code>static_file</code> 插件，您可以轻松地提供一个基于 HTTP 的文件访问服务，让其他人可以访问您指定的文件。</p>
+<h3 id="步骤">步骤</h3>
 <ol>
 <li>
-<p>frps.ini 内容如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>配置 frps.toml</strong></p>
+<p>在 frps.toml 文件中添加以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span></code></pre></div></li>
 <li>
-<p>frpc.ini 内容如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p><strong>配置 frpc.toml</strong></p>
+<p>在 frpc.toml 文件中添加以下内容，确保设置合适的文件路径、用户名和密码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[test_static_file]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">static_file</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 要对外暴露的文件目录</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_local_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/tmp/file</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 用户访问 URL 中会被去除的前缀，保留的内容即为要访问的文件路径</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_strip_prefix</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">static</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_http_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abc</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_http_passwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abc</span>
-</span></span></code></pre></div></li>
-<li>
-<p>分别启动 frps 和 frpc。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;test_static_file&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">plugin</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;static_file&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 本地文件目录，对外提供访问</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPath</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/tmp/file&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># URL 中的前缀，将被去除，保留的内容即为要访问的文件路径</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">stripPrefix</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;static&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">httpUser</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">httpPassword</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span></code></pre></div><p>请根据实际情况修改 <code>localPath</code>、<code>stripPrefix</code>、<code>httpUser</code> 和 <code>httpPassword</code>。</p>
 </li>
 <li>
-<p>通过浏览器访问 <code>http://x.x.x.x:6000/static/</code> 来查看位于 <code>/tmp/file</code> 目录下的文件，会要求输入已设置好的用户名和密码。</p>
+<p><strong>启动 frps 和 frpc</strong></p>
+</li>
+<li>
+<p><strong>通过浏览器访问文件</strong></p>
+<p>使用浏览器访问 <code>http://x.x.x.x:6000/static/</code>，以查看位于 <code>/tmp/file</code> 目录下的文件。系统会要求输入您设置的用户名和密码。</p>
 </li>
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>

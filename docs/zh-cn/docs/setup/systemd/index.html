@@ -19,23 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>使用 systemd | frp</title>
-<meta name="description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
+<meta name="description" content="此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。
 ">
 <meta property="og:title" content="使用 systemd" />
-<meta property="og:description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
+<meta property="og:description" content="此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/setup/systemd/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-12T11:43:04+08:00" />
+<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
 <meta itemprop="name" content="使用 systemd">
-<meta itemprop="description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
+<meta itemprop="description" content="此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。
 ">
-<meta itemprop="dateModified" content="2023-10-12T11:43:04+08:00" />
-<meta itemprop="wordCount" content="102">
+<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
+<meta itemprop="wordCount" content="122">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 systemd"/>
-<meta name="twitter:description" content="这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。
+<meta name="twitter:description" content="此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。
 "/>
 
 
@@ -360,23 +360,26 @@ var _hmt = _hmt || [];
             
 <div class="td-content">
 	<h1>使用 systemd</h1>
-	<div class="lead">这个示例将会演示在 Linux 系统下使用 systemd 控制 frps 及配置开机自启。</div>
+	<div class="lead">此示例演示如何在 Linux 系统下使用 systemd 来管理 frps 服务，包括启动、停止、配置后台运行和设置开机自启动。</div>
 	<header class="article-meta">
 		
   </header>
-	<p>在 Linux 系统下，使用<code>systemd</code> 可以方便地控制 frp 服务端 <code>frps</code> 的启动和停止、配置后台运行和开启自启。</p>
-<p>要使用 <code>systemd</code> 来控制 <code>frps</code>，需要先安装 <code>systemd</code>，然后在 <code>/etc/systemd/system</code> 目录下创建一个 frps.service 文件。</p>
+	<p>在 Linux 系统下，使用 <code>systemd</code> 可以方便地控制 frps 服务端的启动、停止、配置后台运行以及开机自启动。</p>
+<p>以下是具体的操作步骤：</p>
 <ol>
 <li>
-<p>如Linux服务端上没有安装 <code>systemd</code>，可以使用 <code>yum</code> 或 <code>apt</code> 等命令安装 <code>systemd</code>。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># yum</span>
+<p><strong>安装 systemd</strong></p>
+<p>如果您的 Linux 服务器上尚未安装 systemd，可以使用包管理器如 <code>yum</code>（适用于 CentOS/RHEL）或 <code>apt</code>（适用于 Debian/Ubuntu）来安装它：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 使用 yum 安装 systemd（CentOS/RHEL）</span>
 </span></span><span style="display:flex;"><span>yum install systemd
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># apt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 使用 apt 安装 systemd（Debian/Ubuntu）</span>
 </span></span><span style="display:flex;"><span>apt install systemd
 </span></span></code></pre></div></li>
 <li>
-<p>使用文本编辑器，如 <code>vim</code> 创建并编辑 <code>frps.service</code> 文件。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vim /etc/systemd/system/frps.service
+<p><strong>创建 frps.service 文件</strong></p>
+<p>使用文本编辑器 (如 vim) 在 <code>/etc/systemd/system</code> 目录下创建一个 <code>frps.service</code> 文件，用于配置 frps 服务。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vim /etc/systemd/system/frps.service
 </span></span></code></pre></div><p>写入内容</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Unit]</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 服务名称，可自定义</span>
@@ -387,30 +390,31 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Service]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">simple</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 启动frps的命令，需修改为您的frps的安装路径</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">ExecStart</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/path/to/frps -c /path/to/frps.ini</span>
+</span></span><span style="display:flex;"><span><span style="color:#c4a000">ExecStart</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/path/to/frps -c /path/to/frps.toml</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[Install]</span>
 </span></span><span style="display:flex;"><span><span style="color:#c4a000">WantedBy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">multi-user.target</span>
 </span></span></code></pre></div></li>
 <li>
-<p>使用 <code>systemd</code> 命令，管理 frps。</p>
+<p><strong>使用 systemd 命令管理 frps 服务</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 启动frp</span>
-</span></span><span style="display:flex;"><span>systemctl start frps
+</span></span><span style="display:flex;"><span>sudo systemctl start frps
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 停止frp</span>
-</span></span><span style="display:flex;"><span>systemctl stop frps
+</span></span><span style="display:flex;"><span>sudo systemctl stop frps
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 重启frp</span>
-</span></span><span style="display:flex;"><span>systemctl restart frps
+</span></span><span style="display:flex;"><span>sudo systemctl restart frps
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 查看frp状态</span>
-</span></span><span style="display:flex;"><span>systemctl status frps
+</span></span><span style="display:flex;"><span>sudo systemctl status frps
 </span></span></code></pre></div></li>
 <li>
-<p>配置 frps 开机自启。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl <span style="color:#204a87">enable</span> frps
+<p><strong>设置 frps 开机自启动</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl <span style="color:#204a87">enable</span> frps
 </span></span></code></pre></div></li>
 </ol>
+<p>通过遵循上述步骤，您可以轻松地使用 systemd 来管理 frps 服务，实现启动、停止、自动运行和开机自启动。确保替换路径和配置文件名称以匹配您的实际安装。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 12, 2023: <a href="https://github.com/gofrp/frp-doc/commit/20b44e5d5440419c9b1a8186aa1d79f8bd3edf23">update config.toml (#66) (20b44e5)</a>
+  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
 </div>
 
 </div>
