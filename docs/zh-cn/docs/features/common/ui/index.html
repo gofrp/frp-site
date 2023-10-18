@@ -22,45 +22,45 @@
 <meta name="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
+# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &amp;#34;admin&amp;#34; webServer.password = &amp;#34;admin&amp;#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：">
+webServer.tls.certFile = &amp;#34;server.crt&amp;#34; webServer.tls.keyFile = &amp;#34;server.key&amp;#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：">
 <meta property="og:title" content="Web 界面" />
 <meta property="og:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
+# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：" />
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/ui/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="Web 界面">
 <meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
+# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="112">
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="111">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Web 界面"/>
 <meta name="twitter:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
-需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.ini [common] dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 打开浏览器通过 http://[server_addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
+# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-dashboard_tls_mode = true dashboard_tls_cert_file = server.crt dashboard_tls_key_file = server.key 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能："/>
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
+需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能："/>
 
 
 
@@ -253,10 +253,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -399,37 +395,35 @@ var _hmt = _hmt || [];
 <h2 id="服务端-dashboard">服务端 Dashboard</h2>
 <p>服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。</p>
 <p><strong>注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。</strong></p>
-<p>需要在 frps.ini 中指定 dashboard 服务使用的端口，即可开启此功能：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7500</span>
+<p>需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">port</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7500</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># dashboard 用户名密码，可选，默认为空</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_pwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-</span></span></code></pre></div><p>打开浏览器通过 <code>http://[server_addr]:7500</code> 访问 Dashboard 界面，输入用户名密码 <code>admin</code>。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">user</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">password</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin&#34;</span>
+</span></span></code></pre></div><p>打开浏览器通过 <code>http://[server addr]:7500</code> 访问 Dashboard 界面，输入用户名密码 <code>admin</code>。</p>
 <p>你也可以通过配置 TLS 证书来启用 HTTPS 接口:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_mode</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">server.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">dashboard_tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">server.key</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;server.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;server.key&#34;</span>
 </span></span></code></pre></div><h2 id="客户端管理界面">客户端管理界面</h2>
 <p>frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。</p>
-<p>需要在 frpc.ini 中指定 admin 服务使用的端口，即可开启此功能：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_pwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">admin</span>
+<p>需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">port</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7400</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">user</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">password</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin&#34;</span>
 </span></span></code></pre></div><p>打开浏览器通过 <code>http://127.0.0.1:7400</code> 访问 Admin UI。</p>
 <p>如果想要在外网环境访问 Admin UI，可以将 7400 端口通过 frp 映射出去即可，但需要重视安全风险。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[admin_ui]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin_ui&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7400</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7400</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

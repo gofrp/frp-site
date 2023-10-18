@@ -19,60 +19,60 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>配置文件 | frp</title>
-<meta name="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
-frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
-格式 目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
+<meta name="description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
+请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。
+格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。
+文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。
 frps 配置：
-[common] bind_port = 7000 frpc 配置：
-[common] server_addr = x.x.x.x server_port = 7000 [ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 [common] 是固定名称的段落，用于配置通用参数。
-[ssh] 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。
-同一个客户端可以配置多个代理。
+bindPort = 7000 frpc 配置：
+serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。
+不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
-# frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
+serverAddr = &amp;#34;{{ .Envs.FRP_SERVER_ADDR }}&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.">
 <meta property="og:title" content="配置文件" />
-<meta property="og:description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
-frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
-格式 目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
+<meta property="og:description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
+请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。
+格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。
+文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。
 frps 配置：
-[common] bind_port = 7000 frpc 配置：
-[common] server_addr = x.x.x.x server_port = 7000 [ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 [common] 是固定名称的段落，用于配置通用参数。
-[ssh] 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。
-同一个客户端可以配置多个代理。
+bindPort = 7000 frpc 配置：
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.0.0.1&#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。
+不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
-# frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127." />
+serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/configure/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="配置文件">
-<meta itemprop="description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
-frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
-格式 目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
+<meta itemprop="description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
+请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。
+格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。
+文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。
 frps 配置：
-[common] bind_port = 7000 frpc 配置：
-[common] server_addr = x.x.x.x server_port = 7000 [ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 [common] 是固定名称的段落，用于配置通用参数。
-[ssh] 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。
-同一个客户端可以配置多个代理。
+bindPort = 7000 frpc 配置：
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.0.0.1&#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。
+不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
-# frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127.">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="167">
+serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="175">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置文件"/>
-<meta name="twitter:description" content="frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。
-frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。
-格式 目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。
+<meta name="twitter:description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
+请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。
+格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。
+文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。
 frps 配置：
-[common] bind_port = 7000 frpc 配置：
-[common] server_addr = x.x.x.x server_port = 7000 [ssh] type = tcp local_ip = 127.0.0.1 local_port = 22 remote_port = 6000 [common] 是固定名称的段落，用于配置通用参数。
-[ssh] 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。
-同一个客户端可以配置多个代理。
+bindPort = 7000 frpc 配置：
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.0.0.1&#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。
+不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
-# frpc.ini [common] server_addr = {{ .Envs.FRP_SERVER_ADDR }} server_port = 7000 [ssh] type = tcp local_ip = 127."/>
+serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127."/>
 
 
 
@@ -265,10 +265,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -410,68 +406,66 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<p>frp 目前仅支持 ini 格式的配置文件，frps 和 frpc 各自支持不同的参数。</p>
-<p>frps 主要配置服务端的一些通用参数，frpc 则需要额外配置每一个代理的详细配置。</p>
+	<p>从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。</p>
+<p>请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。</p>
 <h2 id="格式">格式</h2>
-<p>目前仅支持 ini 格式的配置，如下的示例配置将本地 SSH 服务穿透到公网。</p>
+<p>可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。</p>
+<p>文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。</p>
 <p>frps 配置：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span></code></pre></div><p>frpc 配置：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span></code></pre></div><p><code>[common]</code> 是固定名称的段落，用于配置通用参数。</p>
-<p><code>[ssh]</code> 仅在 frpc 中使用，用于配置单个代理的参数。代理名称必须唯一，不能重复。</p>
-<p>同一个客户端可以配置多个代理。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localIP</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span></code></pre></div><p>同一个客户端可以配置多个代理，但是 name 必须确保唯一。</p>
+<p>不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。</p>
 <h2 id="模版渲染">模版渲染</h2>
 <p>配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。</p>
 <p>示例配置如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">{{ .Envs.FRP_SERVER_ADDR }}</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;{{ .Envs.FRP_SERVER_ADDR }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">{{ .Envs.FRP_SSH_REMOTE_PORT }}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localIP</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{{</span> <span style="color:#000;font-weight:bold">.</span><span style="color:#000">Envs</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FRP_SSH_REMOTE_PORT</span> <span style="color:#000;font-weight:bold">}}</span>
 </span></span></code></pre></div><p>启动 frpc 程序：</p>
 <pre tabindex="0"><code>export FRP_SERVER_ADDR=&#34;x.x.x.x&#34;
 export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
-./frpc -c ./frpc.ini
+./frpc -c ./frpc.toml
 </code></pre><p>frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 <code>.Envs</code> 为前缀。</p>
 <h2 id="配置校验">配置校验</h2>
-<p>通过执行 <code>frpc verify -c ./frpc.ini</code> 或 <code>frps verify -c ./frps.ini</code> 可以对配置文件中的参数进行预先校验。</p>
-<pre tabindex="0"><code>frpc: the configuration file ./frpc.ini syntax is ok
+<p>通过执行 <code>frpc verify -c ./frpc.toml</code> 或 <code>frps verify -c ./frps.toml</code> 可以对配置文件中的参数进行预先校验。</p>
+<pre tabindex="0"><code>frpc: the configuration file ./frpc.toml syntax is ok
 </code></pre><p>如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。</p>
 <h2 id="配置拆分">配置拆分</h2>
 <p>通过 <code>includes</code> 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">includes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">./confd/*.ini</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ./confd/test.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_ip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span></code></pre></div><p>上述配置在 frpc.ini 中通过 includes 额外包含了 <code>./confd</code> 目录下所有的 ini 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。</p>
-<p>需要注意的是 includes 指定的文件中只能包含代理配置，common 段落的配置只能放在主配置文件中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">includes</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;./confd/*.toml&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ./confd/test.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localIP</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span></code></pre></div><p>上述配置在 frpc.toml 中通过 includes 额外包含了 <code>./confd</code> 目录下所有的 toml 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。</p>
+<p>需要注意的是 includes 指定的文件中只能包含代理配置，通用参数的配置只能放在主配置文件中。</p>
 <h2 id="完整配置参数">完整配置参数</h2>
-<p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="/docs/reference">参考</a> 中查看。</p>
+<p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="../../../reference">参考</a> 中查看。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

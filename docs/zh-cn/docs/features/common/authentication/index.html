@@ -19,44 +19,36 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>身份认证 | frp</title>
-<meta name="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。
-通过 frpc.ini 和 frps.ini 的 [common] 段落中配置 authentication_method 来指定要使用的身份验证方式。
-只有通过身份验证的客户端(frpc)才能成功连接 frps。
-Token 基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 [common] 段落中配置上相同的 token 参数即可。
-OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials Grant。
-启用这一验证方式，参考配置如下：
-# frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience.">
+<meta name="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
+Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
+配置示例 # frps.toml bindPort = 7000 auth.token = &amp;#34;abc&amp;#34; # frpc.toml auth.token = &amp;#34;abc&amp;#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
+验证流程参考 Client Credentials Grant。
+配置示例 # frps.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.issuer = &amp;#34;https://example-oidc-issuer.com/&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.com/.default&amp;#34; # frpc.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.clientID = &amp;#34;98692467-37de-409a-9fac-bb2585826f18&amp;#34; auth.oidc.clientSecret = &amp;#34;oidc_secret&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.">
 <meta property="og:title" content="身份认证" />
-<meta property="og:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。
-通过 frpc.ini 和 frps.ini 的 [common] 段落中配置 authentication_method 来指定要使用的身份验证方式。
-只有通过身份验证的客户端(frpc)才能成功连接 frps。
-Token 基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 [common] 段落中配置上相同的 token 参数即可。
-OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials Grant。
-启用这一验证方式，参考配置如下：
-# frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience." />
+<meta property="og:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
+Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
+验证流程参考 Client Credentials Grant。
+配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/authentication/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="身份认证">
-<meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。
-通过 frpc.ini 和 frps.ini 的 [common] 段落中配置 authentication_method 来指定要使用的身份验证方式。
-只有通过身份验证的客户端(frpc)才能成功连接 frps。
-Token 基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 [common] 段落中配置上相同的 token 参数即可。
-OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials Grant。
-启用这一验证方式，参考配置如下：
-# frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience.">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="89">
+<meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
+Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
+验证流程参考 Client Credentials Grant。
+配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="74">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="身份认证"/>
-<meta name="twitter:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。
-通过 frpc.ini 和 frps.ini 的 [common] 段落中配置 authentication_method 来指定要使用的身份验证方式。
-只有通过身份验证的客户端(frpc)才能成功连接 frps。
-Token 基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 [common] 段落中配置上相同的 token 参数即可。
-OIDC OIDC 是 OpenID Connect 的简称，验证流程参考 Client Credentials Grant。
-启用这一验证方式，参考配置如下：
-# frps.ini [common] authentication_method = oidc oidc_issuer = https://example-oidc-issuer.com/ oidc_audience = https://oidc-audience.com/.default # frpc.ini [common] authentication_method = oidc oidc_client_id = 98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID oidc_client_secret = oidc_secret oidc_audience = https://oidc-audience."/>
+<meta name="twitter:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
+Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
+验证流程参考 Client Credentials Grant。
+配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience."/>
 
 
 
@@ -249,10 +241,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -360,9 +348,16 @@ var _hmt = _hmt || [];
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#token">Token</a></li>
-    <li><a href="#oidc">OIDC</a></li>
-    <li><a href="#参数说明">参数说明</a></li>
+    <li><a href="#token">Token</a>
+      <ul>
+        <li><a href="#配置示例">配置示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#oidc-openid-connect-身份认证">OIDC (OpenID Connect) 身份认证</a>
+      <ul>
+        <li><a href="#配置示例-1">配置示例</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -392,52 +387,32 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<p>目前 frpc 和 frps 之间支持两种身份验证方式，<code>token</code> 和 <code>oidc</code>，默认为 <code>token</code>。</p>
-<p>通过 <code>frpc.ini</code> 和 <code>frps.ini</code> 的 <code>[common]</code> 段落中配置 <code>authentication_method</code> 来指定要使用的身份验证方式。</p>
-<p>只有通过身份验证的客户端(frpc)才能成功连接 frps。</p>
+	<p>目前 frpc 和 frps 之间支持两种身份验证方式，<code>token</code> 和 <code>oidc</code>，默认为 <code>token</code>。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。</p>
 <h2 id="token">Token</h2>
-<p>基于 Token 的身份验证方式比较简单，需要在 frpc 和 frps 的 <code>[common]</code> 段落中配置上相同的 <code>token</code> 参数即可。</p>
-<h2 id="oidc">OIDC</h2>
-<p>OIDC 是 <code>OpenID Connect</code> 的简称，验证流程参考 <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials Grant</a>。</p>
-<p>启用这一验证方式，参考配置如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">authentication_method</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">oidc</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_issuer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https://example-oidc-issuer.com/</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_audience</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https://oidc-audience.com/.default</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">authentication_method</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">oidc</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_client_id</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">98692467-37de-409a-9fac-bb2585826f18 # Replace with OIDC client ID</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_client_secret</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">oidc_secret</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_audience</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https://oidc-audience.com/.default</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">oidc_token_endpoint_url</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https://example-oidc-endpoint.com/oauth2/v2.0/token</span>
-</span></span></code></pre></div><h2 id="参数说明">参数说明</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">authentication_method</td>
-<td style="text-align:left">身份验证方式，token 或 oidc，默认为 token。</td>
-</tr>
-<tr>
-<td style="text-align:left">authenticate_heartbeats</td>
-<td style="text-align:left">在每一个心跳包中附加上身份认证信息，客户端服务端需要一致。</td>
-</tr>
-<tr>
-<td style="text-align:left">authenticate_new_work_conns</td>
-<td style="text-align:left">在每次创建工作连接时附加上身份认证信息，客户端服务端需要一致。</td>
-</tr>
-</tbody>
-</table>
-
+<p>Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。</p>
+<h3 id="配置示例">配置示例</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">token</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">token</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span></code></pre></div><h2 id="oidc-openid-connect-身份认证">OIDC (OpenID Connect) 身份认证</h2>
+<p>OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。</p>
+<p>验证流程参考 <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials Grant</a>。</p>
+<h3 id="配置示例-1">配置示例</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">method</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;oidc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">issuer</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://example-oidc-issuer.com/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">audience</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://oidc-audience.com/.default&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">method</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;oidc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">clientID</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;98692467-37de-409a-9fac-bb2585826f18&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">clientSecret</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;oidc_secret&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">audience</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://oidc-audience.com/.default&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tokenEndpointURL</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
+</span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

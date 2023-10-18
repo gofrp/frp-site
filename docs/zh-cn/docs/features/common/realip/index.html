@@ -24,27 +24,27 @@ Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理�
 Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
-# frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
+# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;https&amp;#34; localPort = 443 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.">
 <meta property="og:title" content="获取用户真实 IP" />
 <meta property="og:description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
 Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
-# frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。" />
+# frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;https&#34; localPort = 443 customDomains = [&#34;test.yourdomain.com&#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/realip/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
 Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。
 Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
-# frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="94">
+# frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;https&#34; localPort = 443 customDomains = [&#34;test.yourdomain.com&#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="97">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="获取用户真实 IP"/>
 <meta name="twitter:description" content="HTTP X-Forwarded-For 目前只有 HTTP 类型的代理支持这一功能，可以通过用户请求的 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
@@ -52,7 +52,7 @@ Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理�
 Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
-# frpc.ini [web] type = https local_port = 443 custom_domains = test.yourdomain.com # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 proxy_protocol_version = v2 只需要在代理配置中增加一行 proxy_protocol_version = v2 即可开启此功能。"/>
+# frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;https&#34; localPort = 443 customDomains = [&#34;test.yourdomain.com&#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport."/>
 
 
 
@@ -245,10 +245,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check" checked/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="td-sidebar-nav-active-item">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -394,19 +390,20 @@ var _hmt = _hmt || [];
 <p><code>Proxy Protocol</code> 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 <code>Proxy Protocol</code> 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。</p>
 <p>需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 <code>Proxy Protocol</code> 这一协议，目前 nginx 和 haproxy 都能够很好的支持。</p>
 <p>这里以 <code>HTTPS</code> 类型为例:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[web]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">https</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">443</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">custom_domains</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">test.yourdomain.com</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;web&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">443</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">customDomains</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;test.yourdomain.com&#34;</span><span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">proxy_protocol_version</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">v2</span>
-</span></span></code></pre></div><p>只需要在代理配置中增加一行 <code>proxy_protocol_version = v2</code> 即可开启此功能。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">proxyProtocolVersion</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;v2&#34;</span>
+</span></span></code></pre></div><p>只需要在代理配置中增加一行 <code>transport.proxyProtocolVersion = &quot;v2&quot;</code> 即可开启此功能。</p>
 <p>本地的 HTTPS 服务可以通过在 nginx 的配置中启用 <code>Proxy Protocol</code> 的解析并将结果设置在 <code>X-Real-IP</code> 这个 Header 中就可以在自己的 Web 服务中通过 <code>X-Real-IP</code> 获取到用户的真实 IP。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

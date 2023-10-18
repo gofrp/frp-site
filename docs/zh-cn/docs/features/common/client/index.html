@@ -19,60 +19,56 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>客户端 | frp</title>
-<meta name="description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
-启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 之后执行重启命令：
-frpc reload -c ./frpc.ini
-等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。
-需要注意的是，[common] 中的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。
-通过代理连接 frps 在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。
-可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
-仅在 protocol = tcp 时生效。
-# frpc.">
+<meta name="description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
+要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
+webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 然后执行以下命令来重载配置：
+frpc reload -c ./frpc.toml
+等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
+你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
+仅在 transport.protocol = &amp;quot;tcp&amp;quot; 时生效。
+serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 transport.proxyURL = &amp;#34;http://user:pwd@192.168.1.128:8080&amp;#34; 将 transport.">
 <meta property="og:title" content="客户端" />
-<meta property="og:description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
-启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 之后执行重启命令：
-frpc reload -c ./frpc.ini
-等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。
-需要注意的是，[common] 中的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。
-通过代理连接 frps 在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。
-可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
-仅在 protocol = tcp 时生效。
-# frpc." />
+<meta property="og:description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
+要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
+webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
+frpc reload -c ./frpc.toml
+等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
+你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
+仅在 transport.protocol = &quot;tcp&quot; 时生效。
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http://user:pwd@192.168.1.128:8080&#34; 将 transport." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/client/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="客户端">
-<meta itemprop="description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
-启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 之后执行重启命令：
-frpc reload -c ./frpc.ini
-等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。
-需要注意的是，[common] 中的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。
-通过代理连接 frps 在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。
-可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
-仅在 protocol = tcp 时生效。
-# frpc.">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="88">
+<meta itemprop="description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
+要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
+webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
+frpc reload -c ./frpc.toml
+等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
+你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
+仅在 transport.protocol = &quot;tcp&quot; 时生效。
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http://user:pwd@192.168.1.128:8080&#34; 将 transport.">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="76">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端"/>
-<meta name="twitter:description" content="热加载配置文件 当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。
-启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：
-# frpc.ini [common] admin_addr = 127.0.0.1 admin_port = 7400 之后执行重启命令：
-frpc reload -c ./frpc.ini
-等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。
-需要注意的是，[common] 中的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。
-通过代理连接 frps 在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。
-可以通过设置 HTTP_PROXY 系统环境变量或者通过在 frpc 的配置文件中设置 http_proxy 参数来使用此功能。
-仅在 protocol = tcp 时生效。
-# frpc."/>
+<meta name="twitter:description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
+要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
+webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
+frpc reload -c ./frpc.toml
+等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
+你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
+仅在 transport.protocol = &quot;tcp&quot; 时生效。
+serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http://user:pwd@192.168.1.128:8080&#34; 将 transport."/>
 
 
 
@@ -265,10 +261,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check" checked/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="td-sidebar-nav-active-item">客户端</span></a></label>
@@ -376,9 +368,9 @@ var _hmt = _hmt || [];
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#热加载配置文件">热加载配置文件</a></li>
+    <li><a href="#动态配置更新">动态配置更新</a></li>
     <li><a href="#命令行查看代理状态">命令行查看代理状态</a></li>
-    <li><a href="#通过代理连接-frps">通过代理连接 frps</a></li>
+    <li><a href="#使用代理连接-frps">使用代理连接 frps</a></li>
   </ul>
 </nav></div>
 
@@ -408,32 +400,27 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<h2 id="热加载配置文件">热加载配置文件</h2>
-<p>当修改了 frpc 中的代理配置，可以通过 frpc reload 命令来动态加载配置文件，通常会在 10 秒内完成代理的更新。</p>
-<p>启用此功能需要在 frpc 中启用 admin 端口，用于提供 API 服务。配置如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">admin_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7400</span>
-</span></span></code></pre></div><p>之后执行重启命令：</p>
-<p><code>frpc reload -c ./frpc.ini</code></p>
-<p>等待一段时间后客户端会根据新的配置文件创建、更新、删除代理。</p>
-<p>需要注意的是，[common] 中的参数除了 start 外目前无法被修改。</p>
+	<h2 id="动态配置更新">动态配置更新</h2>
+<p>当你需要修改 frpc 的代理配置时，你可以使用 <code>frpc reload</code> 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。</p>
+<p>要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">port</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7400</span>
+</span></span></code></pre></div><p>然后执行以下命令来重载配置：</p>
+<p><code>frpc reload -c ./frpc.toml</code></p>
+<p>等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。</p>
 <h2 id="命令行查看代理状态">命令行查看代理状态</h2>
-<p>frpc 支持通过 <code>frpc status -c ./frpc.ini</code> 命令查看代理的状态信息，此功能需要在 frpc 中配置 admin 端口。</p>
-<h2 id="通过代理连接-frps">通过代理连接 frps</h2>
-<p>在只能通过代理访问外网的环境内，frpc 支持通过 HTTP 或 SOCKS5 代理和 frps 建立连接。</p>
-<p>可以通过设置 <code>HTTP_PROXY</code> 系统环境变量或者通过在 frpc 的配置文件中设置 <code>http_proxy</code> 参数来使用此功能。</p>
-<p>仅在 <code>protocol = tcp</code> 时生效。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">http_proxy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">http://user:pwd@192.168.1.128:8080</span>
-</span></span></code></pre></div><p>将 <code>http_proxy</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
+<p>frpc 支持通过 <code>frpc status -c ./frpc.ini</code> 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。</p>
+<h2 id="使用代理连接-frps">使用代理连接 frps</h2>
+<p>在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。</p>
+<p>你可以通过设置系统环境变量 <code>HTTP_PROXY</code> 或在 frpc 的配置文件中设置 <code>transport.proxyURL</code> 参数来使用此功能。</p>
+<p>仅在 <code>transport.protocol = &quot;tcp&quot;</code> 时生效。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">proxyURL</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http://user:pwd@192.168.1.128:8080&#34;</span>
+</span></span></code></pre></div><p>将 <code>transport.proxyURL</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

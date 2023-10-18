@@ -19,48 +19,52 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>通信安全及优化 | frp</title>
-<meta name="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
+<meta name="description" content="加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。
+每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
 在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
+[[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.useEncryption = true transport.useCompression = true 通过设置 transport.useEncryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
+如果传输的报文长度较长，通过设置 transport.useCompression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
-该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
-# frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
+该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：
+# frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
 <meta property="og:title" content="通信安全及优化" />
-<meta property="og:description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
+<meta property="og:description" content="加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。
+每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
 在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
+[[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.useEncryption = true transport.useCompression = true 通过设置 transport.useEncryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
+如果传输的报文长度较长，通过设置 transport.useCompression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
-该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
-# frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。" />
+该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：
+# frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/network/network/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="通信安全及优化">
-<meta itemprop="description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
+<meta itemprop="description" content="加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。
+每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
 在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
+[[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.useEncryption = true transport.useCompression = true 通过设置 transport.useEncryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
+如果传输的报文长度较长，通过设置 transport.useCompression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
-该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
-# frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="202">
+该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：
+# frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="208">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通信安全及优化"/>
-<meta name="twitter:description" content="加密与压缩 每一个代理都可以选择是否启用加密和压缩的功能。
+<meta name="twitter:description" content="加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。
+每一个代理都可以选择是否启用加密和压缩的功能。
 加密算法采用 aes-128-cfb，压缩算法采用 snappy。
 在每一个代理的配置中使用如下参数指定：
-# frpc.ini [ssh] type = tcp local_port = 22 remote_port = 6000 use_encryption = true use_compression = true 通过设置 use_encryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
-如果传输的报文长度较长，通过设置 use_compression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
+[[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.useEncryption = true transport.useCompression = true 通过设置 transport.useEncryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。
+如果传输的报文长度较长，通过设置 transport.useCompression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
-该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：
-# frps.ini 和 frpc.ini 中 [common] tcp_mux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。"/>
+该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：
+# frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。"/>
 
 
 
@@ -253,10 +257,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -401,39 +401,38 @@ var _hmt = _hmt || [];
 		
   </header>
 	<h2 id="加密与压缩">加密与压缩</h2>
+<p><strong>注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。</strong></p>
 <p>每一个代理都可以选择是否启用加密和压缩的功能。</p>
 <p>加密算法采用 aes-128-cfb，压缩算法采用 snappy。</p>
 <p>在每一个代理的配置中使用如下参数指定：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[ssh]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">local_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">22</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">use_encryption</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">use_compression</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">true</span>
-</span></span></code></pre></div><p>通过设置 <code>use_encryption = true</code>，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。</p>
-<p>如果传输的报文长度较长，通过设置 <code>use_compression = true</code> 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">localPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">22</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">useEncryption</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">useCompression</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span>
+</span></span></code></pre></div><p>通过设置 <code>transport.useEncryption = true</code>，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。</p>
+<p>如果传输的报文长度较长，通过设置 <code>transport.useCompression = true</code> 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。</p>
 <h2 id="tcp-多路复用">TCP 多路复用</h2>
 <p>客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。</p>
-<p>该功能默认启用，如需关闭，可以在 frps.ini 和 frpc.ini 中配置，该配置项在服务端和客户端必须一致：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini 和 frpc.ini 中</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tcp_mux</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">false</span>
+<p>该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml 和 frpc.toml 中</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tcpMux</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
 </span></span></code></pre></div><h2 id="连接池">连接池</h2>
 <p>默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。</p>
 <p>这一功能适合有大量短连接请求时开启。</p>
+<p><strong>注: 当 TCP 多路复用启用后，连接池的提升有限，一般场景下无需关心。</strong></p>
 <ol>
 <li>
-<p>首先可以在 frps.ini 中设置每个代理可以创建的连接池上限，避免大量资源占用，客户端设置超过此配置后会被调整到当前值：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">max_pool_count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">5</span>
+<p>首先可以在 frps.toml 中设置每个代理可以创建的连接池上限，避免大量资源占用，客户端设置超过此配置后会被调整到当前值：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">maxPoolCount</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">5</span>
 </span></span></code></pre></div></li>
 <li>
-<p>在 frpc.ini 中为客户端启用连接池，指定预创建连接的数量：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">pool_count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">1</span>
+<p>在 frpc.toml 中为客户端启用连接池，指定预创建连接的数量：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">poolCount</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="支持-kcp-协议">支持 KCP 协议</h2>
@@ -441,21 +440,19 @@ var _hmt = _hmt || [];
 <p>开启 KCP 协议支持：</p>
 <ol>
 <li>
-<p>在 frps.ini 中启用 KCP 协议支持，指定一个 udp 端口用于接收客户端请求：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># kcp 绑定的是 udp 端口，可以和 bind_port 一样</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">kcp_bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p>在 frps.toml 中启用 KCP 协议支持，指定一个 UDP 端口用于接收客户端请求：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># kcp 绑定的是 UDP 端口，可以和 bindPort 一样</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">kcpBindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span></code></pre></div></li>
 <li>
-<p>在 frpc.ini 指定需要使用的协议类型，其他代理配置不需要变更：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># server_port 指定为 frps 的 kcp_bind_port</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">kcp</span>
+<p>在 frpc.toml 指定需要使用的协议类型，其他代理配置不需要变更：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># serverPort 指定为 frps 的 kcpBindPort</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;kcp&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="支持-quic-协议">支持 QUIC 协议</h2>
@@ -463,26 +460,24 @@ var _hmt = _hmt || [];
 <p>开启 QUIC 协议支持：</p>
 <ol>
 <li>
-<p>在 frps.ini 中启用 QUIC 协议支持，指定一个 udp 端口用于接收客户端请求：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># quic 绑定的是 udp 端口，可以和 bind_port 一样</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">quic_bind_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
+<p>在 frps.toml 中启用 QUIC 协议支持，指定一个 UDP 端口用于接收客户端请求：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># QUIC 绑定的是 UDP 端口，可以和 bindPort 一样</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">quicBindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span></code></pre></div></li>
 <li>
-<p>在 frpc.ini 指定需要使用的协议类型，其他代理配置不需要变更：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_addr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">x.x.x.x</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># server_port 指定为 frps 的 quic_bind_port</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">server_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">quic</span>
+<p>在 frpc.toml 指定需要使用的协议类型，其他代理配置不需要变更：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># serverPort 指定为 frps 的 quicBindPort</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;quic&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

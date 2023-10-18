@@ -19,44 +19,44 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>自定义 TLS 协议加密 | frp</title>
-<meta name="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
-当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
-注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密
-TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 true，默认开启 TLS 协议加密。
+<meta name="description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
+注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将会为 true，默认开启 TLS 协议加密。
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
-frpc 单向校验 frps 身份 # frpc.">
+frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &amp;#34;/to/ca/path/ca.crt&amp;#34; # frps.toml transport.tls.certFile = &amp;#34;/to/cert/path/server.">
 <meta property="og:title" content="自定义 TLS 协议加密" />
-<meta property="og:description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
-当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
-注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密
-TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 true，默认开启 TLS 协议加密。
+<meta property="og:description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
+注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将会为 true，默认开启 TLS 协议加密。
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
-frpc 单向校验 frps 身份 # frpc." />
+frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/network/network-tls/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
-<meta itemprop="description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
-当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
-注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密
-TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 true，默认开启 TLS 协议加密。
+<meta itemprop="description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
+注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将会为 true，默认开启 TLS 协议加密。
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
-frpc 单向校验 frps 身份 # frpc.">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="444">
+frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server.">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="428">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 TLS 协议加密"/>
-<meta name="twitter:description" content="use_encryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
-当 frps.ini 的 common 中 tls_only = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.ini 的 common 中 tls_trusted_ca_file 内容是有效的话，那么默认就会开启 tls_only = true。
-注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密
-TLS 默认开启方式 从 v0.50.0 开始，tls_enable 的默认值将会为 true，默认开启 TLS 协议加密。
+<meta name="twitter:description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
+当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
+注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密
+TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将会为 true，默认开启 TLS 协议加密。
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
-frpc 单向校验 frps 身份 # frpc."/>
+frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server."/>
 
 
 
@@ -249,10 +249,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -396,47 +392,40 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<p><code>use_encryption</code> 和 <code>STCP</code> 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。</p>
-<p>当 <code>frps.ini</code> 的 <code>common</code> 中 <code>tls_only = true</code> 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 <code>frps.ini</code> 的 <code>common</code> 中 <code>tls_trusted_ca_file</code> 内容是有效的话，那么默认就会开启 <code>tls_only = true</code>。</p>
-<p><strong>注意：启用此功能后除 xtcp 且 xtcp 的 protocol 配置为 kcp 外，可以不用再设置 use_encryption 重复加密</strong></p>
+	<p><code>transport.useEncryption</code> 和 <code>STCP</code> 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。</p>
+<p>当 <code>frps.toml</code> 中 <code>transport.tls.force = true</code> 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 <code>frps.toml</code> 中 <code>transport.tls.trustedCaFile</code> 内容是有效的话，那么默认就会开启 <code>transport.tls.force = true</code>。</p>
+<p><strong>注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密</strong></p>
 <h2 id="tls-默认开启方式">TLS 默认开启方式</h2>
-<p>从 v0.50.0 开始，<code>tls_enable</code> 的默认值将会为 true，默认开启 TLS 协议加密。</p>
+<p>从 v0.50.0 开始，<code>transport.tls.enable</code> 的默认值将会为 true，默认开启 TLS 协议加密。</p>
 <p>如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。</p>
 <p>默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。</p>
 <h2 id="frpc-单向校验-frps-身份">frpc 单向校验 frps 身份</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">trustedCaFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/ca/path/ca.crt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/server.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/server.key</span>
-</span></span></code></pre></div><p>frpc 需要额外加载 ca 证书，frps 需要额外指定 TLS 配置。frpc 通过 ca 证书单向验证 frps
-的身份。这就要求 frps 的 <code>server.crt</code> 对 frpc 的 ca 是合法的。</p>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/cert/path/server.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/key/path/server.key&#34;</span>
+</span></span></code></pre></div><p>frpc 需要额外加载 ca 证书，frps 需要额外指定 TLS 配置。frpc 通过 ca 证书单向验证 frps 的身份。这就要求 frps 的 <code>server.crt</code> 对 frpc 的 ca 是合法的。</p>
 <p>合法: 如果证书是 ca 签发的，或者证书是在 ca 的信任链中，那即认为: 该证书对 ca 而言是合法的。</p>
 <h2 id="frps-单向验证-frpc-的身份">frps 单向验证 frpc 的身份</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/client.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/client.key</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/cert/path/client.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/key/path/client.key&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">trustedCaFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/ca/path/ca.crt&#34;</span>
 </span></span></code></pre></div><p>frpc 需要额外加载 TLS 配置，frps 需要额外加载 ca 证书。frps 通过 ca 证书单向验证 frpc 的身份。这就要求 frpc 的 <code>client.crt</code> 对 frps 的 ca 是合法的。</p>
 <h2 id="双向验证">双向验证</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/client.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/client.key</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/cert/path/client.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/key/path/client.key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">trustedCaFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/ca/path/ca.crt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[common]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_cert_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/cert/path/server.crt</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_key_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/key/path/server.key</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">tls_trusted_ca_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/to/ca/path/ca.crt</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/cert/path/server.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/key/path/server.key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">trustedCaFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/ca/path/ca.crt&#34;</span>
 </span></span></code></pre></div><p>双向验证即 frpc 和 frps 通过本地 ca 证书去验证对方的身份。理论上 frpc 和 frps 的 ca 证书可以不同，只要能验证对方身份即可。</p>
 <h2 id="openssl-生成证书示例">OpenSSL 生成证书示例</h2>
 <p><code>x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0</code></p>
@@ -500,7 +489,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

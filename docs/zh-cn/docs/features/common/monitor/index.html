@@ -19,36 +19,36 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>监控 | frp</title>
-<meta name="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
-内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
-内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
-Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
-在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
+<meta name="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
+内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
+请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
+Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
+在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
 <meta property="og:title" content="监控" />
-<meta property="og:description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
-内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
-内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
-Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
-在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。" />
+<meta property="og:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
+内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
+请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
+Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
+在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/monitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="监控">
-<meta itemprop="description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
-内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
-内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
-Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
-在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="39">
+<meta itemprop="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
+内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
+请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
+Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
+在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="42">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="监控"/>
-<meta name="twitter:description" content="目前 frps 服务端支持内存和 Prometheus 两种监控系统。
-内存 内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。
-内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。
-Prometheus 由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。
-在 frps.ini 中启用 Dashboard，并设置 enable_prometheus = true，则通过 http://{dashboard_addr}/metrics 可以获取到 Prometheus 的监控数据。"/>
+<meta name="twitter:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
+内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
+请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
+Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
+在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。"/>
 
 
 
@@ -241,10 +241,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -352,8 +348,8 @@ var _hmt = _hmt || [];
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#内存">内存</a></li>
-    <li><a href="#prometheus">Prometheus</a></li>
+    <li><a href="#内存监控">内存监控</a></li>
+    <li><a href="#prometheus-监控">Prometheus 监控</a></li>
   </ul>
 </nav></div>
 
@@ -383,16 +379,16 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<p>目前 frps 服务端支持内存和 Prometheus 两种监控系统。</p>
-<h2 id="内存">内存</h2>
-<p>内存中存储的监控数据主要用于 Dashboard 展示，当在 frps 配置中开启 Dashboard 功能后会默认开启内部的监控。</p>
-<p>内存中的监控数据每次重启进程后会清空，监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但是目前此 API 尚不规范，不推荐直接使用。</p>
-<h2 id="prometheus">Prometheus</h2>
-<p>由于设计问题，Prometheus 对外提供的查询接口复用了 Dashboard 的地址，所以要使用 Prometheus 监控，必须要首先开启 Dashboard。</p>
-<p>在 frps.ini 中启用 Dashboard，并设置 <code>enable_prometheus = true</code>，则通过 <code>http://{dashboard_addr}/metrics</code> 可以获取到 Prometheus 的监控数据。</p>
+	<p>目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。</p>
+<h2 id="内存监控">内存监控</h2>
+<p>内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。</p>
+<p>请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。</p>
+<h2 id="prometheus-监控">Prometheus 监控</h2>
+<p>由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。</p>
+<p>在 frps.ini 中启用 Dashboard 并设置 <code>enablePrometheus = true</code>，然后你可以通过访问 <code>http://{dashboard_addr}/metrics</code> 来获取 Prometheus 的监控数据。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>

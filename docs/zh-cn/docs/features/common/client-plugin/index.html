@@ -19,48 +19,44 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>客户端插件 | frp</title>
-<meta name="description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
-通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
-在每一个代理的配置中，通过 plugin 指定需要使用的插件，插件的配置参数都以 plugin_ 开头。当启用客户端插件后，local_ip 和 local_port 不再需要配置。
-客户端插件可以被应用在任意类型的代理中，但是需要插件本身的协议能够支持。例如静态文件访问插件可以通过 TCP 或者 HTTP 的代理暴露出去。
-使用 http_proxy 插件的示例:
-# frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
-http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
-参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。">
+<meta name="description" content="默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。
+通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。
+在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。
+客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。
+以下是使用 http_proxy 插件的示例：
+[[proxies]] name = &amp;#34;http_proxy&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;http_proxy&amp;#34; httpUser = &amp;#34;abc&amp;#34; httpPassword = &amp;#34;abc&amp;#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。
+其他插件和相关配置请参考 Reference 中的内容。">
 <meta property="og:title" content="客户端插件" />
-<meta property="og:description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
-通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
-在每一个代理的配置中，通过 plugin 指定需要使用的插件，插件的配置参数都以 plugin_ 开头。当启用客户端插件后，local_ip 和 local_port 不再需要配置。
-客户端插件可以被应用在任意类型的代理中，但是需要插件本身的协议能够支持。例如静态文件访问插件可以通过 TCP 或者 HTTP 的代理暴露出去。
-使用 http_proxy 插件的示例:
-# frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
-http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
-参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。" />
+<meta property="og:description" content="默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。
+通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。
+在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。
+客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。
+以下是使用 http_proxy 插件的示例：
+[[proxies]] name = &#34;http_proxy&#34; type = &#34;tcp&#34; remotePort = 6000 [proxies.plugin] type = &#34;http_proxy&#34; httpUser = &#34;abc&#34; httpPassword = &#34;abc&#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。
+其他插件和相关配置请参考 Reference 中的内容。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/client-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-13T11:16:57+08:00" />
+<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
 <meta itemprop="name" content="客户端插件">
-<meta itemprop="description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
-通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
-在每一个代理的配置中，通过 plugin 指定需要使用的插件，插件的配置参数都以 plugin_ 开头。当启用客户端插件后，local_ip 和 local_port 不再需要配置。
-客户端插件可以被应用在任意类型的代理中，但是需要插件本身的协议能够支持。例如静态文件访问插件可以通过 TCP 或者 HTTP 的代理暴露出去。
-使用 http_proxy 插件的示例:
-# frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
-http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
-参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。">
-<meta itemprop="dateModified" content="2023-10-13T11:16:57+08:00" />
-<meta itemprop="wordCount" content="213">
+<meta itemprop="description" content="默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。
+通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。
+在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。
+客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。
+以下是使用 http_proxy 插件的示例：
+[[proxies]] name = &#34;http_proxy&#34; type = &#34;tcp&#34; remotePort = 6000 [proxies.plugin] type = &#34;http_proxy&#34; httpUser = &#34;abc&#34; httpPassword = &#34;abc&#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。
+其他插件和相关配置请参考 Reference 中的内容。">
+<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="wordCount" content="56">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端插件"/>
-<meta name="twitter:description" content="默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 local_ip 和 local_port 指定的本地服务地址。
-通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。
-在每一个代理的配置中，通过 plugin 指定需要使用的插件，插件的配置参数都以 plugin_ 开头。当启用客户端插件后，local_ip 和 local_port 不再需要配置。
-客户端插件可以被应用在任意类型的代理中，但是需要插件本身的协议能够支持。例如静态文件访问插件可以通过 TCP 或者 HTTP 的代理暴露出去。
-使用 http_proxy 插件的示例:
-# frpc.ini [http_proxy] type = tcp remote_port = 6000 plugin = http_proxy plugin_http_user = abc plugin_http_passwd = abc plugin_http_user 和 plugin_http_passwd 即为 http_proxy 插件可选的配置参数。
-http_proxy HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。
-参数 可选 描述 plugin_http_user 是 HTTP 代理用户名 plugin_http_passwd 是 HTTP 代理密码 socks5 SOCKS5 代理。"/>
+<meta name="twitter:description" content="默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。
+通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。
+在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。
+客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。
+以下是使用 http_proxy 插件的示例：
+[[proxies]] name = &#34;http_proxy&#34; type = &#34;tcp&#34; remotePort = 6000 [proxies.plugin] type = &#34;http_proxy&#34; httpUser = &#34;abc&#34; httpPassword = &#34;abc&#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。
+其他插件和相关配置请参考 Reference 中的内容。"/>
 
 
 
@@ -253,10 +249,6 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">范围端口映射</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -362,17 +354,7 @@ var _hmt = _hmt || [];
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#http_proxy">http_proxy</a></li>
-    <li><a href="#socks5">socks5</a></li>
-    <li><a href="#static_file">static_file</a></li>
-    <li><a href="#unix_domain_socket">unix_domain_socket</a></li>
-    <li><a href="#http2https">http2https</a></li>
-    <li><a href="#https2http">https2http</a></li>
-    <li><a href="#https2https">https2https</a></li>
-  </ul>
-</nav></div>
+            <div class="td-toc"><nav id="TableOfContents"></nav></div>
 
             
 	
@@ -400,223 +382,24 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<p>默认情况下，frpc 只会转发请求到本地 TCP 或 UDP 端口，也就是通过 <code>local_ip</code> 和 <code>local_port</code> 指定的本地服务地址。</p>
-<p>通过客户端插件的功能将一些简单的本地服务内置在 frpc 中，可以帮助用户在只启动 frpc 的情况下实现原本需要额外启动其他服务才能实现的功能。</p>
-<p>在每一个代理的配置中，通过 <code>plugin</code> 指定需要使用的插件，插件的配置参数都以 <code>plugin_</code> 开头。当启用客户端插件后，<code>local_ip</code> 和 <code>local_port</code> 不再需要配置。</p>
-<p>客户端插件可以被应用在任意类型的代理中，但是需要插件本身的协议能够支持。例如静态文件访问插件可以通过 TCP 或者 HTTP 的代理暴露出去。</p>
-<p>使用 <code>http_proxy</code> 插件的示例:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frpc.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">[http_proxy]</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">tcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">remote_port</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">6000</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">http_proxy</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_http_user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abc</span>
-</span></span><span style="display:flex;"><span><span style="color:#c4a000">plugin_http_passwd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">abc</span>
-</span></span></code></pre></div><p><code>plugin_http_user</code> 和 <code>plugin_http_passwd</code> 即为 <code>http_proxy</code> 插件可选的配置参数。</p>
-<h2 id="http_proxy">http_proxy</h2>
-<p>HTTP 代理插件，用于将内网机器作为 HTTP 代理暴露给其他服务，可以通过此代理访问到此内网机器能够访问到的其他服务。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_http_user</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTP 代理用户名</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_http_passwd</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTP 代理密码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="socks5">socks5</h2>
-<p>SOCKS5 代理。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_user</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">连接代理的用户名</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_passwd</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">连接代理的密码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="static_file">static_file</h2>
-<p>静态文件浏览服务，通过暴露一个简单的 HTTP 服务查看指定的目录下的文件。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_local_path</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">要对外暴露的文件目录</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_strip_prefix</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">用户请求的 URL 路径会被映射到本地文件，如果希望去除用户访问文件的前缀，需要配置此参数</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_http_user</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTP BasicAuth 用户名</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_http_passwd</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTP BasicAuth 密码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="unix_domain_socket">unix_domain_socket</h2>
-<p>代理本地 Unix 域套接字的服务。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_unix_path</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">本地 Unix 域套接字地址</td>
-</tr>
-</tbody>
-</table>
-<h2 id="http2https">http2https</h2>
-<p>将本地的 HTTPS 服务以 HTTP 的形式暴露出去。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_local_addr</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">本地服务地址</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_host_header_rewrite</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">如果配置，发送给本地服务的请求的 Host 字段会被修改</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_header_{header name}</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">发送给本地服务的请求会被加上指定的 header 字段</td>
-</tr>
-</tbody>
-</table>
-<h2 id="https2http">https2http</h2>
-<p>将本地的 HTTP 服务以 HTTPS 的形式暴露出去。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_local_addr</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">本地服务地址</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_crt_path</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTPS 所需的证书文件，如果 crt 和 key 都为空，则使用自动生成的证书</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_key_path</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTPS 所需的密钥文件</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_host_header_rewrite</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">如果配置，发送给本地服务的请求的 Host 字段会被修改</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_header_{header name}</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">发送给本地服务的请求会被加上指定的 header 字段</td>
-</tr>
-</tbody>
-</table>
-<h2 id="https2https">https2https</h2>
-<p>将本地的 HTTPS 服务以 HTTPS 的形式暴露出去。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">可选</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">plugin_local_addr</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">本地服务地址</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_crt_path</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTPS 所需的证书文件，如果 crt 和 key 都为空，则使用自动生成的证书</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_key_path</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">HTTPS 所需的密钥文件</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_host_header_rewrite</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">如果配置，发送给本地服务的请求的 Host 字段会被修改</td>
-</tr>
-<tr>
-<td style="text-align:left">plugin_header_{header name}</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">发送给本地服务的请求会被加上指定的 header 字段</td>
-</tr>
-</tbody>
-</table>
+	<p>默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 <code>localIP</code> 和 <code>localPort</code> 指定的本地服务地址。</p>
+<p>通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。</p>
+<p>在每个代理的配置中，你可以通过 <code>plugin</code> 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 <code>localIP</code> 和 <code>localPort</code>。</p>
+<p>客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。</p>
+<p>以下是使用 <code>http_proxy</code> 插件的示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http_proxy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6000</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">proxies</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">plugin</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http_proxy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">httpUser</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">httpPassword</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
+</span></span></code></pre></div><p><code>httpUser</code> 和 <code>httpPassword</code> 即为 <code>http_proxy</code> 插件可选的配置参数。</p>
+<p>其他插件和相关配置请参考 <a href="../../../reference/">Reference</a> 中的内容。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/5d069dda65bbc47e22f8c8be5694b77e942debbb">update some doc to toml config format (#67) (5d069dd)</a>
+  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
 </div>
 
 </div>
