@@ -37,7 +37,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/client-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-18T18:55:24+08:00" />
+<meta property="article:modified_time" content="2023-10-23T10:12:56+08:00" />
 <meta itemprop="name" content="客户端插件">
 <meta itemprop="description" content="默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。
 通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。
@@ -46,7 +46,7 @@
 以下是使用 http_proxy 插件的示例：
 [[proxies]] name = &#34;http_proxy&#34; type = &#34;tcp&#34; remotePort = 6000 [proxies.plugin] type = &#34;http_proxy&#34; httpUser = &#34;abc&#34; httpPassword = &#34;abc&#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。
 其他插件和相关配置请参考 Reference 中的内容。">
-<meta itemprop="dateModified" content="2023-10-18T18:55:24+08:00" />
+<meta itemprop="dateModified" content="2023-10-23T10:12:56+08:00" />
 <meta itemprop="wordCount" content="56">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端插件"/>
@@ -399,7 +399,7 @@ var _hmt = _hmt || [];
 <p>其他插件和相关配置请参考 <a href="../../../reference/">Reference</a> 中的内容。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 18, 2023: <a href="https://github.com/gofrp/frp-doc/commit/40313fcbc9120a8e8de95cb27f095ee107393afd">update config format (#68) (40313fc)</a>
+  最后修改 October 23, 2023: <a href="https://github.com/gofrp/frp-doc/commit/808e42abe35305d54975002a39a9ab7b5388f07e">fix link (#69) (808e42a)</a>
 </div>
 
 </div>
