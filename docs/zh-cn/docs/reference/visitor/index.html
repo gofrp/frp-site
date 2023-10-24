@@ -18,24 +18,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>visitor 配置 | frp</title>
-<meta name="description" content="frp visitor 的详细配置说明。
+<title>访问者配置 | frp</title>
+<meta name="description" content="frp 访问者的详细配置说明。
 ">
-<meta property="og:title" content="visitor 配置" />
-<meta property="og:description" content="frp visitor 的详细配置说明。
+<meta property="og:title" content="访问者配置" />
+<meta property="og:description" content="frp 访问者的详细配置说明。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/reference/visitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-23T10:12:56+08:00" />
-<meta itemprop="name" content="visitor 配置">
-<meta itemprop="description" content="frp visitor 的详细配置说明。
+<meta property="article:modified_time" content="2023-10-24T15:52:12+08:00" />
+<meta itemprop="name" content="访问者配置">
+<meta itemprop="description" content="frp 访问者的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2023-10-23T10:12:56+08:00" />
-<meta itemprop="wordCount" content="129">
+<meta itemprop="dateModified" content="2023-10-24T15:52:12+08:00" />
+<meta itemprop="wordCount" content="125">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="visitor 配置"/>
-<meta name="twitter:description" content="frp visitor 的详细配置说明。
+<meta name="twitter:title" content="访问者配置"/>
+<meta name="twitter:description" content="frp 访问者的详细配置说明。
 "/>
 
 
@@ -293,7 +293,11 @@ var _hmt = _hmt || [];
   <label for="m-zh-cndocsreference-check"><a href="/zh-cn/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsreference"><span class="">参考</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencecommon-li">
+  <input type="checkbox" id="m-zh-cndocsreferencecommon-check"/>
+  <label for="m-zh-cndocsreferencecommon-check"><a href="/zh-cn/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencecommon"><span class="">通用配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
   <input type="checkbox" id="m-zh-cndocsreferenceserver-configures-check"/>
   <label for="m-zh-cndocsreferenceserver-configures-check"><a href="/zh-cn/docs/reference/server-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceserver-configures"><span class="">服务端配置</span></a></label>
   
@@ -307,7 +311,11 @@ var _hmt = _hmt || [];
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsreferencevisitor-li">
   <input type="checkbox" id="m-zh-cndocsreferencevisitor-check" checked/>
-  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="td-sidebar-nav-active-item">visitor 配置</span></a></label>
+  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="td-sidebar-nav-active-item">访问者配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
+  <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
 </li>
   </ul>
@@ -329,19 +337,22 @@ var _hmt = _hmt || [];
 <a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Reference/visitor.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
   <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Reference/visitor.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
   <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Reference/visitor.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-  <a href="https://github.com/gofrp/frp-doc/issues/new?title=visitor%20%e9%85%8d%e7%bd%ae" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e8%ae%bf%e9%97%ae%e8%80%85%e9%85%8d%e7%bd%ae" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a>
   
 </div>
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#通用配置">通用配置</a>
+    <li>
       <ul>
-        <li><a href="#基础配置">基础配置</a></li>
+        <li><a href="#visitorbaseconfig">VisitorBaseConfig</a></li>
+        <li><a href="#visitortransport">VisitorTransport</a></li>
+        <li><a href="#stcpvisitorconfig">STCPVisitorConfig</a></li>
+        <li><a href="#sudpvisitorconfig">SUDPVisitorConfig</a></li>
+        <li><a href="#xtcpvisitorconfig">XTCPVisitorConfig</a></li>
       </ul>
     </li>
-    <li><a href="#xtcp">XTCP</a></li>
   </ul>
 </nav></div>
 
@@ -359,188 +370,198 @@ var _hmt = _hmt || [];
   <li class="breadcrumb-item">
     <a href="/zh-cn/docs/reference/">参考</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    visitor 配置</li>
+    访问者配置</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>visitor 配置</h1>
-	<div class="lead">frp visitor 的详细配置说明。</div>
+	<h1>访问者配置</h1>
+	<div class="lead">frp 访问者的详细配置说明。</div>
 	<header class="article-meta">
 		
   </header>
-	<h2 id="通用配置">通用配置</h2>
-<p>通用配置是指不同类型的 visitor 共同使用的一些配置参数。</p>
-<h3 id="基础配置">基础配置</h3>
+	<h3 id="visitorbaseconfig">VisitorBaseConfig</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">是否必须</th>
-<th style="text-align:left">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">role</td>
+<td style="text-align:left">name</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">角色</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">visitor</td>
-<td style="text-align:left">visitor</td>
-<td style="text-align:left">visitor 表示访问端</td>
-</tr>
-<tr>
-<td style="text-align:left">server_user</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">要访问的 proxy 所属的用户名</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">当前用户</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">如果为空，则默认为当前用户</td>
-</tr>
-<tr>
-<td style="text-align:left">server_name</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">要访问的 proxy 名称</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">访问者名称。</td>
+<td style="text-align:left">Yes</td>
 </tr>
 <tr>
 <td style="text-align:left">type</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">visitor 类型</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">stcp, sudp, xtcp</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">访问者类型，可选值为 stcp, sudp, xtcp。</td>
+<td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left">sk</td>
+<td style="text-align:left">transport</td>
+<td style="text-align:left"><a href="#visitortransport">VisitorTransport</a></td>
+<td style="text-align:left">访问者网络层配置。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">secretKey</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">密钥</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">服务端和访问端的密钥需要一致，访问端才能访问到服务端</td>
+<td style="text-align:left">密钥，服务端和访问端的密钥需要一致，访问端才能访问到服务端。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">use_encryption</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">是否启用加密功能</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">启用后该代理和服务端之间的通信内容都会被加密传输</td>
-</tr>
-<tr>
-<td style="text-align:left">use_compression</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">是否启用压缩功能</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">启用后该代理和服务端之间的通信内容都会被压缩传输</td>
-</tr>
-<tr>
-<td style="text-align:left">bind_addr</td>
+<td style="text-align:left">serverUser</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">visitor 监听的本地地址</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">127.0.0.1</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">通过访问监听的地址和端口，连接到远端代理的服务</td>
+<td style="text-align:left">要访问的 proxy 所属的用户名，如果为空，则默认为当前用户。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">bind_port</td>
+<td style="text-align:left">serverName</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">要访问的 proxy 名称。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">bindAddr</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">visitor 监听的本地地址，通过访问监听的地址和端口，连接到远端代理的服务。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">bindPort</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">visitor 监听的本地端口</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">如果为 -1，表示不需要监听物理端口，通常可以用于作为其他 visitor 的 fallback</td>
+<td style="text-align:left">visitor 监听的本地端口，如果为 -1，表示不需要监听物理端口，通常可以用于作为其他 visitor 的 fallback。</td>
+<td style="text-align:left">Yes</td>
 </tr>
 </tbody>
 </table>
-<h2 id="xtcp">XTCP</h2>
+<h3 id="visitortransport">VisitorTransport</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:center">是否必须</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">keep_tunnel_open</td>
-<td style="text-align:center">bool</td>
-<td style="text-align:left">是否保持隧道打开</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">如果开启，会定期检查隧道状态并尝试保持打开</td>
+<td style="text-align:left">useEncryption</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">是否启用加密功能，启用后该代理和服务端之间的通信内容都会被加密传输，如果 frpc 启用了全局 TLS，则不需要再启用此参数。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">max_retries_an_hour</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">每小时尝试打开隧道的次数</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">8</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">仅在 keep_tunnel_open 为 true 时有效</td>
+<td style="text-align:left">useCompression</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">是否启用压缩功能，启用后该代理和服务端之间的通信内容都会被压缩传输。</td>
+<td style="text-align:left">No</td>
 </tr>
+</tbody>
+</table>
+<h3 id="stcpvisitorconfig">STCPVisitorConfig</h3>
+<table>
+<thead>
 <tr>
-<td style="text-align:left">min_retry_interval</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">重试打开隧道的最小间隔时间，单位: 秒</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">90</td>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">仅在 keep_tunnel_open 为 true 时有效</td>
+<td style="text-align:left"><a href="#visitorbaseconfig">VisitorBaseConfig</a></td>
+<td style="text-align:left">基础配置。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sudpvisitorconfig">SUDPVisitorConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a href="#visitorbaseconfig">VisitorBaseConfig</a></td>
+<td style="text-align:left">基础配置。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="xtcpvisitorconfig">XTCPVisitorConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a href="#visitorbaseconfig">VisitorBaseConfig</a></td>
+<td style="text-align:left">基础配置。</td>
+<td style="text-align:left">Yes</td>
 </tr>
 <tr>
 <td style="text-align:left">protocol</td>
-<td style="text-align:center">string</td>
-<td style="text-align:left">隧道底层通信协议</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">quic</td>
-<td style="text-align:left">quic, kcp</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">隧道底层通信协议，可选 quic 和 kcp，默认为 quic。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">fallback_to</td>
-<td style="text-align:center">string</td>
-<td style="text-align:left">回退到的其他 visitor 名称</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">keepTunnelOpen</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">是否保持隧道打开，如果开启，会定期检查隧道状态并尝试保持打开。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">fallback_timeout_ms</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">连接建立超过多长时间后回退到其他 visitor</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">maxRetriesAnHour</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">每小时尝试打开隧道的次数，默认值为 8。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">minRetryInterval</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">重试打开隧道的最小间隔时间，单位: 秒，默认为 90s。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackTo</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">回退到的其他 visitor 名称。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackTimeoutMs</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">连接建立超过多长时间(ms) 后回退到其他 visitor。</td>
+<td style="text-align:left">No</td>
 </tr>
 </tbody>
 </table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 23, 2023: <a href="https://github.com/gofrp/frp-doc/commit/808e42abe35305d54975002a39a9ab7b5388f07e">fix link (#69) (808e42a)</a>
+  最后修改 October 24, 2023: <a href="https://github.com/gofrp/frp-doc/commit/d650e6aba521094fefa1c1c7ab4ee62393f568e8">update Reference (#70) (d650e6a)</a>
 </div>
 
 </div>

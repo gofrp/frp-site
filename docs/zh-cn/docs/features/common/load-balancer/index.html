@@ -33,14 +33,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/load-balancer/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-23T10:12:56+08:00" />
+<meta property="article:modified_time" content="2023-10-24T15:52:12+08:00" />
 <meta itemprop="name" content="负载均衡与健康检查">
 <meta itemprop="description" content="负载均衡 你可以将多个相同类型的代理加入到同一个 group 中，以实现负载均衡的能力。
 目前支持的代理类型包括：tcp, http, tcpmux。
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; 当用户连接 frps 服务器的 80 端口时，frps 会将接收到的用户连接随机分发给其中一个存活的代理。这可以确保即使一台 frpc 机器挂掉，仍然有其他节点能够提供服务。
 对于 tcp 类型代理，需要确保 groupKey 相同以进行权限验证，同时 remotePort 也需一致。
 对于 http 类型代理，需要保证 groupKey, customDomains(自定义域名)，subdomain 和 locations 相同。">
-<meta itemprop="dateModified" content="2023-10-23T10:12:56+08:00" />
+<meta itemprop="dateModified" content="2023-10-24T15:52:12+08:00" />
 <meta itemprop="wordCount" content="181">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="负载均衡与健康检查"/>
@@ -305,7 +305,11 @@ var _hmt = _hmt || [];
   <label for="m-zh-cndocsreference-check"><a href="/zh-cn/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsreference"><span class="">参考</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencecommon-li">
+  <input type="checkbox" id="m-zh-cndocsreferencecommon-check"/>
+  <label for="m-zh-cndocsreferencecommon-check"><a href="/zh-cn/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencecommon"><span class="">通用配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
   <input type="checkbox" id="m-zh-cndocsreferenceserver-configures-check"/>
   <label for="m-zh-cndocsreferenceserver-configures-check"><a href="/zh-cn/docs/reference/server-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceserver-configures"><span class="">服务端配置</span></a></label>
   
@@ -319,7 +323,11 @@ var _hmt = _hmt || [];
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-li">
   <input type="checkbox" id="m-zh-cndocsreferencevisitor-check"/>
-  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">visitor 配置</span></a></label>
+  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">访问者配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
+  <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
 </li>
   </ul>
@@ -439,7 +447,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">healthCheck</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">intervalSeconds</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 23, 2023: <a href="https://github.com/gofrp/frp-doc/commit/808e42abe35305d54975002a39a9ab7b5388f07e">fix link (#69) (808e42a)</a>
+  最后修改 October 24, 2023: <a href="https://github.com/gofrp/frp-doc/commit/d650e6aba521094fefa1c1c7ab4ee62393f568e8">update Reference (#70) (d650e6a)</a>
 </div>
 
 </div>

@@ -37,7 +37,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/server-manage/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-23T10:12:56+08:00" />
+<meta property="article:modified_time" content="2023-10-24T15:52:12+08:00" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allowPorts 来指定：
 # frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。
@@ -46,7 +46,7 @@
 需要注意的是，如果你想将 vhostHTTPSPort 和 bindPort 配置为相同的端口，需要首先将 transport.tls.disableCustomTLSFirstByte 设置为false。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.toml [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.">
-<meta itemprop="dateModified" content="2023-10-23T10:12:56+08:00" />
+<meta itemprop="dateModified" content="2023-10-24T15:52:12+08:00" />
 <meta itemprop="wordCount" content="96">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端管理"/>
@@ -313,7 +313,11 @@ var _hmt = _hmt || [];
   <label for="m-zh-cndocsreference-check"><a href="/zh-cn/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsreference"><span class="">参考</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencecommon-li">
+  <input type="checkbox" id="m-zh-cndocsreferencecommon-check"/>
+  <label for="m-zh-cndocsreferencecommon-check"><a href="/zh-cn/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencecommon"><span class="">通用配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
   <input type="checkbox" id="m-zh-cndocsreferenceserver-configures-check"/>
   <label for="m-zh-cndocsreferenceserver-configures-check"><a href="/zh-cn/docs/reference/server-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceserver-configures"><span class="">服务端配置</span></a></label>
   
@@ -327,7 +331,11 @@ var _hmt = _hmt || [];
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-li">
   <input type="checkbox" id="m-zh-cndocsreferencevisitor-check"/>
-  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">visitor 配置</span></a></label>
+  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">访问者配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
+  <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
 </li>
   </ul>
@@ -420,7 +428,7 @@ var _hmt = _hmt || [];
 <p>限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 <code>transport.bandwidthLimitMode = &quot;server&quot;</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 23, 2023: <a href="https://github.com/gofrp/frp-doc/commit/808e42abe35305d54975002a39a9ab7b5388f07e">fix link (#69) (808e42a)</a>
+  最后修改 October 24, 2023: <a href="https://github.com/gofrp/frp-doc/commit/d650e6aba521094fefa1c1c7ab4ee62393f568e8">update Reference (#70) (d650e6a)</a>
 </div>
 
 </div>

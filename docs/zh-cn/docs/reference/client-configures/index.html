@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/reference/client-configures/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-10-23T10:12:56+08:00" />
+<meta property="article:modified_time" content="2023-10-24T15:52:12+08:00" />
 <meta itemprop="name" content="客户端配置">
 <meta itemprop="description" content="frp 客户端的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2023-10-23T10:12:56+08:00" />
-<meta itemprop="wordCount" content="286">
+<meta itemprop="dateModified" content="2023-10-24T15:52:12+08:00" />
+<meta itemprop="wordCount" content="267">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端配置"/>
 <meta name="twitter:description" content="frp 客户端的详细配置说明。
@@ -293,7 +293,11 @@ var _hmt = _hmt || [];
   <label for="m-zh-cndocsreference-check"><a href="/zh-cn/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsreference"><span class="">参考</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencecommon-li">
+  <input type="checkbox" id="m-zh-cndocsreferencecommon-check"/>
+  <label for="m-zh-cndocsreferencecommon-check"><a href="/zh-cn/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencecommon"><span class="">通用配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceserver-configures-li">
   <input type="checkbox" id="m-zh-cndocsreferenceserver-configures-check"/>
   <label for="m-zh-cndocsreferenceserver-configures-check"><a href="/zh-cn/docs/reference/server-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceserver-configures"><span class="">服务端配置</span></a></label>
   
@@ -307,7 +311,11 @@ var _hmt = _hmt || [];
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-li">
   <input type="checkbox" id="m-zh-cndocsreferencevisitor-check"/>
-  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">visitor 配置</span></a></label>
+  <label for="m-zh-cndocsreferencevisitor-check"><a href="/zh-cn/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor"><span class="">访问者配置</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
+  <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
 </li>
   </ul>
@@ -336,9 +344,16 @@ var _hmt = _hmt || [];
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#基础配置">基础配置</a></li>
-    <li><a href="#权限验证">权限验证</a></li>
-    <li><a href="#ui">UI</a></li>
+    <li>
+      <ul>
+        <li><a href="#clientconfig">ClientConfig</a></li>
+        <li><a href="#clientcommonconfig">ClientCommonConfig</a></li>
+        <li><a href="#clienttransportconfig">ClientTransportConfig</a></li>
+        <li><a href="#tlsclientconfig">TLSClientConfig</a></li>
+        <li><a href="#authclientconfig">AuthClientConfig</a></li>
+        <li><a href="#authoidcclientconfig">AuthOIDCClientConfig</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -366,430 +381,339 @@ var _hmt = _hmt || [];
 	<header class="article-meta">
 		
   </header>
-	<h2 id="基础配置">基础配置</h2>
+	<h3 id="clientconfig">ClientConfig</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">server_addr</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">连接服务端的地址</td>
-<td style="text-align:left">0.0.0.0</td>
 <td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left"><a href="#clientcommonconfig">ClientCommonConfig</a></td>
+<td style="text-align:left">客户端通用配置。</td>
+<td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left">server_port</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">连接服务端的端口</td>
-<td style="text-align:left">7000</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">proxies</td>
+<td style="text-align:left"><a href="../proxy">[]ProxyConfig</a></td>
+<td style="text-align:left">代理配置，不同的代理类型对应不同的配置，例如 <a href="../proxy#tcpproxyconfig">TCPProxyConfig</a> 或 <a href="../proxy#httpproxyconfig">HTTPProxyConfig</a>。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">nat_hole_stun_server</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">xtcp 打洞所需的 stun 服务器地址</td>
-<td style="text-align:left">stun.easyvoip.com:3478</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">visitors</td>
+<td style="text-align:left"><a href="../visitor">[]VisitorConfig</a></td>
+<td style="text-align:left">访问者配置，不同的访问者类型对应不同的配置，例如 <a href="../visitor#stcpvisitorconfig">STCPVisitorConfig</a>。</td>
+<td style="text-align:left">No</td>
 </tr>
+</tbody>
+</table>
+<h3 id="clientcommonconfig">ClientCommonConfig</h3>
+<table>
+<thead>
 <tr>
-<td style="text-align:left">connect_server_local_ip</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">连接服务端时所绑定的本地 IP</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td style="text-align:left">dial_server_timeout</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">连接服务端的超时时间</td>
-<td style="text-align:left">10</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">dial_server_keepalive</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">和服务端底层 TCP 连接的 keepalive 间隔时间，单位秒</td>
-<td style="text-align:left">7200</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">负数不启用</td>
-</tr>
-<tr>
-<td style="text-align:left">http_proxy</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">连接服务端使用的代理地址</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">格式为 {protocol}://user:passwd@192.168.1.128:8080 protocol 目前支持 http、socks5、ntlm</td>
-</tr>
-<tr>
-<td style="text-align:left">log_file</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">日志文件地址</td>
-<td style="text-align:left">./frpc.log</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">如果设置为 console，会将日志打印在标准输出中</td>
-</tr>
-<tr>
-<td style="text-align:left">log_level</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">日志等级</td>
-<td style="text-align:left">info</td>
-<td style="text-align:left">trace, debug, info, warn, error</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">log_max_days</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">日志文件保留天数</td>
-<td style="text-align:left">3</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">disable_log_color</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">禁用标准输出中的日志颜色</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">pool_count</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">连接池大小</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">auth</td>
+<td style="text-align:left"><a href="#authclientconfig">AuthClientConfig</a></td>
+<td style="text-align:left">客户端鉴权配置。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
 <td style="text-align:left">user</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">用户名</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">设置此参数后，代理名称会被修改为 {user}.{proxyName}，避免代理名称和其他用户冲突</td>
+<td style="text-align:left">用户名，设置此参数后，代理名称会被修改为 {user}.{proxyName}，避免代理名称和其他用户冲突。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">dns_server</td>
+<td style="text-align:left">serverAddr</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">使用 DNS 服务器地址</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">默认使用系统配置的 DNS 服务器，指定此参数可以强制替换为自定义的 DNS 服务器地址</td>
+<td style="text-align:left">连接服务端的地址。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">login_fail_exit</td>
+<td style="text-align:left">serverPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">连接服务端的端口，默认为 7000。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">natHoleStunServer</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">xtcp 打洞所需的 stun 服务器地址，默认为 stun.easyvoip.com:3478。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">dnsServer</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">使用 DNS 服务器地址，默认使用系统配置的 DNS 服务器，指定此参数可以强制替换为自定义的 DNS 服务器地址。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">loginFailExit</td>
 <td style="text-align:left">bool</td>
-<td style="text-align:left">第一次登陆失败后是否退出</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">protocol</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">连接服务端的通信协议</td>
-<td style="text-align:left">tcp</td>
-<td style="text-align:left">tcp, kcp, quic, websocket, wss</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">quic_keepalive_period</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">quic 协议 keepalive 间隔，单位: 秒</td>
-<td style="text-align:left">10</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">quic_max_idle_timeout</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">quic 协议的最大空闲超时时间，单位: 秒</td>
-<td style="text-align:left">30</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">quic_max_incoming_streams</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">quic 协议最大并发 stream 数</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">tls_enable</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">启用 TLS 协议加密连接</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">tls_cert_file</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">TLS 客户端证书文件路径</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">tls_key_file</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">TLS 客户端密钥文件路径</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">tls_trusted_ca_file</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">TLS CA 证书路径</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">tls_server_name</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">TLS Server 名称</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">为空则使用 server_addr</td>
-</tr>
-<tr>
-<td style="text-align:left">disable_custom_tls_first_byte</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">TLS 不发送 0x17</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">当为 true 时，不能端口复用</td>
-</tr>
-<tr>
-<td style="text-align:left">tcp_mux_keepalive_interval</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">tcp_mux 的心跳检查间隔时间</td>
-<td style="text-align:left">60</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">单位：秒</td>
-</tr>
-<tr>
-<td style="text-align:left">heartbeat_interval</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">向服务端发送心跳包的间隔时间</td>
-<td style="text-align:left">30</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">建议启用 tcp_mux_keepalive_interval，将此值设置为 -1</td>
-</tr>
-<tr>
-<td style="text-align:left">heartbeat_timeout</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">和服务端心跳的超时时间</td>
-<td style="text-align:left">90</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">udp_packet_size</td>
-<td style="text-align:left">int</td>
-<td style="text-align:left">代理 UDP 服务时支持的最大包长度</td>
-<td style="text-align:left">1500</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">服务端和客户端的值需要一致</td>
+<td style="text-align:left">第一次登陆失败后是否退出，默认为 true。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
 <td style="text-align:left">start</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">指定启用部分代理</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">当配置了较多代理，但是只希望启用其中部分时可以通过此参数指定，默认为全部启用</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">指定启用部分代理，当配置了较多代理，但是只希望启用其中部分时可以通过此参数指定，默认为全部启用。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">meta_xxx</td>
-<td style="text-align:left">map</td>
-<td style="text-align:left">附加元数据</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">会传递给服务端插件，提供附加能力</td>
-</tr>
-</tbody>
-</table>
-<h2 id="权限验证">权限验证</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">authentication_method</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">鉴权方式</td>
-<td style="text-align:left">token</td>
-<td style="text-align:left">token, oidc</td>
-<td style="text-align:left">需要和服务端一致</td>
+<td style="text-align:left">log</td>
+<td style="text-align:left"><a href="../common#logconfig">LogConfig</a></td>
+<td style="text-align:left">日志配置。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">authenticate_heartbeats</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">开启心跳消息鉴权</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">需要和服务端一致</td>
+<td style="text-align:left">webServer</td>
+<td style="text-align:left"><a href="../common#webserverconfig">WebServerConfig</a></td>
+<td style="text-align:left">客户端 AdminServer 配置。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">authenticate_new_work_conns</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">开启建立工作连接的鉴权</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">需要和服务端一致</td>
+<td style="text-align:left">transport</td>
+<td style="text-align:left"><a href="#clienttransportconfig">ClientTransportConfig</a></td>
+<td style="text-align:left">客户端网络层配置。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">token</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">鉴权使用的 token 值</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">需要和服务端设置一样的值才能鉴权通过</td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_client_id</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">oidc_client_id</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_client_secret</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">oidc_client_secret</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_audience</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">oidc_audience</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_scope</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">oidc_scope</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_token_endpoint_url</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">oidc_token_endpoint_url</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">oidc_additional_xxx</td>
-<td style="text-align:left">map</td>
-<td style="text-align:left">OIDC 附加参数</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">map 结构，key 需要以 <code>oidc_additional_</code> 开头</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ui">UI</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">默认值</th>
-<th style="text-align:left">可选值</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">admin_addr</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">启用 AdminUI 监听的本地地址</td>
-<td style="text-align:left">0.0.0.0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">admin_port</td>
+<td style="text-align:left">udpPacketSize</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">启用 AdminUI 监听的本地端口</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">代理 UDP 服务时支持的最大包长度，默认为 1500，服务端和客户端需要保持配置一致。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">admin_user</td>
+<td style="text-align:left">metadatas</td>
+<td style="text-align:left">map[string]string</td>
+<td style="text-align:left">附加元数据，会传递给服务端插件，提供附加能力。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">includes</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">指定额外的配置文件目录，其中的 proxy 和 visitor 配置会被读取加载。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clienttransportconfig">ClientTransportConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">protocol</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">HTTP BasicAuth 用户名</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">和 frps 之间的通信协议，可选值为 tcp, kcp, quic, websocket, wss。默认为 tcp。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">admin_pwd</td>
+<td style="text-align:left">dialServerTimeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">连接服务端的超时时间，默认为 10s。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">dialServerKeepalive</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">和服务端底层 TCP 连接的 keepalive 间隔时间，单位秒。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">connectServerLocalIP</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">HTTP BasicAuth 密码</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">连接服务端时所绑定的本地 IP。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">asserts_dir</td>
+<td style="text-align:left">proxyURL</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">静态资源目录</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">AdminUI 使用的资源默认打包在二进制文件中，通过指定此参数使用自定义的静态资源</td>
+<td style="text-align:left">连接服务端使用的代理地址，格式为 {protocol}://user:passwd@192.168.1.128:8080 protocol 目前支持 http、socks5、ntlm。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">pprof_enable</td>
+<td style="text-align:left">poolCount</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">连接池大小。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tcpMux</td>
 <td style="text-align:left">bool</td>
-<td style="text-align:left">启动 Go HTTP pprof</td>
-<td style="text-align:left">false</td>
+<td style="text-align:left">TCP 多路复用，默认启用。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tcpMuxKeepaliveInterval</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left"><code>tcp_mux</code> 的心跳检查间隔时间。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">quic</td>
+<td style="text-align:left"><a href="../common#quicoptions">QUICOptions</a></td>
+<td style="text-align:left">QUIC 协议配置参数。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">heartbeatInterval</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">向服务端发送心跳包的间隔时间，默认为 30s。建议启用 <code>tcp_mux_keepalive_interval</code>，将此值设置为 -1。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">heartbeatTimeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">和服务端心跳的超时时间，默认为 90s。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tls</td>
+<td style="text-align:left"><a href="#tlsclientconfig">TLSClientConfig</a></td>
+<td style="text-align:left">客户端 TLS 协议配置。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tlsclientconfig">TLSClientConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">enable</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">是否和服务端之间启用 TLS 连接，默认启用。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">disableCustomTLSFirstByte</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">启用 TLS 连接时，不发送 0x17 特殊字节。默认为 true。当配置为 true 时，无法和 vhostHTTPSPort 端口复用。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">用于应用调试</td>
+<td style="text-align:left"><a href="../common#tlsconfig">TLSConfig</a></td>
+<td style="text-align:left">TLS 协议配置，内嵌结构。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authclientconfig">AuthClientConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">method</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">鉴权方式，可选值为 token 或 oidc，默认为 token。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">additionalScopes</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">鉴权信息附加范围，可选值为 HeartBeats 和 NewWorkConns</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">token</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">在 method 为 token 时生效，客户端需要设置一样的值才能鉴权通过。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">oidc</td>
+<td style="text-align:left"><a href="#authoidcclientconfig">AuthOIDCClientConfig</a></td>
+<td style="text-align:left">oidc 鉴权配置。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authoidcclientconfig">AuthOIDCClientConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">clientID</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">clientSecret</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">audience</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">scope</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tokenEndpointURL</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">additionalEndpointParams</td>
+<td style="text-align:left">map[string]string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
 </tr>
 </tbody>
 </table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 October 23, 2023: <a href="https://github.com/gofrp/frp-doc/commit/808e42abe35305d54975002a39a9ab7b5388f07e">fix link (#69) (808e42a)</a>
+  最后修改 October 24, 2023: <a href="https://github.com/gofrp/frp-doc/commit/d650e6aba521094fefa1c1c7ab4ee62393f568e8">update Reference (#70) (d650e6a)</a>
 </div>
 
 </div>
