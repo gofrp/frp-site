@@ -336,6 +336,12 @@
 &lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;sshTunnelGateway&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;#sshtunnelgateway&#34;&gt;SSHTunnelGateway&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;ssh 隧道网关配置。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;webServer&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;../common#webserverconfig&#34;&gt;WebServerConfig&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;服务端 Dashboard 配置。&lt;/td&gt;
