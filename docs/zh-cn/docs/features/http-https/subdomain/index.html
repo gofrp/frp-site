@@ -35,7 +35,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/http-https/subdomain/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-11-15T17:34:45+08:00" />
+<meta property="article:modified_time" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="name" content="自定义二级域名">
 <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
 通过在 frps 的配置文件中配置 subdomainHost，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 customDomains，而是配置一个 subdomain 参数。
@@ -43,7 +43,7 @@
 # frps.toml subdomainHost = &#34;frps.com&#34; 将泛域名 *.frps.com 解析到 frps 所在服务器的 IP 地址。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 subdomain = &#34;test&#34; frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomainHost，则 customDomains 中不能是属于 subdomainHost 的子域名或者泛域名。">
-<meta itemprop="dateModified" content="2023-11-15T17:34:45+08:00" />
+<meta itemprop="dateModified" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="wordCount" content="79">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义二级域名"/>
@@ -261,6 +261,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonserver-plugin-check"/>
   <label for="m-zh-cndocsfeaturescommonserver-plugin-check"><a href="/zh-cn/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonserver-plugin"><span class="">服务端插件</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
+  <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -403,7 +407,7 @@ var _hmt = _hmt || [];
 <p>同一个 HTTP 或 HTTPS 类型的代理中 <code>customDomains</code> 和 <code>subdomain</code> 可以同时配置。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 November 15, 2023: <a href="https://github.com/gofrp/frp-doc/commit/626ce4d26425b975fba968977111b362f0eda00b">fix 404 (#71) (626ce4d)</a>
+  最后修改 December 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/1c6e9dc76abe0d2a1434edb9520f72c311080e41">feat: add ssh doc (#72) (1c6e9dc)</a>
 </div>
 
 </div>

@@ -41,7 +41,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/network/network/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-11-15T17:34:45+08:00" />
+<meta property="article:modified_time" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="name" content="通信安全及优化">
 <meta itemprop="description" content="加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。
 每一个代理都可以选择是否启用加密和压缩的功能。
@@ -52,7 +52,7 @@ TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不
 TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。
 该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：
 # frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。">
-<meta itemprop="dateModified" content="2023-11-15T17:34:45+08:00" />
+<meta itemprop="dateModified" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="wordCount" content="208">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通信安全及优化"/>
@@ -273,6 +273,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonserver-plugin-check"/>
   <label for="m-zh-cndocsfeaturescommonserver-plugin-check"><a href="/zh-cn/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonserver-plugin"><span class="">服务端插件</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
+  <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -485,7 +489,7 @@ var _hmt = _hmt || [];
 </ol>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 November 15, 2023: <a href="https://github.com/gofrp/frp-doc/commit/626ce4d26425b975fba968977111b362f0eda00b">fix 404 (#71) (626ce4d)</a>
+  最后修改 December 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/1c6e9dc76abe0d2a1434edb9520f72c311080e41">feat: add ssh doc (#72) (1c6e9dc)</a>
 </div>
 
 </div>

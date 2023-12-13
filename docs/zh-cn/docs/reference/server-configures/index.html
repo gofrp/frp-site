@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/reference/server-configures/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-11-15T17:34:45+08:00" />
+<meta property="article:modified_time" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="name" content="服务端配置">
 <meta itemprop="description" content="frp 服务端详细配置说明。
 ">
-<meta itemprop="dateModified" content="2023-11-15T17:34:45+08:00" />
-<meta itemprop="wordCount" content="291">
+<meta itemprop="dateModified" content="2023-12-13T11:13:39+08:00" />
+<meta itemprop="wordCount" content="315">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端配置"/>
 <meta name="twitter:description" content="frp 服务端详细配置说明。
@@ -245,6 +245,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonserver-plugin-check"/>
   <label for="m-zh-cndocsfeaturescommonserver-plugin-check"><a href="/zh-cn/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonserver-plugin"><span class="">服务端插件</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
+  <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -352,6 +356,7 @@ var _hmt = _hmt || [];
         <li><a href="#servertransportconfig">ServerTransportConfig</a></li>
         <li><a href="#tlsserverconfig">TLSServerConfig</a></li>
         <li><a href="#httppluginoptions">HTTPPluginOptions</a></li>
+        <li><a href="#sshtunnelgateway">SSHTunnelGateway</a></li>
       </ul>
     </li>
   </ul>
@@ -729,9 +734,46 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<h3 id="sshtunnelgateway">SSHTunnelGateway</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bindPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">SSH 服务器监听端口。</td>
+<td style="text-align:left">YES</td>
+</tr>
+<tr>
+<td style="text-align:left">privateKeyFile</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">SSH 服务器私钥文件路径。若为空，frps将读取autoGenPrivateKeyPath路径下的私钥文件。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">autoGenPrivateKeyPath</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">私钥文件自动生成路径，默认为./.autogen_ssh_key。若文件不存在或内容为空，frps将自动生成RSA私钥文件并存储到该路径。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">authorizedKeysFile</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">SSH 客户端授权密钥文件路径。若为空，则不进行SSH客户端鉴权认证。非空可实现SSH免密登录认证。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 November 15, 2023: <a href="https://github.com/gofrp/frp-doc/commit/626ce4d26425b975fba968977111b362f0eda00b">fix 404 (#71) (626ce4d)</a>
+  最后修改 December 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/1c6e9dc76abe0d2a1434edb9520f72c311080e41">feat: add ssh doc (#72) (1c6e9dc)</a>
 </div>
 
 </div>

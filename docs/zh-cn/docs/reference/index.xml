@@ -594,6 +594,43 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;sshtunnelgateway&#34;&gt;SSHTunnelGateway&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Field&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;bindPort&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SSH 服务器监听端口。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;YES&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;privateKeyFile&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SSH 服务器私钥文件路径。若为空，frps将读取autoGenPrivateKeyPath路径下的私钥文件。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;autoGenPrivateKeyPath&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;私钥文件自动生成路径，默认为./.autogen_ssh_key。若文件不存在或内容为空，frps将自动生成RSA私钥文件并存储到该路径。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;authorizedKeysFile&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SSH 客户端授权密钥文件路径。若为空，则不进行SSH客户端鉴权认证。非空可实现SSH免密登录认证。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>

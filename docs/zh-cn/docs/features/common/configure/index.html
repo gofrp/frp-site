@@ -45,7 +45,7 @@ serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]]
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/configure/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-11-15T17:34:45+08:00" />
+<meta property="article:modified_time" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="name" content="配置文件">
 <meta itemprop="description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
 请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。
@@ -58,7 +58,7 @@ serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
 serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.">
-<meta itemprop="dateModified" content="2023-11-15T17:34:45+08:00" />
+<meta itemprop="dateModified" content="2023-12-13T11:13:39+08:00" />
 <meta itemprop="wordCount" content="175">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置文件"/>
@@ -281,6 +281,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonserver-plugin-check"/>
   <label for="m-zh-cndocsfeaturescommonserver-plugin-check"><a href="/zh-cn/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonserver-plugin"><span class="">服务端插件</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
+  <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -473,7 +477,7 @@ export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 <p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="../../../reference">参考</a> 中查看。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 November 15, 2023: <a href="https://github.com/gofrp/frp-doc/commit/626ce4d26425b975fba968977111b362f0eda00b">fix 404 (#71) (626ce4d)</a>
+  最后修改 December 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/1c6e9dc76abe0d2a1434edb9520f72c311080e41">feat: add ssh doc (#72) (1c6e9dc)</a>
 </div>
 
 </div>
