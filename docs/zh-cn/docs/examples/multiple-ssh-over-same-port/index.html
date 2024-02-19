@@ -27,11 +27,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/multiple-ssh-over-same-port/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-12-13T11:34:20+08:00" />
+<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
 <meta itemprop="name" content="多个 SSH 服务复用同一端口">
 <meta itemprop="description" content="通过使用 tcpmux 类型的代理，您可以实现多个 SSH 服务通过同一端口进行暴露。这种方法还适用于任何支持 HTTP Connect 代理连接方式的客户端，以实现端口的复用。
 ">
-<meta itemprop="dateModified" content="2023-12-13T11:34:20+08:00" />
+<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
 <meta itemprop="wordCount" content="113">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多个 SSH 服务复用同一端口"/>
@@ -419,15 +419,15 @@ var _hmt = _hmt || [];
 <li>
 <p><strong>通过 SSH ProxyCommand 访问内网机器 A</strong></p>
 <p>使用 SSH ProxyCommand 访问内网机器 A，假设用户名为 test。使用以下命令：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -o <span style="color:#4e9a06">&#39;proxycommand socat - PROXY:x.x.x.x:machine-a.example.com:22,proxyport=5002&#39;</span> test@machine-a
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -o <span style="color:#4e9a06">&#39;proxycommand socat - PROXY:x.x.x.x:%h:%p,proxyport=5002&#39;</span> test@machine-a.example.com
 </span></span></code></pre></div><p>要访问内网机器 B，只需更改域名，假设用户名仍然为 test：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -o <span style="color:#4e9a06">&#39;proxycommand socat - PROXY:x.x.x.x:machine-b.example.com:22,proxyport=5002&#39;</span> test@machine-b
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -o <span style="color:#4e9a06">&#39;proxycommand socat - PROXY:x.x.x.x:%h:%p,proxyport=5002&#39;</span> test@machine-b.example.com
 </span></span></code></pre></div></li>
 </ol>
 <p>通过按照以上步骤进行配置，您可以实现多个 SSH 服务复用同一端口，以便在具有公网 IP 的机器上进行访问。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 December 13, 2023: <a href="https://github.com/gofrp/frp-doc/commit/c9e4f2f1afb4bd4b49c8f1297aa81905a27597c3">update (#73) (c9e4f2f)</a>
+  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
 </div>
 
 </div>
@@ -462,7 +462,7 @@ var _hmt = _hmt || [];
         
       </div>
       <div class="td-footer__copyright-etc col-12 col-sm-4 text-center py-2 order-sm-2">
-        <span>&copy; 2023 The frp Authors 保留所有权利</span>
+        <span>&copy; 2024 The frp Authors 保留所有权利</span>
         
         
       </div>

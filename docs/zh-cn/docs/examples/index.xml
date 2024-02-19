@@ -109,9 +109,9 @@
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;通过 SSH ProxyCommand 访问内网机器 A&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用 SSH ProxyCommand 访问内网机器 A，假设用户名为 test。使用以下命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;proxycommand socat - PROXY:x.x.x.x:machine-a.example.com:22,proxyport=5002&amp;#39;&lt;/span&gt; test@machine-a
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;proxycommand socat - PROXY:x.x.x.x:%h:%p,proxyport=5002&amp;#39;&lt;/span&gt; test@machine-a.example.com
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要访问内网机器 B，只需更改域名，假设用户名仍然为 test：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;proxycommand socat - PROXY:x.x.x.x:machine-b.example.com:22,proxyport=5002&amp;#39;&lt;/span&gt; test@machine-b
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;proxycommand socat - PROXY:x.x.x.x:%h:%p,proxyport=5002&amp;#39;&lt;/span&gt; test@machine-b.example.com
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;通过按照以上步骤进行配置，您可以实现多个 SSH 服务复用同一端口，以便在具有公网 IP 的机器上进行访问。&lt;/p&gt;
