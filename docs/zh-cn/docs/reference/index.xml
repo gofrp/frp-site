@@ -1017,6 +1017,12 @@
 &lt;td style=&#34;text-align:left&#34;&gt;Yes&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;annotations&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;map[string]string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;代理的注释信息，会被展示在 server 的 dashboard 中。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;transport&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;#proxytransport&#34;&gt;ProxyTransport&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;代理网络层配置。&lt;/td&gt;

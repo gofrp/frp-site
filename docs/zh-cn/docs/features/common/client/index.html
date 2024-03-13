@@ -24,7 +24,7 @@
 webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 然后执行以下命令来重载配置：
 frpc reload -c ./frpc.toml
 等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
 使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
 你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
 仅在 transport.protocol = &amp;quot;tcp&amp;quot; 时生效。
@@ -35,7 +35,7 @@ serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 transport.proxyURL = &a
 webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
 frpc reload -c ./frpc.toml
 等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
 使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
 你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
 仅在 transport.protocol = &quot;tcp&quot; 时生效。
@@ -43,19 +43,19 @@ serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/client/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="name" content="客户端">
 <meta itemprop="description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
 要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
 webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
 frpc reload -c ./frpc.toml
 等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
 使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
 你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
 仅在 transport.protocol = &quot;tcp&quot; 时生效。
 serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http://user:pwd@192.168.1.128:8080&#34; 将 transport.">
-<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
+<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="wordCount" content="76">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端"/>
@@ -64,7 +64,7 @@ serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http:
 webServer.addr = &#34;127.0.0.1&#34; webServer.port = 7400 然后执行以下命令来重载配置：
 frpc reload -c ./frpc.toml
 等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。
-命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.ini 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
+命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。
 使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。
 你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
 仅在 transport.protocol = &quot;tcp&quot; 时生效。
@@ -421,7 +421,7 @@ var _hmt = _hmt || [];
 <p><code>frpc reload -c ./frpc.toml</code></p>
 <p>等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。</p>
 <h2 id="命令行查看代理状态">命令行查看代理状态</h2>
-<p>frpc 支持通过 <code>frpc status -c ./frpc.ini</code> 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。</p>
+<p>frpc 支持通过 <code>frpc status -c ./frpc.toml</code> 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。</p>
 <h2 id="使用代理连接-frps">使用代理连接 frps</h2>
 <p>在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。</p>
 <p>你可以通过设置系统环境变量 <code>HTTP_PROXY</code> 或在 frpc 的配置文件中设置 <code>transport.proxyURL</code> 参数来使用此功能。</p>
@@ -432,7 +432,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>将 <code>transport.proxyURL</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
+  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
 </div>
 
 </div>

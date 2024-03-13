@@ -23,44 +23,40 @@
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &amp;#34;admin&amp;#34; webServer.password = &amp;#34;admin&amp;#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &amp;#34;0.0.0.0&amp;#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &amp;#34;admin&amp;#34; webServer.password = &amp;#34;admin&amp;#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-webServer.tls.certFile = &amp;#34;server.crt&amp;#34; webServer.tls.keyFile = &amp;#34;server.key&amp;#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：">
+webServer.tls.certFile = &amp;#34;server.crt&amp;#34; webServer.tls.keyFile = &amp;#34;server.key&amp;#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。">
 <meta property="og:title" content="Web 界面" />
 <meta property="og:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &#34;0.0.0.0&#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：" />
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/ui/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="name" content="Web 界面">
 <meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &#34;0.0.0.0&#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：">
-<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
-<meta itemprop="wordCount" content="111">
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。">
+<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
+<meta itemprop="wordCount" content="116">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Web 界面"/>
 <meta name="twitter:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
 服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。
 注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。
 需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：
-# frps.toml webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
+# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &#34;0.0.0.0&#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
-webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。
-需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能："/>
+webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。"/>
 
 
 
@@ -408,7 +404,8 @@ var _hmt = _hmt || [];
 <p>服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。</p>
 <p><strong>注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。</strong></p>
 <p>需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.0.0.0&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">port</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7500</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># dashboard 用户名密码，可选，默认为空</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">webServer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">user</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;admin&#34;</span>
@@ -435,7 +432,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">remotePort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7400</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
+  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
 </div>
 
 </div>

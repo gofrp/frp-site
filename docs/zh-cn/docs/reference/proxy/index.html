@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/reference/proxy/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="name" content="代理配置">
 <meta itemprop="description" content="frp 代理的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
-<meta itemprop="wordCount" content="381">
+<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
+<meta itemprop="wordCount" content="389">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="代理配置"/>
 <meta name="twitter:description" content="frp 代理的详细配置说明。
@@ -415,6 +415,12 @@ var _hmt = _hmt || [];
 <td style="text-align:left">string</td>
 <td style="text-align:left">代理类型，可选值为 tcp, udp, http, https, tcpmux, stcp, sudp, xtcp。</td>
 <td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">annotations</td>
+<td style="text-align:left">map[string]string</td>
+<td style="text-align:left">代理的注释信息，会被展示在 server 的 dashboard 中。</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
 <td style="text-align:left">transport</td>
@@ -895,7 +901,7 @@ var _hmt = _hmt || [];
 </table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
+  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
 </div>
 
 </div>

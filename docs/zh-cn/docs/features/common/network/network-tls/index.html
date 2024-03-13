@@ -37,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/network/network-tls/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
@@ -46,7 +46,7 @@ TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server.">
-<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
+<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="wordCount" content="428">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 TLS 协议加密"/>
@@ -425,7 +425,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">certFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/cert/path/client.crt&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">keyFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/key/path/client.key&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.ini</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># frps.toml</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">transport</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tls</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">trustedCaFile</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/to/ca/path/ca.crt&#34;</span>
 </span></span></code></pre></div><p>frpc 需要额外加载 TLS 配置，frps 需要额外加载 ca 证书。frps 通过 ca 证书单向验证 frpc 的身份。这就要求 frpc 的 <code>client.crt</code> 对 frps 的 ca 是合法的。</p>
 <h2 id="双向验证">双向验证</h2>
@@ -501,7 +501,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
+  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
 </div>
 
 </div>

@@ -27,11 +27,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/examples/multiple-ssh-over-same-port/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-02-19T11:42:58+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="name" content="多个 SSH 服务复用同一端口">
 <meta itemprop="description" content="通过使用 tcpmux 类型的代理，您可以实现多个 SSH 服务通过同一端口进行暴露。这种方法还适用于任何支持 HTTP Connect 代理连接方式的客户端，以实现端口的复用。
 ">
-<meta itemprop="dateModified" content="2024-02-19T11:42:58+08:00" />
+<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
 <meta itemprop="wordCount" content="113">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多个 SSH 服务复用同一端口"/>
@@ -390,7 +390,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div></li>
 <li>
 <p><strong>在内网机器 A 上部署 frpc</strong></p>
-<p>创建 frpc 配置文件，例如 frpc.ini，然后将以下内容添加到配置文件中：</p>
+<p>创建 frpc 配置文件，例如 frpc.toml，然后将以下内容添加到配置文件中：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000">serverAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;x.x.x.x&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">serverPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">7000</span>
 </span></span><span style="display:flex;"><span>
@@ -427,7 +427,7 @@ var _hmt = _hmt || [];
 <p>通过按照以上步骤进行配置，您可以实现多个 SSH 服务复用同一端口，以便在具有公网 IP 的机器上进行访问。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 February 19, 2024: <a href="https://github.com/gofrp/frp-doc/commit/64c00680b2c4baff4c2a39be81470ac3f8b8fb1f">update multiple-ssh-over-same-port (#74) (64c0068)</a>
+  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
 </div>
 
 </div>
