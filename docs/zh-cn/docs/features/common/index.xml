@@ -278,7 +278,8 @@ export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
         
         
         &lt;h2 id=&#34;http-x-forwarded-for&#34;&gt;HTTP X-Forwarded-For&lt;/h2&gt;
-&lt;p&gt;目前只有 &lt;code&gt;HTTP&lt;/code&gt; 类型的代理支持这一功能，可以通过用户请求的 header 中的 &lt;code&gt;X-Forwarded-For&lt;/code&gt; 来获取用户真实 IP，默认启用。&lt;/p&gt;
+&lt;p&gt;目前只有 &lt;code&gt;http&lt;/code&gt; 类型的代理或者启用了 &lt;code&gt;https2http&lt;/code&gt; 或 &lt;code&gt;https2https&lt;/code&gt; 插件的代理支持这一功能。&lt;/p&gt;
+&lt;p&gt;可以通过 HTTP/HTTPS 请求 header 中的 &lt;code&gt;X-Forwarded-For&lt;/code&gt; 来获取用户真实 IP，默认启用。&lt;/p&gt;
 &lt;h2 id=&#34;proxy-protocol&#34;&gt;Proxy Protocol&lt;/h2&gt;
 &lt;p&gt;frp 支持通过 &lt;code&gt;Proxy Protocol&lt;/code&gt; 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Proxy Protocol&lt;/code&gt; 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 &lt;code&gt;Proxy Protocol&lt;/code&gt; 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&lt;/p&gt;

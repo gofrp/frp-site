@@ -33,14 +33,14 @@ Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/monitor/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-04-09T14:56:22+08:00" />
+<meta property="article:modified_time" content="2024-04-09T15:03:56+08:00" />
 <meta itemprop="name" content="监控">
 <meta itemprop="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
 内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
 请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
 Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
 在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
-<meta itemprop="dateModified" content="2024-04-09T14:56:22+08:00" />
+<meta itemprop="dateModified" content="2024-04-09T15:03:56+08:00" />
 <meta itemprop="wordCount" content="42">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="监控"/>
@@ -404,7 +404,7 @@ var _hmt = _hmt || [];
 <p>在 frps.ini 中启用 Dashboard 并设置 <code>enablePrometheus = true</code>，然后你可以通过访问 <code>http://{dashboard_addr}/metrics</code> 来获取 Prometheus 的监控数据。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/41e2bea41667bd6c2786c444ee718d9d8bccaf63">add doc for v0.56.0 (#76) (41e2bea)</a>
+  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/13ba114e8a93c0fe2b2ed437e6659317b3ff5e21">update (#77) (13ba114)</a>
 </div>
 
 </div>
