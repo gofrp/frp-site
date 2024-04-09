@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.119.0">
-<link rel="alternate" type="application/rss&#43;xml" href="/zh-cn/docs/features/xtcp/index.xml">
 <meta name="robots" content="index, follow">
 
 
@@ -19,20 +18,33 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>XTCP | frp</title>
-<meta name="description" content="了解 frp `XTCP` 类型的代理。
-">
-<meta property="og:title" content="XTCP" />
-<meta property="og:description" content="了解 frp `XTCP` 类型的代理。
-" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/zh-cn/docs/features/xtcp/" />
-<meta itemprop="name" content="XTCP">
-<meta itemprop="description" content="了解 frp `XTCP` 类型的代理。
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="XTCP"/>
-<meta name="twitter:description" content="了解 frp `XTCP` 类型的代理。
-"/>
+<title>端口范围映射 | frp</title>
+<meta name="description" content="Added in v0.56.0
+我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。
+下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。
+{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }} [[proxies]] name = &amp;#34;tcp-{{ $v.First }}&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} ">
+<meta property="og:title" content="端口范围映射" />
+<meta property="og:description" content="Added in v0.56.0
+我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。
+下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。
+{{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }} [[proxies]] name = &#34;tcp-{{ $v.First }}&#34; type = &#34;tcp&#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh-cn/docs/features/common/range/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2024-04-09T14:56:22+08:00" />
+<meta itemprop="name" content="端口范围映射">
+<meta itemprop="description" content="Added in v0.56.0
+我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。
+下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。
+{{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }} [[proxies]] name = &#34;tcp-{{ $v.First }}&#34; type = &#34;tcp&#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} ">
+<meta itemprop="dateModified" content="2024-04-09T14:56:22+08:00" />
+<meta itemprop="wordCount" content="49">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="端口范围映射"/>
+<meta name="twitter:description" content="Added in v0.56.0
+我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。
+下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。
+{{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }} [[proxies]] name = &#34;tcp-{{ $v.First }}&#34; type = &#34;tcp&#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} "/>
 
 
 
@@ -60,7 +72,7 @@ var _hmt = _hmt || [];
   crossorigin="anonymous" />
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       <nav class="td-navbar navbar-dark js-navbar-scroll">
 <div class="container-fluid flex-column flex-md-row">
@@ -181,8 +193,8 @@ var _hmt = _hmt || [];
   <label for="m-zh-cndocsfeatures-check"><a href="/zh-cn/docs/features/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeatures"><span class="">功能特性</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-zh-cndocsfeaturescommon-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommon-check"/>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-zh-cndocsfeaturescommon-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommon-check" checked/>
   <label for="m-zh-cndocsfeaturescommon-check"><a href="/zh-cn/docs/features/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeaturescommon"><span class="">通用功能</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -225,9 +237,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
-  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">端口范围映射</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturescommonrange-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check" checked/>
+  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="td-sidebar-nav-active-item">端口范围映射</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
@@ -282,9 +294,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturesstcp-sudp-check"/>
   <label for="m-zh-cndocsfeaturesstcp-sudp-check"><a href="/zh-cn/docs/features/stcp-sudp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeaturesstcp-sudp"><span class="">STCP &amp; SUDP</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturesxtcp-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturesxtcp-check" checked/>
-  <label for="m-zh-cndocsfeaturesxtcp-check"><a href="/zh-cn/docs/features/xtcp/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeaturesxtcp"><span class="td-sidebar-nav-active-item">XTCP</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturesxtcp-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturesxtcp-check"/>
+  <label for="m-zh-cndocsfeaturesxtcp-check"><a href="/zh-cn/docs/features/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeaturesxtcp"><span class="">XTCP</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcpmux-li">
   <input type="checkbox" id="m-zh-cndocsfeaturestcpmux-check"/>
@@ -338,19 +350,15 @@ var _hmt = _hmt || [];
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/xtcp/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/xtcp/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Features/xtcp/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-  <a href="https://github.com/gofrp/frp-doc/issues/new?title=XTCP" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/common/range.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/common/range.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Features/common/range.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e7%ab%af%e5%8f%a3%e8%8c%83%e5%9b%b4%e6%98%a0%e5%b0%84" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a>
   
 </div>
 
-            <div class="td-toc"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#fallback-机制">Fallback 机制</a></li>
-  </ul>
-</nav></div>
+            <div class="td-toc"><nav id="TableOfContents"></nav></div>
 
             
 	
@@ -365,60 +373,36 @@ var _hmt = _hmt || [];
     <a href="/zh-cn/docs/">文档</a></li>
   <li class="breadcrumb-item">
     <a href="/zh-cn/docs/features/">功能特性</a></li>
+  <li class="breadcrumb-item">
+    <a href="/zh-cn/docs/features/common/">通用功能</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    XTCP</li>
+    端口范围映射</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>XTCP</h1>
-  <div class="lead">了解 frp <code>XTCP</code> 类型的代理。</div>
+	<h1>端口范围映射</h1>
+	
 	<header class="article-meta">
 		
   </header>
-	<p>XTCP 的配置方式和 STCP 很类似。但是会采用 P2P 的方式进行打洞穿透，如果成功，后续的流量将不会经过 frps，而是直接通信，不再受到 frps 所在服务器的带宽限制。</p>
-<p>由于打洞成功率取决于所处网络的 NAT 类型，所以 XTCP 的可用性和稳定性无法保证。在需要可靠连接的情况下，建议使用 STCP 替代。</p>
-<p>当 visitor 配置了 <code>keepTunnelOpen = true</code> 时，frpc 会定期检测隧道是否打开，如果没有，则会尝试打洞建立隧道，这样可以始终保持隧道打开，在需要连接对端服务时，可以避免延迟。</p>
-<p>默认情况下，visitor 会在接收到用户连接后尝试打洞，如果打洞失败，可以尝试多次建立连接，程序会尝试其他的打洞策略，有可能在多次重试后成功打洞。一旦打洞成功，后续新增连接不必重复打洞，而是可以复用隧道。</p>
-<h2 id="fallback-机制">Fallback 机制</h2>
-<p>可以通过配置 fallback 到 stcp visitor 实现在打洞失败时，回退到 stcp 建立连接。</p>
-<p>示例配置:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">visitors</span><span style="color:#000;font-weight:bold">]]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;stcp-visitor&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;stcp&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">serverName</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;stcp-test&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">secretKey</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">-1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[[</span><span style="color:#000">visitors</span><span style="color:#000;font-weight:bold">]]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;xtcp-visitor&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">type</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;xtcp&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">serverName</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;xtcp-test&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">secretKey</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;abc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">bindAddr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">bindPort</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">9002</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">fallbackTo</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;stcp-visitor&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">fallbackTimeoutMs</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">200</span>
-</span></span></code></pre></div><p>当连接 <code>127.0.0.1:9002</code> 超过 200ms p2p 打洞还未成功的话，会回退到使用 stcp-visitor 建立连接。fallback 后，之前触发的打洞操作仍然会继续，一般来说打洞完成需要的耗时会比较长。</p>
-<p>如果打洞成功，下次建立新的连接时，将不需要再次打洞，会很快完成连接建立，不会触发 fallback。</p>
-<p>需要注意根据访问端和被访问端的延迟情况来合理设置超时时间，以避免超时时间太短，即使打洞成功连接也来不及建立，而一直触发 fallback。</p>
-<p>stcp-visitor 的 <code>bindPort</code> 设置为 -1 表示不需要监听物理端口，只接受 fallback 的连接即可。</p>
-
-  <div class="section-index">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</div>
-<div class="text-muted mt-5 pt-3 border-top">
+	<p><em>Added in v0.56.0</em></p>
+<p>我们可以利用 Go template 的 range 语法结合内置的 <code>parseNumberRangePair</code> 函数来实现端口范围映射。</p>
+<p>下面的示例，应用运行后会创建 8 个代理，名称为 <code>test-6000, test-6001 ... test-6007</code>，分别将远端的端口映射到本地。</p>
+<pre tabindex="0"><code>{{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }}
+[[proxies]]
+name = &#34;tcp-{{ $v.First }}&#34;
+type = &#34;tcp&#34;
+localPort = {{ $v.First }}
+remotePort = {{ $v.Second }}
+{{- end }}
+</code></pre>
+	<div class="text-muted mt-5 pt-3 border-top">
   最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/41e2bea41667bd6c2786c444ee718d9d8bccaf63">add doc for v0.56.0 (#76) (41e2bea)</a>
 </div>
+
 </div>
+
 
           </main>
         </div>

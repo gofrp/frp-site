@@ -37,7 +37,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/server-manage/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
+<meta property="article:modified_time" content="2024-04-09T14:56:22+08:00" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allowPorts 来指定：
 # frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。
@@ -46,7 +46,7 @@
 需要注意的是，如果你想将 vhostHTTPSPort 和 bindPort 配置为相同的端口，需要首先将 transport.tls.disableCustomTLSFirstByte 设置为false。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.toml [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.">
-<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
+<meta itemprop="dateModified" content="2024-04-09T14:56:22+08:00" />
 <meta itemprop="wordCount" content="96">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端管理"/>
@@ -249,6 +249,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
+  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">端口范围映射</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -432,7 +436,7 @@ var _hmt = _hmt || [];
 <p>限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 <code>transport.bandwidthLimitMode = &quot;server&quot;</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
+  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/41e2bea41667bd6c2786c444ee718d9d8bccaf63">add doc for v0.56.0 (#76) (41e2bea)</a>
 </div>
 
 </div>

@@ -233,6 +233,31 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;httpheader&#34;&gt;HTTPHeader&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Field&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;name&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Header 名称。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Header 值。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>
@@ -1192,6 +1217,12 @@
 &lt;td style=&#34;text-align:left&#34;&gt;path&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;健康检查的 HTTP 接口，如果健康检查类型是 http，则需要配置此参数，指定发送 http 请求的 path，例如 &lt;code&gt;/health&lt;/code&gt;。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;httpHeaders&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;../common#httpheader&#34;&gt;[]HTTPHeader&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;健康检查的 HTTP 请求头，仅在健康检查类型是 http 时生效。&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

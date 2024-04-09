@@ -33,14 +33,14 @@ Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/authentication/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-03-13T17:17:42+08:00" />
+<meta property="article:modified_time" content="2024-04-09T14:56:22+08:00" />
 <meta itemprop="name" content="身份认证">
 <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
 配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
 验证流程参考 Client Credentials Grant。
 配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
-<meta itemprop="dateModified" content="2024-03-13T17:17:42+08:00" />
+<meta itemprop="dateModified" content="2024-04-09T14:56:22+08:00" />
 <meta itemprop="wordCount" content="74">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="身份认证"/>
@@ -241,6 +241,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonrealip-check"/>
   <label for="m-zh-cndocsfeaturescommonrealip-check"><a href="/zh-cn/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrealip"><span class="">获取用户真实 IP</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonrange-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonrange-check"/>
+  <label for="m-zh-cndocsfeaturescommonrange-check"><a href="/zh-cn/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonrange"><span class="">端口范围映射</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonclient-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonclient-check"/>
   <label for="m-zh-cndocsfeaturescommonclient-check"><a href="/zh-cn/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonclient"><span class="">客户端</span></a></label>
@@ -424,7 +428,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tokenEndpointURL</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 March 13, 2024: <a href="https://github.com/gofrp/frp-doc/commit/66067f8a387e98a92055422b3d003903a717eb24">update docs for v0.55 (#75) (66067f8)</a>
+  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/41e2bea41667bd6c2786c444ee718d9d8bccaf63">add doc for v0.56.0 (#76) (41e2bea)</a>
 </div>
 
 </div>
