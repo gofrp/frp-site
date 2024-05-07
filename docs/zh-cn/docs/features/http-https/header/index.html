@@ -31,14 +31,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/http-https/header/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-04-09T15:03:56+08:00" />
+<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.yourdomain.com&#34;] hostHeaderRewrite = &#34;dev.yourdomain.com&#34; 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.">
-<meta itemprop="dateModified" content="2024-04-09T15:03:56+08:00" />
-<meta itemprop="wordCount" content="82">
+<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
+<meta itemprop="wordCount" content="89">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改 HTTP 请求 Header"/>
 <meta name="twitter:description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
@@ -411,10 +411,11 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">customDomains</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;test.yourdomain.com&#34;</span><span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">hostHeaderRewrite</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;dev.yourdomain.com&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">requestHeaders</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">x-from-where</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;frp&#34;</span>
-</span></span></code></pre></div><p>根据如上的配置，会在请求的 Header 中加上 <code>x-from-where: frp</code>。</p>
+</span></span><span style="display:flex;"><span><span style="color:#000">responseHeaders</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">foo</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;bar&#34;</span>
+</span></span></code></pre></div><p>根据如上的配置，会在请求的 Header 中加上 <code>x-from-where: frp</code>，在响应的 Header 中加上 <code>foo: bar</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/13ba114e8a93c0fe2b2ed437e6659317b3ff5e21">update (#77) (13ba114)</a>
+  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
 </div>
 
 </div>

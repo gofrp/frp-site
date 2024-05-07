@@ -37,7 +37,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/server-manage/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-04-09T15:03:56+08:00" />
+<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="name" content="服务端管理">
 <meta itemprop="description" content="端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allowPorts 来指定：
 # frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。
@@ -46,7 +46,7 @@
 需要注意的是，如果你想将 vhostHTTPSPort 和 bindPort 配置为相同的端口，需要首先将 transport.tls.disableCustomTLSFirstByte 设置为false。
 限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。
 # frpc.toml [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localPort = 22 remotePort = 6000 transport.">
-<meta itemprop="dateModified" content="2024-04-09T15:03:56+08:00" />
+<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="wordCount" content="96">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端管理"/>
@@ -436,7 +436,7 @@ var _hmt = _hmt || [];
 <p>限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 <code>transport.bandwidthLimitMode = &quot;server&quot;</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/13ba114e8a93c0fe2b2ed437e6659317b3ff5e21">update (#77) (13ba114)</a>
+  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
 </div>
 
 </div>

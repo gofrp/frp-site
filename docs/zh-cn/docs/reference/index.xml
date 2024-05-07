@@ -1356,6 +1356,12 @@
 &lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;responseHeaders&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;../common#headeroperations&#34;&gt;HeaderOperations&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;对响应 Header 的操作配置。&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;routeByHTTPUser&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;根据 HTTP Basic Auth user 路由。&lt;/td&gt;

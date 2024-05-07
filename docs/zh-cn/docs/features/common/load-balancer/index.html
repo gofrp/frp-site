@@ -33,14 +33,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/load-balancer/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-04-09T15:03:56+08:00" />
+<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="name" content="负载均衡与健康检查">
 <meta itemprop="description" content="负载均衡 你可以将多个相同类型的代理加入到同一个 group 中，以实现负载均衡的能力。
 目前支持的代理类型包括：tcp, http, tcpmux。
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; 当用户连接 frps 服务器的 80 端口时，frps 会将接收到的用户连接随机分发给其中一个存活的代理。这可以确保即使一台 frpc 机器挂掉，仍然有其他节点能够提供服务。
 对于 tcp 类型代理，需要确保 groupKey 相同以进行权限验证，同时 remotePort 也需一致。
 对于 http 类型代理，需要保证 groupKey, customDomains(自定义域名)，subdomain 和 locations 相同。">
-<meta itemprop="dateModified" content="2024-04-09T15:03:56+08:00" />
+<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="wordCount" content="181">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="负载均衡与健康检查"/>
@@ -455,7 +455,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">healthCheck</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">intervalSeconds</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/13ba114e8a93c0fe2b2ed437e6659317b3ff5e21">update (#77) (13ba114)</a>
+  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
 </div>
 
 </div>

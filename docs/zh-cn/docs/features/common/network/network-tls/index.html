@@ -37,7 +37,7 @@ frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/network/network-tls/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-04-09T15:03:56+08:00" />
+<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="name" content="自定义 TLS 协议加密">
 <meta itemprop="description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
 当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。
@@ -46,7 +46,7 @@ TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server.">
-<meta itemprop="dateModified" content="2024-04-09T15:03:56+08:00" />
+<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
 <meta itemprop="wordCount" content="428">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 TLS 协议加密"/>
@@ -505,7 +505,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 April 9, 2024: <a href="https://github.com/gofrp/frp-doc/commit/13ba114e8a93c0fe2b2ed437e6659317b3ff5e21">update (#77) (13ba114)</a>
+  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
 </div>
 
 </div>
