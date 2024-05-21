@@ -466,7 +466,7 @@ X-Frp-Reqid: 用于追踪请求
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;允许且需要替换操作内容&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;unchange&amp;#34;: &amp;#34;false&amp;#34;,
+    &amp;#34;unchange&amp;#34;: false,
     &amp;#34;content&amp;#34;: {
         ... // 替换后的操作信息，格式必须和请求时的一致
     }

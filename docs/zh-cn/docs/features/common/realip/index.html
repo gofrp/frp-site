@@ -37,7 +37,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/realip/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
+<meta property="article:modified_time" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="name" content="获取用户真实 IP">
 <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。
 可以通过 HTTP/HTTPS 请求 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。
@@ -46,7 +46,7 @@ Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 这里以 HTTPS 类型为例:
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;https&#34; localPort = 443 customDomains = [&#34;test.yourdomain.com&#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.">
-<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
+<meta itemprop="dateModified" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="wordCount" content="104">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="获取用户真实 IP"/>
@@ -424,7 +424,7 @@ var _hmt = _hmt || [];
 <p>本地的 HTTPS 服务可以通过在 nginx 的配置中启用 <code>Proxy Protocol</code> 的解析并将结果设置在 <code>X-Real-IP</code> 这个 Header 中就可以在自己的 Web 服务中通过 <code>X-Real-IP</code> 获取到用户的真实 IP。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
+  最后修改 May 21, 2024: <a href="https://github.com/gofrp/frp-doc/commit/a85ff88602273f5036dd2e65a297741bbd8ca535">fix doc (#81) (a85ff88)</a>
 </div>
 
 </div>

@@ -43,7 +43,7 @@ serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/client/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
+<meta property="article:modified_time" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="name" content="客户端">
 <meta itemprop="description" content="动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。
 要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：
@@ -55,7 +55,7 @@ frpc reload -c ./frpc.toml
 你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。
 仅在 transport.protocol = &quot;tcp&quot; 时生效。
 serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 transport.proxyURL = &#34;http://user:pwd@192.168.1.128:8080&#34; 将 transport.">
-<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
+<meta itemprop="dateModified" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="wordCount" content="76">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端"/>
@@ -436,7 +436,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>将 <code>transport.proxyURL</code> 设置为 <code>socks5://user:pwd@192.168.1.128:8080</code> 也可以连接到 SOCKS5 代理。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
+  最后修改 May 21, 2024: <a href="https://github.com/gofrp/frp-doc/commit/a85ff88602273f5036dd2e65a297741bbd8ca535">fix doc (#81) (a85ff88)</a>
 </div>
 
 </div>

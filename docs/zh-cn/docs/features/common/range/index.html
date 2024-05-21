@@ -31,13 +31,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/range/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
+<meta property="article:modified_time" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="name" content="端口范围映射">
 <meta itemprop="description" content="Added in v0.56.0
 我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。
 下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。
 {{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }} [[proxies]] name = &#34;tcp-{{ $v.First }}&#34; type = &#34;tcp&#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} ">
-<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
+<meta itemprop="dateModified" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="wordCount" content="49">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="端口范围映射"/>
@@ -398,7 +398,7 @@ remotePort = {{ $v.Second }}
 {{- end }}
 </code></pre>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
+  最后修改 May 21, 2024: <a href="https://github.com/gofrp/frp-doc/commit/a85ff88602273f5036dd2e65a297741bbd8ca535">fix doc (#81) (a85ff88)</a>
 </div>
 
 </div>

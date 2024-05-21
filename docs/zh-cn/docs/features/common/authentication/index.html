@@ -33,14 +33,14 @@ Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/authentication/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-05-07T18:18:51+08:00" />
+<meta property="article:modified_time" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="name" content="身份认证">
 <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
 配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
 验证流程参考 Client Credentials Grant。
 配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
-<meta itemprop="dateModified" content="2024-05-07T18:18:51+08:00" />
+<meta itemprop="dateModified" content="2024-05-21T16:45:21+08:00" />
 <meta itemprop="wordCount" content="74">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="身份认证"/>
@@ -428,7 +428,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span><span style="color:#000">auth</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oidc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tokenEndpointURL</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 7, 2024: <a href="https://github.com/gofrp/frp-doc/commit/0dfbc007d012e7e500b5cc6778fbae8ea47ddc08">update doc (#80) (0dfbc00)</a>
+  最后修改 May 21, 2024: <a href="https://github.com/gofrp/frp-doc/commit/a85ff88602273f5036dd2e65a297741bbd8ca535">fix doc (#81) (a85ff88)</a>
 </div>
 
 </div>
