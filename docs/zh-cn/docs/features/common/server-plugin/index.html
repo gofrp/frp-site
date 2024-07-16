@@ -47,7 +47,7 @@ POST /handler?version=0.1.0&amp;op=Login { &#34;content&#34;: { ... // 具体的
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/common/server-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-05-21T16:45:21+08:00" />
+<meta property="article:modified_time" content="2024-07-16T14:26:27+08:00" />
 <meta itemprop="name" content="服务端插件">
 <meta itemprop="description" content="frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。
 frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。
@@ -61,7 +61,7 @@ POST /handler?version=0.1.0&amp;op=Login { &#34;content&#34;: { ... // 具体的
 { &#34;reject&#34;: true, &#34;reject_reason&#34;: &#34;invalid user&#34; } 允许且内容不需要变动
 { &#34;reject&#34;: false, &#34;unchange&#34;: true } 允许且需要替换操作内容
 { &#34;unchange&#34;: false, &#34;content&#34;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。">
-<meta itemprop="dateModified" content="2024-05-21T16:45:21+08:00" />
+<meta itemprop="dateModified" content="2024-07-16T14:26:27+08:00" />
 <meta itemprop="wordCount" content="370">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="服务端插件"/>
@@ -627,7 +627,7 @@ remotePort = 6000
 metadatas.id = &#34;123&#34;
 </code></pre>
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 May 21, 2024: <a href="https://github.com/gofrp/frp-doc/commit/a85ff88602273f5036dd2e65a297741bbd8ca535">fix doc (#81) (a85ff88)</a>
+  最后修改 July 16, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b118f7c74af01c9be9ab847472bc8cae6a23f784">update plugin config (#83) (b118f7c)</a>
 </div>
 
 </div>
