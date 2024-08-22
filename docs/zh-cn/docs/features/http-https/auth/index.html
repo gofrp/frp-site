@@ -31,13 +31,13 @@ frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/http-https/auth/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-07-16T14:26:27+08:00" />
+<meta property="article:modified_time" content="2024-08-22T15:38:19+08:00" />
 <meta itemprop="name" content="设置 BasicAuth 鉴权">
 <meta itemprop="description" content="由于所有客户端共用一个 frps 的 HTTP 服务端口，任何知道你的域名和 URL 的人都能访问到你部署在内网的服务，但是在某些场景下需要确保只有限定的用户才能访问。
 frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通过用户名和密码才能访问到你的服务。
 该功能目前仅限于 HTTP 类型的代理，需要在 frpc 的代理配置中添加用户名和密码的设置。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.yourdomain.com&#34;] httpUser = &#34;abc&#34; httpPassword = &#34;abc&#34; 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。">
-<meta itemprop="dateModified" content="2024-07-16T14:26:27+08:00" />
+<meta itemprop="dateModified" content="2024-08-22T15:38:19+08:00" />
 <meta itemprop="wordCount" content="43">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="设置 BasicAuth 鉴权"/>
@@ -400,7 +400,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>通过浏览器访问 <code>http://test.yourdomain.com</code>，需要输入配置的用户名和密码才能访问。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 July 16, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b118f7c74af01c9be9ab847472bc8cae6a23f784">update plugin config (#83) (b118f7c)</a>
+  最后修改 August 22, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b94256efd0e5068a34897c861066f83936165e92">add tls2raw config (#85) (b94256e)</a>
 </div>
 
 </div>

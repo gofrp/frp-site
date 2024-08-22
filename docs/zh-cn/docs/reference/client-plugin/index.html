@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/reference/client-plugin/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-07-16T14:26:27+08:00" />
+<meta property="article:modified_time" content="2024-08-22T15:38:19+08:00" />
 <meta itemprop="name" content="客户端插件配置">
 <meta itemprop="description" content="frp 客户端插件的详细配置说明。
 ">
-<meta itemprop="dateModified" content="2024-07-16T14:26:27+08:00" />
-<meta itemprop="wordCount" content="168">
+<meta itemprop="dateModified" content="2024-08-22T15:38:19+08:00" />
+<meta itemprop="wordCount" content="187">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="客户端插件配置"/>
 <meta name="twitter:description" content="frp 客户端插件的详细配置说明。
@@ -361,6 +361,7 @@ var _hmt = _hmt || [];
         <li><a href="#http2httpspluginoptions">HTTP2HTTPSPluginOptions</a></li>
         <li><a href="#https2httppluginoptions">HTTPS2HTTPPluginOptions</a></li>
         <li><a href="#https2httpspluginoptions">HTTPS2HTTPSPluginOptions</a></li>
+        <li><a href="#tls2rawpluginoptions">TLS2RawPluginOptions</a></li>
       </ul>
     </li>
   </ul>
@@ -625,9 +626,40 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<h3 id="tls2rawpluginoptions">TLS2RawPluginOptions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">localAddr</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">本地服务地址。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">crtPath</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">TLS 证书文件路径。</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">keyPath</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">TLS 密钥文件路径。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 July 16, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b118f7c74af01c9be9ab847472bc8cae6a23f784">update plugin config (#83) (b118f7c)</a>
+  最后修改 August 22, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b94256efd0e5068a34897c861066f83936165e92">add tls2raw config (#85) (b94256e)</a>
 </div>
 
 </div>

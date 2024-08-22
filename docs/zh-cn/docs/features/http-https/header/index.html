@@ -31,13 +31,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh-cn/docs/features/http-https/header/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2024-07-16T14:26:27+08:00" />
+<meta property="article:modified_time" content="2024-08-22T15:38:19+08:00" />
 <meta itemprop="name" content="修改 HTTP 请求 Header">
 <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.yourdomain.com&#34;] hostHeaderRewrite = &#34;dev.yourdomain.com&#34; 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.">
-<meta itemprop="dateModified" content="2024-07-16T14:26:27+08:00" />
+<meta itemprop="dateModified" content="2024-08-22T15:38:19+08:00" />
 <meta itemprop="wordCount" content="89">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改 HTTP 请求 Header"/>
@@ -415,7 +415,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>根据如上的配置，会在请求的 Header 中加上 <code>x-from-where: frp</code>，在响应的 Header 中加上 <code>foo: bar</code>。</p>
 
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 July 16, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b118f7c74af01c9be9ab847472bc8cae6a23f784">update plugin config (#83) (b118f7c)</a>
+  最后修改 August 22, 2024: <a href="https://github.com/gofrp/frp-doc/commit/b94256efd0e5068a34897c861066f83936165e92">add tls2raw config (#85) (b94256e)</a>
 </div>
 
 </div>
