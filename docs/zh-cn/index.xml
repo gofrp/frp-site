@@ -1,17 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>frp – frp</title>
+    <title>frp</title>
     <link>/zh-cn/</link>
     <description>Recent content on frp</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    
-	  <atom:link href="/zh-cn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-      
-    
-    
+    <atom:link href="/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 systemd</title>
+      <link>/zh-cn/docs/setup/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/setup/systemd/</guid>
+      <description>在 Linux 系统下，使用 systemd 可以方便地控制 frps 服务端的启动、停止、配置后台运行以及开机自启动。&#xA;以下是具体的操作步骤：&#xA;安装 systemd&#xA;如果您的 Linux 服务器上尚未安装 systemd，可以使用包管理器如 yum（适用于 CentOS/RHEL）或 apt（适用于 Debian/Ubuntu）来安装它：&#xA;# 使用 yum 安装 systemd（CentOS/RHEL） yum install systemd # 使用 apt 安装 systemd（Debian/Ubuntu） apt install systemd 创建 frps.service 文件&#xA;使用文本编辑器 (如 vim) 在 /etc/systemd/system 目录下创建一个 frps.service 文件，用于配置 frps 服务。&#xA;$ sudo vim /etc/systemd/system/frps.service 写入内容&#xA;[Unit] # 服务名称，可自定义 Description = frp server After = network.target syslog.target Wants = network.target [Service] Type = simple # 启动frps的命令，需修改为您的frps的安装路径 ExecStart = /path/to/frps -c /path/to/frps.</description>
+    </item>
+    <item>
+      <title>通信安全及优化</title>
+      <link>/zh-cn/docs/features/common/network/network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/network/network/</guid>
+      <description>加密与压缩 注: 当 frpc 和 frps 之间启用了 TLS 之后，流量会被全局加密，不再需要配置单个代理上的加密，新版本中已经默认启用。&#xA;每一个代理都可以选择是否启用加密和压缩的功能。&#xA;加密算法采用 aes-128-cfb，压缩算法采用 snappy。&#xA;在每一个代理的配置中使用如下参数指定：&#xA;[[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.useEncryption = true transport.useCompression = true 通过设置 transport.useEncryption = true，将 frpc 与 frps 之间的通信内容加密传输，将会有效防止传输内容被截取。&#xA;如果传输的报文长度较长，通过设置 transport.useCompression = true 对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 CPU 资源。&#xA;TCP 多路复用 客户端和服务器端之间的连接支持多路复用，不再需要为每一个用户请求创建一个连接，使连接建立的延迟降低，并且避免了大量文件描述符的占用，使 frp 可以承载更高的并发数。&#xA;该功能默认启用，如需关闭，可以在 frps.toml 和 frpc.toml 中配置，该配置项在服务端和客户端必须一致：&#xA;# frps.toml 和 frpc.toml 中 transport.tcpMux = false 连接池 默认情况下，当用户请求建立连接后，frps 才会请求 frpc 主动与后端服务建立一个连接。当为指定的代理启用连接池后，frp 会预先和后端服务建立起指定数量的连接，每次接收到用户请求后，会从连接池中取出一个连接和用户连接关联起来，避免了等待与后端服务建立连接以及 frpc 和 frps 之间传递控制信息的时间。</description>
+    </item>
+    <item>
+      <title>通用配置</title>
+      <link>/zh-cn/docs/reference/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/common/</guid>
+      <description>LogConfig Field Type Description Required to string 日志输出文件路径，如果为 console，则会将日志打印在标准输出中。 No level string 日志级别，可选值为 trace, debug, info, warn, error，默认级别为 info。 No maxDays int 日志文件最多保留天数，默认为 3 天。 No disablePrintColor bool 禁用标准输出中的日志颜色。 No WebServerConfig Field Type Description Required addr string webServer 监听地址，默认为 127.0.0.1。 No port int webServer 监听端口。 Yes user string HTTP BasicAuth 用户名。 No password string HTTP BasicAuth 密码。 No assetsDir string 静态资源目录，Dashboard 使用的资源默认打包在二进制文件中，通过指定此参数使用自定义的静态资源。 No pprofEnable bool 启动 Go HTTP pprof，用于应用调试。 No tls TLSConfig Dashboard 启用 HTTPS 的 TLS 相关配置。 No TLSConfig Field Type Description Required certFile string TLS 证书文件路径。 Yes keyFile string TLS 密钥文件路径。 Yes trustedCaFile string CA 证书文件路径。 No serverName string TLS Server 名称。 No QUICOptions Field Type Description Required keepalivePeriod int 默认值为 10 秒。 No maxIdleTimeout int 默认值为 30 秒。 No maxIncomingStreams int 默认值为 100000。 No PortsRange Field Type Description Required start int 起始端口。 No end int 终止端口。 No single int 单一端口。 No HeaderOperations Field Type Description Required set map[string]string 在 Header 中设置指定的 KV 值。 No HTTPHeader Field Type Description Required name string Header 名称。 Yes value string Header 值。 Yes </description>
+    </item>
+    <item>
+      <title>服务端配置</title>
+      <link>/zh-cn/docs/reference/server-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/server-configures/</guid>
+      <description>ServerConfig Field Type Description Required auth AuthServerConfig 鉴权配置。 No bindAddr string 服务端监听地址，用于接收 frpc 的连接，默认监听 0.0.0.0。 No bindPort int 服务端监听端口，默认值为 7000。 No kcpBindPort int 服务端监听 KCP 协议端口，用于接收配置了使用 KCP 协议的 frpc 连接。 No quicBindPort int 服务端监听 QUIC 协议端口，用于接收配置了使用 QUIC 协议的 frpc 连接。 No proxyBindAddr string 代理监听地址，可以使代理监听在不同的网卡地址，默认情况下同 bindAddr。 No vhostHTTPPort int HTTP 类型代理监听的端口，启用后才能支持 HTTP 类型的代理。 No vhostHTTPTimeout int HTTP 类型代理在服务端的 ResponseHeader 超时时间，默认为 60s。 No vhostHTTPSPort int HTTPS 类型代理监听的端口，启用后才能支持 HTTPS 类型的代理。 No tcpmuxHTTPConnectPort int tcpmux 类型且复用器为 httpconnect 的代理监听的端口。 No tcpmuxPassthrough bool 对于 tcpmux 类型的代理是否透传 CONNECT 请求。 No subDomainHost string 二级域名后缀。 No custom404Page string 自定义 404 错误页面地址。 No sshTunnelGateway SSHTunnelGateway ssh 隧道网关配置。 No webServer WebServerConfig 服务端 Dashboard 配置。 No enablePrometheus bool 是否提供 Prometheus 监控接口，需要同时启用了 webServer 后才会生效。 No log LogConfig 日志配置。 No transport ServerTransportConfig 网络层配置。 No detailedErrorsToClient bool 服务端返回详细错误信息给客户端，默认为 true。 No maxPortsPerClient int 限制单个客户端最大同时存在的代理数，默认无限制。 No userConnTimeout int 用户建立连接后等待客户端响应的超时时间，单位秒，默认为 10 秒。 No udpPacketSize int 代理 UDP 服务时支持的最大包长度，默认为 1500，服务端和客户端的值需要一致。 No natholeAnalysisDataReserveHours int 打洞策略数据的保留时间，默认为 168 小时，即 7 天。 No allowPorts []PortsRange 允许代理绑定的服务端端口。 No httpPlugins []HTTPPluginOptions 服务端 HTTP 插件配置。 No AuthServerConfig Field Type Description Required method string 鉴权方式，可选值为 token 或 oidc，默认为 token。 No additionalScopes []string 鉴权信息附加范围，可选值为 HeartBeats 和 NewWorkConns No token string 在 method 为 token 时生效，客户端需要设置一样的值才能鉴权通过。 No oidc AuthOIDCServerConfig oidc 鉴权配置。 No AuthOIDCServerConfig Field Type Description Required issuer string No audience string No skipExpiryCheck bool No skipIssuerCheck bool No ServerTransportConfig Field Type Description Required tcpMuxKeepaliveInterval int tcp mux 的心跳检查间隔时间，单位秒。 No tcpKeepalive int 和客户端底层 TCP 连接的 keepalive 间隔时间，单位秒，配置为负数表示不启用。 No maxPoolCount int 允许客户端设置的最大连接池大小，如果客户端配置的值大于此值，会被强制修改为最大值，默认为 5。 No heartbeatTimeout int 服务端和客户端心跳连接的超时时间，单位秒，默认为 90 秒。 No quic QUICOptions QUIC 协议配置参数。 No tls TLSServerConfig 服务端 TLS 协议配置。 No TLSServerConfig Field Type Description Required force bool 是否只接受启用了 TLS 的客户端连接。 No TLSConfig TLS 协议配置，内嵌结构。 No HTTPPluginOptions Field Type Description Required name string 插件名称。 Yes addr string 插件接口的地址。 Yes path string 插件接口的 Path。 Yes ops []string 插件需要生效的操作列表，具体可选值请参考服务端插件的说明文档。 Yes tlsVerify bool 当插件地址为 HTTPS 协议时，是否校验插件的 TLS 证书，默认为不校验。 No SSHTunnelGateway Field Type Description Required bindPort int SSH 服务器监听端口。 YES privateKeyFile string SSH 服务器私钥文件路径。若为空，frps将读取autoGenPrivateKeyPath路径下的私钥文件。 No autoGenPrivateKeyPath string 私钥文件自动生成路径，默认为.</description>
+    </item>
+    <item>
+      <title>修改 HTTP 请求 Header</title>
+      <link>/zh-cn/docs/features/http-https/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/http-https/header/</guid>
+      <description>修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] hostHeaderRewrite = &amp;#34;dev.yourdomain.com&amp;#34; 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。&#xA;设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;test.</description>
+    </item>
+    <item>
+      <title>自定义 TLS 协议加密</title>
+      <link>/zh-cn/docs/features/common/network/network-tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/network/network-tls/</guid>
+      <description>transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。&#xA;当 frps.toml 中 transport.tls.force = true 时，表示 server 端只接受 TLS 连接的客户端，这也是 frps 验证 frpc 身份的前提条件。如果 frps.toml 中 transport.tls.trustedCaFile 内容是有效的话，那么默认就会开启 transport.tls.force = true。&#xA;注意：启用此功能后除 xtcp ，可以不用再设置 use_encryption 重复加密&#xA;TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将会为 true，默认开启 TLS 协议加密。&#xA;如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。&#xA;默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。&#xA;frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &amp;#34;/to/ca/path/ca.crt&amp;#34; # frps.toml transport.tls.certFile = &amp;#34;/to/cert/path/server.</description>
+    </item>
+    <item>
+      <title>客户端配置</title>
+      <link>/zh-cn/docs/reference/client-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/client-configures/</guid>
+      <description>ClientConfig Field Type Description Required ClientCommonConfig 客户端通用配置。 Yes proxies []ProxyConfig 代理配置，不同的代理类型对应不同的配置，例如 TCPProxyConfig 或 HTTPProxyConfig。 No visitors []VisitorConfig 访问者配置，不同的访问者类型对应不同的配置，例如 STCPVisitorConfig。 No ClientCommonConfig Field Type Description Required auth AuthClientConfig 客户端鉴权配置。 No user string 用户名，设置此参数后，代理名称会被修改为 {user}.{proxyName}，避免代理名称和其他用户冲突。 No serverAddr string 连接服务端的地址。 No serverPort int 连接服务端的端口，默认为 7000。 No natHoleStunServer string xtcp 打洞所需的 stun 服务器地址，默认为 stun.easyvoip.com:3478。 No dnsServer string 使用 DNS 服务器地址，默认使用系统配置的 DNS 服务器，指定此参数可以强制替换为自定义的 DNS 服务器地址。 No loginFailExit bool 第一次登陆失败后是否退出，默认为 true。 No start []string 指定启用部分代理，当配置了较多代理，但是只希望启用其中部分时可以通过此参数指定，默认为全部启用。 No log LogConfig 日志配置。 No webServer WebServerConfig 客户端 AdminServer 配置。 No transport ClientTransportConfig 客户端网络层配置。 No udpPacketSize int 代理 UDP 服务时支持的最大包长度，默认为 1500，服务端和客户端需要保持配置一致。 No metadatas map[string]string 附加元数据，会传递给服务端插件，提供附加能力。 No includes []string 指定额外的配置文件目录，其中的 proxy 和 visitor 配置会被读取加载。 No ClientTransportConfig Field Type Description Required protocol string 和 frps 之间的通信协议，可选值为 tcp, kcp, quic, websocket, wss。默认为 tcp。 No dialServerTimeout int 连接服务端的超时时间，默认为 10s。 No dialServerKeepalive int 和服务端底层 TCP 连接的 keepalive 间隔时间，单位秒。 No connectServerLocalIP string 连接服务端时所绑定的本地 IP。 No proxyURL string 连接服务端使用的代理地址，格式为 {protocol}://user:passwd@192.</description>
+    </item>
+    <item>
+      <title>设置 BasicAuth 鉴权</title>
+      <link>/zh-cn/docs/features/http-https/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/http-https/auth/</guid>
+      <description>由于所有客户端共用一个 frps 的 HTTP 服务端口，任何知道你的域名和 URL 的人都能访问到你部署在内网的服务，但是在某些场景下需要确保只有限定的用户才能访问。&#xA;frp 支持通过 HTTP Basic Auth 来保护你的 web 服务，使用户需要通过用户名和密码才能访问到你的服务。&#xA;该功能目前仅限于 HTTP 类型的代理，需要在 frpc 的代理配置中添加用户名和密码的设置。&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] httpUser = &amp;#34;abc&amp;#34; httpPassword = &amp;#34;abc&amp;#34; 通过浏览器访问 http://test.yourdomain.com，需要输入配置的用户名和密码才能访问。</description>
+    </item>
+    <item>
+      <title>代理配置</title>
+      <link>/zh-cn/docs/reference/proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/proxy/</guid>
+      <description>ProxyBaseConfig Field Type Description Required name string 代理名称。 Yes type string 代理类型，可选值为 tcp, udp, http, https, tcpmux, stcp, sudp, xtcp。 Yes annotations map[string]string 代理的注释信息，会被展示在 server 的 dashboard 中。 No transport ProxyTransport 代理网络层配置。 No metadatas map[string]string 附加元数据，会传递给服务端插件，提供附加能力。 No loadBalancer LoadBalancerConfig 负载均衡配置。 No healthCheck HealthCheckConfig 健康检查配置。 No ProxyBackend 代理后端服务配置。 Yes ProxyTransport Field Type Description Required useEncryption bool 是否启用加密功能，启用后该代理和服务端之间的通信内容都会被加密传输，如果 frpc 启用了全局 TLS，则不需要再启用此参数。 No useCompression bool 是否启用压缩功能，启用后该代理和服务端之间的通信内容都会被压缩传输。 No bandwidthLimit string 设置单个 proxy 的带宽限流，单位为 MB 或 KB，0 表示不限制，如果启用，默认会作用于对应的 frpc。 No bandwidthLimitMode string 限流类型，客户端限流或服务端限流，可选值为 client 和 server，默认为客户端限流。 No proxyProtocolVersion string 启用 proxy protocol 协议的版本，可选值为 v1 和 v2。如果启用，则 frpc 和本地服务建立连接后会发送 proxy protocol 的协议，包含了原请求的 IP 地址和端口等内容。 No ProxyBackend Field Type Description Required localIP string 被代理的本地服务 IP，默认为 127.</description>
+    </item>
+    <item>
+      <title>自定义二级域名</title>
+      <link>/zh-cn/docs/features/http-https/subdomain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/http-https/subdomain/</guid>
+      <description>在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。&#xA;通过在 frps 的配置文件中配置 subdomainHost，就可以启用该特性。之后在 frpc 的 http、https 类型的代理中可以不配置 customDomains，而是配置一个 subdomain 参数。&#xA;只需要将 *.{subdomainHost} 解析到 frps 所在服务器。之后用户可以通过 subdomain 自行指定自己的 web 服务所需要使用的二级域名，通过 {subdomain}.{subdomainHost} 来访问自己的 web 服务。&#xA;# frps.toml subdomainHost = &amp;#34;frps.com&amp;#34; 将泛域名 *.frps.com 解析到 frps 所在服务器的 IP 地址。&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 subdomain = &amp;#34;test&amp;#34; frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。&#xA;注：如果 frps 配置了 subdomainHost，则 customDomains 中不能是属于 subdomainHost 的子域名或者泛域名。</description>
+    </item>
+    <item>
+      <title>访问者配置</title>
+      <link>/zh-cn/docs/reference/visitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/visitor/</guid>
+      <description>VisitorBaseConfig Field Type Description Required name string 访问者名称。 Yes type string 访问者类型，可选值为 stcp, sudp, xtcp。 Yes transport VisitorTransport 访问者网络层配置。 No secretKey string 密钥，服务端和访问端的密钥需要一致，访问端才能访问到服务端。 No serverUser string 要访问的 proxy 所属的用户名，如果为空，则默认为当前用户。 No serverName string 要访问的 proxy 名称。 Yes bindAddr string visitor 监听的本地地址，通过访问监听的地址和端口，连接到远端代理的服务。 No bindPort int visitor 监听的本地端口，如果为 -1，表示不需要监听物理端口，通常可以用于作为其他 visitor 的 fallback。 Yes VisitorTransport Field Type Description Required useEncryption bool 是否启用加密功能，启用后该代理和服务端之间的通信内容都会被加密传输，如果 frpc 启用了全局 TLS，则不需要再启用此参数。 No useCompression bool 是否启用压缩功能，启用后该代理和服务端之间的通信内容都会被压缩传输。 No STCPVisitorConfig Field Type Description Required VisitorBaseConfig 基础配置。 Yes SUDPVisitorConfig Field Type Description Required VisitorBaseConfig 基础配置。 Yes XTCPVisitorConfig Field Type Description Required VisitorBaseConfig 基础配置。 Yes protocol string 隧道底层通信协议，可选 quic 和 kcp，默认为 quic。 No keepTunnelOpen bool 是否保持隧道打开，如果开启，会定期检查隧道状态并尝试保持打开。 No maxRetriesAnHour int 每小时尝试打开隧道的次数，默认值为 8。 No minRetryInterval int 重试打开隧道的最小间隔时间，单位: 秒，默认为 90s。 No fallbackTo string 回退到的其他 visitor 名称。 No fallbackTimeoutMs int 连接建立超过多长时间(ms) 后回退到其他 visitor。 No </description>
+    </item>
+    <item>
+      <title>路由</title>
+      <link>/zh-cn/docs/features/http-https/route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/http-https/route/</guid>
+      <description>URL 路由 frp 支持根据请求的 URL 路径路由转发到不同的后端服务。&#xA;通过配置文件中的 locations 字段指定一个或多个 proxy 能够匹配的 URL 前缀(目前仅支持最大前缀匹配，之后会考虑正则匹配)。例如指定 locations = &amp;quot;/news&amp;quot;，则所有 URL 以 /news 开头的请求都会被转发到这个服务。&#xA;# frpc.toml [[proxies]] name = &amp;#34;web01&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;web.yourdomain.com&amp;#34;] locations = [&amp;#34;/&amp;#34;] [[proxies]] name = &amp;#34;web02&amp;#34; type = &amp;#34;http&amp;#34; localPort = 81 customDomains = [&amp;#34;web.yourdomain.com&amp;#34;] locations = [&amp;#34;/news&amp;#34;, &amp;#34;/about&amp;#34;] 按照上述的示例配置后，web.yourdomain.com 这个域名下所有以 /news 以及 /about 作为前缀的 URL 请求都会被转发到 web02，其余的请求会被转发到 web01。</description>
+    </item>
+    <item>
+      <title>通过 SSH 访问内网机器</title>
+      <link>/zh-cn/docs/examples/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/ssh/</guid>
+      <description>步骤 在具有公网 IP 的机器上部署 frps&#xA;部署 frps 并编辑 frps.toml 文件。以下是简化的配置，其中设置了 frp 服务器用于接收客户端连接的端口：&#xA;bindPort = 7000 在需要被访问的内网机器上部署 frpc&#xA;部署 frpc 并编辑 frpc.toml 文件，假设 frps 所在服务器的公网 IP 地址为 x.x.x.x。以下是示例配置：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 remotePort = 6000 localIP 和 localPort 配置为需要从公网访问的内网服务的地址和端口。 remotePort 表示在 frp 服务端监听的端口，访问此端口的流量将被转发到本地服务的相应端口。 启动 frps 和 frpc&#xA;通过 SSH 访问内网机器&#xA;使用以下命令通过 SSH 访问内网机器，假设用户名为 test：&#xA;ssh -o Port=6000 test@x.</description>
+    </item>
+    <item>
+      <title>客户端插件配置</title>
+      <link>/zh-cn/docs/reference/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/reference/client-plugin/</guid>
+      <description>HTTPProxyPluginOptions Field Type Description Required httpUser string HTTP 代理用户名。 No httpPassword string HTTP 代理密码。 No Socks5PluginOptions Field Type Description Required username string 用户名。 No password string 密码。 No StaticFilePluginOptions Field Type Description Required localPath string 静态文件所在本地路径。 Yes stripPrefix string 去除用户 HTTP 请求 Path 的特定前缀。 No httpUser string HTTP Basic Auth 用户名。 No httpPassword string HTTP Basic Auth 密码。 No UnixDomainSocketPluginOptions Field Type Description Required unixPath string UNIX 域套接字的地址。 Yes HTTP2HTTPSPluginOptions Field Type Description Required localAddr string 本地 HTTPS 服务地址。 Yes hostHeaderRewrite string 替换 Host header。 No requestHeaders HeaderOperations 对请求 Header 的操作配置。 No HTTPS2HTTPPluginOptions Field Type Description Required localAddr string 本地 HTTPS 服务地址。 Yes hostHeaderRewrite string 替换 Host header。 No requestHeaders HeaderOperations 对请求 Header 的操作配置。 No enableHTTP2 bool 是否启用 HTTP/2，默认启用。 No crtPath string TLS 证书文件路径。 No keyPath string TLS 密钥文件路径。 No HTTPS2HTTPSPluginOptions Field Type Description Required localAddr string 本地 HTTPS 服务地址。 Yes hostHeaderRewrite string 替换 Host header。 No requestHeaders HeaderOperations 对请求 Header 的操作配置。 No enableHTTP2 bool 是否启用 HTTP/2，默认启用。 No crtPath string TLS 证书文件路径。 No keyPath string TLS 密钥文件路径。 No TLS2RawPluginOptions Field Type Description Required localAddr string 本地服务地址。 Yes crtPath string TLS 证书文件路径。 No keyPath string TLS 密钥文件路径。 No </description>
+    </item>
+    <item>
+      <title>多个 SSH 服务复用同一端口</title>
+      <link>/zh-cn/docs/examples/multiple-ssh-over-same-port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/multiple-ssh-over-same-port/</guid>
+      <description>步骤 在具有公网 IP 的机器上部署 frps&#xA;修改 frps.toml 文件以包含以下内容（这里使用了最简化的配置）：&#xA;bindPort = 7000 tcpmuxHTTPConnectPort = 5002 在内网机器 A 上部署 frpc&#xA;创建 frpc 配置文件，例如 frpc.toml，然后将以下内容添加到配置文件中：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh1&amp;#34; type = &amp;#34;tcpmux&amp;#34; multiplexer = &amp;#34;httpconnect&amp;#34; customDomains = [&amp;#34;machine-a.example.com&amp;#34;] localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 在内网机器 B 上部署另一个 frpc&#xA;创建 frpc 配置文件，例如 frpc.toml，然后将以下内容添加到配置文件中：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh2&amp;#34; type = &amp;#34;tcpmux&amp;#34; multiplexer = &amp;#34;httpconnect&amp;#34; customDomains = [&amp;#34;machine-b.</description>
+    </item>
+    <item>
+      <title>配置文件</title>
+      <link>/zh-cn/docs/features/common/configure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/configure/</guid>
+      <description>从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。&#xA;请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。&#xA;格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。&#xA;文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。&#xA;frps 配置：&#xA;bindPort = 7000 frpc 配置：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。&#xA;不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。&#xA;模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。&#xA;示例配置如下：&#xA;serverAddr = &amp;#34;{{ .Envs.FRP_SERVER_ADDR }}&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.</description>
+    </item>
+    <item>
+      <title>通过自定义域名访问内网的 Web 服务</title>
+      <link>/zh-cn/docs/examples/vhost-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/vhost-http/</guid>
+      <description>HTTP 类型的代理非常适合将内网的 Web 服务通过自定义域名提供给外部用户。相比于 TCP 类型代理，HTTP 代理不仅可以复用端口，还提供了基于 HTTP 协议的许多功能。&#xA;HTTPS 与此类似，但是需要注意，frp 的 https 代理需要本地服务是 HTTPS 服务，frps 端不会做 TLS 终止。也可以结合 https2http 插件来实现将本地的 HTTP 服务以 HTTPS 协议暴露出去。&#xA;步骤 配置 frps.toml&#xA;在 frps.toml 文件中添加以下内容，以指定 HTTP 请求的监听端口为 8080：&#xA;bindPort = 7000 vhostHTTPPort = 8080 如果需要配置 HTTPS 代理，还需要设置 vhostHTTPSPort。&#xA;配置 frpc.toml&#xA;在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器 IP 地址、本地 Web 服务监听端口和自定义域名：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;www.</description>
+    </item>
+    <item>
+      <title>监控</title>
+      <link>/zh-cn/docs/features/common/monitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/monitor/</guid>
+      <description>目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。&#xA;内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。&#xA;请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。&#xA;Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。&#xA;在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。</description>
+    </item>
+    <item>
+      <title>转发 DNS 查询请求</title>
+      <link>/zh-cn/docs/examples/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/dns/</guid>
+      <description>DNS 查询请求通常使用 UDP 协议，而 frp 支持对内网 UDP 服务的穿透，配置方式与 TCP 类似。&#xA;步骤 配置 frps.toml&#xA;在 frps.toml 文件中添加以下内容：&#xA;bindPort = 7000 配置 frpc.toml&#xA;在 frpc.toml 文件中添加以下内容：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;dns&amp;#34; type = &amp;#34;udp&amp;#34; localIP = &amp;#34;8.8.8.8&amp;#34; localPort = 53 remotePort = 6000 请注意，这里示例中反代了 Google 的 DNS 查询服务器的地址，仅用于测试 UDP 代理，并没有实际意义。&#xA;启动 frps 和 frpc&#xA;分别启动 frps 和 frpc。&#xA;测试 DNS 查询请求&#xA;使用以下命令通过 dig 工具测试 UDP 包转发是否成功，预期会返回 www.baidu.com 域名的解析结果：</description>
+    </item>
+    <item>
+      <title>转发 Unix 域套接字</title>
+      <link>/zh-cn/docs/examples/unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/unix-domain-socket/</guid>
+      <description>步骤 配置 frps.toml&#xA;在 frps.toml 文件中添加以下内容：&#xA;bindPort = 7000 配置 frpc.toml&#xA;在 frpc.toml 文件中添加以下内容，确保设置正确的 Unix 域套接字路径：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;unix_domain_socket&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;unix_domain_socket&amp;#34; # Unix 域套接字路径 unixPath = &amp;#34;/var/run/docker.sock&amp;#34; 启动 frps 和 frpc&#xA;使用 curl 查看 Docker 版本信息&#xA;curl http://x.x.x.x:6000/version </description>
+    </item>
+    <item>
+      <title>对外提供简单的文件访问服务</title>
+      <link>/zh-cn/docs/examples/static-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/static-file/</guid>
+      <description>通过使用 static_file 插件，您可以轻松地提供一个基于 HTTP 的文件访问服务，让其他人可以访问您指定的文件。&#xA;步骤 配置 frps.toml&#xA;在 frps.toml 文件中添加以下内容：&#xA;bindPort = 7000 配置 frpc.toml&#xA;在 frpc.toml 文件中添加以下内容，确保设置合适的文件路径、用户名和密码：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_static_file&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;static_file&amp;#34; # 本地文件目录，对外提供访问 localPath = &amp;#34;/tmp/file&amp;#34; # URL 中的前缀，将被去除，保留的内容即为要访问的文件路径 stripPrefix = &amp;#34;static&amp;#34; httpUser = &amp;#34;abc&amp;#34; httpPassword = &amp;#34;abc&amp;#34; 请根据实际情况修改 localPath、stripPrefix、httpUser 和 httpPassword。&#xA;启动 frps 和 frpc&#xA;通过浏览器访问文件&#xA;使用浏览器访问 http://x.x.x.x:6000/static/，以查看位于 /tmp/file 目录下的文件。系统会要求输入您设置的用户名和密码。</description>
+    </item>
+    <item>
+      <title>身份认证</title>
+      <link>/zh-cn/docs/features/common/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/authentication/</guid>
+      <description>目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。&#xA;Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。&#xA;配置示例 # frps.toml bindPort = 7000 auth.token = &amp;#34;abc&amp;#34; # frpc.toml auth.token = &amp;#34;abc&amp;#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。&#xA;验证流程参考 Client Credentials Grant。&#xA;配置示例 # frps.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.issuer = &amp;#34;https://example-oidc-issuer.com/&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.com/.default&amp;#34; # frpc.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.clientID = &amp;#34;98692467-37de-409a-9fac-bb2585826f18&amp;#34; auth.oidc.clientSecret = &amp;#34;oidc_secret&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.</description>
+    </item>
+    <item>
+      <title>为本地 HTTP 服务启用 HTTPS</title>
+      <link>/zh-cn/docs/examples/https2http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/https2http/</guid>
+      <description>步骤 配置 frps.toml&#xA;bindPort = 7000 vhostHTTPSPort = 443 配置 frpc.toml&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_htts2http&amp;#34; type = &amp;#34;https&amp;#34; customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] [proxies.plugin] type = &amp;#34;https2http&amp;#34; localAddr = &amp;#34;127.0.0.1:80&amp;#34; # HTTPS 证书相关的配置 crtPath = &amp;#34;./server.crt&amp;#34; keyPath = &amp;#34;./server.key&amp;#34; hostHeaderRewrite = &amp;#34;127.0.0.1&amp;#34; requestHeaders.set.x-from-where = &amp;#34;frp&amp;#34; 请注意，您需要根据您的域名和证书路径自行更改上述配置。&#xA;启动 frps 和 frpc&#xA;访问 HTTPS 服务&#xA;打开您的 Web 浏览器，访问 https://test.yourdomain.com。&#xA;通过按照以上步骤进行配置，您将能够为本地 HTTP 服务启用 HTTPS，以实现安全的外部访问。</description>
+    </item>
+    <item>
+      <title>Web 界面</title>
+      <link>/zh-cn/docs/features/common/ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/ui/</guid>
+      <description>目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。&#xA;服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。&#xA;注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。&#xA;需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：&#xA;# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &amp;#34;0.0.0.0&amp;#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &amp;#34;admin&amp;#34; webServer.password = &amp;#34;admin&amp;#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。&#xA;你也可以通过配置 TLS 证书来启用 HTTPS 接口:&#xA;webServer.tls.certFile = &amp;#34;server.crt&amp;#34; webServer.tls.keyFile = &amp;#34;server.key&amp;#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。</description>
+    </item>
+    <item>
+      <title>安全地暴露内网服务</title>
+      <link>/zh-cn/docs/examples/stcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/stcp/</guid>
+      <description>某些内网服务，如果直接暴露在公网上，可能存在安全风险。使用 stcp(secret tcp) 类型的代理可以让您安全地将内网服务暴露给经过授权的用户，这需要访问者也部署 frpc 客户端。&#xA;步骤 配置 frps.toml&#xA;在 frps.toml 文件中添加以下内容：&#xA;bindPort = 7000 部署 frpc 客户端并配置&#xA;在需要将内网服务暴露到公网的机器上部署 frpc，并创建如下配置：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;secret_ssh&amp;#34; type = &amp;#34;stcp&amp;#34; # 只有与此处设置的 secretKey 一致的用户才能访问此服务 secretKey = &amp;#34;abcdefg&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 在访问者机器上部署并配置 frpc&#xA;在想要访问内网服务的机器上也部署 frpc，并创建如下配置：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[visitors]] name = &amp;#34;secret_ssh_visitor&amp;#34; type = &amp;#34;stcp&amp;#34; # 要访问的 stcp 代理的名字 serverName = &amp;#34;secret_ssh&amp;#34; secretKey = &amp;#34;abcdefg&amp;#34; # 绑定本地端口以访问 SSH 服务 bindAddr = &amp;#34;127.</description>
+    </item>
+    <item>
+      <title>点对点内网穿透</title>
+      <link>/zh-cn/docs/examples/xtcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/xtcp/</guid>
+      <description>frp 提供了一种新的代理类型 xtcp，用于在需要传输大量数据且不希望流量经过服务器的情况下实现内网穿透。&#xA;与 stcp 类似，使用 xtcp 需要在两端都部署 frpc 以建立直接连接。&#xA;需要注意的是，xtcp 并不适用于所有类型的 NAT 设备，如果穿透失败，可以尝试使用 stcp 代理。&#xA;步骤 配置需要暴露到外网的机器上的 frpc.toml 文件&#xA;在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口以及共享密钥 (secretKey)，以及本地服务的 IP 地址和端口：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 # 如果默认的 STUN 服务器不可用，可以配置一个新的 STUN 服务器 # natHoleStunServer = &amp;#34;xxx&amp;#34; [[proxies]] name = &amp;#34;p2p_ssh&amp;#34; type = &amp;#34;xtcp&amp;#34; # 只有共享密钥 (secretKey) 与服务器端一致的用户才能访问该服务 secretKey = &amp;#34;abcdefg&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 在想要访问内网服务的机器上部署 frpc&#xA;在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口，共享密钥 (secretKey) 以及要访问的 P2P 代理的名称：</description>
+    </item>
+    <item>
+      <title>负载均衡与健康检查</title>
+      <link>/zh-cn/docs/features/common/load-balancer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/load-balancer/</guid>
+      <description>负载均衡 你可以将多个相同类型的代理加入到同一个 group 中，以实现负载均衡的能力。&#xA;目前支持的代理类型包括：tcp, http, tcpmux。&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; 当用户连接 frps 服务器的 80 端口时，frps 会将接收到的用户连接随机分发给其中一个存活的代理。这可以确保即使一台 frpc 机器挂掉，仍然有其他节点能够提供服务。&#xA;对于 tcp 类型代理，需要确保 groupKey 相同以进行权限验证，同时 remotePort 也需一致。&#xA;对于 http 类型代理，需要保证 groupKey, customDomains(自定义域名)，subdomain 和 locations 相同。</description>
+    </item>
+    <item>
+      <title>获取用户真实 IP</title>
+      <link>/zh-cn/docs/features/common/realip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/realip/</guid>
+      <description>HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。&#xA;可以通过 HTTP/HTTPS 请求 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。&#xA;Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。&#xA;Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&#xA;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&#xA;这里以 HTTPS 类型为例:&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;https&amp;#34; localPort = 443 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.</description>
+    </item>
+    <item>
+      <title>端口范围映射</title>
+      <link>/zh-cn/docs/features/common/range/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/range/</guid>
+      <description>Added in v0.56.0&#xA;我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。&#xA;下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。&#xA;{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }} [[proxies]] name = &amp;#34;tcp-{{ $v.First }}&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} </description>
+    </item>
+    <item>
+      <title>客户端</title>
+      <link>/zh-cn/docs/features/common/client/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/client/</guid>
+      <description>动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。&#xA;要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：&#xA;webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 然后执行以下命令来重载配置：&#xA;frpc reload -c ./frpc.toml&#xA;等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。&#xA;命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。&#xA;使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。&#xA;你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。&#xA;仅在 transport.protocol = &amp;quot;tcp&amp;quot; 时生效。&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 transport.proxyURL = &amp;#34;http://user:pwd@192.168.1.128:8080&amp;#34; 将 transport.</description>
+    </item>
+    <item>
+      <title>服务端管理</title>
+      <link>/zh-cn/docs/features/common/server-manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/server-manage/</guid>
+      <description>端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allowPorts 来指定：&#xA;# frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。&#xA;端口复用 目前 frps 中的 vhostHTTPPort 和 vhostHTTPSPort 支持配置成和 bindPort 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。&#xA;例如在某些限制较严格的网络环境中，可以将 bindPort 和 vhostHTTPSPort 都设置为 443。&#xA;需要注意的是，如果你想将 vhostHTTPSPort 和 bindPort 配置为相同的端口，需要首先将 transport.tls.disableCustomTLSFirstByte 设置为false。&#xA;限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。&#xA;# frpc.toml [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.</description>
+    </item>
+    <item>
+      <title>客户端插件</title>
+      <link>/zh-cn/docs/features/common/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/client-plugin/</guid>
+      <description>默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。&#xA;通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。&#xA;在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。&#xA;客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。&#xA;以下是使用 http_proxy 插件的示例：&#xA;[[proxies]] name = &amp;#34;http_proxy&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;http_proxy&amp;#34; httpUser = &amp;#34;abc&amp;#34; httpPassword = &amp;#34;abc&amp;#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。&#xA;其他插件和相关配置请参考 Reference 中的内容。</description>
+    </item>
+    <item>
+      <title>服务端插件</title>
+      <link>/zh-cn/docs/features/common/server-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/server-plugin/</guid>
+      <description>frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。&#xA;frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。&#xA;frps 在执行某些操作前，会根据配置向服务端插件发送 RPC 请求，根据插件的响应来执行相应的操作。&#xA;RPC 请求 服务端插件接收到操作请求后，可以给出三种回应。&#xA;拒绝操作，需要返回拒绝操作的原因。 允许操作，不需要修改操作内容。 允许操作，对操作请求进行修改后，返回修改后的内容。 接口 接口路径可以在 frps 配置中为每个插件单独配置，这里以 /handler 为例。&#xA;Request&#xA;POST /handler?version=0.1.0&amp;amp;op=Login { &amp;#34;content&amp;#34;: { ... // 具体的操作信息 } } 请求 Header X-Frp-Reqid: 用于追踪请求 Response&#xA;非 200 的返回都认为是请求异常。&#xA;拒绝执行操作&#xA;{ &amp;#34;reject&amp;#34;: true, &amp;#34;reject_reason&amp;#34;: &amp;#34;invalid user&amp;#34; } 允许且内容不需要变动&#xA;{ &amp;#34;reject&amp;#34;: false, &amp;#34;unchange&amp;#34;: true } 允许且需要替换操作内容&#xA;{ &amp;#34;unchange&amp;#34;: false, &amp;#34;content&amp;#34;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。</description>
+    </item>
+    <item>
+      <title>SSH Tunnel Gateway</title>
+      <link>/zh-cn/docs/features/common/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/ssh/</guid>
+      <description>Added in v0.53.0&#xA;概念 SSH 支持反向代理能力 rfc。&#xA;frp 支持在 frps 端监听一个 ssh 端口，通过走 ssh -R 协议来完成 TCP 协议代理，该模式下不需要依赖 frpc。&#xA;SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。SSH 反向隧道代理本质上是在你不想使用 frpc 的时候，通过 ssh client 连接 frps 来完成基本的反向代理。&#xA;参数 # frps.toml sshTunnelGateway.bindPort = 0 sshTunnelGateway.privateKeyFile = &amp;#34;&amp;#34; sshTunnelGateway.autoGenPrivateKeyPath = &amp;#34;&amp;#34; sshTunnelGateway.authorizedKeysFile = &amp;#34;&amp;#34; Field Type Description Required bindPort int frps 监听的 ssh server 端口。 YES privateKeyFile string 默认为空。ssh server 使用的私钥文件，为空frps会读取 autoGenPrivateKeyPath 路径下的私钥文件。可复用本地 /home/user/.ssh/id_rsa 文件或自定义路径。 No autoGenPrivateKeyPath string 默认为 .</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/zh-cn/index.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/index.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search Results</title>
+      <link>/zh-cn/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/search/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

@@ -1,18 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>frp – TCPMUX</title>
+    <title>TCPMUX on frp</title>
     <link>/zh-cn/docs/features/tcpmux/</link>
     <description>Recent content in TCPMUX on frp</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    
-	  <atom:link href="/zh-cn/docs/features/tcpmux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="/zh-cn/docs/features/tcpmux/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

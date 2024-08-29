@@ -1,761 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>frp – 通用功能</title>
+    <title>通用功能 on frp</title>
     <link>/zh-cn/docs/features/common/</link>
     <description>Recent content in 通用功能 on frp</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    
-	  <atom:link href="/zh-cn/docs/features/common/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="/zh-cn/docs/features/common/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docs: 配置文件</title>
+      <title>配置文件</title>
       <link>/zh-cn/docs/features/common/configure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/configure/</guid>
-      <description>
-        
-        
-        &lt;p&gt;从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。&lt;/p&gt;
-&lt;p&gt;请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。&lt;/p&gt;
-&lt;h2 id=&#34;格式&#34;&gt;格式&lt;/h2&gt;
-&lt;p&gt;可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。&lt;/p&gt;
-&lt;p&gt;文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。&lt;/p&gt;
-&lt;p&gt;frps 配置：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frpc 配置：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverAddr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x.x.x.x&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ssh&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localIP&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;同一个客户端可以配置多个代理，但是 name 必须确保唯一。&lt;/p&gt;
-&lt;p&gt;不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。&lt;/p&gt;
-&lt;h2 id=&#34;模版渲染&#34;&gt;模版渲染&lt;/h2&gt;
-&lt;p&gt;配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。&lt;/p&gt;
-&lt;p&gt;示例配置如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverAddr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;{{ .Envs.FRP_SERVER_ADDR }}&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ssh&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localIP&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Envs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;FRP_SSH_REMOTE_PORT&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动 frpc 程序：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;export FRP_SERVER_ADDR=&amp;#34;x.x.x.x&amp;#34;
-export FRP_SSH_REMOTE_PORT=&amp;#34;6000&amp;#34;
-./frpc -c ./frpc.toml
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 &lt;code&gt;.Envs&lt;/code&gt; 为前缀。&lt;/p&gt;
-&lt;h2 id=&#34;配置校验&#34;&gt;配置校验&lt;/h2&gt;
-&lt;p&gt;通过执行 &lt;code&gt;frpc verify -c ./frpc.toml&lt;/code&gt; 或 &lt;code&gt;frps verify -c ./frps.toml&lt;/code&gt; 可以对配置文件中的参数进行预先校验。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;frpc: the configuration file ./frpc.toml syntax is ok
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。&lt;/p&gt;
-&lt;h2 id=&#34;配置拆分&#34;&gt;配置拆分&lt;/h2&gt;
-&lt;p&gt;通过 &lt;code&gt;includes&lt;/code&gt; 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverAddr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x.x.x.x&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;includes&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./confd/*.toml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ./confd/test.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ssh&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localIP&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述配置在 frpc.toml 中通过 includes 额外包含了 &lt;code&gt;./confd&lt;/code&gt; 目录下所有的 toml 文件的代理配置内容，效果等价于将这两个文件合并成一个文件。&lt;/p&gt;
-&lt;p&gt;需要注意的是 includes 指定的文件中只能包含代理配置，通用参数的配置只能放在主配置文件中。&lt;/p&gt;
-&lt;h2 id=&#34;完整配置参数&#34;&gt;完整配置参数&lt;/h2&gt;
-&lt;p&gt;由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 &lt;a href=&#34;../../../reference&#34;&gt;参考&lt;/a&gt; 中查看。&lt;/p&gt;
-
-      </description>
+      <description>从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。&#xA;请注意，INI 已被弃用，并将在未来的发布中移除。新功能只能在TOML、YAML 或 JSON 中使用。希望使用这些新功能的用户应相应地切换其配置格式。&#xA;格式 可使用 TOML/YAML/JSON 任何一个您喜欢的格式来编写配置文件，frp 会自动适配进行解析。&#xA;文档示例主要通过 TOML 编写，如下的示例配置将本地 SSH 服务穿透到公网。&#xA;frps 配置：&#xA;bindPort = 7000 frpc 配置：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 remotePort = 6000 同一个客户端可以配置多个代理，但是 name 必须确保唯一。&#xA;不同的客户端之间，可以通过配置不同的 user 来确保代理名称唯一。&#xA;模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。&#xA;示例配置如下：&#xA;serverAddr = &amp;#34;{{ .Envs.FRP_SERVER_ADDR }}&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localIP = &amp;#34;127.</description>
     </item>
-    
     <item>
-      <title>Docs: 监控</title>
+      <title>监控</title>
       <link>/zh-cn/docs/features/common/monitor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/monitor/</guid>
-      <description>
-        
-        
-        &lt;p&gt;目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。&lt;/p&gt;
-&lt;h2 id=&#34;内存监控&#34;&gt;内存监控&lt;/h2&gt;
-&lt;p&gt;内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。&lt;/p&gt;
-&lt;p&gt;请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。&lt;/p&gt;
-&lt;h2 id=&#34;prometheus-监控&#34;&gt;Prometheus 监控&lt;/h2&gt;
-&lt;p&gt;由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。&lt;/p&gt;
-&lt;p&gt;在 frps.ini 中启用 Dashboard 并设置 &lt;code&gt;enablePrometheus = true&lt;/code&gt;，然后你可以通过访问 &lt;code&gt;http://{dashboard_addr}/metrics&lt;/code&gt; 来获取 Prometheus 的监控数据。&lt;/p&gt;
-
-      </description>
+      <description>目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。&#xA;内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。&#xA;请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。&#xA;Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。&#xA;在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。</description>
     </item>
-    
     <item>
-      <title>Docs: 身份认证</title>
+      <title>身份认证</title>
       <link>/zh-cn/docs/features/common/authentication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/authentication/</guid>
-      <description>
-        
-        
-        &lt;p&gt;目前 frpc 和 frps 之间支持两种身份验证方式，&lt;code&gt;token&lt;/code&gt; 和 &lt;code&gt;oidc&lt;/code&gt;，默认为 &lt;code&gt;token&lt;/code&gt;。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。&lt;/p&gt;
-&lt;h2 id=&#34;token&#34;&gt;Token&lt;/h2&gt;
-&lt;p&gt;Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。&lt;/p&gt;
-&lt;h3 id=&#34;配置示例&#34;&gt;配置示例&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;token&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;token&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;oidc-openid-connect-身份认证&#34;&gt;OIDC (OpenID Connect) 身份认证&lt;/h2&gt;
-&lt;p&gt;OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。&lt;/p&gt;
-&lt;p&gt;验证流程参考 &lt;a href=&#34;https://tools.ietf.org/html/rfc6749#section-4.4&#34;&gt;Client Credentials Grant&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;配置示例-1&#34;&gt;配置示例&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;method&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;oidc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;issuer&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://example-oidc-issuer.com/&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;audience&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://oidc-audience.com/.default&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;method&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;oidc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;clientID&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;98692467-37de-409a-9fac-bb2585826f18&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;clientSecret&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;oidc_secret&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;audience&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://oidc-audience.com/.default&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;auth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oidc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tokenEndpointURL&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
+      <description>目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。&#xA;Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。&#xA;配置示例 # frps.toml bindPort = 7000 auth.token = &amp;#34;abc&amp;#34; # frpc.toml auth.token = &amp;#34;abc&amp;#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。&#xA;验证流程参考 Client Credentials Grant。&#xA;配置示例 # frps.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.issuer = &amp;#34;https://example-oidc-issuer.com/&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.com/.default&amp;#34; # frpc.toml auth.method = &amp;#34;oidc&amp;#34; auth.oidc.clientID = &amp;#34;98692467-37de-409a-9fac-bb2585826f18&amp;#34; auth.oidc.clientSecret = &amp;#34;oidc_secret&amp;#34; auth.oidc.audience = &amp;#34;https://oidc-audience.</description>
     </item>
-    
     <item>
-      <title>Docs: Web 界面</title>
+      <title>Web 界面</title>
       <link>/zh-cn/docs/features/common/ui/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/ui/</guid>
-      <description>
-        
-        
-        &lt;p&gt;目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。&lt;/p&gt;
-&lt;h2 id=&#34;服务端-dashboard&#34;&gt;服务端 Dashboard&lt;/h2&gt;
-&lt;p&gt;服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0.0.0.0&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7500&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# dashboard 用户名密码，可选，默认为空&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开浏览器通过 &lt;code&gt;http://[server addr]:7500&lt;/code&gt; 访问 Dashboard 界面，输入用户名密码 &lt;code&gt;admin&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;你也可以通过配置 TLS 证书来启用 HTTPS 接口:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;certFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;server.crt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;keyFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;server.key&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;客户端管理界面&#34;&gt;客户端管理界面&lt;/h2&gt;
-&lt;p&gt;frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。&lt;/p&gt;
-&lt;p&gt;需要在 frpc.toml 中指定 admin 服务使用的端口，即可开启此功能：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7400&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开浏览器通过 &lt;code&gt;http://127.0.0.1:7400&lt;/code&gt; 访问 Admin UI。&lt;/p&gt;
-&lt;p&gt;如果想要在外网环境访问 Admin UI，可以将 7400 端口通过 frp 映射出去即可，但需要重视安全风险。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin_ui&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7400&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7400&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
+      <description>目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。&#xA;服务端 Dashboard 服务端 Dashboard 使用户可以通过浏览器查看 frp 的状态以及代理统计信息。&#xA;注：Dashboard 尚未针对大量的 proxy 数据展示做优化，如果出现 Dashboard 访问较慢的情况，请不要启用此功能。&#xA;需要在 frps.toml 中指定 dashboard 服务使用的端口，即可开启此功能：&#xA;# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &amp;#34;0.0.0.0&amp;#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &amp;#34;admin&amp;#34; webServer.password = &amp;#34;admin&amp;#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。&#xA;你也可以通过配置 TLS 证书来启用 HTTPS 接口:&#xA;webServer.tls.certFile = &amp;#34;server.crt&amp;#34; webServer.tls.keyFile = &amp;#34;server.key&amp;#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。</description>
     </item>
-    
     <item>
-      <title>Docs: 通信安全及优化</title>
-      <link>/zh-cn/docs/features/common/network/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/zh-cn/docs/features/common/network/</guid>
-      <description>
-        
-        
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 负载均衡与健康检查</title>
+      <title>负载均衡与健康检查</title>
       <link>/zh-cn/docs/features/common/load-balancer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/load-balancer/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;负载均衡&#34;&gt;负载均衡&lt;/h2&gt;
-&lt;p&gt;你可以将多个相同类型的代理加入到同一个 &lt;code&gt;group&lt;/code&gt; 中，以实现负载均衡的能力。&lt;/p&gt;
-&lt;p&gt;目前支持的代理类型包括：&lt;code&gt;tcp&lt;/code&gt;, &lt;code&gt;http&lt;/code&gt;, &lt;code&gt;tcpmux&lt;/code&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;loadBalancer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;group&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;web&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;loadBalancer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;groupKey&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test2&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8081&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;loadBalancer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;group&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;web&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;loadBalancer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;groupKey&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当用户连接 frps 服务器的 80 端口时，frps 会将接收到的用户连接随机分发给其中一个存活的代理。这可以确保即使一台 frpc 机器挂掉，仍然有其他节点能够提供服务。&lt;/p&gt;
-&lt;p&gt;对于 tcp 类型代理，需要确保 &lt;code&gt;groupKey&lt;/code&gt; 相同以进行权限验证，同时 &lt;code&gt;remotePort&lt;/code&gt; 也需一致。&lt;/p&gt;
-&lt;p&gt;对于 http 类型代理，需要保证 &lt;code&gt;groupKey&lt;/code&gt;, &lt;code&gt;customDomains&lt;/code&gt;(自定义域名)，&lt;code&gt;subdomain&lt;/code&gt; 和 &lt;code&gt;locations&lt;/code&gt; 相同。&lt;/p&gt;
-&lt;h2 id=&#34;健康检查&#34;&gt;健康检查&lt;/h2&gt;
-&lt;p&gt;通过给代理配置健康检查参数，可以在要反向代理的服务出现故障时，将该服务从 frps 中摘除。结合负载均衡的功能，这可用于实现高可用架构，避免服务单点故障。&lt;/p&gt;
-&lt;p&gt;要启用健康检查功能，需要在每个代理的配置中添加 &lt;code&gt;healthCheck.type = {type}&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;目前支持的类型有 &lt;code&gt;tcp&lt;/code&gt; 和 &lt;code&gt;http&lt;/code&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于 &lt;code&gt;tcp&lt;/code&gt;，只要能够建立连接，即认为服务正常。&lt;/li&gt;
-&lt;li&gt;对于 &lt;code&gt;http&lt;/code&gt;，会发送一个 HTTP 请求，服务需要返回状态码 2xx 才会被视为正常。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以下是 &lt;code&gt;tcp&lt;/code&gt; 示例配置：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 启用健康检查，类型为 tcp&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 建立连接超时时间为 3 秒&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;timeoutSeconds&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 连续 3 次检查失败，此 proxy 会被摘除&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxFailed&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 每隔 10 秒进行一次健康检查&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;intervalSeconds&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下是 http 示例配置：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;web&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localIP&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;customDomains&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test.yourdomain.com&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 启用健康检查，类型为 http&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 健康检查发送 http 请求的 path，后端服务需要返回 2xx 的 http 状态码&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/status&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;timeoutSeconds&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxFailed&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;healthCheck&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;intervalSeconds&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
+      <description>负载均衡 你可以将多个相同类型的代理加入到同一个 group 中，以实现负载均衡的能力。&#xA;目前支持的代理类型包括：tcp, http, tcpmux。&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; 当用户连接 frps 服务器的 80 端口时，frps 会将接收到的用户连接随机分发给其中一个存活的代理。这可以确保即使一台 frpc 机器挂掉，仍然有其他节点能够提供服务。&#xA;对于 tcp 类型代理，需要确保 groupKey 相同以进行权限验证，同时 remotePort 也需一致。&#xA;对于 http 类型代理，需要保证 groupKey, customDomains(自定义域名)，subdomain 和 locations 相同。</description>
     </item>
-    
     <item>
-      <title>Docs: 获取用户真实 IP</title>
+      <title>获取用户真实 IP</title>
       <link>/zh-cn/docs/features/common/realip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/realip/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;http-x-forwarded-for&#34;&gt;HTTP X-Forwarded-For&lt;/h2&gt;
-&lt;p&gt;目前只有 &lt;code&gt;http&lt;/code&gt; 类型的代理或者启用了 &lt;code&gt;https2http&lt;/code&gt; 或 &lt;code&gt;https2https&lt;/code&gt; 插件的代理支持这一功能。&lt;/p&gt;
-&lt;p&gt;可以通过 HTTP/HTTPS 请求 header 中的 &lt;code&gt;X-Forwarded-For&lt;/code&gt; 来获取用户真实 IP，默认启用。&lt;/p&gt;
-&lt;h2 id=&#34;proxy-protocol&#34;&gt;Proxy Protocol&lt;/h2&gt;
-&lt;p&gt;frp 支持通过 &lt;code&gt;Proxy Protocol&lt;/code&gt; 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Proxy Protocol&lt;/code&gt; 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 &lt;code&gt;Proxy Protocol&lt;/code&gt; 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&lt;/p&gt;
-&lt;p&gt;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 &lt;code&gt;Proxy Protocol&lt;/code&gt; 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&lt;/p&gt;
-&lt;p&gt;这里以 &lt;code&gt;HTTPS&lt;/code&gt; 类型为例:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;web&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;customDomains&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test.yourdomain.com&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;transport&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxyProtocolVersion&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v2&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;只需要在代理配置中增加一行 &lt;code&gt;transport.proxyProtocolVersion = &amp;quot;v2&amp;quot;&lt;/code&gt; 即可开启此功能。&lt;/p&gt;
-&lt;p&gt;本地的 HTTPS 服务可以通过在 nginx 的配置中启用 &lt;code&gt;Proxy Protocol&lt;/code&gt; 的解析并将结果设置在 &lt;code&gt;X-Real-IP&lt;/code&gt; 这个 Header 中就可以在自己的 Web 服务中通过 &lt;code&gt;X-Real-IP&lt;/code&gt; 获取到用户的真实 IP。&lt;/p&gt;
-
-      </description>
+      <description>HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。&#xA;可以通过 HTTP/HTTPS 请求 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。&#xA;Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP，此功能支持所有以 TCP 为底层协议的类型，不支持 UDP。&#xA;Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&#xA;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&#xA;这里以 HTTPS 类型为例:&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;https&amp;#34; localPort = 443 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.</description>
     </item>
-    
     <item>
-      <title>Docs: 端口范围映射</title>
+      <title>端口范围映射</title>
       <link>/zh-cn/docs/features/common/range/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/range/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;em&gt;Added in v0.56.0&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;我们可以利用 Go template 的 range 语法结合内置的 &lt;code&gt;parseNumberRangePair&lt;/code&gt; 函数来实现端口范围映射。&lt;/p&gt;
-&lt;p&gt;下面的示例，应用运行后会创建 8 个代理，名称为 &lt;code&gt;test-6000, test-6001 ... test-6007&lt;/code&gt;，分别将远端的端口映射到本地。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }}
-[[proxies]]
-name = &amp;#34;tcp-{{ $v.First }}&amp;#34;
-type = &amp;#34;tcp&amp;#34;
-localPort = {{ $v.First }}
-remotePort = {{ $v.Second }}
-{{- end }}
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
+      <description>Added in v0.56.0&#xA;我们可以利用 Go template 的 range 语法结合内置的 parseNumberRangePair 函数来实现端口范围映射。&#xA;下面的示例，应用运行后会创建 8 个代理，名称为 test-6000, test-6001 ... test-6007，分别将远端的端口映射到本地。&#xA;{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }} [[proxies]] name = &amp;#34;tcp-{{ $v.First }}&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = {{ $v.First }} remotePort = {{ $v.Second }} {{- end }} </description>
     </item>
-    
     <item>
-      <title>Docs: 客户端</title>
+      <title>客户端</title>
       <link>/zh-cn/docs/features/common/client/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/client/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;动态配置更新&#34;&gt;动态配置更新&lt;/h2&gt;
-&lt;p&gt;当你需要修改 frpc 的代理配置时，你可以使用 &lt;code&gt;frpc reload&lt;/code&gt; 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。&lt;/p&gt;
-&lt;p&gt;要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;webServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7400&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后执行以下命令来重载配置：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;frpc reload -c ./frpc.toml&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。&lt;/p&gt;
-&lt;h2 id=&#34;命令行查看代理状态&#34;&gt;命令行查看代理状态&lt;/h2&gt;
-&lt;p&gt;frpc 支持通过 &lt;code&gt;frpc status -c ./frpc.toml&lt;/code&gt; 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。&lt;/p&gt;
-&lt;h2 id=&#34;使用代理连接-frps&#34;&gt;使用代理连接 frps&lt;/h2&gt;
-&lt;p&gt;在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。&lt;/p&gt;
-&lt;p&gt;你可以通过设置系统环境变量 &lt;code&gt;HTTP_PROXY&lt;/code&gt; 或在 frpc 的配置文件中设置 &lt;code&gt;transport.proxyURL&lt;/code&gt; 参数来使用此功能。&lt;/p&gt;
-&lt;p&gt;仅在 &lt;code&gt;transport.protocol = &amp;quot;tcp&amp;quot;&lt;/code&gt; 时生效。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverAddr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x.x.x.x&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;serverPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;transport&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxyURL&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://user:pwd@192.168.1.128:8080&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将 &lt;code&gt;transport.proxyURL&lt;/code&gt; 设置为 &lt;code&gt;socks5://user:pwd@192.168.1.128:8080&lt;/code&gt; 也可以连接到 SOCKS5 代理。&lt;/p&gt;
-
-      </description>
+      <description>动态配置更新 当你需要修改 frpc 的代理配置时，你可以使用 frpc reload 命令来实现动态加载配置文件，通常在数秒内完成代理的更新。&#xA;要启用此功能，需要在 frpc 中启用 webServer，以提供 API 服务。配置如下：&#xA;webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 然后执行以下命令来重载配置：&#xA;frpc reload -c ./frpc.toml&#xA;等待一段时间后，客户端将根据新的配置文件创建、更新或删除代理。需要注意的是，非代理相关的公共部分的参数除了 start 外目前无法被修改。&#xA;命令行查看代理状态 frpc 支持通过 frpc status -c ./frpc.toml 命令查看代理的状态信息，此功能需要在 frpc 中启用 webServer。&#xA;使用代理连接 frps 在只能通过代理访问外部网络的环境中，frpc 支持通过 HTTP 或 SOCKS5 代理与 frps 建立连接。&#xA;你可以通过设置系统环境变量 HTTP_PROXY 或在 frpc 的配置文件中设置 transport.proxyURL 参数来使用此功能。&#xA;仅在 transport.protocol = &amp;quot;tcp&amp;quot; 时生效。&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 transport.proxyURL = &amp;#34;http://user:pwd@192.168.1.128:8080&amp;#34; 将 transport.</description>
     </item>
-    
     <item>
-      <title>Docs: 服务端管理</title>
+      <title>服务端管理</title>
       <link>/zh-cn/docs/features/common/server-manage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/server-manage/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;端口白名单&#34;&gt;端口白名单&lt;/h2&gt;
-&lt;p&gt;为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 &lt;code&gt;allowPorts&lt;/code&gt; 来指定：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.ini&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;allowPorts&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2000&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3000&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;single&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3001&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;single&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3003&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4000&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50000&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;allowPorts&lt;/code&gt; 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。&lt;/p&gt;
-&lt;h2 id=&#34;端口复用&#34;&gt;端口复用&lt;/h2&gt;
-&lt;p&gt;目前 frps 中的 &lt;code&gt;vhostHTTPPort&lt;/code&gt; 和 &lt;code&gt;vhostHTTPSPort&lt;/code&gt; 支持配置成和 &lt;code&gt;bindPort&lt;/code&gt; 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。&lt;/p&gt;
-&lt;p&gt;例如在某些限制较严格的网络环境中，可以将 &lt;code&gt;bindPort&lt;/code&gt; 和 &lt;code&gt;vhostHTTPSPort&lt;/code&gt; 都设置为 443。&lt;/p&gt;
-&lt;p&gt;需要注意的是，如果你想将 &lt;code&gt;vhostHTTPSPort&lt;/code&gt; 和 &lt;code&gt;bindPort&lt;/code&gt; 配置为相同的端口，需要首先将 &lt;code&gt;transport.tls.disableCustomTLSFirstByte&lt;/code&gt; 设置为false。&lt;/p&gt;
-&lt;h2 id=&#34;限速&#34;&gt;限速&lt;/h2&gt;
-&lt;h3 id=&#34;代理限速&#34;&gt;代理限速&lt;/h3&gt;
-&lt;p&gt;目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frpc.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ssh&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;localPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;transport&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bandwidthLimit&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1MB&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在代理配置中增加 &lt;code&gt;transport.bandwidthLimit&lt;/code&gt; 字段启用此功能，目前仅支持 &lt;code&gt;MB&lt;/code&gt; 和 &lt;code&gt;KB&lt;/code&gt; 单位。&lt;/p&gt;
-&lt;p&gt;限速能力默认在客户端实现，如果希望启用服务端限速，需要额外配置 &lt;code&gt;transport.bandwidthLimitMode = &amp;quot;server&amp;quot;&lt;/code&gt;。&lt;/p&gt;
-
-      </description>
+      <description>端口白名单 为了防止端口被滥用，可以手动指定允许哪些端口被使用，在服务端配置中通过 allowPorts 来指定：&#xA;# frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts 可以配置允许使用的某个指定端口或者是一个范围内的所有端口。&#xA;端口复用 目前 frps 中的 vhostHTTPPort 和 vhostHTTPSPort 支持配置成和 bindPort 为同一个端口，frps 会对连接的协议进行分析，之后进行不同的处理。&#xA;例如在某些限制较严格的网络环境中，可以将 bindPort 和 vhostHTTPSPort 都设置为 443。&#xA;需要注意的是，如果你想将 vhostHTTPSPort 和 bindPort 配置为相同的端口，需要首先将 transport.tls.disableCustomTLSFirstByte 设置为false。&#xA;限速 代理限速 目前支持在客户端的代理配置中设置代理级别的限速，限制单个 proxy 可以占用的带宽。&#xA;# frpc.toml [[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.</description>
     </item>
-    
     <item>
-      <title>Docs: 客户端插件</title>
+      <title>客户端插件</title>
       <link>/zh-cn/docs/features/common/client-plugin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/client-plugin/</guid>
-      <description>
-        
-        
-        &lt;p&gt;默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 &lt;code&gt;localIP&lt;/code&gt; 和 &lt;code&gt;localPort&lt;/code&gt; 指定的本地服务地址。&lt;/p&gt;
-&lt;p&gt;通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。&lt;/p&gt;
-&lt;p&gt;在每个代理的配置中，你可以通过 &lt;code&gt;plugin&lt;/code&gt; 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 &lt;code&gt;localIP&lt;/code&gt; 和 &lt;code&gt;localPort&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。&lt;/p&gt;
-&lt;p&gt;以下是使用 &lt;code&gt;http_proxy&lt;/code&gt; 插件的示例：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http_proxy&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remotePort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;proxies&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;plugin&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http_proxy&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;httpUser&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;httpPassword&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;httpUser&lt;/code&gt; 和 &lt;code&gt;httpPassword&lt;/code&gt; 即为 &lt;code&gt;http_proxy&lt;/code&gt; 插件可选的配置参数。&lt;/p&gt;
-&lt;p&gt;其他插件和相关配置请参考 &lt;a href=&#34;../../../reference/&#34;&gt;Reference&lt;/a&gt; 中的内容。&lt;/p&gt;
-
-      </description>
+      <description>默认情况下，frpc 仅会将请求转发到本地 TCP 或 UDP 端口，即通过 localIP 和 localPort 指定的本地服务地址。&#xA;通过启用客户端插件功能，可以在仅启动 frpc 的情况下内置一些简单的本地服务，从而实现通常需要额外启动其他服务才能实现的功能。&#xA;在每个代理的配置中，你可以通过 plugin 来配置要使用的插件和相关参数。启用客户端插件后，无需再配置 localIP 和 localPort。&#xA;客户端插件可用于各种类型的代理，前提是插件本身支持的协议。例如，静态文件访问插件可以通过 TCP 或 HTTP 代理进行暴露。&#xA;以下是使用 http_proxy 插件的示例：&#xA;[[proxies]] name = &amp;#34;http_proxy&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;http_proxy&amp;#34; httpUser = &amp;#34;abc&amp;#34; httpPassword = &amp;#34;abc&amp;#34; httpUser 和 httpPassword 即为 http_proxy 插件可选的配置参数。&#xA;其他插件和相关配置请参考 Reference 中的内容。</description>
     </item>
-    
     <item>
-      <title>Docs: 服务端插件</title>
+      <title>服务端插件</title>
       <link>/zh-cn/docs/features/common/server-plugin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/server-plugin/</guid>
-      <description>
-        
-        
-        &lt;p&gt;frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。&lt;/p&gt;
-&lt;p&gt;frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。&lt;/p&gt;
-&lt;p&gt;frps 在执行某些操作前，会根据配置向服务端插件发送 RPC 请求，根据插件的响应来执行相应的操作。&lt;/p&gt;
-&lt;h2 id=&#34;rpc-请求&#34;&gt;RPC 请求&lt;/h2&gt;
-&lt;p&gt;服务端插件接收到操作请求后，可以给出三种回应。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;拒绝操作，需要返回拒绝操作的原因。&lt;/li&gt;
-&lt;li&gt;允许操作，不需要修改操作内容。&lt;/li&gt;
-&lt;li&gt;允许操作，对操作请求进行修改后，返回修改后的内容。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;接口&#34;&gt;接口&lt;/h2&gt;
-&lt;p&gt;接口路径可以在 frps 配置中为每个插件单独配置，这里以 &lt;code&gt;/handler&lt;/code&gt; 为例。&lt;/p&gt;
-&lt;p&gt;Request&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;POST /handler?version=0.1.0&amp;amp;op=Login
-{
-    &amp;#34;content&amp;#34;: {
-        ... // 具体的操作信息
-    }
-}
-
-请求 Header
-X-Frp-Reqid: 用于追踪请求
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Response&lt;/p&gt;
-&lt;p&gt;非 200 的返回都认为是请求异常。&lt;/p&gt;
-&lt;p&gt;拒绝执行操作&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;reject&amp;#34;: true,
-    &amp;#34;reject_reason&amp;#34;: &amp;#34;invalid user&amp;#34;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;允许且内容不需要变动&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;reject&amp;#34;: false,
-    &amp;#34;unchange&amp;#34;: true
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;允许且需要替换操作内容&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;unchange&amp;#34;: false,
-    &amp;#34;content&amp;#34;: {
-        ... // 替换后的操作信息，格式必须和请求时的一致
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;操作类型&#34;&gt;操作类型&lt;/h2&gt;
-&lt;p&gt;目前插件支持管理的操作类型有 &lt;code&gt;Login&lt;/code&gt;、&lt;code&gt;NewProxy&lt;/code&gt;、&lt;code&gt;CloseProxy&lt;/code&gt;、&lt;code&gt;Ping&lt;/code&gt;、&lt;code&gt;NewWorkConn&lt;/code&gt; 和 &lt;code&gt;NewUserConn&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;login&#34;&gt;Login&lt;/h3&gt;
-&lt;p&gt;用户登录操作信息&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;version&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;hostname&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;os&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;arch&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;timestamp&amp;#34;: &amp;lt;int64&amp;gt;,
-        &amp;#34;privilege_key&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;pool_count&amp;#34;: &amp;lt;int&amp;gt;,
-        &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string,
-        &amp;#34;client_address&amp;#34;: &amp;lt;string&amp;gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newproxy&#34;&gt;NewProxy&lt;/h3&gt;
-&lt;p&gt;创建代理的相关信息&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;user&amp;#34;: {
-            &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-            &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-            &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        },
-        &amp;#34;proxy_name&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;proxy_type&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;use_encryption&amp;#34;: &amp;lt;bool&amp;gt;,
-        &amp;#34;use_compression&amp;#34;: &amp;lt;bool&amp;gt;,
-        &amp;#34;bandwidth_limit&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;bandwidth_limit_mode&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;group&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;group_key&amp;#34;: &amp;lt;string&amp;gt;,
-
-        // tcp and udp only
-        &amp;#34;remote_port&amp;#34;: &amp;lt;int&amp;gt;,
-
-        // http and https only
-        &amp;#34;custom_domains&amp;#34;: []&amp;lt;string&amp;gt;,
-        &amp;#34;subdomain&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;locations&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;http_user&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;http_pwd&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;host_header_rewrite&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;headers&amp;#34;: map&amp;lt;string&amp;gt;string,
-
-        // stcp only
-        &amp;#34;sk&amp;#34;: &amp;lt;string&amp;gt;,
-
-        // tcpmux only
-        &amp;#34;multiplexer&amp;#34;: &amp;lt;string&amp;gt;
-
-        &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;closeproxy&#34;&gt;CloseProxy&lt;/h3&gt;
-&lt;p&gt;代理关闭。(仅用于通知)&lt;/p&gt;
-&lt;p&gt;注意: 当单个 frpc 会注册大量 proxy 时，慎重使用此接口，可能会由于连接数超限而影响服务的可用性。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;user&amp;#34;: {
-            &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-            &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-            &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        },
-        &amp;#34;proxy_name&amp;#34;: &amp;lt;string&amp;gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;ping&#34;&gt;Ping&lt;/h3&gt;
-&lt;p&gt;心跳相关信息&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;user&amp;#34;: {
-            &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-            &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-            &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        },
-        &amp;#34;timestamp&amp;#34;: &amp;lt;int64&amp;gt;,
-        &amp;#34;privilege_key&amp;#34;: &amp;lt;string&amp;gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newworkconn&#34;&gt;NewWorkConn&lt;/h3&gt;
-&lt;p&gt;创建工作连接&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;user&amp;#34;: {
-            &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-            &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-            &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        },
-        &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        &amp;#34;timestamp&amp;#34;: &amp;lt;int64&amp;gt;,
-        &amp;#34;privilege_key&amp;#34;: &amp;lt;string&amp;gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;newuserconn&#34;&gt;NewUserConn&lt;/h3&gt;
-&lt;p&gt;创建用户连接 (支持 &lt;code&gt;tcp&lt;/code&gt;、&lt;code&gt;stcp&lt;/code&gt;、&lt;code&gt;https&lt;/code&gt; 和 &lt;code&gt;tcpmux&lt;/code&gt; 协议)。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;content&amp;#34;: {
-        &amp;#34;user&amp;#34;: {
-            &amp;#34;user&amp;#34;: &amp;lt;string&amp;gt;,
-            &amp;#34;metas&amp;#34;: map&amp;lt;string&amp;gt;string
-            &amp;#34;run_id&amp;#34;: &amp;lt;string&amp;gt;
-        },
-        &amp;#34;proxy_name&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;proxy_type&amp;#34;: &amp;lt;string&amp;gt;,
-        &amp;#34;remote_addr&amp;#34;: &amp;lt;string&amp;gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;frps-中插件配置&#34;&gt;frps 中插件配置&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;httpPlugins&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user-manager&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1:9000&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/handler&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;ops&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Login&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;httpPlugins&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;port-manager&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1:9001&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/handler&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;ops&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NewProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;addr: 插件监听的网络地址，支持 HTTP 和 HTTPS，默认为 HTTP。&lt;/li&gt;
-&lt;li&gt;path: 插件监听的请求路径。&lt;/li&gt;
-&lt;li&gt;ops: 插件需要处理的操作列表，多个 op 以英文逗号分隔。&lt;/li&gt;
-&lt;li&gt;tls_verify: 如果是 HTTPS 协议，支持忽略 TLS 身份验证。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;元数据&#34;&gt;元数据&lt;/h2&gt;
-&lt;p&gt;为了减少 frps 的代码修改，同时提高管理插件的扩展能力，在 frpc 的配置文件中引入自定义元数据的概念。元数据会在调用 RPC 请求时发送给插件。&lt;/p&gt;
-&lt;p&gt;有两种类型的元数据条目，全局条目和每个代理配置下的条目。全局元数据将在客户端登录时附加在 Login 请求中，并在其他 RPC 请求中附加在 &lt;code&gt;user.metas&lt;/code&gt; 中。&lt;/p&gt;
-&lt;p&gt;每个代理配置下的元数据条目仅会在 NewProxy 操作中通过 metas 传递。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# frpc.toml
-serverAddr = &amp;#34;127.0.0.1&amp;#34;
-serverPort = 7000
-user = &amp;#34;fake&amp;#34;
-metadatas.token = &amp;#34;fake&amp;#34;
-metadatas.version = &amp;#34;1.0.0&amp;#34;
-
-[[proxies]]
-name = &amp;#34;ssh&amp;#34;
-type = &amp;#34;tcp&amp;#34;
-localPort = 22
-remotePort = 6000
-metadatas.id = &amp;#34;123&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
+      <description>frp 服务端插件的作用是在不侵入自身代码的前提下，扩展 frp 服务端的能力。&#xA;frp 服务端插件会以单独进程的形式运行，并且监听在一个端口上，对外提供 RPC 接口，响应 frps 的请求。&#xA;frps 在执行某些操作前，会根据配置向服务端插件发送 RPC 请求，根据插件的响应来执行相应的操作。&#xA;RPC 请求 服务端插件接收到操作请求后，可以给出三种回应。&#xA;拒绝操作，需要返回拒绝操作的原因。 允许操作，不需要修改操作内容。 允许操作，对操作请求进行修改后，返回修改后的内容。 接口 接口路径可以在 frps 配置中为每个插件单独配置，这里以 /handler 为例。&#xA;Request&#xA;POST /handler?version=0.1.0&amp;amp;op=Login { &amp;#34;content&amp;#34;: { ... // 具体的操作信息 } } 请求 Header X-Frp-Reqid: 用于追踪请求 Response&#xA;非 200 的返回都认为是请求异常。&#xA;拒绝执行操作&#xA;{ &amp;#34;reject&amp;#34;: true, &amp;#34;reject_reason&amp;#34;: &amp;#34;invalid user&amp;#34; } 允许且内容不需要变动&#xA;{ &amp;#34;reject&amp;#34;: false, &amp;#34;unchange&amp;#34;: true } 允许且需要替换操作内容&#xA;{ &amp;#34;unchange&amp;#34;: false, &amp;#34;content&amp;#34;: { ... // 替换后的操作信息，格式必须和请求时的一致 } } 操作类型 目前插件支持管理的操作类型有 Login、NewProxy、CloseProxy、Ping、NewWorkConn 和 NewUserConn。</description>
     </item>
-    
     <item>
-      <title>Docs: SSH Tunnel Gateway</title>
+      <title>SSH Tunnel Gateway</title>
       <link>/zh-cn/docs/features/common/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>/zh-cn/docs/features/common/ssh/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;em&gt;Added in v0.53.0&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;概念&#34;&gt;概念&lt;/h2&gt;
-&lt;p&gt;SSH 支持反向代理能力 &lt;a href=&#34;https://www.rfc-editor.org/rfc/rfc4254#page-16&#34;&gt;rfc&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;frp 支持在 frps 端监听一个 ssh 端口，通过走 ssh -R 协议来完成 TCP 协议代理，该模式下不需要依赖 frpc。&lt;/p&gt;
-&lt;p&gt;SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。SSH 反向隧道代理本质上是在你不想使用 frpc 的时候，通过 ssh client 连接 frps 来完成基本的反向代理。&lt;/p&gt;
-&lt;h2 id=&#34;参数&#34;&gt;参数&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;privateKeyFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;autoGenPrivateKeyPath&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;authorizedKeysFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Field&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Description&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Required&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;bindPort&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;int&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;frps 监听的 ssh server 端口。&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;YES&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;privateKeyFile&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;默认为空。ssh server 使用的私钥文件，为空frps会读取 autoGenPrivateKeyPath 路径下的私钥文件。可复用本地 /home/user/.ssh/id_rsa 文件或自定义路径。&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;autoGenPrivateKeyPath&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;默认为 ./.autogen_ssh_key。文件不存在或内容为空，frps会自动生成 RSA 私钥文件内容存入该文件。&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;authorizedKeysFile&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;默认为空。空不对ssh客户端进行鉴权认证。不空可实现ssh免密登录认证，可复用本地 /home/user/.ssh/authorized_keys 文件或自定义路径。&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;基本使用&#34;&gt;基本使用&lt;/h2&gt;
-&lt;h3 id=&#34;服务端-frps&#34;&gt;服务端 frps&lt;/h3&gt;
-&lt;p&gt;最简配置&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将上述配置放入 frps.toml, 运行 &lt;code&gt;./frps -c frps.toml&lt;/code&gt;，此时会在 2200 的端口监听，接受 ssh 反向代理的请求。&lt;/p&gt;
-&lt;p&gt;注意：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用最简配置，会在当前运行目录自动创建一个 &lt;code&gt;.autogen_ssh_key&lt;/code&gt; 的私钥文件，frps 的 ssh server 会使用到该私钥文件，用来加解密数据。也可以复用本地已有的私钥文件，如 &lt;code&gt;/home/user/.ssh/id_rsa&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;最简配置模式下运行的frps，通过 ssh 连接 frps 是不鉴权的，强烈建议 frps 配置 token，在 ssh 命令行指定 token。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;客户端-ssh&#34;&gt;客户端 ssh&lt;/h3&gt;
-&lt;p&gt;命令格式为&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -R :80:&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;local_ip:port&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; v0@&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;frps address&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; -p &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;frps ssh listen port&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;tcp&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;http&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;https&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;stcp&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;tcpmux&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; --remote_port &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;real remote port&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; --proxy_name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;proxy_name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; --token &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;frp token&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;--proxy_name&lt;/code&gt; 非必填，为空会随机生成一个。&lt;/li&gt;
-&lt;li&gt;登录 frps 的用户名统一为 v0，目前没有任何含义，即 &lt;code&gt;v0@{frps address}&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;server 端的 proxy 监听的端口由 &lt;code&gt;--remote_port&lt;/code&gt; 决定。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{tcp|http|https|stcp|tcpmux}&lt;/code&gt; 支持的完整命令参数可通过 &amp;ndash;help 获取。 如： &lt;code&gt;ssh -R :80::8080 v0@127.0.0.1 -p 2200 http --help&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;token 非必填，为了安全强烈建议在frps配置上token。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;tcp-代理&#34;&gt;TCP 代理&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -R :80:127.0.0.1:8080 v0@&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;frp address&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt; tcp --proxy_name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test-tcp&amp;#34;&lt;/span&gt; --remote_port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9090&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 frps 启动一个 9090 的端口代理本地的 8080 服务。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frp &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;via SSH&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;Ctrl+C to quit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User: 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ProxyName: test-tcp
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Type: tcp
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RemoteAddress: :9090
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;等同于：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frpc tcp --proxy_name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test-tcp&amp;#34;&lt;/span&gt; --local_ip 127.0.0.1 --local_port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt; --remote_port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9090&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多参数可执行 &amp;ndash;help 获取。&lt;/p&gt;
-&lt;h4 id=&#34;http-代理&#34;&gt;HTTP 代理&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh -R :80:127.0.0.1:8080 v0@&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;frp address&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt; http --proxy_name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test-http&amp;#34;&lt;/span&gt;  --custom_domain test-http.frps.com 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;等同于&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;frpc http --proxy_name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test-http&amp;#34;&lt;/span&gt; --custom_domain test-http.frps.com
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以通过以下命令访问 http 服务：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;curl &#39;http://test-http.frps.com&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;更多参数可执行 &lt;code&gt;--help&lt;/code&gt; 获取。&lt;/p&gt;
-&lt;h4 id=&#34;httpsstcptcpmux-代理&#34;&gt;HTTPS/STCP/TCPMUX 代理&lt;/h4&gt;
-&lt;p&gt;通过如下命令获取使用方式：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ssh -R :80:127.0.0.1:8080 v0@{frp address} -p 2200 {https|stcp|tcpmux} --help&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;高级使用&#34;&gt;高级使用&lt;/h2&gt;
-&lt;h3 id=&#34;复用本机的-id_rsa-文件&#34;&gt;复用本机的 id_rsa 文件&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;privateKeyFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/user/.ssh/id_rsa&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ssh 协议握手阶段需要交换公钥用来加密数据，所以 frps 端的 ssh server 需要指定一个私钥文件，可以复用本机已存在的；如果为空，frps会自动创建一个 rsa 私钥文件。&lt;/p&gt;
-&lt;h3 id=&#34;指定自动生成私钥文件地址&#34;&gt;指定自动生成私钥文件地址&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;autoGenPrivateKeyPath&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/var/frp/ssh-private-key-file&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;frps自动创建私钥文件并指定路径存储。&lt;/p&gt;
-&lt;p&gt;注意：frps 更换私钥文件，会导致 ssh 客户端登录失败，如果需要成功登录，可以删除 &lt;code&gt;/home/user/.ssh/known_hosts&lt;/code&gt; 文件中的旧的记录。&lt;/p&gt;
-&lt;h3 id=&#34;使用本机已存在的-authorized_keys-文件实现-ssh-免密登录鉴权&#34;&gt;使用本机已存在的 authorized_keys 文件，实现 ssh 免密登录鉴权&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;authorizedKeysFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/user/.ssh/authorized_keys&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;authorizedKeysFile 是 ssh 免密登录使用的文件，存放用户公钥信息，一行一个。&lt;/p&gt;
-&lt;p&gt;authorizedKeysFile 为空， frps 不对 ssh 客户端进行任何认证。frps 不支持 ssh 用户名+密码模式认证。&lt;/p&gt;
-&lt;p&gt;可复用本机已有的 &lt;code&gt;authorized_keys&lt;/code&gt; 文件对客户端进行认证。&lt;/p&gt;
-&lt;p&gt;注意：authorizedKeysFile 是 ssh 登录阶段的用户认证，token 是 frps 已有的认证，2 者没有关联，ssh 认证在前，frps 认证 token 在后，强烈建议至少开启1个，如果 authorizedKeysFile 为空，强烈建议 frps 端开启 token 认证，否则有安全风险。&lt;/p&gt;
-&lt;h3 id=&#34;使用自定义的-authorized_keys-文件实现-ssh-免密登录鉴权&#34;&gt;使用自定义的 authorized_keys 文件，实现 ssh 免密登录鉴权&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# frps.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bindPort&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;sshTunnelGateway&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;authorizedKeysFile&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/var/frps/custom_authorized_keys_file&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;自定义 &lt;code&gt;authorized_keys&lt;/code&gt; 文件路径。&lt;/p&gt;
-&lt;p&gt;authorizedKeysFile 文件变动可能会导致 ssh 登录认证失败，可能需要重新将公钥信息放入 authorizedKeysFile。&lt;/p&gt;
-
-      </description>
+      <description>Added in v0.53.0&#xA;概念 SSH 支持反向代理能力 rfc。&#xA;frp 支持在 frps 端监听一个 ssh 端口，通过走 ssh -R 协议来完成 TCP 协议代理，该模式下不需要依赖 frpc。&#xA;SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。SSH 反向隧道代理本质上是在你不想使用 frpc 的时候，通过 ssh client 连接 frps 来完成基本的反向代理。&#xA;参数 # frps.toml sshTunnelGateway.bindPort = 0 sshTunnelGateway.privateKeyFile = &amp;#34;&amp;#34; sshTunnelGateway.autoGenPrivateKeyPath = &amp;#34;&amp;#34; sshTunnelGateway.authorizedKeysFile = &amp;#34;&amp;#34; Field Type Description Required bindPort int frps 监听的 ssh server 端口。 YES privateKeyFile string 默认为空。ssh server 使用的私钥文件，为空frps会读取 autoGenPrivateKeyPath 路径下的私钥文件。可复用本地 /home/user/.ssh/id_rsa 文件或自定义路径。 No autoGenPrivateKeyPath string 默认为 .</description>
     </item>
-    
   </channel>
 </rss>

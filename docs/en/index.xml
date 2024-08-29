@@ -1,17 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>frp – Goldydocs</title>
+    <title>Goldydocs on frp</title>
     <link>/en/</link>
     <description>Recent content in Goldydocs on frp</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-      
-    
-    
+    <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/en/index.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/index.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search Results</title>
+      <link>/en/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/search/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
