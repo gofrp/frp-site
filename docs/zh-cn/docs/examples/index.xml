@@ -70,5 +70,12 @@
       <guid>/zh-cn/docs/examples/xtcp/</guid>
       <description>frp 提供了一种新的代理类型 xtcp，用于在需要传输大量数据且不希望流量经过服务器的情况下实现内网穿透。&#xA;与 stcp 类似，使用 xtcp 需要在两端都部署 frpc 以建立直接连接。&#xA;需要注意的是，xtcp 并不适用于所有类型的 NAT 设备，如果穿透失败，可以尝试使用 stcp 代理。&#xA;步骤 配置需要暴露到外网的机器上的 frpc.toml 文件&#xA;在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口以及共享密钥 (secretKey)，以及本地服务的 IP 地址和端口：&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 # 如果默认的 STUN 服务器不可用，可以配置一个新的 STUN 服务器 # natHoleStunServer = &amp;#34;xxx&amp;#34; [[proxies]] name = &amp;#34;p2p_ssh&amp;#34; type = &amp;#34;xtcp&amp;#34; # 只有共享密钥 (secretKey) 与服务器端一致的用户才能访问该服务 secretKey = &amp;#34;abcdefg&amp;#34; localIP = &amp;#34;127.0.0.1&amp;#34; localPort = 22 在想要访问内网服务的机器上部署 frpc&#xA;在 frpc.toml 文件中添加以下内容，确保设置了正确的服务器地址和端口，共享密钥 (secretKey) 以及要访问的 P2P 代理的名称：</description>
     </item>
+    <item>
+      <title>虚拟网络 (VirtualNet)</title>
+      <link>/zh-cn/docs/examples/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/examples/virtualnet/</guid>
+      <description>注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。&#xA;概述 虚拟网络（VirtualNet）功能是 frp v0.62.0 中引入的 Alpha 特性，它允许 frp 通过 TUN 接口创建和管理客户端与访问者之间的虚拟网络连接，实现设备间的完整网络连通性。&#xA;本示例将展示如何配置和使用 VirtualNet 功能。更多详细信息和工作原理，请参考 虚拟网络 (VirtualNet) 特性文档。&#xA;启用 VirtualNet 首先，由于 VirtualNet 目前是一个 Alpha 特性，您需要在配置中通过特性门控来启用它：&#xA;# frpc.toml featureGates = { VirtualNet = true } 示例配置 以下示例展示如何在两台机器之间建立虚拟网络连接：&#xA;服务端配置 (机器 A) 在 frpc.toml 中配置虚拟网络地址&#xA;# frpc.toml (服务端) serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 featureGates = { VirtualNet = true } # 配置虚拟网络接口 virtualNet.address = &amp;#34;100.86.0.1/24&amp;#34; [[proxies]] name = &amp;#34;vnet-server&amp;#34; type = &amp;#34;stcp&amp;#34; secretKey = &amp;#34;your-secret-key&amp;#34; [proxies.</description>
+    </item>
   </channel>
 </rss>

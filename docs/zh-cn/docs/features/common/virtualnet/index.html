@@ -17,40 +17,48 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>监控 | frp</title>
-<meta name="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
-<meta property="og:url" content="/zh-cn/docs/features/common/monitor/">
+<title>虚拟网络 (VirtualNet) | frp</title>
+<meta name="description" content="Alpha feature, added in v0.62.0
+注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。
+概述 虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。
+通过 VirtualNet 功能，你可以：
+在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
+权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
+# frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
+<meta property="og:url" content="/zh-cn/docs/features/common/virtualnet/">
   <meta property="og:site_name" content="frp">
-  <meta property="og:title" content="监控">
-  <meta property="og:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta property="og:title" content="虚拟网络 (VirtualNet)">
+  <meta property="og:description" content="Alpha feature, added in v0.62.0
+注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。
+概述 虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。
+通过 VirtualNet 功能，你可以：
+在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
+权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
+# frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
 
-  <meta itemprop="name" content="监控">
-  <meta itemprop="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta itemprop="name" content="虚拟网络 (VirtualNet)">
+  <meta itemprop="description" content="Alpha feature, added in v0.62.0
+注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。
+概述 虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。
+通过 VirtualNet 功能，你可以：
+在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
+权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
+# frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
   <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
-  <meta itemprop="wordCount" content="42">
+  <meta itemprop="wordCount" content="209">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="监控">
-  <meta name="twitter:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta name="twitter:title" content="虚拟网络 (VirtualNet)">
+  <meta name="twitter:description" content="Alpha feature, added in v0.62.0
+注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。
+概述 虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。
+通过 VirtualNet 功能，你可以：
+在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
+权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
+# frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
 
 
 
@@ -290,9 +298,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonconfigure-check"/>
   <label for="m-zh-cndocsfeaturescommonconfigure-check"><a href="/zh-cn/docs/features/common/configure/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonconfigure"><span class="">配置文件</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturescommonmonitor-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonmonitor-check" checked/>
-  <label for="m-zh-cndocsfeaturescommonmonitor-check"><a href="/zh-cn/docs/features/common/monitor/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonmonitor"><span class="td-sidebar-nav-active-item">监控</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonmonitor-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonmonitor-check"/>
+  <label for="m-zh-cndocsfeaturescommonmonitor-check"><a href="/zh-cn/docs/features/common/monitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonmonitor"><span class="">监控</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonauthentication-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonauthentication-check"/>
@@ -349,9 +357,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
   <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonvirtualnet-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonvirtualnet-check"/>
-  <label for="m-zh-cndocsfeaturescommonvirtualnet-check"><a href="/zh-cn/docs/features/common/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonvirtualnet"><span class="">虚拟网络 (VirtualNet)</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturescommonvirtualnet-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonvirtualnet-check" checked/>
+  <label for="m-zh-cndocsfeaturescommonvirtualnet-check"><a href="/zh-cn/docs/features/common/virtualnet/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonvirtualnet"><span class="td-sidebar-nav-active-item">虚拟网络 (VirtualNet)</span></a></label>
   
 </li>
   </ul>
@@ -445,18 +453,26 @@ var _hmt = _hmt || [];
           </aside>
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/common/monitor.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/common/monitor.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/common/virtualnet.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/common/virtualnet.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
   <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Features/common?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e7%9b%91%e6%8e%a7" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e8%99%9a%e6%8b%9f%e7%bd%91%e7%bb%9c%20%28VirtualNet%29" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a>
   
 </div>
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#内存监控">内存监控</a></li>
-    <li><a href="#prometheus-监控">Prometheus 监控</a></li>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#使用要求">使用要求</a></li>
+    <li><a href="#配置方法">配置方法</a>
+      <ul>
+        <li><a href="#启用-virtualnet">启用 VirtualNet</a></li>
+        <li><a href="#服务端配置">服务端配置</a></li>
+        <li><a href="#客户端配置">客户端配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#工作原理">工作原理</a></li>
   </ul>
 </nav></div>
 
@@ -476,23 +492,91 @@ var _hmt = _hmt || [];
   <li class="breadcrumb-item">
     <a href="/zh-cn/docs/features/common/">通用功能</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    监控</li>
+    虚拟网络 (VirtualNet)</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>监控</h1>
+	<h1>虚拟网络 (VirtualNet)</h1>
 	
 	<header class="article-meta">
 		
   </header>
-	<p>目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。</p>
-<h2 id="内存监控">内存监控</h2>
-<p>内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。</p>
-<p>请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。</p>
-<h2 id="prometheus-监控">Prometheus 监控</h2>
-<p>由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。</p>
-<p>在 frps.ini 中启用 Dashboard 并设置 <code>enablePrometheus = true</code>，然后你可以通过访问 <code>http://{dashboard_addr}/metrics</code> 来获取 Prometheus 的监控数据。</p>
+	<p><em>Alpha feature, added in v0.62.0</em></p>
+<blockquote>
+<p><strong>注意</strong>：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。</p>
+</blockquote>
+<h2 id="概述">概述</h2>
+<p>虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。</p>
+<p>通过 VirtualNet 功能，你可以：</p>
+<ul>
+<li>在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发</li>
+<li>使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务</li>
+<li>建立类似 VPN 的连接，但由 frp 负责管理</li>
+</ul>
+<h2 id="使用要求">使用要求</h2>
+<p>使用 VirtualNet 功能需要满足以下条件：</p>
+<ul>
+<li><strong>权限要求</strong>：创建 TUN 接口需要 root/管理员权限</li>
+<li><strong>平台支持</strong>：目前仅支持 Linux 和 macOS 平台</li>
+<li><strong>特性门控</strong>：需要通过配置 <code>featureGates = { VirtualNet = true }</code> 显式启用</li>
+<li><strong>地址分配</strong>：每个端点必须配置唯一的 IP 地址/CIDR</li>
+</ul>
+<h2 id="配置方法">配置方法</h2>
+<h3 id="启用-virtualnet">启用 VirtualNet</h3>
+<p>由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
+</span></span><span class="line"><span class="cl"><span class="nx">featureGates</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">VirtualNet</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span>
+</span></span></code></pre></div><h3 id="服务端配置">服务端配置</h3>
+<p>首先，为 frpc 配置虚拟网络地址：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml (服务端)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">serverAddr</span> <span class="p">=</span> <span class="s2">&#34;x.x.x.x&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">serverPort</span> <span class="p">=</span> <span class="mi">7000</span>
+</span></span><span class="line"><span class="cl"><span class="nx">featureGates</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">VirtualNet</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置虚拟网络接口</span>
+</span></span><span class="line"><span class="cl"><span class="nx">virtualNet</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="s2">&#34;100.86.0.1/24&#34;</span>
+</span></span></code></pre></div><p>然后，为代理配置 <code>virtual_net</code> 插件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml (服务端)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">proxies</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;vnet-server&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;stcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">secretKey</span> <span class="p">=</span> <span class="s2">&#34;your-secret-key&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">proxies</span><span class="p">.</span><span class="nx">plugin</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;virtual_net&#34;</span>
+</span></span></code></pre></div><h3 id="客户端配置">客户端配置</h3>
+<p>客户端需要配置访问者插件以连接到虚拟网络：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml (客户端)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">serverAddr</span> <span class="p">=</span> <span class="s2">&#34;x.x.x.x&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">serverPort</span> <span class="p">=</span> <span class="mi">7000</span>
+</span></span><span class="line"><span class="cl"><span class="nx">featureGates</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">VirtualNet</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 配置虚拟网络接口</span>
+</span></span><span class="line"><span class="cl"><span class="nx">virtualNet</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="s2">&#34;100.86.0.2/24&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">visitors</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;vnet-visitor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;stcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">serverName</span> <span class="p">=</span> <span class="s2">&#34;vnet-server&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">secretKey</span> <span class="p">=</span> <span class="s2">&#34;your-secret-key&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">bindPort</span> <span class="p">=</span> <span class="mi">-1</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">visitors</span><span class="p">.</span><span class="nx">plugin</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;virtual_net&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">destinationIP</span> <span class="p">=</span> <span class="s2">&#34;100.86.0.1&#34;</span>  <span class="c"># 目标虚拟 IP 地址</span>
+</span></span></code></pre></div><h2 id="工作原理">工作原理</h2>
+<p>VirtualNet 功能基于以下技术实现：</p>
+<ol>
+<li><strong>TUN 虚拟接口</strong>：在每个 frp 客户端创建一个 TUN 虚拟网络接口</li>
+<li><strong>路由控制</strong>：通过 VNet 控制器管理客户端间的路由表</li>
+<li><strong>数据包转发</strong>：在 frp 隧道内部封装和转发 IP 数据包</li>
+</ol>
+<p>工作流程如下：</p>
+<ol>
+<li>frp 创建 TUN 接口并分配 IP 地址</li>
+<li>服务端使用 <code>virtual_net</code> 插件注册连接到 VNet 控制器</li>
+<li>客户端使用 <code>virtual_net</code> 访问者插件将目标 IP 的流量路由到对应连接</li>
+<li>数据包在 frp 管理的虚拟网络中传输，实现不同机器之间的 IP 层连通性</li>
+</ol>
 
 	<div class="td-page-meta__lastmod">
   最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>

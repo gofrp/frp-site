@@ -91,5 +91,12 @@
       <guid>/zh-cn/docs/features/common/ssh/</guid>
       <description>Added in v0.53.0&#xA;概念 SSH 支持反向代理能力 rfc。&#xA;frp 支持在 frps 端监听一个 ssh 端口，通过走 ssh -R 协议来完成 TCP 协议代理，该模式下不需要依赖 frpc。&#xA;SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。SSH 反向隧道代理本质上是在你不想使用 frpc 的时候，通过 ssh client 连接 frps 来完成基本的反向代理。&#xA;参数 # frps.toml sshTunnelGateway.bindPort = 0 sshTunnelGateway.privateKeyFile = &amp;#34;&amp;#34; sshTunnelGateway.autoGenPrivateKeyPath = &amp;#34;&amp;#34; sshTunnelGateway.authorizedKeysFile = &amp;#34;&amp;#34; Field Type Description Required bindPort int frps 监听的 ssh server 端口。 YES privateKeyFile string 默认为空。ssh server 使用的私钥文件，为空frps会读取 autoGenPrivateKeyPath 路径下的私钥文件。可复用本地 /home/user/.ssh/id_rsa 文件或自定义路径。 No autoGenPrivateKeyPath string 默认为 .</description>
     </item>
+    <item>
+      <title>虚拟网络 (VirtualNet)</title>
+      <link>/zh-cn/docs/features/common/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh-cn/docs/features/common/virtualnet/</guid>
+      <description>Alpha feature, added in v0.62.0&#xA;注意：VirtualNet 是一个 Alpha 阶段的特性，目前不稳定，其配置方式和功能可能会在后续版本中随时调整变更。请勿在生产环境中使用此功能，仅建议用于测试和评估目的。&#xA;概述 虚拟网络（VirtualNet）功能允许 frp 通过 TUN 接口创建和管理客户端之间的虚拟网络连接。这一功能将 frp 的能力扩展到了传统端口转发之外，实现了完整的网络层通信。&#xA;通过 VirtualNet 功能，你可以：&#xA;在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：&#xA;权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：&#xA;# frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：</description>
+    </item>
   </channel>
 </rss>

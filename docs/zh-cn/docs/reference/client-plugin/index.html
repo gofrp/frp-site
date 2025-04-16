@@ -27,12 +27,12 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-03-26T11:44:04+08:00">
+    <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
 
   <meta itemprop="name" content="客户端插件配置">
   <meta itemprop="description" content="frp 客户端插件的详细配置说明。">
-  <meta itemprop="dateModified" content="2025-03-26T11:44:04+08:00">
-  <meta itemprop="wordCount" content="187">
+  <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
+  <meta itemprop="wordCount" content="237">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="客户端插件配置">
   <meta name="twitter:description" content="frp 客户端插件的详细配置说明。">
@@ -150,7 +150,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.56e961dab6178fb7d485cde9d29cdf9b.json"
+    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.56e961dab6178fb7d485cde9d29cdf9b.json"
+    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -255,6 +255,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsexamplesxtcp-check"/>
   <label for="m-zh-cndocsexamplesxtcp-check"><a href="/zh-cn/docs/examples/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsexamplesvirtualnet-li">
+  <input type="checkbox" id="m-zh-cndocsexamplesvirtualnet-check"/>
+  <label for="m-zh-cndocsexamplesvirtualnet-check"><a href="/zh-cn/docs/examples/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsexamplesvirtualnet"><span class="">虚拟网络 (VirtualNet)</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-zh-cndocsfeatures-li">
@@ -330,6 +334,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
   <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonvirtualnet-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonvirtualnet-check"/>
+  <label for="m-zh-cndocsfeaturescommonvirtualnet-check"><a href="/zh-cn/docs/features/common/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonvirtualnet"><span class="">虚拟网络 (VirtualNet)</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -402,6 +410,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check" checked/>
   <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="td-sidebar-nav-active-item">客户端插件配置</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferencevisitor-plugin-check"/>
+  <label for="m-zh-cndocsreferencevisitor-plugin-check"><a href="/zh-cn/docs/reference/visitor-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor-plugin"><span class="">访问者插件配置</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfaq-li">
@@ -438,6 +450,7 @@ var _hmt = _hmt || [];
         <li><a href="#https2httppluginoptions">HTTPS2HTTPPluginOptions</a></li>
         <li><a href="#https2httpspluginoptions">HTTPS2HTTPSPluginOptions</a></li>
         <li><a href="#tls2rawpluginoptions">TLS2RawPluginOptions</a></li>
+        <li><a href="#virtualnetpluginoptions">VirtualNetPluginOptions</a></li>
       </ul>
     </li>
   </ul>
@@ -479,6 +492,12 @@ var _hmt = _hmt || [];
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;http_proxy&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
 <td style="text-align:left">httpUser</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">HTTP 代理用户名。</td>
@@ -504,6 +523,12 @@ var _hmt = _hmt || [];
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;socks5&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
 <td style="text-align:left">username</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">用户名。</td>
@@ -528,6 +553,12 @@ var _hmt = _hmt || [];
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;static_file&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
 <tr>
 <td style="text-align:left">localPath</td>
 <td style="text-align:left">string</td>
@@ -566,6 +597,12 @@ var _hmt = _hmt || [];
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;unix_domain_socket&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
 <td style="text-align:left">unixPath</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">UNIX 域套接字的地址。</td>
@@ -584,6 +621,12 @@ var _hmt = _hmt || [];
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;http2https&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
 <tr>
 <td style="text-align:left">localAddr</td>
 <td style="text-align:left">string</td>
@@ -615,6 +658,12 @@ var _hmt = _hmt || [];
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;https2http&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
 <tr>
 <td style="text-align:left">localAddr</td>
 <td style="text-align:left">string</td>
@@ -665,6 +714,12 @@ var _hmt = _hmt || [];
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;https2https&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
 <td style="text-align:left">localAddr</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">本地 HTTPS 服务地址。</td>
@@ -714,6 +769,12 @@ var _hmt = _hmt || [];
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;tls2raw&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
 <td style="text-align:left">localAddr</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">本地服务地址。</td>
@@ -733,9 +794,28 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<h3 id="virtualnetpluginoptions">VirtualNetPluginOptions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;virtual_net&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 March 26, 2025: <a href="https://github.com/gofrp/frp-doc/commit/34cb2f8b8806127624709d79e75583bcfd268df1">fix layout (#91) (34cb2f8)</a>
+  最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>
 </div>
 
 </div>

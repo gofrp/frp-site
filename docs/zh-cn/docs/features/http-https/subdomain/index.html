@@ -36,7 +36,7 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-03-26T11:44:04+08:00">
+    <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
 
   <meta itemprop="name" content="自定义二级域名">
   <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
@@ -45,7 +45,7 @@
 # frps.toml subdomainHost = &#34;frps.com&#34; 将泛域名 *.frps.com 解析到 frps 所在服务器的 IP 地址。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 subdomain = &#34;test&#34; frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomainHost，则 customDomains 中不能是属于 subdomainHost 的子域名或者泛域名。">
-  <meta itemprop="dateModified" content="2025-03-26T11:44:04+08:00">
+  <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
   <meta itemprop="wordCount" content="79">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="自定义二级域名">
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.56e961dab6178fb7d485cde9d29cdf9b.json"
+    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.56e961dab6178fb7d485cde9d29cdf9b.json"
+    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -274,6 +274,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsexamplesxtcp-check"/>
   <label for="m-zh-cndocsexamplesxtcp-check"><a href="/zh-cn/docs/examples/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsexamplesxtcp"><span class="">点对点内网穿透</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsexamplesvirtualnet-li">
+  <input type="checkbox" id="m-zh-cndocsexamplesvirtualnet-check"/>
+  <label for="m-zh-cndocsexamplesvirtualnet-check"><a href="/zh-cn/docs/examples/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsexamplesvirtualnet"><span class="">虚拟网络 (VirtualNet)</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-zh-cndocsfeatures-li">
@@ -349,6 +353,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonssh-check"/>
   <label for="m-zh-cndocsfeaturescommonssh-check"><a href="/zh-cn/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonvirtualnet-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonvirtualnet-check"/>
+  <label for="m-zh-cndocsfeaturescommonvirtualnet-check"><a href="/zh-cn/docs/features/common/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonvirtualnet"><span class="">虚拟网络 (VirtualNet)</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturestcp-udp-li">
@@ -421,6 +429,10 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
   <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferencevisitor-plugin-check"/>
+  <label for="m-zh-cndocsreferencevisitor-plugin-check"><a href="/zh-cn/docs/reference/visitor-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor-plugin"><span class="">访问者插件配置</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfaq-li">
@@ -490,7 +502,7 @@ var _hmt = _hmt || [];
 <p>同一个 HTTP 或 HTTPS 类型的代理中 <code>customDomains</code> 和 <code>subdomain</code> 可以同时配置。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 March 26, 2025: <a href="https://github.com/gofrp/frp-doc/commit/34cb2f8b8806127624709d79e75583bcfd268df1">fix layout (#91) (34cb2f8)</a>
+  最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>
 </div>
 
 </div>

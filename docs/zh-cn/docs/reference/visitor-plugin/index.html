@@ -17,40 +17,25 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>监控 | frp</title>
-<meta name="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
-<meta property="og:url" content="/zh-cn/docs/features/common/monitor/">
+<title>访问者插件配置 | frp</title>
+<meta name="description" content="frp 访问者插件的详细配置说明。
+">
+<meta property="og:url" content="/zh-cn/docs/reference/visitor-plugin/">
   <meta property="og:site_name" content="frp">
-  <meta property="og:title" content="监控">
-  <meta property="og:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta property="og:title" content="访问者插件配置">
+  <meta property="og:description" content="frp 访问者插件的详细配置说明。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
 
-  <meta itemprop="name" content="监控">
-  <meta itemprop="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta itemprop="name" content="访问者插件配置">
+  <meta itemprop="description" content="frp 访问者插件的详细配置说明。">
   <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
-  <meta itemprop="wordCount" content="42">
+  <meta itemprop="wordCount" content="16">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="监控">
-  <meta name="twitter:description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
-内存监控 内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。
-请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
-Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
-在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
+  <meta name="twitter:title" content="访问者插件配置">
+  <meta name="twitter:description" content="frp 访问者插件的详细配置说明。">
 
 
 
@@ -276,13 +261,13 @@ var _hmt = _hmt || [];
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-zh-cndocsfeatures-li">
-  <input type="checkbox" id="m-zh-cndocsfeatures-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-zh-cndocsfeatures-li">
+  <input type="checkbox" id="m-zh-cndocsfeatures-check"/>
   <label for="m-zh-cndocsfeatures-check"><a href="/zh-cn/docs/features/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeatures"><span class="">功能特性</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-zh-cndocsfeaturescommon-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommon-check" checked/>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-zh-cndocsfeaturescommon-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommon-check"/>
   <label for="m-zh-cndocsfeaturescommon-check"><a href="/zh-cn/docs/features/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsfeaturescommon"><span class="">通用功能</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -290,9 +275,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsfeaturescommonconfigure-check"/>
   <label for="m-zh-cndocsfeaturescommonconfigure-check"><a href="/zh-cn/docs/features/common/configure/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonconfigure"><span class="">配置文件</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsfeaturescommonmonitor-li">
-  <input type="checkbox" id="m-zh-cndocsfeaturescommonmonitor-check" checked/>
-  <label for="m-zh-cndocsfeaturescommonmonitor-check"><a href="/zh-cn/docs/features/common/monitor/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonmonitor"><span class="td-sidebar-nav-active-item">监控</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonmonitor-li">
+  <input type="checkbox" id="m-zh-cndocsfeaturescommonmonitor-check"/>
+  <label for="m-zh-cndocsfeaturescommonmonitor-check"><a href="/zh-cn/docs/features/common/monitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsfeaturescommonmonitor"><span class="">监控</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsfeaturescommonauthentication-li">
   <input type="checkbox" id="m-zh-cndocsfeaturescommonauthentication-check"/>
@@ -396,8 +381,8 @@ var _hmt = _hmt || [];
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-zh-cndocsreference-li">
-  <input type="checkbox" id="m-zh-cndocsreference-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-zh-cndocsreference-li">
+  <input type="checkbox" id="m-zh-cndocsreference-check" checked/>
   <label for="m-zh-cndocsreference-check"><a href="/zh-cn/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-zh-cndocsreference"><span class="">参考</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -425,9 +410,9 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-zh-cndocsreferenceclient-plugin-check"/>
   <label for="m-zh-cndocsreferenceclient-plugin-check"><a href="/zh-cn/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferenceclient-plugin"><span class="">客户端插件配置</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-zh-cndocsreferencevisitor-plugin-li">
-  <input type="checkbox" id="m-zh-cndocsreferencevisitor-plugin-check"/>
-  <label for="m-zh-cndocsreferencevisitor-plugin-check"><a href="/zh-cn/docs/reference/visitor-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor-plugin"><span class="">访问者插件配置</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-zh-cndocsreferencevisitor-plugin-li">
+  <input type="checkbox" id="m-zh-cndocsreferencevisitor-plugin-check" checked/>
+  <label for="m-zh-cndocsreferencevisitor-plugin-check"><a href="/zh-cn/docs/reference/visitor-plugin/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-zh-cndocsreferencevisitor-plugin"><span class="td-sidebar-nav-active-item">访问者插件配置</span></a></label>
   
 </li>
   </ul>
@@ -445,18 +430,21 @@ var _hmt = _hmt || [];
           </aside>
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Features/common/monitor.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Features/common/monitor.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Features/common?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e7%9b%91%e6%8e%a7" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/zh-cn/docs/Reference/visitor-plugin.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/zh-cn/docs/Reference/visitor-plugin.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/gofrp/frp-doc/new/master/content/zh-cn/docs/Reference?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=%e8%ae%bf%e9%97%ae%e8%80%85%e6%8f%92%e4%bb%b6%e9%85%8d%e7%bd%ae" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
   <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a>
   
 </div>
 
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#内存监控">内存监控</a></li>
-    <li><a href="#prometheus-监控">Prometheus 监控</a></li>
+    <li>
+      <ul>
+        <li><a href="#virtualnetvisitorpluginoptions">VirtualNetVisitorPluginOptions</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -472,27 +460,43 @@ var _hmt = _hmt || [];
   <li class="breadcrumb-item">
     <a href="/zh-cn/docs/">文档</a></li>
   <li class="breadcrumb-item">
-    <a href="/zh-cn/docs/features/">功能特性</a></li>
-  <li class="breadcrumb-item">
-    <a href="/zh-cn/docs/features/common/">通用功能</a></li>
+    <a href="/zh-cn/docs/reference/">参考</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    监控</li>
+    访问者插件配置</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>监控</h1>
-	
+	<h1>访问者插件配置</h1>
+	<div class="lead">frp 访问者插件的详细配置说明。</div>
 	<header class="article-meta">
 		
   </header>
-	<p>目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。</p>
-<h2 id="内存监控">内存监控</h2>
-<p>内存中存储的监控数据主要用于 Dashboard 展示。当在 frps 配置中开启 Dashboard 功能后，内存监控默认启用。</p>
-<p>请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。</p>
-<h2 id="prometheus-监控">Prometheus 监控</h2>
-<p>由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。</p>
-<p>在 frps.ini 中启用 Dashboard 并设置 <code>enablePrometheus = true</code>，然后你可以通过访问 <code>http://{dashboard_addr}/metrics</code> 来获取 Prometheus 的监控数据。</p>
+	<h3 id="virtualnetvisitorpluginoptions">VirtualNetVisitorPluginOptions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">插件类型，设置为 &ldquo;virtual_net&rdquo;。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">destinationIP</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">要访问的目标虚拟 IP 地址。通常是服务端的虚拟网络地址。</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
 
 	<div class="td-page-meta__lastmod">
   最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>
