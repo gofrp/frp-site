@@ -1,3 +1,3 @@
 # frp-site
 
-The website of frp.
+Workflow for automated generation and deployment of [frp website]().

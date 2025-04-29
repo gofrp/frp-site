@@ -6,7 +6,7 @@ if [ -d "./frp-doc" ]; then
     cd ./frp-doc
     git pull
 else
-    git clone --recurse-submodules --depth 1 https://github.com/gofrp/frp-doc.git frp-doc
+    git clone --depth 1 https://github.com/gofrp/frp-doc.git frp-doc
 fi
 
 cd $SITE_ROOT
