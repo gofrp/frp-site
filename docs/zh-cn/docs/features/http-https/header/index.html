@@ -32,14 +32,14 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
+    <meta property="article:modified_time" content="2025-05-19T11:38:34+08:00">
 
   <meta itemprop="name" content="修改 HTTP 请求 Header">
   <meta itemprop="description" content="修改 Host Header 通常情况下 frp 不会修改转发的任何数据。但有一些后端服务会根据 HTTP 请求 header 中的 Host 字段来展现不同的网站，例如 nginx 的虚拟主机服务，启用 Host Header 的修改功能可以动态修改 HTTP 请求中的 Host 字段。需要注意的是，该功能仅限于 HTTP 类型的代理。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.yourdomain.com&#34;] hostHeaderRewrite = &#34;dev.yourdomain.com&#34; 原来 HTTP 请求中的 Host 字段 test.yourdomain.com 转发到后端服务时会被替换为 dev.yourdomain.com。
 设置普通 Header 对于类型为 HTTP 的代理，可以设置在转发中动态添加的 Header 参数
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 customDomains = [&#34;test.">
-  <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
+  <meta itemprop="dateModified" content="2025-05-19T11:38:34+08:00">
   <meta itemprop="wordCount" content="89">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="修改 HTTP 请求 Header">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
+    data-offline-search-index-json-src="/offline-search-index.6e92ddc5be060098a1766b349c812488.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
+    data-offline-search-index-json-src="/offline-search-index.6e92ddc5be060098a1766b349c812488.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -506,7 +506,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>根据如上的配置，会在请求的 Header 中加上 <code>x-from-where: frp</code>，在响应的 Header 中加上 <code>foo: bar</code>。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>
+  最后修改 May 19, 2025: <a href="https://github.com/gofrp/frp-doc/commit/859df2724176f072fb7442c1a63a250a6e1625a9">fix: type error in server_plugin doc (#94) (859df27)</a>
 </div>
 
 </div>

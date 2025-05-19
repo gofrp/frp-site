@@ -38,7 +38,7 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-04-16T16:35:00+08:00">
+    <meta property="article:modified_time" content="2025-05-19T11:38:34+08:00">
 
   <meta itemprop="name" content="虚拟网络 (VirtualNet)">
   <meta itemprop="description" content="Alpha feature, added in v0.62.0
@@ -48,7 +48,7 @@
 在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
 权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
 # frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
-  <meta itemprop="dateModified" content="2025-04-16T16:35:00+08:00">
+  <meta itemprop="dateModified" content="2025-05-19T11:38:34+08:00">
   <meta itemprop="wordCount" content="209">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="虚拟网络 (VirtualNet)">
@@ -173,7 +173,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
+    data-offline-search-index-json-src="/offline-search-index.6e92ddc5be060098a1766b349c812488.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.093a561cd473a4d41f000b0760747c36.json"
+    data-offline-search-index-json-src="/offline-search-index.6e92ddc5be060098a1766b349c812488.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -579,7 +579,7 @@ var _hmt = _hmt || [];
 </ol>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 April 16, 2025: <a href="https://github.com/gofrp/frp-doc/commit/b9fef01e6ea6fc30205b09a6aea1785067ea9139">add docs for virtual net (#92) (b9fef01)</a>
+  最后修改 May 19, 2025: <a href="https://github.com/gofrp/frp-doc/commit/859df2724176f072fb7442c1a63a250a6e1625a9">fix: type error in server_plugin doc (#94) (859df27)</a>
 </div>
 
 </div>
