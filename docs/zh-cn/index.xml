@@ -215,7 +215,7 @@
       <link>/zh-cn/docs/features/common/realip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/zh-cn/docs/features/common/realip/</guid>
-      <description>HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。&#xA;可以通过 HTTP/HTTPS 请求 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。&#xA;Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP。&#xA;Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&#xA;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&#xA;这里以 HTTPS 类型为例:&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;https&amp;#34; localPort = 443 customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] # 目前支持 v1 和 v2 两个版本的 proxy protocol 协议。 transport.</description>
+      <description>HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。&#xA;可以通过 HTTP 请求 header 中的 X-Forwarded-For 来获取用户真实 IP，默认启用。&#xA;Proxy Protocol frp 支持通过 Proxy Protocol 协议来传递经过 frp 代理的请求的真实 IP。&#xA;Proxy Protocol 功能启用后，frpc 在和本地服务建立连接后，会先发送一段 Proxy Protocol 的协议内容给本地服务，本地服务通过解析这一内容可以获得访问用户的真实 IP。所以不仅仅是 HTTP 服务，任何的 TCP 服务，只要支持这一协议，都可以获得用户的真实 IP 地址。&#xA;UDP 代理类型也支持 Proxy Protocol 功能，能够保留真实客户端 IP 地址。&#xA;需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。&#xA;TCP/HTTPS 代理示例 这里以 HTTPS 类型为例:&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;https&amp;#34; localPort = 443 customDomains = [&amp;#34;test.</description>
     </item>
     <item>
       <title>端口范围映射</title>

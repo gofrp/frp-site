@@ -46,7 +46,7 @@ serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]]
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-05-23T21:50:27+08:00">
+    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
 
   <meta itemprop="name" content="配置文件">
   <meta itemprop="description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
@@ -60,8 +60,8 @@ serverAddr = &#34;x.x.x.x&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34
 模版渲染 配置文件支持使用环境变量进行模版渲染，模版格式采用 Go 的标准格式。
 示例配置如下：
 serverAddr = &#34;{{ .Envs.FRP_SERVER_ADDR }}&#34; serverPort = 7000 [[proxies]] name = &#34;ssh&#34; type = &#34;tcp&#34; localIP = &#34;127.">
-  <meta itemprop="dateModified" content="2025-05-23T21:50:27+08:00">
-  <meta itemprop="wordCount" content="175">
+  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="wordCount" content="228">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="配置文件">
   <meta name="twitter:description" content="从 v0.52.0 版本开始，frp 开始支持 TOML、YAML 和 JSON 作为配置文件格式。
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df24678d2fcd2762a53bd5df57fb9fc3.json"
+    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df24678d2fcd2762a53bd5df57fb9fc3.json"
+    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -481,7 +481,12 @@ var _hmt = _hmt || [];
   <ul>
     <li><a href="#格式">格式</a></li>
     <li><a href="#模版渲染">模版渲染</a></li>
-    <li><a href="#配置校验">配置校验</a></li>
+    <li><a href="#yaml-锚点和引用">YAML 锚点和引用</a></li>
+    <li><a href="#配置校验">配置校验</a>
+      <ul>
+        <li><a href="#严格模式校验">严格模式校验</a></li>
+      </ul>
+    </li>
     <li><a href="#配置拆分">配置拆分</a></li>
     <li><a href="#完整配置参数">完整配置参数</a></li>
   </ul>
@@ -549,11 +554,34 @@ var _hmt = _hmt || [];
 export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 ./frpc -c ./frpc.toml
 </code></pre><p>frpc 会自动使用环境变量渲染配置文件模版，所有环境变量需要以 <code>.Envs</code> 为前缀。</p>
-<h2 id="配置校验">配置校验</h2>
+<h2 id="yaml-锚点和引用">YAML 锚点和引用</h2>
+<p>frp 支持 YAML 合并功能（锚点和引用，包括点前缀字段），在严格配置模式下无需使用 <code>--strict-config=false</code> 参数即可正常工作。</p>
+<p>可以使用以点开头的字段作为锚点定义，类似于 Docker Compose 的 <code>x-</code> 前缀：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># frpc.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">.common</span><span class="p">:</span><span class="w"> </span><span class="cp">&amp;common</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;stcp&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{.Envs.FRPC_SECRET_KEY}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">localIP</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;127.0.0.1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">serverAddr</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;x.x.x.x&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">serverPort</span><span class="p">:</span><span class="w"> </span><span class="m">7000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">proxies</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ssh&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">localPort</span><span class="p">:</span><span class="w"> </span><span class="m">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*common</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;web&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">localPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*common</span><span class="w">
+</span></span></span></code></pre></div><h2 id="配置校验">配置校验</h2>
 <p>通过执行 <code>frpc verify -c ./frpc.toml</code> 或 <code>frps verify -c ./frps.toml</code> 可以对配置文件中的参数进行预先校验。</p>
 <pre tabindex="0"><code>frpc: the configuration file ./frpc.toml syntax is ok
 </code></pre><p>如果出现此结果，则说明新的配置文件没有错误，否则会输出具体的错误信息。</p>
-<h2 id="配置拆分">配置拆分</h2>
+<h3 id="严格模式校验">严格模式校验</h3>
+<p>默认情况下，frp 使用严格模式进行配置校验。如果需要禁用严格校验，可以使用 <code>--strict-config=false</code> 参数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">frpc verify -c ./frpc.yaml --strict-config<span class="o">=</span><span class="nb">false</span>
+</span></span></code></pre></div><h2 id="配置拆分">配置拆分</h2>
 <p>通过 <code>includes</code> 参数可以在主配置中包含其他配置文件，从而实现将代理配置拆分到多个文件中管理。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
 </span></span><span class="line"><span class="cl"><span class="nx">serverAddr</span> <span class="p">=</span> <span class="s2">&#34;x.x.x.x&#34;</span>
@@ -572,7 +600,7 @@ export FRP_SSH_REMOTE_PORT=&#34;6000&#34;
 <p>由于 frp 目前支持的功能和配置项较多，未在文档中列出的功能参数可以在 <a href="../../../reference">参考</a> 中查看。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 May 23, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a5095f0b22f04a49e296bb3a0940880910c175e7">add stale action (#96) (a5095f0)</a>
+  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
 </div>
 
 </div>

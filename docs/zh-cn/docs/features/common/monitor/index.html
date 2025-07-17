@@ -34,7 +34,7 @@ Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-05-23T21:50:27+08:00">
+    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
 
   <meta itemprop="name" content="监控">
   <meta itemprop="description" content="目前，frps 服务端支持两种监控系统：内存监控和 Prometheus 监控。
@@ -42,7 +42,7 @@ Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与
 请注意，内存中的监控数据在每次重启进程后会被清空，或者保留 7 天。监控数据可以通过 Dashboard 的地址发送 HTTP 请求获取，但目前此 API 尚不规范，不建议直接使用。
 Prometheus 监控 由于设计问题，Prometheus 对外提供的查询接口与 Dashboard 的地址重用，因此要使用 Prometheus 监控，必须首先启用 Dashboard。
 在 frps.ini 中启用 Dashboard 并设置 enablePrometheus = true，然后你可以通过访问 http://{dashboard_addr}/metrics 来获取 Prometheus 的监控数据。">
-  <meta itemprop="dateModified" content="2025-05-23T21:50:27+08:00">
+  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
   <meta itemprop="wordCount" content="42">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="监控">
@@ -165,7 +165,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df24678d2fcd2762a53bd5df57fb9fc3.json"
+    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.df24678d2fcd2762a53bd5df57fb9fc3.json"
+    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -495,7 +495,7 @@ var _hmt = _hmt || [];
 <p>在 frps.ini 中启用 Dashboard 并设置 <code>enablePrometheus = true</code>，然后你可以通过访问 <code>http://{dashboard_addr}/metrics</code> 来获取 Prometheus 的监控数据。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 May 23, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a5095f0b22f04a49e296bb3a0940880910c175e7">add stale action (#96) (a5095f0)</a>
+  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
 </div>
 
 </div>
