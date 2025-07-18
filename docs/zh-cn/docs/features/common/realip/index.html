@@ -40,7 +40,7 @@ TCP/HTTPS 代理示例 这里以 HTTPS 类型为例:
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
+    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
 
   <meta itemprop="name" content="获取用户真实 IP">
   <meta itemprop="description" content="HTTP X-Forwarded-For 目前只有 http 类型的代理或者启用了 https2http 或 https2https 插件的代理支持这一功能。
@@ -51,7 +51,7 @@ UDP 代理类型也支持 Proxy Protocol 功能，能够保留真实客户端 IP
 需要注意的是，在代理配置中如果要启用此功能，需要本地的服务能够支持 Proxy Protocol 这一协议，目前 nginx 和 haproxy 都能够很好的支持。
 TCP/HTTPS 代理示例 这里以 HTTPS 类型为例:
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;https&#34; localPort = 443 customDomains = [&#34;test.">
-  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
   <meta itemprop="wordCount" content="158">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="获取用户真实 IP">
@@ -78,6 +78,8 @@ TCP/HTTPS 代理示例 这里以 HTTPS 类型为例:
   src="/js/lunr-2.3.9.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -111,7 +113,7 @@ var _hmt = _hmt || [];
         <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/realip/">English</a></li>
     </ul>
 </div></li>
       <li class="td-light-dark-menu nav-item dropdown">
@@ -177,7 +179,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -201,7 +203,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -214,7 +216,7 @@ var _hmt = _hmt || [];
       <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/realip/">English</a></li>
     </ul>
 </div>
     </div>
@@ -539,7 +541,7 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div><p>启用后，frps 和 frpc 会把源 IP 信息写入 Proxy Protocol 头部，后端 UDP 服务或日志系统可以准确识别访问者的真实 IP 地址，这对于安全审计和访问控制特别有用。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
+  最后修改 July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
 </div>
 
 </div>

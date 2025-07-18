@@ -1,12 +1,271 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Goldydocs on frp</title>
+    <title>frp</title>
     <link>/en/</link>
-    <description>Recent content in Goldydocs on frp</description>
+    <description>Recent content on frp</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Common Configuration</title>
+      <link>/en/docs/reference/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/common/</guid>
+      <description>LogConfig Field Type Description Required to string Log output file path. If set to console, logs will be printed to standard output. No level string Log level. Options are trace, debug, info, warn, error. Default level is info. No maxDays int Maximum days to retain log files, default is 3 days. No disablePrintColor bool Disable log colors in standard output. No WebServerConfig Field Type Description Required addr string webServer listening address, default is 127.</description>
+    </item>
+    <item>
+      <title>Communication Security and Optimization</title>
+      <link>/en/docs/features/common/network/network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/network/network/</guid>
+      <description>Encryption and Compression Note: When TLS is enabled between frpc and frps, traffic will be globally encrypted, and encryption on individual proxies is no longer needed. This is enabled by default in newer versions.&#xA;Each proxy can choose whether to enable encryption and compression features.&#xA;The encryption algorithm uses aes-128-cfb, and the compression algorithm uses snappy.&#xA;Specify in each proxy&amp;rsquo;s configuration using the following parameters:&#xA;[[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.</description>
+    </item>
+    <item>
+      <title>Using systemd</title>
+      <link>/en/docs/setup/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/setup/systemd/</guid>
+      <description>On Linux systems, using systemd can conveniently control the start, stop, background running configuration, and boot auto-start of the frps server.&#xA;Here are the specific operation steps:&#xA;Install systemd&#xA;If systemd is not yet installed on your Linux server, you can use package managers like yum (for CentOS/RHEL) or apt (for Debian/Ubuntu) to install it:&#xA;# Install systemd using yum (CentOS/RHEL) yum install systemd # Install systemd using apt (Debian/Ubuntu) apt install systemd Create frps.</description>
+    </item>
+    <item>
+      <title>Custom TLS Protocol Encryption</title>
+      <link>/en/docs/features/common/network/network-tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/network/network-tls/</guid>
+      <description>transport.useEncryption and STCP functions can effectively prevent traffic content from being stolen during communication, but cannot determine whether the other party&amp;rsquo;s identity is legitimate, posing a risk of man-in-the-middle attacks. For this reason, frp supports traffic encryption between frpc and frps through TLS protocol, and supports client or server unidirectional verification, bidirectional verification, and other functions.&#xA;When transport.tls.force = true in frps.toml, it means the server only accepts TLS connection clients, which is also a prerequisite for frps to verify frpc identity.</description>
+    </item>
+    <item>
+      <title>Modify HTTP Request Header</title>
+      <link>/en/docs/features/http-https/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/header/</guid>
+      <description>Modify Host Header Normally, frp will not modify any forwarded data. However, some backend services will display different websites based on the Host field in HTTP request headers, such as nginx&amp;rsquo;s virtual host service. Enabling the Host Header modification feature can dynamically modify the Host field in HTTP requests. Note that this feature is only available for HTTP type proxies.&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;test.</description>
+    </item>
+    <item>
+      <title>Server Configuration</title>
+      <link>/en/docs/reference/server-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/server-configures/</guid>
+      <description>ServerConfig Field Type Description Required auth AuthServerConfig Authentication configuration. No bindAddr string Server listening address for receiving frpc connections, default listens on 0.0.0.0. No bindPort int Server listening port, default value is 7000. No kcpBindPort int Server listening port for KCP protocol, used to receive frpc connections configured to use KCP protocol. No quicBindPort int Server listening port for QUIC protocol, used to receive frpc connections configured to use QUIC protocol.</description>
+    </item>
+    <item>
+      <title>Client Configuration</title>
+      <link>/en/docs/reference/client-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/client-configures/</guid>
+      <description>ClientConfig Field Type Description Required ClientCommonConfig Client common configuration. Yes proxies []ProxyConfig Proxy configuration. Different proxy types correspond to different configurations, such as TCPProxyConfig or HTTPProxyConfig. No visitors []VisitorConfig Visitor configuration. Different visitor types correspond to different configurations, such as STCPVisitorConfig. No ClientCommonConfig Field Type Description Required auth AuthClientConfig Client authentication configuration. No user string Username. After setting this parameter, proxy names will be modified to {user}.{proxyName} to avoid proxy name conflicts with other users.</description>
+    </item>
+    <item>
+      <title>Set BasicAuth Authentication</title>
+      <link>/en/docs/features/http-https/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/auth/</guid>
+      <description>Since all clients share one frps HTTP service port, anyone who knows your domain name and URL can access your services deployed in the intranet. However, in some scenarios, you need to ensure that only limited users can access.&#xA;frp supports protecting your web services through HTTP Basic Auth, requiring users to access your services through username and password.&#xA;This feature is currently limited to HTTP type proxies and requires adding username and password settings in frpc&amp;rsquo;s proxy configuration.</description>
+    </item>
+    <item>
+      <title>Custom Subdomain</title>
+      <link>/en/docs/features/http-https/subdomain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/subdomain/</guid>
+      <description>When multiple people are using one frps simultaneously, using custom subdomains is more convenient.&#xA;By configuring subdomainHost in frps&amp;rsquo;s configuration file, you can enable this feature. After that, in frpc&amp;rsquo;s http and https type proxies, you can configure a subdomain parameter instead of configuring customDomains.&#xA;You only need to resolve *.{subdomainHost} to the server where frps is located. After that, users can specify their own subdomain for their web services through subdomain, and access their web services through {subdomain}.</description>
+    </item>
+    <item>
+      <title>Proxy Configuration</title>
+      <link>/en/docs/reference/proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/proxy/</guid>
+      <description>ProxyBaseConfig Field Type Description Required name string Proxy name. Yes type string Proxy type. Options are tcp, udp, http, https, tcpmux, stcp, sudp, xtcp. Yes annotations map[string]string Proxy annotation information that will be displayed in the server&amp;rsquo;s dashboard. No transport ProxyTransport Proxy network layer configuration. No metadatas map[string]string Additional metadata that will be passed to server plugins to provide additional capabilities. No loadBalancer LoadBalancerConfig Load balancing configuration. No healthCheck HealthCheckConfig Health check configuration.</description>
+    </item>
+    <item>
+      <title>Access Intranet Machines via SSH</title>
+      <link>/en/docs/examples/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/ssh/</guid>
+      <description>Steps Deploy frps on a machine with public IP&#xA;Deploy frps and edit the frps.toml file. Here is a simplified configuration where we set the port for the frp server to receive client connections:&#xA;bindPort = 7000 Deploy frpc on the intranet machine that needs to be accessed&#xA;Deploy frpc and edit the frpc.toml file. Assume the public IP address of the server where frps is located is x.x.x.x. Here is an example configuration:</description>
+    </item>
+    <item>
+      <title>Routing</title>
+      <link>/en/docs/features/http-https/route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/route/</guid>
+      <description>URL Routing frp supports routing and forwarding to different backend services based on the URL path of the request.&#xA;Specify one or more URL prefixes that a proxy can match through the locations field in the configuration file (currently only supports maximum prefix matching, regex matching will be considered later). For example, specifying locations = &amp;quot;/news&amp;quot; means all requests with URLs starting with /news will be forwarded to this service.</description>
+    </item>
+    <item>
+      <title>Visitor Configuration</title>
+      <link>/en/docs/reference/visitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/visitor/</guid>
+      <description>VisitorBaseConfig Field Type Description Required name string Visitor name. Yes type string Visitor type. Options are stcp, sudp, xtcp. Yes transport VisitorTransport Visitor network layer configuration. No secretKey string Secret key. The secret key between server and access side must be consistent for the access side to access the server. No serverUser string Username that the proxy to be accessed belongs to. If empty, defaults to current user. No serverName string Name of the proxy to be accessed.</description>
+    </item>
+    <item>
+      <title>Client Plugin Configuration</title>
+      <link>/en/docs/reference/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/client-plugin/</guid>
+      <description>HTTPProxyPluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;http_proxy&amp;rdquo;. Yes httpUser string HTTP proxy username. No httpPassword string HTTP proxy password. No Socks5PluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;socks5&amp;rdquo;. Yes username string Username. No password string Password. No StaticFilePluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;static_file&amp;rdquo;. Yes localPath string Local path where static files are located. Yes stripPrefix string Remove specific prefix from user HTTP request Path.</description>
+    </item>
+    <item>
+      <title>Visitor Plugin Configuration</title>
+      <link>/en/docs/reference/visitor-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/visitor-plugin/</guid>
+      <description>VirtualNetVisitorPluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;virtual_net&amp;rdquo;. Yes destinationIP string Target virtual IP address to access. Usually the server&amp;rsquo;s virtual network address. Yes </description>
+    </item>
+    <item>
+      <title>Configuration File</title>
+      <link>/en/docs/features/common/configure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/configure/</guid>
+      <description>Starting from v0.52.0, frp began supporting TOML, YAML, and JSON as configuration file formats.&#xA;Please note that INI has been deprecated and will be removed in future releases. New features can only be used in TOML, YAML, or JSON. Users who wish to use these new features should switch their configuration format accordingly.&#xA;Format You can use any format you like among TOML/YAML/JSON to write configuration files, and frp will automatically adapt and parse them.</description>
+    </item>
+    <item>
+      <title>Multiple SSH Services Sharing the Same Port</title>
+      <link>/en/docs/examples/multiple-ssh-over-same-port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/multiple-ssh-over-same-port/</guid>
+      <description>Steps Deploy frps on a machine with public IP&#xA;Modify the frps.toml file to include the following content (using the most simplified configuration here):&#xA;bindPort = 7000 tcpmuxHTTPConnectPort = 5002 Deploy frpc on intranet machine A&#xA;Create an frpc configuration file, for example frpc.toml, and add the following content to the configuration file:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh1&amp;#34; type = &amp;#34;tcpmux&amp;#34; multiplexer = &amp;#34;httpconnect&amp;#34; customDomains = [&amp;#34;machine-a.</description>
+    </item>
+    <item>
+      <title>Access Intranet Web Services via Custom Domain Names</title>
+      <link>/en/docs/examples/vhost-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/vhost-http/</guid>
+      <description>HTTP type proxies are very suitable for providing intranet web services to external users through custom domain names. Compared to TCP type proxies, HTTP proxies can not only reuse ports but also provide many features based on the HTTP protocol.&#xA;HTTPS is similar to this, but it should be noted that frp&amp;rsquo;s HTTPS proxy requires the local service to be an HTTPS service, and frps will not perform TLS termination. You can also combine the https2http plugin to expose local HTTP services through the HTTPS protocol.</description>
+    </item>
+    <item>
+      <title>Forward DNS Query Requests</title>
+      <link>/en/docs/examples/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/dns/</guid>
+      <description>DNS query requests typically use the UDP protocol, and frp supports penetration of intranet UDP services, with configuration similar to TCP.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;dns&amp;#34; type = &amp;#34;udp&amp;#34; localIP = &amp;#34;8.8.8.8&amp;#34; localPort = 53 remotePort = 6000 Please note that this example reverse-proxies Google&amp;rsquo;s DNS query server address, which is only for testing UDP proxy and has no practical significance.</description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>/en/docs/features/common/monitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/monitor/</guid>
+      <description>Currently, frps server supports two monitoring systems: memory monitoring and Prometheus monitoring.&#xA;Memory Monitoring Monitoring data stored in memory is primarily used for Dashboard display. When the Dashboard feature is enabled in frps configuration, memory monitoring is enabled by default.&#xA;Please note that monitoring data in memory will be cleared after each process restart, or retained for 7 days. Monitoring data can be obtained by sending HTTP requests to the Dashboard address, but this API is not currently standardized and direct use is not recommended.</description>
+    </item>
+    <item>
+      <title>Forward Unix Domain Socket</title>
+      <link>/en/docs/examples/unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/unix-domain-socket/</guid>
+      <description>Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file, ensuring the correct Unix domain socket path is set:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;unix_domain_socket&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;unix_domain_socket&amp;#34; # Unix domain socket path unixPath = &amp;#34;/var/run/docker.sock&amp;#34; Start frps and frpc&#xA;Use curl to view Docker version information</description>
+    </item>
+    <item>
+      <title>Authentication</title>
+      <link>/en/docs/features/common/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/authentication/</guid>
+      <description>Currently, frpc and frps support two authentication methods: token and oidc, with token being the default. These authentication methods allow you to verify communication between the client and server, ensuring that only authorized users can establish connections.&#xA;Token Token authentication is a simple authentication method that only requires configuring the same token in both the frp client (frpc) and server (frps) configuration files.&#xA;Configuration Example # frps.toml bindPort = 7000 auth.</description>
+    </item>
+    <item>
+      <title>Provide Simple File Access Service</title>
+      <link>/en/docs/examples/static-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/static-file/</guid>
+      <description>By using the static_file plugin, you can easily provide an HTTP-based file access service that allows others to access your specified files.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file, ensuring appropriate file paths, username, and password are set:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_static_file&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.</description>
+    </item>
+    <item>
+      <title>Enable HTTPS for Local HTTP Service</title>
+      <link>/en/docs/examples/https2http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/https2http/</guid>
+      <description>Steps Configure frps.toml&#xA;bindPort = 7000 vhostHTTPSPort = 443 Configure frpc.toml&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_htts2http&amp;#34; type = &amp;#34;https&amp;#34; customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] [proxies.plugin] type = &amp;#34;https2http&amp;#34; localAddr = &amp;#34;127.0.0.1:80&amp;#34; # HTTPS certificate related configuration crtPath = &amp;#34;./server.crt&amp;#34; keyPath = &amp;#34;./server.key&amp;#34; hostHeaderRewrite = &amp;#34;127.0.0.1&amp;#34; requestHeaders.set.x-from-where = &amp;#34;frp&amp;#34; Please note that you need to modify the above configuration according to your domain name and certificate path.&#xA;Start frps and frpc</description>
+    </item>
+    <item>
+      <title>Securely Expose Intranet Services</title>
+      <link>/en/docs/examples/stcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/stcp/</guid>
+      <description>Some intranet services may pose security risks if directly exposed on the public network. Using stcp (secret tcp) type proxies allows you to securely expose intranet services to authorized users, which requires visitors to also deploy frpc clients.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Deploy frpc client and configure&#xA;Deploy frpc on the machine that needs to expose intranet services to the public network, and create the following configuration:</description>
+    </item>
+    <item>
+      <title>Web Interface</title>
+      <link>/en/docs/features/common/ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/ui/</guid>
+      <description>Currently, frpc and frps have built-in corresponding web interfaces for user convenience.&#xA;Server Dashboard The server Dashboard allows users to view frp status and proxy statistics through a browser.&#xA;Note: Dashboard has not been optimized for displaying large amounts of proxy data. If you experience slow Dashboard access, please do not enable this feature.&#xA;You need to specify the port used by the dashboard service in frps.toml to enable this feature:</description>
+    </item>
+    <item>
+      <title>Point-to-Point Intranet Penetration</title>
+      <link>/en/docs/examples/xtcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/xtcp/</guid>
+      <description>frp provides a new proxy type xtcp for intranet penetration when you need to transfer large amounts of data and don&amp;rsquo;t want traffic to go through the server.&#xA;Similar to stcp, using xtcp requires deploying frpc on both ends to establish a direct connection.&#xA;Note that xtcp is not suitable for all types of NAT devices. If penetration fails, you can try using stcp proxy.&#xA;Steps Configure frpc.toml file on the machine that needs to be exposed to the external network</description>
+    </item>
+    <item>
+      <title>Virtual Network (VirtualNet)</title>
+      <link>/en/docs/examples/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/virtualnet/</guid>
+      <description>Note: VirtualNet is an Alpha-stage feature that is currently unstable. Its configuration methods and functionality may change at any time in future versions. Please do not use this feature in production environments; it is only recommended for testing and evaluation purposes.&#xA;Overview Virtual Network (VirtualNet) functionality is an Alpha feature introduced in frp v0.62.0, which allows frp to create and manage virtual network connections between clients and visitors through TUN interfaces, enabling complete network connectivity between devices.</description>
+    </item>
+    <item>
+      <title>Load Balancing and Health Check</title>
+      <link>/en/docs/features/common/load-balancer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/load-balancer/</guid>
+      <description>Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.&#xA;Currently supported proxy types include: tcp, http, tcpmux.&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.</description>
+    </item>
+    <item>
+      <title>Get Real User IP</title>
+      <link>/en/docs/features/common/realip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/realip/</guid>
+      <description>HTTP X-Forwarded-For Currently, only http type proxies or proxies with https2http or https2https plugins enabled support this feature.&#xA;You can get the real user IP through the X-Forwarded-For in HTTP request headers, which is enabled by default.&#xA;Proxy Protocol frp supports passing the real IP of requests proxied through frp via the Proxy Protocol protocol.&#xA;After the Proxy Protocol feature is enabled, frpc will first send a section of Proxy Protocol protocol content to the local service after establishing a connection with the local service.</description>
+    </item>
+    <item>
+      <title>Port Range Mapping</title>
+      <link>/en/docs/features/common/range/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/range/</guid>
+      <description>Added in v0.56.0&#xA;We can use Go template&amp;rsquo;s range syntax combined with the built-in parseNumberRangePair function to implement port range mapping.&#xA;In the example below, after the application runs, 8 proxies will be created, named test-6000, test-6001 ... test-6007, which will map remote ports to local ports respectively.&#xA;{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }} [[proxies]] name = &amp;#34;tcp-{{ $v.First }}&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = {{ $v.First }} remotePort = {{ $v.</description>
+    </item>
+    <item>
+      <title>Client</title>
+      <link>/en/docs/features/common/client/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/client/</guid>
+      <description>Dynamic Configuration Updates When you need to modify frpc proxy configuration, you can use the frpc reload command to achieve dynamic configuration file loading, usually completing proxy updates within seconds.&#xA;To enable this feature, you need to enable webServer in frpc to provide API services. The configuration is as follows:&#xA;webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 Then execute the following command to reload the configuration:&#xA;frpc reload -c ./frpc.toml&#xA;After waiting for a period of time, the client will create, update, or delete proxies according to the new configuration file.</description>
+    </item>
+    <item>
+      <title>Server Management</title>
+      <link>/en/docs/features/common/server-manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/server-manage/</guid>
+      <description>Port Whitelist To prevent port abuse, you can manually specify which ports are allowed to be used. In the server configuration, specify through allowPorts:&#xA;# frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts can configure a specific port or all ports within a range to be allowed.</description>
+    </item>
+    <item>
+      <title>Client Plugin</title>
+      <link>/en/docs/features/common/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/client-plugin/</guid>
+      <description>By default, frpc will only forward requests to local TCP or UDP ports, i.e., the local service address specified by localIP and localPort.&#xA;By enabling client plugin functionality, you can build in some simple local services when only starting frpc, thereby achieving functionality that would normally require starting additional services.&#xA;In each proxy&amp;rsquo;s configuration, you can configure the plugin to use and related parameters through plugin. After enabling client plugins, you no longer need to configure localIP and localPort.</description>
+    </item>
+    <item>
+      <title>Server Plugin</title>
+      <link>/en/docs/features/common/server-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/server-plugin/</guid>
+      <description>The purpose of frp server plugins is to extend the capabilities of the frp server without intruding on its own code.&#xA;frp server plugins run as separate processes and listen on a port, providing RPC interfaces externally to respond to frps requests.&#xA;Before executing certain operations, frps will send RPC requests to server plugins according to configuration, and execute corresponding operations based on the plugin&amp;rsquo;s response.&#xA;RPC Requests After receiving operation requests, server plugins can give three types of responses:</description>
+    </item>
+    <item>
+      <title>SSH Tunnel Gateway</title>
+      <link>/en/docs/features/common/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/ssh/</guid>
+      <description>Added in v0.53.0&#xA;Concept SSH supports reverse proxy capability rfc.&#xA;frp supports listening on an SSH port on the frps side, completing TCP protocol proxy through the SSH -R protocol. In this mode, there is no need to depend on frpc.&#xA;SSH reverse tunnel proxy and proxying SSH ports through frp are two different concepts. SSH reverse tunnel proxy is essentially using ssh client to connect to frps to complete basic reverse proxy when you don&amp;rsquo;t want to use frpc.</description>
+    </item>
+    <item>
+      <title>Virtual Network (VirtualNet)</title>
+      <link>/en/docs/features/common/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/virtualnet/</guid>
+      <description>Alpha feature, added in v0.62.0&#xA;Note: VirtualNet is an Alpha stage feature that is currently unstable. Its configuration methods and functionality may change at any time in future versions. Please do not use this feature in production environments; it is only recommended for testing and evaluation purposes.&#xA;Overview The Virtual Network (VirtualNet) feature allows frp to create and manage virtual network connections between clients through TUN interfaces. This feature extends frp&amp;rsquo;s capabilities beyond traditional port forwarding to achieve complete network layer communication.</description>
+    </item>
     <item>
       <title></title>
       <link>/en/index.json</link>

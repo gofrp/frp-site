@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Communication Security and Optimization on frp</title>
+    <link>/en/docs/features/common/network/</link>
+    <description>Recent content in Communication Security and Optimization on frp</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/en/docs/features/common/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Communication Security and Optimization</title>
+      <link>/en/docs/features/common/network/network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/network/network/</guid>
+      <description>Encryption and Compression Note: When TLS is enabled between frpc and frps, traffic will be globally encrypted, and encryption on individual proxies is no longer needed. This is enabled by default in newer versions.&#xA;Each proxy can choose whether to enable encryption and compression features.&#xA;The encryption algorithm uses aes-128-cfb, and the compression algorithm uses snappy.&#xA;Specify in each proxy&amp;rsquo;s configuration using the following parameters:&#xA;[[proxies]] name = &amp;#34;ssh&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 22 remotePort = 6000 transport.</description>
+    </item>
+    <item>
+      <title>Custom TLS Protocol Encryption</title>
+      <link>/en/docs/features/common/network/network-tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/network/network-tls/</guid>
+      <description>transport.useEncryption and STCP functions can effectively prevent traffic content from being stolen during communication, but cannot determine whether the other party&amp;rsquo;s identity is legitimate, posing a risk of man-in-the-middle attacks. For this reason, frp supports traffic encryption between frpc and frps through TLS protocol, and supports client or server unidirectional verification, bidirectional verification, and other functions.&#xA;When transport.tls.force = true in frps.toml, it means the server only accepts TLS connection clients, which is also a prerequisite for frps to verify frpc identity.</description>
+    </item>
+  </channel>
+</rss>

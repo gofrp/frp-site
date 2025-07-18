@@ -34,7 +34,7 @@ Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
+    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
 
   <meta itemprop="name" content="身份认证">
   <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
@@ -42,7 +42,7 @@ Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 
 配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
 验证流程参考 Client Credentials Grant。
 配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
-  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
   <meta itemprop="wordCount" content="74">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="身份认证">
@@ -66,6 +66,8 @@ Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 
   src="/js/lunr-2.3.9.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -99,7 +101,7 @@ var _hmt = _hmt || [];
         <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/authentication/">English</a></li>
     </ul>
 </div></li>
       <li class="td-light-dark-menu nav-item dropdown">
@@ -165,7 +167,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +191,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -202,7 +204,7 @@ var _hmt = _hmt || [];
       <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/authentication/">English</a></li>
     </ul>
 </div>
     </div>
@@ -519,7 +521,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">oidc</span><span class="p">.</span><span class="nx">tokenEndpointURL</span> <span class="p">=</span> <span class="s2">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
+  最后修改 July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
 </div>
 
 </div>

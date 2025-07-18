@@ -29,7 +29,7 @@
 
   <meta itemprop="name" content="FAQ">
   <meta itemprop="description" content="frp official website">
-  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="FAQ">
   <meta name="twitter:description" content="frp official website">
@@ -48,6 +48,8 @@
   src="/js/lunr-2.3.9.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -70,6 +72,9 @@ var _hmt = _hmt || [];
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link active" href="/en/docs/"><span>Documentation</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/en/release/"><span>Release History</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/fatedier/frp" target="_blank" rel="noopener"><i class='fab fa-github'></i><span>Github</span></a>
@@ -144,7 +149,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -168,7 +173,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,26 +198,223 @@ var _hmt = _hmt || [];
   <input type="checkbox" id="m-endocsoverview-check"/>
   <label for="m-endocsoverview-check"><a href="/en/docs/overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsoverview"><span class="">Overview</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocssetup-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocssetup-li">
   <input type="checkbox" id="m-endocssetup-check"/>
   <label for="m-endocssetup-check"><a href="/en/docs/setup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocssetup"><span class="">Setup</span></a></label>
   
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocssetupsystemd-li">
+  <input type="checkbox" id="m-endocssetupsystemd-check"/>
+  <label for="m-endocssetupsystemd-check"><a href="/en/docs/setup/systemd/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocssetupsystemd"><span class="">Using systemd</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsconcepts-li">
   <input type="checkbox" id="m-endocsconcepts-check"/>
   <label for="m-endocsconcepts-check"><a href="/en/docs/concepts/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsconcepts"><span class="">Concepts</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamples-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsexamples-li">
   <input type="checkbox" id="m-endocsexamples-check"/>
   <label for="m-endocsexamples-check"><a href="/en/docs/examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsexamples"><span class="">Examples</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatures-li">
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesssh-li">
+  <input type="checkbox" id="m-endocsexamplesssh-check"/>
+  <label for="m-endocsexamplesssh-check"><a href="/en/docs/examples/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesssh"><span class="">Access Intranet Machines via SSH</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesmultiple-ssh-over-same-port-li">
+  <input type="checkbox" id="m-endocsexamplesmultiple-ssh-over-same-port-check"/>
+  <label for="m-endocsexamplesmultiple-ssh-over-same-port-check"><a href="/en/docs/examples/multiple-ssh-over-same-port/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesmultiple-ssh-over-same-port"><span class="">Multiple SSH Services Sharing the Same Port</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesvhost-http-li">
+  <input type="checkbox" id="m-endocsexamplesvhost-http-check"/>
+  <label for="m-endocsexamplesvhost-http-check"><a href="/en/docs/examples/vhost-http/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesvhost-http"><span class="">Access Intranet Web Services via Custom Domain Names</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesdns-li">
+  <input type="checkbox" id="m-endocsexamplesdns-check"/>
+  <label for="m-endocsexamplesdns-check"><a href="/en/docs/examples/dns/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesdns"><span class="">Forward DNS Query Requests</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesunix-domain-socket-li">
+  <input type="checkbox" id="m-endocsexamplesunix-domain-socket-check"/>
+  <label for="m-endocsexamplesunix-domain-socket-check"><a href="/en/docs/examples/unix-domain-socket/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesunix-domain-socket"><span class="">Forward Unix Domain Socket</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesstatic-file-li">
+  <input type="checkbox" id="m-endocsexamplesstatic-file-check"/>
+  <label for="m-endocsexamplesstatic-file-check"><a href="/en/docs/examples/static-file/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesstatic-file"><span class="">Provide Simple File Access Service</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexampleshttps2http-li">
+  <input type="checkbox" id="m-endocsexampleshttps2http-check"/>
+  <label for="m-endocsexampleshttps2http-check"><a href="/en/docs/examples/https2http/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexampleshttps2http"><span class="">Enable HTTPS for Local HTTP Service</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesstcp-li">
+  <input type="checkbox" id="m-endocsexamplesstcp-check"/>
+  <label for="m-endocsexamplesstcp-check"><a href="/en/docs/examples/stcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesstcp"><span class="">Securely Expose Intranet Services</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesxtcp-li">
+  <input type="checkbox" id="m-endocsexamplesxtcp-check"/>
+  <label for="m-endocsexamplesxtcp-check"><a href="/en/docs/examples/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesxtcp"><span class="">Point-to-Point Intranet Penetration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesvirtualnet-li">
+  <input type="checkbox" id="m-endocsexamplesvirtualnet-check"/>
+  <label for="m-endocsexamplesvirtualnet-check"><a href="/en/docs/examples/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesvirtualnet"><span class="">Virtual Network (VirtualNet)</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeatures-li">
   <input type="checkbox" id="m-endocsfeatures-check"/>
   <label for="m-endocsfeatures-check"><a href="/en/docs/features/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeatures"><span class="">Features</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreference-li">
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeaturescommon-li">
+  <input type="checkbox" id="m-endocsfeaturescommon-check"/>
+  <label for="m-endocsfeaturescommon-check"><a href="/en/docs/features/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturescommon"><span class="">Common Features</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonconfigure-li">
+  <input type="checkbox" id="m-endocsfeaturescommonconfigure-check"/>
+  <label for="m-endocsfeaturescommonconfigure-check"><a href="/en/docs/features/common/configure/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonconfigure"><span class="">Configuration File</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonmonitor-li">
+  <input type="checkbox" id="m-endocsfeaturescommonmonitor-check"/>
+  <label for="m-endocsfeaturescommonmonitor-check"><a href="/en/docs/features/common/monitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonmonitor"><span class="">Monitoring</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonauthentication-li">
+  <input type="checkbox" id="m-endocsfeaturescommonauthentication-check"/>
+  <label for="m-endocsfeaturescommonauthentication-check"><a href="/en/docs/features/common/authentication/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonauthentication"><span class="">Authentication</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonui-li">
+  <input type="checkbox" id="m-endocsfeaturescommonui-check"/>
+  <label for="m-endocsfeaturescommonui-check"><a href="/en/docs/features/common/ui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonui"><span class="">Web Interface</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeaturescommonnetwork-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetwork-check"/>
+  <label for="m-endocsfeaturescommonnetwork-check"><a href="/en/docs/features/common/network/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturescommonnetwork"><span class="">Communication Security and Optimization</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonnetworknetwork-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetworknetwork-check"/>
+  <label for="m-endocsfeaturescommonnetworknetwork-check"><a href="/en/docs/features/common/network/network/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonnetworknetwork"><span class="">Communication Security and Optimization</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonnetworknetwork-tls-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetworknetwork-tls-check"/>
+  <label for="m-endocsfeaturescommonnetworknetwork-tls-check"><a href="/en/docs/features/common/network/network-tls/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonnetworknetwork-tls"><span class="">Custom TLS Protocol Encryption</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonload-balancer-li">
+  <input type="checkbox" id="m-endocsfeaturescommonload-balancer-check"/>
+  <label for="m-endocsfeaturescommonload-balancer-check"><a href="/en/docs/features/common/load-balancer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonload-balancer"><span class="">Load Balancing and Health Check</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonrealip-li">
+  <input type="checkbox" id="m-endocsfeaturescommonrealip-check"/>
+  <label for="m-endocsfeaturescommonrealip-check"><a href="/en/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonrealip"><span class="">Get Real User IP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonrange-li">
+  <input type="checkbox" id="m-endocsfeaturescommonrange-check"/>
+  <label for="m-endocsfeaturescommonrange-check"><a href="/en/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonrange"><span class="">Port Range Mapping</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonclient-li">
+  <input type="checkbox" id="m-endocsfeaturescommonclient-check"/>
+  <label for="m-endocsfeaturescommonclient-check"><a href="/en/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonclient"><span class="">Client</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonserver-manage-li">
+  <input type="checkbox" id="m-endocsfeaturescommonserver-manage-check"/>
+  <label for="m-endocsfeaturescommonserver-manage-check"><a href="/en/docs/features/common/server-manage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonserver-manage"><span class="">Server Management</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonclient-plugin-li">
+  <input type="checkbox" id="m-endocsfeaturescommonclient-plugin-check"/>
+  <label for="m-endocsfeaturescommonclient-plugin-check"><a href="/en/docs/features/common/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonclient-plugin"><span class="">Client Plugin</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonserver-plugin-li">
+  <input type="checkbox" id="m-endocsfeaturescommonserver-plugin-check"/>
+  <label for="m-endocsfeaturescommonserver-plugin-check"><a href="/en/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonserver-plugin"><span class="">Server Plugin</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-endocsfeaturescommonssh-check"/>
+  <label for="m-endocsfeaturescommonssh-check"><a href="/en/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonvirtualnet-li">
+  <input type="checkbox" id="m-endocsfeaturescommonvirtualnet-check"/>
+  <label for="m-endocsfeaturescommonvirtualnet-check"><a href="/en/docs/features/common/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonvirtualnet"><span class="">Virtual Network (VirtualNet)</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturestcp-udp-li">
+  <input type="checkbox" id="m-endocsfeaturestcp-udp-check"/>
+  <label for="m-endocsfeaturestcp-udp-check"><a href="/en/docs/features/tcp-udp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturestcp-udp"><span class="">TCP &amp; UDP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeatureshttp-https-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-https-check"/>
+  <label for="m-endocsfeatureshttp-https-check"><a href="/en/docs/features/http-https/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeatureshttp-https"><span class="">HTTP &amp; HTTPS</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsheader-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsheader-check"/>
+  <label for="m-endocsfeatureshttp-httpsheader-check"><a href="/en/docs/features/http-https/header/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsheader"><span class="">Modify HTTP Request Header</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsauth-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsauth-check"/>
+  <label for="m-endocsfeatureshttp-httpsauth-check"><a href="/en/docs/features/http-https/auth/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsauth"><span class="">Set BasicAuth Authentication</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpssubdomain-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpssubdomain-check"/>
+  <label for="m-endocsfeatureshttp-httpssubdomain-check"><a href="/en/docs/features/http-https/subdomain/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpssubdomain"><span class="">Custom Subdomain</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsroute-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsroute-check"/>
+  <label for="m-endocsfeatureshttp-httpsroute-check"><a href="/en/docs/features/http-https/route/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsroute"><span class="">Routing</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturesstcp-sudp-li">
+  <input type="checkbox" id="m-endocsfeaturesstcp-sudp-check"/>
+  <label for="m-endocsfeaturesstcp-sudp-check"><a href="/en/docs/features/stcp-sudp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturesstcp-sudp"><span class="">STCP &amp; SUDP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturesxtcp-li">
+  <input type="checkbox" id="m-endocsfeaturesxtcp-check"/>
+  <label for="m-endocsfeaturesxtcp-check"><a href="/en/docs/features/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturesxtcp"><span class="">XTCP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturestcpmux-li">
+  <input type="checkbox" id="m-endocsfeaturestcpmux-check"/>
+  <label for="m-endocsfeaturestcpmux-check"><a href="/en/docs/features/tcpmux/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturestcpmux"><span class="">TCPMUX</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsreference-li">
   <input type="checkbox" id="m-endocsreference-check"/>
   <label for="m-endocsreference-check"><a href="/en/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsreference"><span class="">Reference</span></a></label>
   
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencecommon-li">
+  <input type="checkbox" id="m-endocsreferencecommon-check"/>
+  <label for="m-endocsreferencecommon-check"><a href="/en/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencecommon"><span class="">Common Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceserver-configures-li">
+  <input type="checkbox" id="m-endocsreferenceserver-configures-check"/>
+  <label for="m-endocsreferenceserver-configures-check"><a href="/en/docs/reference/server-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceserver-configures"><span class="">Server Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceclient-configures-li">
+  <input type="checkbox" id="m-endocsreferenceclient-configures-check"/>
+  <label for="m-endocsreferenceclient-configures-check"><a href="/en/docs/reference/client-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceclient-configures"><span class="">Client Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceproxy-li">
+  <input type="checkbox" id="m-endocsreferenceproxy-check"/>
+  <label for="m-endocsreferenceproxy-check"><a href="/en/docs/reference/proxy/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceproxy"><span class="">Proxy Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencevisitor-li">
+  <input type="checkbox" id="m-endocsreferencevisitor-check"/>
+  <label for="m-endocsreferencevisitor-check"><a href="/en/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencevisitor"><span class="">Visitor Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-endocsreferenceclient-plugin-check"/>
+  <label for="m-endocsreferenceclient-plugin-check"><a href="/en/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceclient-plugin"><span class="">Client Plugin Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencevisitor-plugin-li">
+  <input type="checkbox" id="m-endocsreferencevisitor-plugin-check"/>
+  <label for="m-endocsreferencevisitor-plugin-check"><a href="/en/docs/reference/visitor-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencevisitor-plugin"><span class="">Visitor Plugin Configuration</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-endocsfaq-li">
   <input type="checkbox" id="m-endocsfaq-check" checked/>
   <label for="m-endocsfaq-check"><a href="/en/docs/faq/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-endocsfaq"><span class="td-sidebar-nav-active-item">FAQ</span></a></label>
@@ -265,7 +467,7 @@ var _hmt = _hmt || [];
     
     </div>
 <div class="td-page-meta__lastmod">
-  Last modified July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
+  Last modified July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
 </div>
 </div>
 

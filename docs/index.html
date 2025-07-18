@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <title>/zh-cn/</title>
-    <link rel="canonical" href="/zh-cn/">
-    <meta name="robots" content="noindex">
+<html lang="en">
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=/zh-cn/">
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>frp</title>
+    <link rel="canonical" href="/en/"/>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="frp official website">
+    <script>
+        (function () {
+            
+            if (window.location.pathname !== '/') {
+                window.location.replace('\/en\/');
+                return;
+            }
+
+            
+            var savedLanguage = localStorage.getItem('language');
+            if (savedLanguage) {
+                
+                window.location.replace('/' + savedLanguage + '/');
+                return;
+            }
+
+            
+            var getFirstBrowserLanguage = function () {
+                var nav = window.navigator,
+                    browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
+                    i,
+                    language;
+
+                if (Array.isArray(nav.languages)) {
+                    for (i = 0; i < nav.languages.length; i++) {
+                        language = nav.languages[i];
+                        if (language && language.length) {
+                            return language;
+                        }
+                    }
+                }
+
+                
+                for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+                    language = nav[browserLanguagePropertyKeys[i]];
+                    if (language && language.length) {
+                        return language;
+                    }
+                }
+
+                return 'en';
+            };
+
+            var preferLang = getFirstBrowserLanguage();
+            var targetLang = 'en'; 
+
+            if (preferLang.indexOf('zh') !== -1) {
+                targetLang = 'zh-cn';
+            }
+
+            
+            localStorage.setItem('language', targetLang);
+
+            
+            window.location.replace('/' + targetLang + '/');
+        })();
+    </script>
+</head>
+<body>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/en/">
+    </noscript>
+    <p>Redirecting to the appropriate language version...</p>
+    <p>If you are not redirected automatically, please <a href="/en/">click here for English</a> or <a href="/zh-cn/">click here for Chinese</a>.</p>
+</body>
 </html>

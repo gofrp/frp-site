@@ -1,0 +1,916 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Server Configuration | frp</title>
+<meta name="description" content="Detailed configuration description for frp server.
+">
+<meta property="og:url" content="/en/docs/reference/server-configures/">
+  <meta property="og:site_name" content="frp">
+  <meta property="og:title" content="Server Configuration">
+  <meta property="og:description" content="Detailed configuration description for frp server.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
+
+  <meta itemprop="name" content="Server Configuration">
+  <meta itemprop="description" content="Detailed configuration description for frp server.">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
+  <meta itemprop="wordCount" content="681">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Server Configuration">
+  <meta name="twitter:description" content="Detailed configuration description for frp server.">
+
+
+
+
+<link rel="preload" href="/scss/main.min.d093e3ad0a03b465f821568aa483a85a582d17b7bf93895ce147736c5beafd9a.css" as="style">
+<link href="/scss/main.min.d093e3ad0a03b465f821568aa483a85a582d17b7bf93895ce147736c5beafd9a.css" rel="stylesheet" integrity="">
+
+<script
+  src="/js/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script
+  src="/js/lunr-2.3.9.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+      var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3e71b775dd51aa4d6720c9f6e0dca126";
+          var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/en/"><span class="navbar-brand__logo navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 196"><path d="M0 0C1.55372433 1.34031496 3.09552869 2.69457421 4.625 4.0625c.82886719.68707031 1.65773437 1.37414062 2.51171875 2.08203125C25.42258854 21.68612043 36.54980032 44.43390409 39.3125 68.125c2.07030459 26.82769694-4.71759167 51.88460621-21.6875 72.9375C16.95984375 141.89265625 16.2946875 142.7228125 15.609375 143.578125-.48954121 162.53907075-23.36088313 173.85843847-47.9453125 176.78515625-71.93322964 178.72495365-97.49538979 173.22783488-116.75 158.125-118.30372433 156.78468504-119.84552869 155.43042579-121.375 154.0625-122.20386719 153.37542969-123.03273437 152.68835938-123.88671875 151.98046875-142.17258854 136.43887957-153.29980032 113.69109591-156.0625 90-158.13280459 63.17230306-151.34490833 38.11539379-134.375 17.0625-133.70984375 16.23234375-133.0446875 15.4021875-132.359375 14.546875-116.26045879-4.41407075-93.38911687-15.73343847-68.8046875-18.66015625-44.81677036-20.59995365-19.25461021-15.10283488.0.0z" fill="#307fec" transform="translate(156.375,18.9375)"/><path d="M0 0C9.14866886.037533 17.22012512 2.42754171 25.875 5.3125 25.24816224 9.20323238 24.06490291 12.41180682 22.40625 15.98046875 21.91769531 17.03814453 21.42914063 18.09582031 20.92578125 19.18554688 20.41402344 20.27931641 19.90226562 21.37308594 19.375 22.5 18.86324219 23.60537109 18.35148437 24.71074219 17.82421875 25.84960938 14.22879464 33.60491071 14.22879464 33.60491071 12.875 36.3125c6.6.0 13.2.0 20 0-2.74311757 8.2293527-5.81983443 14.5072504-10 22-6.6.0-13.2.0-20 0-.66 1.98-1.32 3.96-2 6C-.30574675 66.89295828-1.51012196 69.4485972-2.75 72-7.20837762 81.30592927-11.1713474 90.78137319-15.125 100.3125c-11.55.0-23.1.0-35 0 1.12511809-6.75070855 1.12511809-6.75070855 2.92578125-10.4609375C-46.81443359 89.04976563-46.42964844 88.24796875-46.03320312 87.421875-45.63037109 86.60203125-45.22753906 85.7821875-44.8125 84.9375-44.42126953 84.12539062-44.03003906 83.31328125-43.62695312 82.4765625c1.48804651-3.07973806 2.98287133-6.15404921 4.54638671-9.19628906C-37.35389762 69.91812423-35.79432282 66.56321047-34.42578125 63.0390625-31.06119644 54.44632958-27.11915997 46.09069224-23.3125 37.6875c1.57027085-3.47078555 3.13906321-6.94223608 4.70703125-10.4140625C-18.22574921 26.43367371-17.84602966 25.59390991-17.45480347 24.72869873c2.79794821-6.20059747 5.53869159-12.4246724 8.22062683-18.67636108C-6.76291797.33468549-6.2733019.13332521.0.0z" fill="#fcfdfe" transform="translate(86.125,50.6875)"/><path d="M0 0C5.49110072-.07550699 10.98188377-.12922511 16.47338867-.16479492c1.85877765-.01486511 3.71752171-.03516313 5.57617188-.06152344C56.20891765-.69780069 56.20891765-.69780069 69 7 69.88558594 7.51433594 69.88558594 7.51433594 70.7890625 8.0390625 73.62173603 9.79773659 75.12383176 11.18574763 77 14c.265625 2.92578125.265625 2.92578125.25 6.3125C77.25773437 21.97732422 77.25773437 21.97732422 77.265625 23.67578125 77 27 77 27 75 33c-11.55.0-23.1.0-35 0C40.33 31.02 40.66 29.04 41 27 41.92939473 18.83651171 41.92939473 18.83651171 39 11.5 30.21072208 4.17560173 20.01523416 2.92347445 8.9375 1.875c-.86560547-.08636719-1.73121094-.17273437-2.62304688-.26171875C4.21011156 1.40400971 2.10511876 1.20130332.0 1 0 .67.0.34.0.0z" fill="#f8fafe" transform="translate(83,45)"/></svg></span><span class="navbar-brand__name">frp</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="/en/docs/"><span>Documentation</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/en/release/"><span>Release History</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/fatedier/frp" target="_blank" rel="noopener"><i class='fab fa-github'></i><span>Github</span></a>
+      </li>
+      <li class="nav-item dropdown d-none d-lg-block">
+        <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/zh-cn/docs/reference/server-configures/">中文</a></li>
+    </ul>
+</div></li>
+      <li class="td-light-dark-menu nav-item dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        data-bs-display="static"
+        aria-label="Toggle theme (auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse foldable-nav" id="td-section-nav">
+    <div class="td-sidebar-nav__section nav-item dropdown d-block d-lg-none">
+      <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/zh-cn/docs/reference/server-configures/">中文</a></li>
+    </ul>
+</div>
+    </div>
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-endocs-li">
+  <a href="/en/docs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-endocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsoverview-li">
+  <input type="checkbox" id="m-endocsoverview-check"/>
+  <label for="m-endocsoverview-check"><a href="/en/docs/overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsoverview"><span class="">Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocssetup-li">
+  <input type="checkbox" id="m-endocssetup-check"/>
+  <label for="m-endocssetup-check"><a href="/en/docs/setup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocssetup"><span class="">Setup</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocssetupsystemd-li">
+  <input type="checkbox" id="m-endocssetupsystemd-check"/>
+  <label for="m-endocssetupsystemd-check"><a href="/en/docs/setup/systemd/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocssetupsystemd"><span class="">Using systemd</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsconcepts-li">
+  <input type="checkbox" id="m-endocsconcepts-check"/>
+  <label for="m-endocsconcepts-check"><a href="/en/docs/concepts/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsconcepts"><span class="">Concepts</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsexamples-li">
+  <input type="checkbox" id="m-endocsexamples-check"/>
+  <label for="m-endocsexamples-check"><a href="/en/docs/examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsexamples"><span class="">Examples</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesssh-li">
+  <input type="checkbox" id="m-endocsexamplesssh-check"/>
+  <label for="m-endocsexamplesssh-check"><a href="/en/docs/examples/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesssh"><span class="">Access Intranet Machines via SSH</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesmultiple-ssh-over-same-port-li">
+  <input type="checkbox" id="m-endocsexamplesmultiple-ssh-over-same-port-check"/>
+  <label for="m-endocsexamplesmultiple-ssh-over-same-port-check"><a href="/en/docs/examples/multiple-ssh-over-same-port/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesmultiple-ssh-over-same-port"><span class="">Multiple SSH Services Sharing the Same Port</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesvhost-http-li">
+  <input type="checkbox" id="m-endocsexamplesvhost-http-check"/>
+  <label for="m-endocsexamplesvhost-http-check"><a href="/en/docs/examples/vhost-http/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesvhost-http"><span class="">Access Intranet Web Services via Custom Domain Names</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesdns-li">
+  <input type="checkbox" id="m-endocsexamplesdns-check"/>
+  <label for="m-endocsexamplesdns-check"><a href="/en/docs/examples/dns/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesdns"><span class="">Forward DNS Query Requests</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesunix-domain-socket-li">
+  <input type="checkbox" id="m-endocsexamplesunix-domain-socket-check"/>
+  <label for="m-endocsexamplesunix-domain-socket-check"><a href="/en/docs/examples/unix-domain-socket/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesunix-domain-socket"><span class="">Forward Unix Domain Socket</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesstatic-file-li">
+  <input type="checkbox" id="m-endocsexamplesstatic-file-check"/>
+  <label for="m-endocsexamplesstatic-file-check"><a href="/en/docs/examples/static-file/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesstatic-file"><span class="">Provide Simple File Access Service</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexampleshttps2http-li">
+  <input type="checkbox" id="m-endocsexampleshttps2http-check"/>
+  <label for="m-endocsexampleshttps2http-check"><a href="/en/docs/examples/https2http/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexampleshttps2http"><span class="">Enable HTTPS for Local HTTP Service</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesstcp-li">
+  <input type="checkbox" id="m-endocsexamplesstcp-check"/>
+  <label for="m-endocsexamplesstcp-check"><a href="/en/docs/examples/stcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesstcp"><span class="">Securely Expose Intranet Services</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesxtcp-li">
+  <input type="checkbox" id="m-endocsexamplesxtcp-check"/>
+  <label for="m-endocsexamplesxtcp-check"><a href="/en/docs/examples/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesxtcp"><span class="">Point-to-Point Intranet Penetration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsexamplesvirtualnet-li">
+  <input type="checkbox" id="m-endocsexamplesvirtualnet-check"/>
+  <label for="m-endocsexamplesvirtualnet-check"><a href="/en/docs/examples/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsexamplesvirtualnet"><span class="">Virtual Network (VirtualNet)</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeatures-li">
+  <input type="checkbox" id="m-endocsfeatures-check"/>
+  <label for="m-endocsfeatures-check"><a href="/en/docs/features/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeatures"><span class="">Features</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeaturescommon-li">
+  <input type="checkbox" id="m-endocsfeaturescommon-check"/>
+  <label for="m-endocsfeaturescommon-check"><a href="/en/docs/features/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturescommon"><span class="">Common Features</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonconfigure-li">
+  <input type="checkbox" id="m-endocsfeaturescommonconfigure-check"/>
+  <label for="m-endocsfeaturescommonconfigure-check"><a href="/en/docs/features/common/configure/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonconfigure"><span class="">Configuration File</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonmonitor-li">
+  <input type="checkbox" id="m-endocsfeaturescommonmonitor-check"/>
+  <label for="m-endocsfeaturescommonmonitor-check"><a href="/en/docs/features/common/monitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonmonitor"><span class="">Monitoring</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonauthentication-li">
+  <input type="checkbox" id="m-endocsfeaturescommonauthentication-check"/>
+  <label for="m-endocsfeaturescommonauthentication-check"><a href="/en/docs/features/common/authentication/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonauthentication"><span class="">Authentication</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonui-li">
+  <input type="checkbox" id="m-endocsfeaturescommonui-check"/>
+  <label for="m-endocsfeaturescommonui-check"><a href="/en/docs/features/common/ui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonui"><span class="">Web Interface</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeaturescommonnetwork-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetwork-check"/>
+  <label for="m-endocsfeaturescommonnetwork-check"><a href="/en/docs/features/common/network/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturescommonnetwork"><span class="">Communication Security and Optimization</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonnetworknetwork-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetworknetwork-check"/>
+  <label for="m-endocsfeaturescommonnetworknetwork-check"><a href="/en/docs/features/common/network/network/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonnetworknetwork"><span class="">Communication Security and Optimization</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonnetworknetwork-tls-li">
+  <input type="checkbox" id="m-endocsfeaturescommonnetworknetwork-tls-check"/>
+  <label for="m-endocsfeaturescommonnetworknetwork-tls-check"><a href="/en/docs/features/common/network/network-tls/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonnetworknetwork-tls"><span class="">Custom TLS Protocol Encryption</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonload-balancer-li">
+  <input type="checkbox" id="m-endocsfeaturescommonload-balancer-check"/>
+  <label for="m-endocsfeaturescommonload-balancer-check"><a href="/en/docs/features/common/load-balancer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonload-balancer"><span class="">Load Balancing and Health Check</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonrealip-li">
+  <input type="checkbox" id="m-endocsfeaturescommonrealip-check"/>
+  <label for="m-endocsfeaturescommonrealip-check"><a href="/en/docs/features/common/realip/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonrealip"><span class="">Get Real User IP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonrange-li">
+  <input type="checkbox" id="m-endocsfeaturescommonrange-check"/>
+  <label for="m-endocsfeaturescommonrange-check"><a href="/en/docs/features/common/range/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonrange"><span class="">Port Range Mapping</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonclient-li">
+  <input type="checkbox" id="m-endocsfeaturescommonclient-check"/>
+  <label for="m-endocsfeaturescommonclient-check"><a href="/en/docs/features/common/client/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonclient"><span class="">Client</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonserver-manage-li">
+  <input type="checkbox" id="m-endocsfeaturescommonserver-manage-check"/>
+  <label for="m-endocsfeaturescommonserver-manage-check"><a href="/en/docs/features/common/server-manage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonserver-manage"><span class="">Server Management</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonclient-plugin-li">
+  <input type="checkbox" id="m-endocsfeaturescommonclient-plugin-check"/>
+  <label for="m-endocsfeaturescommonclient-plugin-check"><a href="/en/docs/features/common/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonclient-plugin"><span class="">Client Plugin</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonserver-plugin-li">
+  <input type="checkbox" id="m-endocsfeaturescommonserver-plugin-check"/>
+  <label for="m-endocsfeaturescommonserver-plugin-check"><a href="/en/docs/features/common/server-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonserver-plugin"><span class="">Server Plugin</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonssh-li">
+  <input type="checkbox" id="m-endocsfeaturescommonssh-check"/>
+  <label for="m-endocsfeaturescommonssh-check"><a href="/en/docs/features/common/ssh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonssh"><span class="">SSH Tunnel Gateway</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturescommonvirtualnet-li">
+  <input type="checkbox" id="m-endocsfeaturescommonvirtualnet-check"/>
+  <label for="m-endocsfeaturescommonvirtualnet-check"><a href="/en/docs/features/common/virtualnet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeaturescommonvirtualnet"><span class="">Virtual Network (VirtualNet)</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturestcp-udp-li">
+  <input type="checkbox" id="m-endocsfeaturestcp-udp-check"/>
+  <label for="m-endocsfeaturestcp-udp-check"><a href="/en/docs/features/tcp-udp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturestcp-udp"><span class="">TCP &amp; UDP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-endocsfeatureshttp-https-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-https-check"/>
+  <label for="m-endocsfeatureshttp-https-check"><a href="/en/docs/features/http-https/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeatureshttp-https"><span class="">HTTP &amp; HTTPS</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsheader-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsheader-check"/>
+  <label for="m-endocsfeatureshttp-httpsheader-check"><a href="/en/docs/features/http-https/header/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsheader"><span class="">Modify HTTP Request Header</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsauth-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsauth-check"/>
+  <label for="m-endocsfeatureshttp-httpsauth-check"><a href="/en/docs/features/http-https/auth/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsauth"><span class="">Set BasicAuth Authentication</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpssubdomain-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpssubdomain-check"/>
+  <label for="m-endocsfeatureshttp-httpssubdomain-check"><a href="/en/docs/features/http-https/subdomain/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpssubdomain"><span class="">Custom Subdomain</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeatureshttp-httpsroute-li">
+  <input type="checkbox" id="m-endocsfeatureshttp-httpsroute-check"/>
+  <label for="m-endocsfeatureshttp-httpsroute-check"><a href="/en/docs/features/http-https/route/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsfeatureshttp-httpsroute"><span class="">Routing</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturesstcp-sudp-li">
+  <input type="checkbox" id="m-endocsfeaturesstcp-sudp-check"/>
+  <label for="m-endocsfeaturesstcp-sudp-check"><a href="/en/docs/features/stcp-sudp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturesstcp-sudp"><span class="">STCP &amp; SUDP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturesxtcp-li">
+  <input type="checkbox" id="m-endocsfeaturesxtcp-check"/>
+  <label for="m-endocsfeaturesxtcp-check"><a href="/en/docs/features/xtcp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturesxtcp"><span class="">XTCP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfeaturestcpmux-li">
+  <input type="checkbox" id="m-endocsfeaturestcpmux-check"/>
+  <label for="m-endocsfeaturestcpmux-check"><a href="/en/docs/features/tcpmux/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfeaturestcpmux"><span class="">TCPMUX</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-endocsreference-li">
+  <input type="checkbox" id="m-endocsreference-check" checked/>
+  <label for="m-endocsreference-check"><a href="/en/docs/reference/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsreference"><span class="">Reference</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencecommon-li">
+  <input type="checkbox" id="m-endocsreferencecommon-check"/>
+  <label for="m-endocsreferencecommon-check"><a href="/en/docs/reference/common/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencecommon"><span class="">Common Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-endocsreferenceserver-configures-li">
+  <input type="checkbox" id="m-endocsreferenceserver-configures-check" checked/>
+  <label for="m-endocsreferenceserver-configures-check"><a href="/en/docs/reference/server-configures/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceserver-configures"><span class="td-sidebar-nav-active-item">Server Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceclient-configures-li">
+  <input type="checkbox" id="m-endocsreferenceclient-configures-check"/>
+  <label for="m-endocsreferenceclient-configures-check"><a href="/en/docs/reference/client-configures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceclient-configures"><span class="">Client Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceproxy-li">
+  <input type="checkbox" id="m-endocsreferenceproxy-check"/>
+  <label for="m-endocsreferenceproxy-check"><a href="/en/docs/reference/proxy/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceproxy"><span class="">Proxy Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencevisitor-li">
+  <input type="checkbox" id="m-endocsreferencevisitor-check"/>
+  <label for="m-endocsreferencevisitor-check"><a href="/en/docs/reference/visitor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencevisitor"><span class="">Visitor Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferenceclient-plugin-li">
+  <input type="checkbox" id="m-endocsreferenceclient-plugin-check"/>
+  <label for="m-endocsreferenceclient-plugin-check"><a href="/en/docs/reference/client-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferenceclient-plugin"><span class="">Client Plugin Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsreferencevisitor-plugin-li">
+  <input type="checkbox" id="m-endocsreferencevisitor-plugin-check"/>
+  <label for="m-endocsreferencevisitor-plugin-check"><a href="/en/docs/reference/visitor-plugin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-endocsreferencevisitor-plugin"><span class="">Visitor Plugin Configuration</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-endocsfaq-li">
+  <input type="checkbox" id="m-endocsfaq-check"/>
+  <label for="m-endocsfaq-check"><a href="/en/docs/faq/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-endocsfaq"><span class="">FAQ</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/gofrp/frp-doc/tree/master/content/en/docs/Reference/server-configures.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/gofrp/frp-doc/edit/master/content/en/docs/Reference/server-configures.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/gofrp/frp-doc/new/master/content/en/docs/Reference?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/gofrp/frp-doc/issues/new?title=Server%20Configuration" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/fatedier/frp/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#serverconfig">ServerConfig</a></li>
+        <li><a href="#authserverconfig">AuthServerConfig</a></li>
+        <li><a href="#authoidcserverconfig">AuthOIDCServerConfig</a></li>
+        <li><a href="#servertransportconfig">ServerTransportConfig</a></li>
+        <li><a href="#tlsserverconfig">TLSServerConfig</a></li>
+        <li><a href="#httppluginoptions">HTTPPluginOptions</a></li>
+        <li><a href="#sshtunnelgateway">SSHTunnelGateway</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/en/docs/">Documentation</a></li>
+  <li class="breadcrumb-item">
+    <a href="/en/docs/reference/">Reference</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    Server Configuration</li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Server Configuration</h1>
+	<div class="lead">Detailed configuration description for frp server.</div>
+	<header class="article-meta">
+		
+  </header>
+	<h3 id="serverconfig">ServerConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">auth</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#authserverconfig">AuthServerConfig</a></td>
+<td style="text-align:left">Authentication configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">bindAddr</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Server listening address for receiving frpc connections, default listens on 0.0.0.0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">bindPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Server listening port, default value is 7000.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">kcpBindPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Server listening port for KCP protocol, used to receive frpc connections configured to use KCP protocol.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">quicBindPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Server listening port for QUIC protocol, used to receive frpc connections configured to use QUIC protocol.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">proxyBindAddr</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Proxy listening address, can make proxies listen on different network interface addresses, same as bindAddr by default.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">vhostHTTPPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Listening port for HTTP type proxies, must be enabled to support HTTP type proxies.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">vhostHTTPTimeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">ResponseHeader timeout for HTTP type proxies on the server side, default is 60s.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">vhostHTTPSPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Listening port for HTTPS type proxies, must be enabled to support HTTPS type proxies.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tcpmuxHTTPConnectPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Listening port for tcpmux type proxies with httpconnect multiplexer.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tcpmuxPassthrough</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">Whether to pass through CONNECT requests for tcpmux type proxies.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">subDomainHost</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Subdomain suffix.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">custom404Page</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Custom 404 error page address.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">sshTunnelGateway</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#sshtunnelgateway">SSHTunnelGateway</a></td>
+<td style="text-align:left">SSH tunnel gateway configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">webServer</td>
+<td style="text-align:left"><a href="../common#webserverconfig">WebServerConfig</a></td>
+<td style="text-align:left">Server Dashboard configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">enablePrometheus</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">Whether to provide Prometheus monitoring interface, will only take effect when webServer is also enabled.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">log</td>
+<td style="text-align:left"><a href="../common#logconfig">LogConfig</a></td>
+<td style="text-align:left">Log configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">transport</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#servertransportconfig">ServerTransportConfig</a></td>
+<td style="text-align:left">Network layer configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">detailedErrorsToClient</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">Server returns detailed error information to client, default is true.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">maxPortsPerClient</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Limit the maximum number of simultaneous proxies for a single client, default is unlimited.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">userConnTimeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Timeout for waiting for client response after user establishes connection, in seconds, default is 10 seconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">udpPacketSize</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Maximum packet length supported when proxying UDP services, default is 1500. Server and client values need to be consistent.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">natholeAnalysisDataReserveHours</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Retention time for hole punching strategy data, default is 168 hours, i.e. 7 days.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">allowPorts</td>
+<td style="text-align:left"><a href="../common#portsrange">[]PortsRange</a></td>
+<td style="text-align:left">Server ports allowed for proxy binding.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">httpPlugins</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#httppluginoptions">[]HTTPPluginOptions</a></td>
+<td style="text-align:left">Server HTTP plugin configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authserverconfig">AuthServerConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">method</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Authentication method. Options are token or oidc, default is token.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">additionalScopes</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">Additional scope for authentication information. Options are HeartBeats and NewWorkConns</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">token</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Effective when method is token. Client needs to set the same value to pass authentication.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">oidc</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#authoidcserverconfig">AuthOIDCServerConfig</a></td>
+<td style="text-align:left">OIDC authentication configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authoidcserverconfig">AuthOIDCServerConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">issuer</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">audience</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">skipExpiryCheck</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">skipIssuerCheck</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="servertransportconfig">ServerTransportConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tcpMuxKeepaliveInterval</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Heartbeat check interval time for tcp mux, in seconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tcpKeepalive</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Keepalive interval time for underlying TCP connection with client, in seconds. Configure as negative number to disable.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">maxPoolCount</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Maximum connection pool size allowed for clients. If client configured value is greater than this value, it will be forcibly modified to the maximum value, default is 5.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">heartbeatTimeout</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">Timeout for heartbeat connection between server and client, in seconds, default is 90 seconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">quic</td>
+<td style="text-align:left"><a href="../common#quicoptions">QUICOptions</a></td>
+<td style="text-align:left">QUIC protocol configuration parameters.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tls</td>
+<td style="text-align:left"><a href="/en/docs/reference/server-configures/#tlsserverconfig">TLSServerConfig</a></td>
+<td style="text-align:left">Server TLS protocol configuration.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tlsserverconfig">TLSServerConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">force</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">Whether to only accept client connections with TLS enabled.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a href="../common#tlsconfig">TLSConfig</a></td>
+<td style="text-align:left">TLS protocol configuration, embedded structure.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="httppluginoptions">HTTPPluginOptions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Plugin name.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">addr</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Plugin interface address.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">path</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Plugin interface path.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">ops</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">List of operations that the plugin needs to take effect. For specific optional values, please refer to the server plugin documentation.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">tlsVerify</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">When plugin address is HTTPS protocol, whether to verify the plugin&rsquo;s TLS certificate, default is not to verify.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sshtunnelgateway">SSHTunnelGateway</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bindPort</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">SSH server listening port.</td>
+<td style="text-align:left">YES</td>
+</tr>
+<tr>
+<td style="text-align:left">privateKeyFile</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">SSH server private key file path. If empty, frps will read the private key file under autoGenPrivateKeyPath.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">autoGenPrivateKeyPath</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Private key file automatic generation path, default is ./.autogen_ssh_key. If the file does not exist or is empty, frps will automatically generate an RSA private key file and store it at this path.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">authorizedKeysFile</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">SSH client authorized key file path. If empty, SSH client authentication will not be performed. Non-empty can implement SSH passwordless login authentication.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+
+	<div class="td-page-meta__lastmod">
+  Last modified July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/fatedier/frp" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2025
+    <span class="td-footer__authors">The frp Authors</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.f72d00502781aaf278a14088eb2356b1ba2a05ad698a0c43fe86314d74ceab56.js" integrity="sha256-9y0AUCeBqvJ4oUCI6yNWsboqBa1pigxD/oYxTXTOq1Y=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

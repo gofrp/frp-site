@@ -38,7 +38,7 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
+    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
 
   <meta itemprop="name" content="虚拟网络 (VirtualNet)">
   <meta itemprop="description" content="Alpha feature, added in v0.62.0
@@ -48,7 +48,7 @@
 在不同客户端之间建立 IP 层级的网络连接，不需要为每个服务单独配置端口转发 使应用程序无需感知 frp 的存在，直接通过 IP 访问远程服务 建立类似 VPN 的连接，但由 frp 负责管理 使用要求 使用 VirtualNet 功能需要满足以下条件：
 权限要求：创建 TUN 接口需要 root/管理员权限 平台支持：目前仅支持 Linux 和 macOS 平台 特性门控：需要通过配置 featureGates = { VirtualNet = true } 显式启用 地址分配：每个端点必须配置唯一的 IP 地址/CIDR 配置方法 启用 VirtualNet 由于 VirtualNet 是 Alpha 特性，需要在配置中显式启用：
 # frpc.toml featureGates = { VirtualNet = true } 服务端配置 首先，为 frpc 配置虚拟网络地址：">
-  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
   <meta itemprop="wordCount" content="209">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="虚拟网络 (VirtualNet)">
@@ -74,6 +74,8 @@
   src="/js/lunr-2.3.9.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -107,7 +109,7 @@ var _hmt = _hmt || [];
         <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/virtualnet/">English</a></li>
     </ul>
 </div></li>
       <li class="td-light-dark-menu nav-item dropdown">
@@ -173,7 +175,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -197,7 +199,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -210,7 +212,7 @@ var _hmt = _hmt || [];
       <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/virtualnet/">English</a></li>
     </ul>
 </div>
     </div>
@@ -579,7 +581,7 @@ var _hmt = _hmt || [];
 </ol>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
+  最后修改 July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
 </div>
 
 </div>

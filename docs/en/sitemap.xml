@@ -2,8 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/en/docs/reference/common/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/common/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/common/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/network/network/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/network/network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/network/network/"
+                />
+  </url><url>
     <loc>/en/docs/overview/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,8 +54,60 @@
                 href="/en/docs/overview/"
                 />
   </url><url>
+    <loc>/en/docs/setup/systemd/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/setup/systemd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/setup/systemd/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/network/network-tls/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/network/network-tls/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/network/network-tls/"
+                />
+  </url><url>
+    <loc>/en/docs/features/http-https/header/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/http-https/header/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/http-https/header/"
+                />
+  </url><url>
+    <loc>/en/docs/reference/server-configures/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/server-configures/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/server-configures/"
+                />
+  </url><url>
     <loc>/en/docs/setup/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -28,8 +119,34 @@
                 href="/en/docs/setup/"
                 />
   </url><url>
+    <loc>/en/docs/features/tcp-udp/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/tcp-udp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/tcp-udp/"
+                />
+  </url><url>
+    <loc>/en/docs/reference/client-configures/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/client-configures/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/client-configures/"
+                />
+  </url><url>
     <loc>/en/docs/concepts/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -41,8 +158,47 @@
                 href="/en/docs/concepts/"
                 />
   </url><url>
+    <loc>/en/docs/features/http-https/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/http-https/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/http-https/"
+                />
+  </url><url>
+    <loc>/en/docs/features/http-https/auth/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/http-https/auth/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/http-https/auth/"
+                />
+  </url><url>
+    <loc>/en/docs/features/http-https/subdomain/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/http-https/subdomain/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/http-https/subdomain/"
+                />
+  </url><url>
     <loc>/en/docs/examples/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -54,8 +210,47 @@
                 href="/en/docs/examples/"
                 />
   </url><url>
+    <loc>/en/docs/reference/proxy/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/proxy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/proxy/"
+                />
+  </url><url>
+    <loc>/en/docs/features/stcp-sudp/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/stcp-sudp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/stcp-sudp/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/ssh/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/ssh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/ssh/"
+                />
+  </url><url>
     <loc>/en/docs/features/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -67,8 +262,60 @@
                 href="/en/docs/features/"
                 />
   </url><url>
+    <loc>/en/docs/features/http-https/route/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/http-https/route/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/http-https/route/"
+                />
+  </url><url>
+    <loc>/en/docs/reference/visitor/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/visitor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/visitor/"
+                />
+  </url><url>
+    <loc>/en/docs/features/xtcp/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/xtcp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/xtcp/"
+                />
+  </url><url>
+    <loc>/en/docs/reference/client-plugin/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/client-plugin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/client-plugin/"
+                />
+  </url><url>
     <loc>/en/docs/reference/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -80,8 +327,21 @@
                 href="/en/docs/reference/"
                 />
   </url><url>
+    <loc>/en/docs/features/tcpmux/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/tcpmux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/tcpmux/"
+                />
+  </url><url>
     <loc>/en/docs/faq/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -93,8 +353,60 @@
                 href="/en/docs/faq/"
                 />
   </url><url>
+    <loc>/en/docs/reference/visitor-plugin/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/reference/visitor-plugin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/reference/visitor-plugin/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/configure/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/configure/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/configure/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/multiple-ssh-over-same-port/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/multiple-ssh-over-same-port/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/multiple-ssh-over-same-port/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/vhost-http/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/vhost-http/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/vhost-http/"
+                />
+  </url><url>
     <loc>/en/docs/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -106,8 +418,268 @@
                 href="/en/docs/"
                 />
   </url><url>
+    <loc>/en/docs/examples/dns/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/dns/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/dns/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/monitor/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/monitor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/monitor/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/unix-domain-socket/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/unix-domain-socket/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/unix-domain-socket/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/authentication/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/authentication/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/static-file/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/static-file/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/static-file/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/https2http/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/https2http/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/https2http/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/stcp/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/stcp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/stcp/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/ui/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/ui/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/ui/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/xtcp/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/xtcp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/xtcp/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/network/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/network/"
+                />
+  </url><url>
+    <loc>/en/docs/examples/virtualnet/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/examples/virtualnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/examples/virtualnet/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/load-balancer/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/load-balancer/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/load-balancer/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/realip/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/realip/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/realip/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/range/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/range/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/range/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/client/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/client/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/client/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/server-manage/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/server-manage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/server-manage/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/client-plugin/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/client-plugin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/client-plugin/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/server-plugin/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/server-plugin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/server-plugin/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/ssh/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/ssh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/ssh/"
+                />
+  </url><url>
+    <loc>/en/docs/features/common/virtualnet/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/docs/features/common/virtualnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/docs/features/common/virtualnet/"
+                />
+  </url><url>
     <loc>/en/index.json</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -120,7 +692,7 @@
                 />
   </url><url>
     <loc>/en/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -132,8 +704,21 @@
                 href="/en/"
                 />
   </url><url>
+    <loc>/en/release/</loc>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/release/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/release/"
+                />
+  </url><url>
     <loc>/en/search/</loc>
-    <lastmod>2025-07-17T16:07:44+08:00</lastmod>
+    <lastmod>2025-07-18T10:53:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"

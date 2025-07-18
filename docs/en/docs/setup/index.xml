@@ -7,5 +7,12 @@
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/en/docs/setup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using systemd</title>
+      <link>/en/docs/setup/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/setup/systemd/</guid>
+      <description>On Linux systems, using systemd can conveniently control the start, stop, background running configuration, and boot auto-start of the frps server.&#xA;Here are the specific operation steps:&#xA;Install systemd&#xA;If systemd is not yet installed on your Linux server, you can use package managers like yum (for CentOS/RHEL) or apt (for Debian/Ubuntu) to install it:&#xA;# Install systemd using yum (CentOS/RHEL) yum install systemd # Install systemd using apt (Debian/Ubuntu) apt install systemd Create frps.</description>
+    </item>
   </channel>
 </rss>

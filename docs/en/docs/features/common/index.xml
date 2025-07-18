@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Common Features on frp</title>
+    <link>/en/docs/features/common/</link>
+    <description>Recent content in Common Features on frp</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/en/docs/features/common/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configuration File</title>
+      <link>/en/docs/features/common/configure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/configure/</guid>
+      <description>Starting from v0.52.0, frp began supporting TOML, YAML, and JSON as configuration file formats.&#xA;Please note that INI has been deprecated and will be removed in future releases. New features can only be used in TOML, YAML, or JSON. Users who wish to use these new features should switch their configuration format accordingly.&#xA;Format You can use any format you like among TOML/YAML/JSON to write configuration files, and frp will automatically adapt and parse them.</description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>/en/docs/features/common/monitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/monitor/</guid>
+      <description>Currently, frps server supports two monitoring systems: memory monitoring and Prometheus monitoring.&#xA;Memory Monitoring Monitoring data stored in memory is primarily used for Dashboard display. When the Dashboard feature is enabled in frps configuration, memory monitoring is enabled by default.&#xA;Please note that monitoring data in memory will be cleared after each process restart, or retained for 7 days. Monitoring data can be obtained by sending HTTP requests to the Dashboard address, but this API is not currently standardized and direct use is not recommended.</description>
+    </item>
+    <item>
+      <title>Authentication</title>
+      <link>/en/docs/features/common/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/authentication/</guid>
+      <description>Currently, frpc and frps support two authentication methods: token and oidc, with token being the default. These authentication methods allow you to verify communication between the client and server, ensuring that only authorized users can establish connections.&#xA;Token Token authentication is a simple authentication method that only requires configuring the same token in both the frp client (frpc) and server (frps) configuration files.&#xA;Configuration Example # frps.toml bindPort = 7000 auth.</description>
+    </item>
+    <item>
+      <title>Web Interface</title>
+      <link>/en/docs/features/common/ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/ui/</guid>
+      <description>Currently, frpc and frps have built-in corresponding web interfaces for user convenience.&#xA;Server Dashboard The server Dashboard allows users to view frp status and proxy statistics through a browser.&#xA;Note: Dashboard has not been optimized for displaying large amounts of proxy data. If you experience slow Dashboard access, please do not enable this feature.&#xA;You need to specify the port used by the dashboard service in frps.toml to enable this feature:</description>
+    </item>
+    <item>
+      <title>Load Balancing and Health Check</title>
+      <link>/en/docs/features/common/load-balancer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/load-balancer/</guid>
+      <description>Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.&#xA;Currently supported proxy types include: tcp, http, tcpmux.&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.</description>
+    </item>
+    <item>
+      <title>Get Real User IP</title>
+      <link>/en/docs/features/common/realip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/realip/</guid>
+      <description>HTTP X-Forwarded-For Currently, only http type proxies or proxies with https2http or https2https plugins enabled support this feature.&#xA;You can get the real user IP through the X-Forwarded-For in HTTP request headers, which is enabled by default.&#xA;Proxy Protocol frp supports passing the real IP of requests proxied through frp via the Proxy Protocol protocol.&#xA;After the Proxy Protocol feature is enabled, frpc will first send a section of Proxy Protocol protocol content to the local service after establishing a connection with the local service.</description>
+    </item>
+    <item>
+      <title>Port Range Mapping</title>
+      <link>/en/docs/features/common/range/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/range/</guid>
+      <description>Added in v0.56.0&#xA;We can use Go template&amp;rsquo;s range syntax combined with the built-in parseNumberRangePair function to implement port range mapping.&#xA;In the example below, after the application runs, 8 proxies will be created, named test-6000, test-6001 ... test-6007, which will map remote ports to local ports respectively.&#xA;{{- range $_, $v := parseNumberRangePair &amp;#34;6000-6006,6007&amp;#34; &amp;#34;6000-6006,6007&amp;#34; }} [[proxies]] name = &amp;#34;tcp-{{ $v.First }}&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = {{ $v.First }} remotePort = {{ $v.</description>
+    </item>
+    <item>
+      <title>Client</title>
+      <link>/en/docs/features/common/client/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/client/</guid>
+      <description>Dynamic Configuration Updates When you need to modify frpc proxy configuration, you can use the frpc reload command to achieve dynamic configuration file loading, usually completing proxy updates within seconds.&#xA;To enable this feature, you need to enable webServer in frpc to provide API services. The configuration is as follows:&#xA;webServer.addr = &amp;#34;127.0.0.1&amp;#34; webServer.port = 7400 Then execute the following command to reload the configuration:&#xA;frpc reload -c ./frpc.toml&#xA;After waiting for a period of time, the client will create, update, or delete proxies according to the new configuration file.</description>
+    </item>
+    <item>
+      <title>Server Management</title>
+      <link>/en/docs/features/common/server-manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/server-manage/</guid>
+      <description>Port Whitelist To prevent port abuse, you can manually specify which ports are allowed to be used. In the server configuration, specify through allowPorts:&#xA;# frps.ini allowPorts = [ { start = 2000, end = 3000 }, { single = 3001 }, { single = 3003 }, { start = 4000, end = 50000 } ] allowPorts can configure a specific port or all ports within a range to be allowed.</description>
+    </item>
+    <item>
+      <title>Client Plugin</title>
+      <link>/en/docs/features/common/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/client-plugin/</guid>
+      <description>By default, frpc will only forward requests to local TCP or UDP ports, i.e., the local service address specified by localIP and localPort.&#xA;By enabling client plugin functionality, you can build in some simple local services when only starting frpc, thereby achieving functionality that would normally require starting additional services.&#xA;In each proxy&amp;rsquo;s configuration, you can configure the plugin to use and related parameters through plugin. After enabling client plugins, you no longer need to configure localIP and localPort.</description>
+    </item>
+    <item>
+      <title>Server Plugin</title>
+      <link>/en/docs/features/common/server-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/server-plugin/</guid>
+      <description>The purpose of frp server plugins is to extend the capabilities of the frp server without intruding on its own code.&#xA;frp server plugins run as separate processes and listen on a port, providing RPC interfaces externally to respond to frps requests.&#xA;Before executing certain operations, frps will send RPC requests to server plugins according to configuration, and execute corresponding operations based on the plugin&amp;rsquo;s response.&#xA;RPC Requests After receiving operation requests, server plugins can give three types of responses:</description>
+    </item>
+    <item>
+      <title>SSH Tunnel Gateway</title>
+      <link>/en/docs/features/common/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/ssh/</guid>
+      <description>Added in v0.53.0&#xA;Concept SSH supports reverse proxy capability rfc.&#xA;frp supports listening on an SSH port on the frps side, completing TCP protocol proxy through the SSH -R protocol. In this mode, there is no need to depend on frpc.&#xA;SSH reverse tunnel proxy and proxying SSH ports through frp are two different concepts. SSH reverse tunnel proxy is essentially using ssh client to connect to frps to complete basic reverse proxy when you don&amp;rsquo;t want to use frpc.</description>
+    </item>
+    <item>
+      <title>Virtual Network (VirtualNet)</title>
+      <link>/en/docs/features/common/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/common/virtualnet/</guid>
+      <description>Alpha feature, added in v0.62.0&#xA;Note: VirtualNet is an Alpha stage feature that is currently unstable. Its configuration methods and functionality may change at any time in future versions. Please do not use this feature in production environments; it is only recommended for testing and evaluation purposes.&#xA;Overview The Virtual Network (VirtualNet) feature allows frp to create and manage virtual network connections between clients through TUN interfaces. This feature extends frp&amp;rsquo;s capabilities beyond traditional port forwarding to achieve complete network layer communication.</description>
+    </item>
+  </channel>
+</rss>

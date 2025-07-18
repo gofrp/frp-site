@@ -7,5 +7,75 @@
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/en/docs/examples/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Access Intranet Machines via SSH</title>
+      <link>/en/docs/examples/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/ssh/</guid>
+      <description>Steps Deploy frps on a machine with public IP&#xA;Deploy frps and edit the frps.toml file. Here is a simplified configuration where we set the port for the frp server to receive client connections:&#xA;bindPort = 7000 Deploy frpc on the intranet machine that needs to be accessed&#xA;Deploy frpc and edit the frpc.toml file. Assume the public IP address of the server where frps is located is x.x.x.x. Here is an example configuration:</description>
+    </item>
+    <item>
+      <title>Multiple SSH Services Sharing the Same Port</title>
+      <link>/en/docs/examples/multiple-ssh-over-same-port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/multiple-ssh-over-same-port/</guid>
+      <description>Steps Deploy frps on a machine with public IP&#xA;Modify the frps.toml file to include the following content (using the most simplified configuration here):&#xA;bindPort = 7000 tcpmuxHTTPConnectPort = 5002 Deploy frpc on intranet machine A&#xA;Create an frpc configuration file, for example frpc.toml, and add the following content to the configuration file:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;ssh1&amp;#34; type = &amp;#34;tcpmux&amp;#34; multiplexer = &amp;#34;httpconnect&amp;#34; customDomains = [&amp;#34;machine-a.</description>
+    </item>
+    <item>
+      <title>Access Intranet Web Services via Custom Domain Names</title>
+      <link>/en/docs/examples/vhost-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/vhost-http/</guid>
+      <description>HTTP type proxies are very suitable for providing intranet web services to external users through custom domain names. Compared to TCP type proxies, HTTP proxies can not only reuse ports but also provide many features based on the HTTP protocol.&#xA;HTTPS is similar to this, but it should be noted that frp&amp;rsquo;s HTTPS proxy requires the local service to be an HTTPS service, and frps will not perform TLS termination. You can also combine the https2http plugin to expose local HTTP services through the HTTPS protocol.</description>
+    </item>
+    <item>
+      <title>Forward DNS Query Requests</title>
+      <link>/en/docs/examples/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/dns/</guid>
+      <description>DNS query requests typically use the UDP protocol, and frp supports penetration of intranet UDP services, with configuration similar to TCP.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;dns&amp;#34; type = &amp;#34;udp&amp;#34; localIP = &amp;#34;8.8.8.8&amp;#34; localPort = 53 remotePort = 6000 Please note that this example reverse-proxies Google&amp;rsquo;s DNS query server address, which is only for testing UDP proxy and has no practical significance.</description>
+    </item>
+    <item>
+      <title>Forward Unix Domain Socket</title>
+      <link>/en/docs/examples/unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/unix-domain-socket/</guid>
+      <description>Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file, ensuring the correct Unix domain socket path is set:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;unix_domain_socket&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.plugin] type = &amp;#34;unix_domain_socket&amp;#34; # Unix domain socket path unixPath = &amp;#34;/var/run/docker.sock&amp;#34; Start frps and frpc&#xA;Use curl to view Docker version information</description>
+    </item>
+    <item>
+      <title>Provide Simple File Access Service</title>
+      <link>/en/docs/examples/static-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/static-file/</guid>
+      <description>By using the static_file plugin, you can easily provide an HTTP-based file access service that allows others to access your specified files.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Configure frpc.toml&#xA;Add the following content to the frpc.toml file, ensuring appropriate file paths, username, and password are set:&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_static_file&amp;#34; type = &amp;#34;tcp&amp;#34; remotePort = 6000 [proxies.</description>
+    </item>
+    <item>
+      <title>Enable HTTPS for Local HTTP Service</title>
+      <link>/en/docs/examples/https2http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/https2http/</guid>
+      <description>Steps Configure frps.toml&#xA;bindPort = 7000 vhostHTTPSPort = 443 Configure frpc.toml&#xA;serverAddr = &amp;#34;x.x.x.x&amp;#34; serverPort = 7000 [[proxies]] name = &amp;#34;test_htts2http&amp;#34; type = &amp;#34;https&amp;#34; customDomains = [&amp;#34;test.yourdomain.com&amp;#34;] [proxies.plugin] type = &amp;#34;https2http&amp;#34; localAddr = &amp;#34;127.0.0.1:80&amp;#34; # HTTPS certificate related configuration crtPath = &amp;#34;./server.crt&amp;#34; keyPath = &amp;#34;./server.key&amp;#34; hostHeaderRewrite = &amp;#34;127.0.0.1&amp;#34; requestHeaders.set.x-from-where = &amp;#34;frp&amp;#34; Please note that you need to modify the above configuration according to your domain name and certificate path.&#xA;Start frps and frpc</description>
+    </item>
+    <item>
+      <title>Securely Expose Intranet Services</title>
+      <link>/en/docs/examples/stcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/stcp/</guid>
+      <description>Some intranet services may pose security risks if directly exposed on the public network. Using stcp (secret tcp) type proxies allows you to securely expose intranet services to authorized users, which requires visitors to also deploy frpc clients.&#xA;Steps Configure frps.toml&#xA;Add the following content to the frps.toml file:&#xA;bindPort = 7000 Deploy frpc client and configure&#xA;Deploy frpc on the machine that needs to expose intranet services to the public network, and create the following configuration:</description>
+    </item>
+    <item>
+      <title>Point-to-Point Intranet Penetration</title>
+      <link>/en/docs/examples/xtcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/xtcp/</guid>
+      <description>frp provides a new proxy type xtcp for intranet penetration when you need to transfer large amounts of data and don&amp;rsquo;t want traffic to go through the server.&#xA;Similar to stcp, using xtcp requires deploying frpc on both ends to establish a direct connection.&#xA;Note that xtcp is not suitable for all types of NAT devices. If penetration fails, you can try using stcp proxy.&#xA;Steps Configure frpc.toml file on the machine that needs to be exposed to the external network</description>
+    </item>
+    <item>
+      <title>Virtual Network (VirtualNet)</title>
+      <link>/en/docs/examples/virtualnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/examples/virtualnet/</guid>
+      <description>Note: VirtualNet is an Alpha-stage feature that is currently unstable. Its configuration methods and functionality may change at any time in future versions. Please do not use this feature in production environments; it is only recommended for testing and evaluation purposes.&#xA;Overview Virtual Network (VirtualNet) functionality is an Alpha feature introduced in frp v0.62.0, which allows frp to create and manage virtual network connections between clients and visitors through TUN interfaces, enabling complete network connectivity between devices.</description>
+    </item>
   </channel>
 </rss>

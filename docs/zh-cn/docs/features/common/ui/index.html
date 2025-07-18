@@ -38,7 +38,7 @@ webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;serve
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-07-17T16:07:44+08:00">
+    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
 
   <meta itemprop="name" content="Web 界面">
   <meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
@@ -48,7 +48,7 @@ webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;serve
 # 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &#34;0.0.0.0&#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
 webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。">
-  <meta itemprop="dateModified" content="2025-07-17T16:07:44+08:00">
+  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
   <meta itemprop="wordCount" content="116">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Web 界面">
@@ -74,6 +74,8 @@ webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;serve
   src="/js/lunr-2.3.9.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
+<script src="/js/language-switcher.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -107,7 +109,7 @@ var _hmt = _hmt || [];
         <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/ui/">English</a></li>
     </ul>
 </div></li>
       <li class="td-light-dark-menu nav-item dropdown">
@@ -173,7 +175,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -197,7 +199,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5cdf33191bef9629401f0a503140458d.json"
+    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -210,7 +212,7 @@ var _hmt = _hmt || [];
       <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中文</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/en/">English</a></li>
+    <li><a class="dropdown-item" href="/en/docs/features/common/ui/">English</a></li>
     </ul>
 </div>
     </div>
@@ -527,7 +529,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">remotePort</span> <span class="p">=</span> <span class="mi">7400</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 July 17, 2025: <a href="https://github.com/gofrp/frp-doc/commit/cd3bfaabec9520abdfa54ae9bec09e2de06abf10">update docs for frp v0.63.0 new features (#98) (cd3bfaa)</a>
+  最后修改 July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
 </div>
 
 </div>

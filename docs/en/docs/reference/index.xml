@@ -7,5 +7,54 @@
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/en/docs/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Common Configuration</title>
+      <link>/en/docs/reference/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/common/</guid>
+      <description>LogConfig Field Type Description Required to string Log output file path. If set to console, logs will be printed to standard output. No level string Log level. Options are trace, debug, info, warn, error. Default level is info. No maxDays int Maximum days to retain log files, default is 3 days. No disablePrintColor bool Disable log colors in standard output. No WebServerConfig Field Type Description Required addr string webServer listening address, default is 127.</description>
+    </item>
+    <item>
+      <title>Server Configuration</title>
+      <link>/en/docs/reference/server-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/server-configures/</guid>
+      <description>ServerConfig Field Type Description Required auth AuthServerConfig Authentication configuration. No bindAddr string Server listening address for receiving frpc connections, default listens on 0.0.0.0. No bindPort int Server listening port, default value is 7000. No kcpBindPort int Server listening port for KCP protocol, used to receive frpc connections configured to use KCP protocol. No quicBindPort int Server listening port for QUIC protocol, used to receive frpc connections configured to use QUIC protocol.</description>
+    </item>
+    <item>
+      <title>Client Configuration</title>
+      <link>/en/docs/reference/client-configures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/client-configures/</guid>
+      <description>ClientConfig Field Type Description Required ClientCommonConfig Client common configuration. Yes proxies []ProxyConfig Proxy configuration. Different proxy types correspond to different configurations, such as TCPProxyConfig or HTTPProxyConfig. No visitors []VisitorConfig Visitor configuration. Different visitor types correspond to different configurations, such as STCPVisitorConfig. No ClientCommonConfig Field Type Description Required auth AuthClientConfig Client authentication configuration. No user string Username. After setting this parameter, proxy names will be modified to {user}.{proxyName} to avoid proxy name conflicts with other users.</description>
+    </item>
+    <item>
+      <title>Proxy Configuration</title>
+      <link>/en/docs/reference/proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/proxy/</guid>
+      <description>ProxyBaseConfig Field Type Description Required name string Proxy name. Yes type string Proxy type. Options are tcp, udp, http, https, tcpmux, stcp, sudp, xtcp. Yes annotations map[string]string Proxy annotation information that will be displayed in the server&amp;rsquo;s dashboard. No transport ProxyTransport Proxy network layer configuration. No metadatas map[string]string Additional metadata that will be passed to server plugins to provide additional capabilities. No loadBalancer LoadBalancerConfig Load balancing configuration. No healthCheck HealthCheckConfig Health check configuration.</description>
+    </item>
+    <item>
+      <title>Visitor Configuration</title>
+      <link>/en/docs/reference/visitor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/visitor/</guid>
+      <description>VisitorBaseConfig Field Type Description Required name string Visitor name. Yes type string Visitor type. Options are stcp, sudp, xtcp. Yes transport VisitorTransport Visitor network layer configuration. No secretKey string Secret key. The secret key between server and access side must be consistent for the access side to access the server. No serverUser string Username that the proxy to be accessed belongs to. If empty, defaults to current user. No serverName string Name of the proxy to be accessed.</description>
+    </item>
+    <item>
+      <title>Client Plugin Configuration</title>
+      <link>/en/docs/reference/client-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/client-plugin/</guid>
+      <description>HTTPProxyPluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;http_proxy&amp;rdquo;. Yes httpUser string HTTP proxy username. No httpPassword string HTTP proxy password. No Socks5PluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;socks5&amp;rdquo;. Yes username string Username. No password string Password. No StaticFilePluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;static_file&amp;rdquo;. Yes localPath string Local path where static files are located. Yes stripPrefix string Remove specific prefix from user HTTP request Path.</description>
+    </item>
+    <item>
+      <title>Visitor Plugin Configuration</title>
+      <link>/en/docs/reference/visitor-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/reference/visitor-plugin/</guid>
+      <description>VirtualNetVisitorPluginOptions Field Type Description Required type string Plugin type, set to &amp;ldquo;virtual_net&amp;rdquo;. Yes destinationIP string Target virtual IP address to access. Usually the server&amp;rsquo;s virtual network address. Yes </description>
+    </item>
   </channel>
 </rss>

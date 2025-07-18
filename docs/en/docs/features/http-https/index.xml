@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP &amp; HTTPS on frp</title>
+    <link>/en/docs/features/http-https/</link>
+    <description>Recent content in HTTP &amp; HTTPS on frp</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/en/docs/features/http-https/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modify HTTP Request Header</title>
+      <link>/en/docs/features/http-https/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/header/</guid>
+      <description>Modify Host Header Normally, frp will not modify any forwarded data. However, some backend services will display different websites based on the Host field in HTTP request headers, such as nginx&amp;rsquo;s virtual host service. Enabling the Host Header modification feature can dynamically modify the Host field in HTTP requests. Note that this feature is only available for HTTP type proxies.&#xA;# frpc.toml [[proxies]] name = &amp;#34;web&amp;#34; type = &amp;#34;http&amp;#34; localPort = 80 customDomains = [&amp;#34;test.</description>
+    </item>
+    <item>
+      <title>Set BasicAuth Authentication</title>
+      <link>/en/docs/features/http-https/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/auth/</guid>
+      <description>Since all clients share one frps HTTP service port, anyone who knows your domain name and URL can access your services deployed in the intranet. However, in some scenarios, you need to ensure that only limited users can access.&#xA;frp supports protecting your web services through HTTP Basic Auth, requiring users to access your services through username and password.&#xA;This feature is currently limited to HTTP type proxies and requires adding username and password settings in frpc&amp;rsquo;s proxy configuration.</description>
+    </item>
+    <item>
+      <title>Custom Subdomain</title>
+      <link>/en/docs/features/http-https/subdomain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/subdomain/</guid>
+      <description>When multiple people are using one frps simultaneously, using custom subdomains is more convenient.&#xA;By configuring subdomainHost in frps&amp;rsquo;s configuration file, you can enable this feature. After that, in frpc&amp;rsquo;s http and https type proxies, you can configure a subdomain parameter instead of configuring customDomains.&#xA;You only need to resolve *.{subdomainHost} to the server where frps is located. After that, users can specify their own subdomain for their web services through subdomain, and access their web services through {subdomain}.</description>
+    </item>
+    <item>
+      <title>Routing</title>
+      <link>/en/docs/features/http-https/route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/en/docs/features/http-https/route/</guid>
+      <description>URL Routing frp supports routing and forwarding to different backend services based on the URL path of the request.&#xA;Specify one or more URL prefixes that a proxy can match through the locations field in the configuration file (currently only supports maximum prefix matching, regex matching will be considered later). For example, specifying locations = &amp;quot;/news&amp;quot; means all requests with URLs starting with /news will be forwarded to this service.</description>
+    </item>
+  </channel>
+</rss>
