@@ -20,37 +20,49 @@
 <title>身份认证 | frp</title>
 <meta name="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
-配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
-验证流程参考 Client Credentials Grant。
-配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; 从文件加载 Token Added in v0.64.0
+frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置文件中硬编码。这个功能可以避免在配置文件中直接暴露敏感信息。
+配置方式 tokenSource 与 token 字段互斥，只能选择其中一种方式配置。
+服务端配置示例：
+# frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
+# frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 目前仅支持 file 类型的 tokenSource OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。">
 <meta property="og:url" content="/zh-cn/docs/features/common/authentication/">
   <meta property="og:site_name" content="frp">
   <meta property="og:title" content="身份认证">
   <meta property="og:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
-配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
-验证流程参考 Client Credentials Grant。
-配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; 从文件加载 Token Added in v0.64.0
+frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置文件中硬编码。这个功能可以避免在配置文件中直接暴露敏感信息。
+配置方式 tokenSource 与 token 字段互斥，只能选择其中一种方式配置。
+服务端配置示例：
+# frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
+# frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 目前仅支持 file 类型的 tokenSource OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-07-18T10:53:06+08:00">
+    <meta property="article:modified_time" content="2025-08-11T00:27:03+08:00">
 
   <meta itemprop="name" content="身份认证">
   <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
-配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
-验证流程参考 Client Credentials Grant。
-配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
-  <meta itemprop="dateModified" content="2025-07-18T10:53:06+08:00">
-  <meta itemprop="wordCount" content="74">
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; 从文件加载 Token Added in v0.64.0
+frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置文件中硬编码。这个功能可以避免在配置文件中直接暴露敏感信息。
+配置方式 tokenSource 与 token 字段互斥，只能选择其中一种方式配置。
+服务端配置示例：
+# frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
+# frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 目前仅支持 file 类型的 tokenSource OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。">
+  <meta itemprop="dateModified" content="2025-08-11T00:27:03+08:00">
+  <meta itemprop="wordCount" content="125">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="身份认证">
   <meta name="twitter:description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
 Token Token 身份认证是一种简单的身份认证方式，只需要在 frp 的客户端 frpc 和服务端 frps 配置文件中配置相同的 token 即可。
-配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。
-验证流程参考 Client Credentials Grant。
-配置示例 # frps.toml auth.method = &#34;oidc&#34; auth.oidc.issuer = &#34;https://example-oidc-issuer.com/&#34; auth.oidc.audience = &#34;https://oidc-audience.com/.default&#34; # frpc.toml auth.method = &#34;oidc&#34; auth.oidc.clientID = &#34;98692467-37de-409a-9fac-bb2585826f18&#34; auth.oidc.clientSecret = &#34;oidc_secret&#34; auth.oidc.audience = &#34;https://oidc-audience.">
+配置示例 # frps.toml bindPort = 7000 auth.token = &#34;abc&#34; # frpc.toml auth.token = &#34;abc&#34; 从文件加载 Token Added in v0.64.0
+frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置文件中硬编码。这个功能可以避免在配置文件中直接暴露敏感信息。
+配置方式 tokenSource 与 token 字段互斥，只能选择其中一种方式配置。
+服务端配置示例：
+# frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
+# frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 目前仅支持 file 类型的 tokenSource OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。">
 
 
 
@@ -167,7 +179,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
+    data-offline-search-index-json-src="/offline-search-index.5aa710d1f8417e99ccbacbcffe1e0b3f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -191,7 +203,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.0483677cb3643b0a6c699bb3c99bbd61.json"
+    data-offline-search-index-json-src="/offline-search-index.5aa710d1f8417e99ccbacbcffe1e0b3f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -460,6 +472,7 @@ var _hmt = _hmt || [];
     <li><a href="#token">Token</a>
       <ul>
         <li><a href="#配置示例">配置示例</a></li>
+        <li><a href="#从文件加载-token">从文件加载 Token</a></li>
       </ul>
     </li>
     <li><a href="#oidc-openid-connect-身份认证">OIDC (OpenID Connect) 身份认证</a>
@@ -505,7 +518,28 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">token</span> <span class="p">=</span> <span class="s2">&#34;abc&#34;</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">token</span> <span class="p">=</span> <span class="s2">&#34;abc&#34;</span>
-</span></span></code></pre></div><h2 id="oidc-openid-connect-身份认证">OIDC (OpenID Connect) 身份认证</h2>
+</span></span></code></pre></div><h3 id="从文件加载-token">从文件加载 Token</h3>
+<p><em>Added in v0.64.0</em></p>
+<p>frp 支持使用 <code>tokenSource</code> 从文件中加载认证 token，而不是在配置文件中硬编码。这个功能可以避免在配置文件中直接暴露敏感信息。</p>
+<h4 id="配置方式">配置方式</h4>
+<p>tokenSource 与 token 字段互斥，只能选择其中一种方式配置。</p>
+<p><strong>服务端配置示例：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frps.toml</span>
+</span></span><span class="line"><span class="cl"><span class="nx">bindPort</span> <span class="p">=</span> <span class="mi">7000</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">tokenSource</span><span class="p">.</span><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;file&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">tokenSource</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;/etc/frp/server_token&#34;</span>
+</span></span></code></pre></div><p><strong>客户端配置示例：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">tokenSource</span><span class="p">.</span><span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;file&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">tokenSource</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;/etc/frp/client_token&#34;</span>
+</span></span></code></pre></div><h4 id="注意事项">注意事项</h4>
+<ol>
+<li>token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取</li>
+<li>文件中的 token 会自动去除首尾空白字符</li>
+<li>tokenSource 在配置加载时解析，不支持运行时动态重新加载</li>
+<li>目前仅支持 <code>file</code> 类型的 tokenSource</li>
+</ol>
+<h2 id="oidc-openid-connect-身份认证">OIDC (OpenID Connect) 身份认证</h2>
 <p>OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。</p>
 <p>验证流程参考 <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials Grant</a>。</p>
 <h3 id="配置示例-1">配置示例</h3>
@@ -521,7 +555,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">oidc</span><span class="p">.</span><span class="nx">tokenEndpointURL</span> <span class="p">=</span> <span class="s2">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 July 18, 2025: <a href="https://github.com/gofrp/frp-doc/commit/0cd833eff84f1b68564de06b8d9413aef3e523b7">add en contents (#99) (0cd833e)</a>
+  最后修改 August 11, 2025: <a href="https://github.com/gofrp/frp-doc/commit/6fc33bc6d43823dbb1ab674988e817819caea072">docs: add tokenSource documentation for v0.64.0 (#100) (6fc33bc)</a>
 </div>
 
 </div>
