@@ -34,7 +34,7 @@ SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-09-25T19:58:27+08:00">
+    <meta property="article:modified_time" content="2025-09-25T21:37:33+08:00">
 
   <meta itemprop="name" content="SSH Tunnel Gateway">
   <meta itemprop="description" content="Added in v0.53.0
@@ -42,7 +42,7 @@ SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。
 frp 支持在 frps 端监听一个 ssh 端口，通过走 ssh -R 协议来完成 TCP 协议代理，该模式下不需要依赖 frpc。
 SSH 反向隧道代理和通过 frp 代理 SSH 端口是不同的 2 个概念。SSH 反向隧道代理本质上是在你不想使用 frpc 的时候，通过 ssh client 连接 frps 来完成基本的反向代理。
 参数 # frps.toml sshTunnelGateway.bindPort = 0 sshTunnelGateway.privateKeyFile = &#34;&#34; sshTunnelGateway.autoGenPrivateKeyPath = &#34;&#34; sshTunnelGateway.authorizedKeysFile = &#34;&#34; Field Type Description Required bindPort int frps 监听的 ssh server 端口。 YES privateKeyFile string 默认为空。ssh server 使用的私钥文件，为空frps会读取 autoGenPrivateKeyPath 路径下的私钥文件。可复用本地 /home/user/.ssh/id_rsa 文件或自定义路径。 No autoGenPrivateKeyPath string 默认为 .">
-  <meta itemprop="dateModified" content="2025-09-25T19:58:27+08:00">
+  <meta itemprop="dateModified" content="2025-09-25T21:37:33+08:00">
   <meta itemprop="wordCount" content="368">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="SSH Tunnel Gateway">
@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e4ecc8ed59960a9082b4d629b949d7d7.json"
+    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e4ecc8ed59960a9082b4d629b949d7d7.json"
+    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -627,7 +627,7 @@ var _hmt = _hmt || [];
 <p>authorizedKeysFile 文件变动可能会导致 ssh 登录认证失败，可能需要重新将公钥信息放入 authorizedKeysFile。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/e7452bae6f8013ee837e2faa18d77b7c21db17a3">add sponsor pages (#101) (e7452ba)</a>
+  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/984c835606176db8bac3ec04cfb6ad7a1cca8054">update docs for v0.65.0 (#102) (984c835)</a>
 </div>
 
 </div>

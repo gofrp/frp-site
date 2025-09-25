@@ -27,12 +27,12 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-09-25T19:58:27+08:00">
+    <meta property="article:modified_time" content="2025-09-25T21:37:33+08:00">
 
   <meta itemprop="name" content="通用配置">
   <meta itemprop="description" content="通用配置结构。">
-  <meta itemprop="dateModified" content="2025-09-25T19:58:27+08:00">
-  <meta itemprop="wordCount" content="199">
+  <meta itemprop="dateModified" content="2025-09-25T21:37:33+08:00">
+  <meta itemprop="wordCount" content="214">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="通用配置">
   <meta name="twitter:description" content="通用配置结构。">
@@ -155,7 +155,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e4ecc8ed59960a9082b4d629b949d7d7.json"
+    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e4ecc8ed59960a9082b4d629b949d7d7.json"
+    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -456,6 +456,7 @@ var _hmt = _hmt || [];
         <li><a href="#httpheader">HTTPHeader</a></li>
         <li><a href="#valuesource">ValueSource</a></li>
         <li><a href="#filesource">FileSource</a></li>
+        <li><a href="#nattraversalconfig">NatTraversalConfig</a></li>
       </ul>
     </li>
   </ul>
@@ -764,9 +765,28 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<h3 id="nattraversalconfig">NatTraversalConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">disableAssistedAddrs</td>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">禁用本地网络接口地址的辅助连接。当启用时，仅使用通过 STUN 发现的公网地址进行 NAT 打洞，避免使用可能较慢的本地网络接口（如 VPN）。默认为 false。</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/e7452bae6f8013ee837e2faa18d77b7c21db17a3">add sponsor pages (#101) (e7452ba)</a>
+  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/984c835606176db8bac3ec04cfb6ad7a1cca8054">update docs for v0.65.0 (#102) (984c835)</a>
 </div>
 
 </div>
