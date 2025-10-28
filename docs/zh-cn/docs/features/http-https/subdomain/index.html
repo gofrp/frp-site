@@ -36,7 +36,7 @@
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-10-28T16:31:08+08:00">
+    <meta property="article:modified_time" content="2025-10-28T17:24:46+08:00">
 
   <meta itemprop="name" content="自定义二级域名">
   <meta itemprop="description" content="在多人同时使用一个 frps 时，通过自定义二级域名的方式来使用会更加方便。
@@ -45,7 +45,7 @@
 # frps.toml subdomainHost = &#34;frps.com&#34; 将泛域名 *.frps.com 解析到 frps 所在服务器的 IP 地址。
 # frpc.toml [[proxies]] name = &#34;web&#34; type = &#34;http&#34; localPort = 80 subdomain = &#34;test&#34; frps 和 frpc 都启动成功后，通过 test.frps.com 就可以访问到内网的 web 服务。
 注：如果 frps 配置了 subdomainHost，则 customDomains 中不能是属于 subdomainHost 的子域名或者泛域名。">
-  <meta itemprop="dateModified" content="2025-10-28T16:31:08+08:00">
+  <meta itemprop="dateModified" content="2025-10-28T17:24:46+08:00">
   <meta itemprop="wordCount" content="79">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="自定义二级域名">
@@ -507,7 +507,7 @@ var _hmt = _hmt || [];
 <p>同一个 HTTP 或 HTTPS 类型的代理中 <code>customDomains</code> 和 <code>subdomain</code> 可以同时配置。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a8fd397824a0c224e376f993f61eab6ec28e05c3">update sponsor (#103) (a8fd397)</a>
+  最后修改 October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a782cbd7e0c3bcaeac2dfdf3382ae3318320f4a1">update sponsor link (#104) (a782cbd)</a>
 </div>
 
 </div>

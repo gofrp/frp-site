@@ -32,14 +32,14 @@ In the example below, after the application runs, 8 proxies will be created, nam
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-10-28T16:31:08+08:00">
+    <meta property="article:modified_time" content="2025-10-28T17:24:46+08:00">
 
   <meta itemprop="name" content="Port Range Mapping">
   <meta itemprop="description" content="Added in v0.56.0
 We can use Go template’s range syntax combined with the built-in parseNumberRangePair function to implement port range mapping.
 In the example below, after the application runs, 8 proxies will be created, named test-6000, test-6001 ... test-6007, which will map remote ports to local ports respectively.
 {{- range $_, $v := parseNumberRangePair &#34;6000-6006,6007&#34; &#34;6000-6006,6007&#34; }} [[proxies]] name = &#34;tcp-{{ $v.First }}&#34; type = &#34;tcp&#34; localPort = {{ $v.First }} remotePort = {{ $v.">
-  <meta itemprop="dateModified" content="2025-10-28T16:31:08+08:00">
+  <meta itemprop="dateModified" content="2025-10-28T17:24:46+08:00">
   <meta itemprop="wordCount" content="79">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Port Range Mapping">
@@ -494,7 +494,7 @@ remotePort = {{ $v.Second }}
 {{- end }}
 </code></pre>
 	<div class="td-page-meta__lastmod">
-  Last modified October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a8fd397824a0c224e376f993f61eab6ec28e05c3">update sponsor (#103) (a8fd397)</a>
+  Last modified October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a782cbd7e0c3bcaeac2dfdf3382ae3318320f4a1">update sponsor link (#104) (a782cbd)</a>
 </div>
 
 </div>

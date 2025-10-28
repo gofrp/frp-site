@@ -28,12 +28,12 @@ When transport.tls.force = true in frps.toml, it means the server only accepts T
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-10-28T16:31:08+08:00">
+    <meta property="article:modified_time" content="2025-10-28T17:24:46+08:00">
 
   <meta itemprop="name" content="Custom TLS Protocol Encryption">
   <meta itemprop="description" content="transport.useEncryption and STCP functions can effectively prevent traffic content from being stolen during communication, but cannot determine whether the other party’s identity is legitimate, posing a risk of man-in-the-middle attacks. For this reason, frp supports traffic encryption between frpc and frps through TLS protocol, and supports client or server unidirectional verification, bidirectional verification, and other functions.
 When transport.tls.force = true in frps.toml, it means the server only accepts TLS connection clients, which is also a prerequisite for frps to verify frpc identity.">
-  <meta itemprop="dateModified" content="2025-10-28T16:31:08+08:00">
+  <meta itemprop="dateModified" content="2025-10-28T17:24:46+08:00">
   <meta itemprop="wordCount" content="690">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Custom TLS Protocol Encryption">
@@ -581,7 +581,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>In this example, both server.crt and client.crt are issued by the default ca, so they are legitimate for the default ca.</p>
 
 	<div class="td-page-meta__lastmod">
-  Last modified October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a8fd397824a0c224e376f993f61eab6ec28e05c3">update sponsor (#103) (a8fd397)</a>
+  Last modified October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a782cbd7e0c3bcaeac2dfdf3382ae3318320f4a1">update sponsor link (#104) (a782cbd)</a>
 </div>
 
 </div>
