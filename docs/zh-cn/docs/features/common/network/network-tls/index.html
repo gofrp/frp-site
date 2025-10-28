@@ -38,7 +38,7 @@ frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-09-25T21:37:33+08:00">
+    <meta property="article:modified_time" content="2025-10-28T16:31:08+08:00">
 
   <meta itemprop="name" content="自定义 TLS 协议加密">
   <meta itemprop="description" content="transport.useEncryption 和 STCP 等功能能有效防止流量内容在通信过程中被盗取，但是无法判断对方的身份是否合法，存在被中间人攻击的风险。为此 frp 支持 frpc 和 frps 之间的流量通过 TLS 协议加密，并且支持客户端或服务端单向验证，双向验证等功能。
@@ -48,7 +48,7 @@ TLS 默认开启方式 从 v0.50.0 开始，transport.tls.enable 的默认值将
 如果 frps 端没有配置证书，则会使用随机生成的证书来加密流量。
 默认情况下，frpc 开启 TLS 加密功能，但是不校验 frps 的证书。
 frpc 单向校验 frps 身份 # frpc.toml transport.tls.trustedCaFile = &#34;/to/ca/path/ca.crt&#34; # frps.toml transport.tls.certFile = &#34;/to/cert/path/server.">
-  <meta itemprop="dateModified" content="2025-09-25T21:37:33+08:00">
+  <meta itemprop="dateModified" content="2025-10-28T16:31:08+08:00">
   <meta itemprop="wordCount" content="428">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="自定义 TLS 协议加密">
@@ -178,7 +178,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
+    data-offline-search-index-json-src="/offline-search-index.85120ff0b87c9d6dd4e429d031d1f1b4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
+    data-offline-search-index-json-src="/offline-search-index.85120ff0b87c9d6dd4e429d031d1f1b4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -601,7 +601,7 @@ openssl x509 -req -days 365 -sha256 \
 </code></pre><p>在本例中，server.crt 和 client.crt 都是由默认 ca 签发的，因此他们对默认 ca 是合法的。</p>
 
 	<div class="td-page-meta__lastmod">
-  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/984c835606176db8bac3ec04cfb6ad7a1cca8054">update docs for v0.65.0 (#102) (984c835)</a>
+  最后修改 October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a8fd397824a0c224e376f993f61eab6ec28e05c3">update sponsor (#103) (a8fd397)</a>
 </div>
 
 </div>

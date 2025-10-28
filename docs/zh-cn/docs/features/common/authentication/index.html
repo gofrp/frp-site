@@ -40,7 +40,7 @@ frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-09-25T21:37:33+08:00">
+    <meta property="article:modified_time" content="2025-10-28T16:31:08+08:00">
 
   <meta itemprop="name" content="身份认证">
   <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
@@ -51,7 +51,7 @@ frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置
 服务端配置示例：
 # frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
 # frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 目前仅支持 file 类型的 tokenSource OIDC (OpenID Connect) 身份认证 OIDC 身份认证是一种基于开放标准的身份认证方式，它通过使用 OIDC 提供者进行身份验证。">
-  <meta itemprop="dateModified" content="2025-09-25T21:37:33+08:00">
+  <meta itemprop="dateModified" content="2025-10-28T16:31:08+08:00">
   <meta itemprop="wordCount" content="125">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="身份认证">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
+    data-offline-search-index-json-src="/offline-search-index.85120ff0b87c9d6dd4e429d031d1f1b4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1467fff2be288323f1895a04e394e04.json"
+    data-offline-search-index-json-src="/offline-search-index.85120ff0b87c9d6dd4e429d031d1f1b4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -558,7 +558,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">oidc</span><span class="p">.</span><span class="nx">tokenEndpointURL</span> <span class="p">=</span> <span class="s2">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 September 25, 2025: <a href="https://github.com/gofrp/frp-doc/commit/984c835606176db8bac3ec04cfb6ad7a1cca8054">update docs for v0.65.0 (#102) (984c835)</a>
+  最后修改 October 28, 2025: <a href="https://github.com/gofrp/frp-doc/commit/a8fd397824a0c224e376f993f61eab6ec28e05c3">update sponsor (#103) (a8fd397)</a>
 </div>
 
 </div>
