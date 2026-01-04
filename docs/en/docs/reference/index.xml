@@ -33,14 +33,14 @@
       <link>/en/docs/reference/proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/en/docs/reference/proxy/</guid>
-      <description>ProxyBaseConfig Field Type Description Required name string Proxy name. Yes type string Proxy type. Options are tcp, udp, http, https, tcpmux, stcp, sudp, xtcp. Yes annotations map[string]string Proxy annotation information that will be displayed in the server&amp;rsquo;s dashboard. No transport ProxyTransport Proxy network layer configuration. No metadatas map[string]string Additional metadata that will be passed to server plugins to provide additional capabilities. No loadBalancer LoadBalancerConfig Load balancing configuration. No healthCheck HealthCheckConfig Health check configuration.</description>
+      <description>ProxyBaseConfig Field Type Description Required name string Proxy name. Yes type string Proxy type. Options are tcp, udp, http, https, tcpmux, stcp, sudp, xtcp. Yes enabled *bool Whether this proxy is enabled, default is true. Set to false to disable this proxy, allowing individual control over each proxy&amp;rsquo;s enabled state. No annotations map[string]string Proxy annotation information that will be displayed in the server&amp;rsquo;s dashboard. No transport ProxyTransport Proxy network layer configuration.</description>
     </item>
     <item>
       <title>Visitor Configuration</title>
       <link>/en/docs/reference/visitor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/en/docs/reference/visitor/</guid>
-      <description>VisitorBaseConfig Field Type Description Required name string Visitor name. Yes type string Visitor type. Options are stcp, sudp, xtcp. Yes transport VisitorTransport Visitor network layer configuration. No secretKey string Secret key. The secret key between server and access side must be consistent for the access side to access the server. No serverUser string Username that the proxy to be accessed belongs to. If empty, defaults to current user. No serverName string Name of the proxy to be accessed.</description>
+      <description>VisitorBaseConfig Field Type Description Required name string Visitor name. Yes type string Visitor type. Options are stcp, sudp, xtcp. Yes enabled *bool Whether this visitor is enabled, default is true. Set to false to disable this visitor, allowing individual control over each visitor&amp;rsquo;s enabled state. No transport VisitorTransport Visitor network layer configuration. No secretKey string Secret key. The secret key between server and access side must be consistent for the access side to access the server.</description>
     </item>
     <item>
       <title>Client Plugin Configuration</title>

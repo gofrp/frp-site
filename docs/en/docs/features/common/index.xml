@@ -40,7 +40,7 @@
       <link>/en/docs/features/common/load-balancer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/en/docs/features/common/load-balancer/</guid>
-      <description>Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.&#xA;Currently supported proxy types include: tcp, http, tcpmux.&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.</description>
+      <description>Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.&#xA;Currently supported proxy types include: tcp, http, https, tcpmux.&#xA;# frpc.toml [[proxies]] name = &amp;#34;test1&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8080 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; [[proxies]] name = &amp;#34;test2&amp;#34; type = &amp;#34;tcp&amp;#34; localPort = 8081 remotePort = 80 loadBalancer.group = &amp;#34;web&amp;#34; loadBalancer.groupKey = &amp;#34;123&amp;#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.</description>
     </item>
     <item>
       <title>Get Real User IP</title>

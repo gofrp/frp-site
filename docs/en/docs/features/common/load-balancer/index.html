@@ -19,29 +19,29 @@
 
 <title>Load Balancing and Health Check | frp</title>
 <meta name="description" content="Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.
-Currently supported proxy types include: tcp, http, tcpmux.
+Currently supported proxy types include: tcp, http, https, tcpmux.
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.">
 <meta property="og:url" content="/en/docs/features/common/load-balancer/">
   <meta property="og:site_name" content="frp">
   <meta property="og:title" content="Load Balancing and Health Check">
   <meta property="og:description" content="Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.
-Currently supported proxy types include: tcp, http, tcpmux.
+Currently supported proxy types include: tcp, http, https, tcpmux.
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-11-27T00:27:06+08:00">
+    <meta property="article:modified_time" content="2026-01-04T15:22:44+08:00">
 
   <meta itemprop="name" content="Load Balancing and Health Check">
   <meta itemprop="description" content="Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.
-Currently supported proxy types include: tcp, http, tcpmux.
+Currently supported proxy types include: tcp, http, https, tcpmux.
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.">
-  <meta itemprop="dateModified" content="2025-11-27T00:27:06+08:00">
-  <meta itemprop="wordCount" content="370">
+  <meta itemprop="dateModified" content="2026-01-04T15:22:44+08:00">
+  <meta itemprop="wordCount" content="371">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Load Balancing and Health Check">
   <meta name="twitter:description" content="Load Balancing You can add multiple proxies of the same type to the same group to implement load balancing capabilities.
-Currently supported proxy types include: tcp, http, tcpmux.
+Currently supported proxy types include: tcp, http, https, tcpmux.
 # frpc.toml [[proxies]] name = &#34;test1&#34; type = &#34;tcp&#34; localPort = 8080 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; [[proxies]] name = &#34;test2&#34; type = &#34;tcp&#34; localPort = 8081 remotePort = 80 loadBalancer.group = &#34;web&#34; loadBalancer.groupKey = &#34;123&#34; When users connect to port 80 of the frps server, frps will randomly distribute received user connections to one of the surviving proxies.">
 
 
@@ -162,7 +162,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fe11908f13d9a1bd0dce3b95ff1a8121.json"
+    data-offline-search-index-json-src="/offline-search-index.0c1d13c6e55bd26cda2094e47a78687d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fe11908f13d9a1bd0dce3b95ff1a8121.json"
+    data-offline-search-index-json-src="/offline-search-index.0c1d13c6e55bd26cda2094e47a78687d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -485,7 +485,7 @@ var _hmt = _hmt || [];
   </header>
 	<h2 id="load-balancing">Load Balancing</h2>
 <p>You can add multiple proxies of the same type to the same <code>group</code> to implement load balancing capabilities.</p>
-<p>Currently supported proxy types include: <code>tcp</code>, <code>http</code>, <code>tcpmux</code>.</p>
+<p>Currently supported proxy types include: <code>tcp</code>, <code>http</code>, <code>https</code>, <code>tcpmux</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">proxies</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;test1&#34;</span>
@@ -543,7 +543,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">healthCheck</span><span class="p">.</span><span class="nx">intervalSeconds</span> <span class="p">=</span> <span class="mi">10</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  Last modified November 27, 2025: <a href="https://github.com/gofrp/frp-doc/commit/fc1d25564afc8adcbc4eeceff576d5970c875c9d">replace knowledge planet community with X follow link (#105) (fc1d255)</a>
+  Last modified January 4, 2026: <a href="https://github.com/gofrp/frp-doc/commit/191a9bc032e9cb8f624e51991d8a86b73fb56006">add docs for v0.66 (#106) (191a9bc)</a>
 </div>
 
 </div>
@@ -570,7 +570,7 @@ var _hmt = _hmt || [];
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2025
+    2026
     <span class="td-footer__authors">The frp Authors</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
       </div>
     </div>

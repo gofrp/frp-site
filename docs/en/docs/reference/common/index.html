@@ -27,12 +27,12 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2025-11-27T00:27:06+08:00">
+    <meta property="article:modified_time" content="2026-01-04T15:22:44+08:00">
 
   <meta itemprop="name" content="Common Configuration">
   <meta itemprop="description" content="Common configuration structures.">
-  <meta itemprop="dateModified" content="2025-11-27T00:27:06+08:00">
-  <meta itemprop="wordCount" content="320">
+  <meta itemprop="dateModified" content="2026-01-04T15:22:44+08:00">
+  <meta itemprop="wordCount" content="383">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Common Configuration">
   <meta name="twitter:description" content="Common configuration structures.">
@@ -155,7 +155,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fe11908f13d9a1bd0dce3b95ff1a8121.json"
+    data-offline-search-index-json-src="/offline-search-index.0c1d13c6e55bd26cda2094e47a78687d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fe11908f13d9a1bd0dce3b95ff1a8121.json"
+    data-offline-search-index-json-src="/offline-search-index.0c1d13c6e55bd26cda2094e47a78687d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -456,6 +456,8 @@ var _hmt = _hmt || [];
         <li><a href="#httpheader">HTTPHeader</a></li>
         <li><a href="#valuesource">ValueSource</a></li>
         <li><a href="#filesource">FileSource</a></li>
+        <li><a href="#execsource">ExecSource</a></li>
+        <li><a href="#execenvvar">ExecEnvVar</a></li>
         <li><a href="#nattraversalconfig">NatTraversalConfig</a></li>
       </ul>
     </li>
@@ -735,13 +737,19 @@ var _hmt = _hmt || [];
 <tr>
 <td style="text-align:left">type</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">Data source type, currently only supports &ldquo;file&rdquo;.</td>
+<td style="text-align:left">Data source type. Options are &ldquo;file&rdquo; and &ldquo;exec&rdquo;.</td>
 <td style="text-align:left">Yes</td>
 </tr>
 <tr>
 <td style="text-align:left">file</td>
 <td style="text-align:left"><a href="/en/docs/reference/common/#filesource">FileSource</a></td>
 <td style="text-align:left">File data source configuration, required when type is &ldquo;file&rdquo;.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">exec</td>
+<td style="text-align:left"><a href="/en/docs/reference/common/#execsource">ExecSource</a></td>
+<td style="text-align:left">External command data source configuration, required when type is &ldquo;exec&rdquo;. Requires <code>--allow-unsafe=TokenSourceExec</code> flag at startup.</td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
@@ -761,6 +769,62 @@ var _hmt = _hmt || [];
 <td style="text-align:left">path</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">File path.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="execsource">ExecSource</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">command</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Path to the command to execute.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">args</td>
+<td style="text-align:left">[]string</td>
+<td style="text-align:left">List of command arguments.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">env</td>
+<td style="text-align:left">[]<a href="/en/docs/reference/common/#execenvvar">ExecEnvVar</a></td>
+<td style="text-align:left">Additional environment variables.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="execenvvar">ExecEnvVar</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Environment variable name.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Environment variable value.</td>
 <td style="text-align:left">Yes</td>
 </tr>
 </tbody>
@@ -786,7 +850,7 @@ var _hmt = _hmt || [];
 </table>
 
 	<div class="td-page-meta__lastmod">
-  Last modified November 27, 2025: <a href="https://github.com/gofrp/frp-doc/commit/fc1d25564afc8adcbc4eeceff576d5970c875c9d">replace knowledge planet community with X follow link (#105) (fc1d255)</a>
+  Last modified January 4, 2026: <a href="https://github.com/gofrp/frp-doc/commit/191a9bc032e9cb8f624e51991d8a86b73fb56006">add docs for v0.66 (#106) (191a9bc)</a>
 </div>
 
 </div>
@@ -813,7 +877,7 @@ var _hmt = _hmt || [];
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2025
+    2026
     <span class="td-footer__authors">The frp Authors</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
       </div>
     </div>
