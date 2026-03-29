@@ -27,12 +27,12 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2026-03-07T23:16:10+08:00">
+    <meta property="article:modified_time" content="2026-03-30T00:12:29+08:00">
 
   <meta itemprop="name" content="Client Configuration">
   <meta itemprop="description" content="Detailed configuration description for frp client.">
-  <meta itemprop="dateModified" content="2026-03-07T23:16:10+08:00">
-  <meta itemprop="wordCount" content="692">
+  <meta itemprop="dateModified" content="2026-03-30T00:12:29+08:00">
+  <meta itemprop="wordCount" content="740">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Client Configuration">
   <meta name="twitter:description" content="Detailed configuration description for frp client.">
@@ -155,7 +155,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -449,6 +449,7 @@ var _hmt = _hmt || [];
       <ul>
         <li><a href="#clientconfig">ClientConfig</a></li>
         <li><a href="#clientcommonconfig">ClientCommonConfig</a></li>
+        <li><a href="#storeconfig">StoreConfig</a></li>
         <li><a href="#clienttransportconfig">ClientTransportConfig</a></li>
         <li><a href="#tlsclientconfig">TLSClientConfig</a></li>
         <li><a href="#authclientconfig">AuthClientConfig</a></li>
@@ -619,6 +620,31 @@ var _hmt = _hmt || [];
 <td style="text-align:left">includes</td>
 <td style="text-align:left">[]string</td>
 <td style="text-align:left">Specify additional configuration file directories where proxy and visitor configurations will be read and loaded.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">store</td>
+<td style="text-align:left"><a href="/en/docs/reference/client-configures/#storeconfig">StoreConfig</a></td>
+<td style="text-align:left">Store configuration for persisting proxy and visitor configurations. Supports runtime management via Web UI or API when webServer is enabled.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storeconfig">StoreConfig</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">path</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">Store file path. When configured, enables the Store feature for runtime proxy and visitor management with persistence.</td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
@@ -876,7 +902,7 @@ var _hmt = _hmt || [];
 </table>
 
 	<div class="td-page-meta__lastmod">
-  Last modified March 7, 2026: <a href="https://github.com/gofrp/frp-doc/commit/471e19d0ac398495c04325e957b5a6954281d524">docs: update deprecated tcp_mux and tcp_mux_keepalive_interval to camelCase (#107) (471e19d)</a>
+  Last modified March 30, 2026: <a href="https://github.com/gofrp/frp-doc/commit/5cde690bc02c7bd18f06d6f9a3b273bdfce2ce0a">update docs for frp v0.68.0 new features (#108) (5cde690)</a>
 </div>
 
 </div>

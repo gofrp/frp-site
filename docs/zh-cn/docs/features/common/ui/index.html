@@ -38,7 +38,7 @@ webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;serve
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2026-03-07T23:16:10+08:00">
+    <meta property="article:modified_time" content="2026-03-30T00:12:29+08:00">
 
   <meta itemprop="name" content="Web 界面">
   <meta itemprop="description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
@@ -48,8 +48,8 @@ webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;serve
 # 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0。 webServer.addr = &#34;0.0.0.0&#34; webServer.port = 7500 # dashboard 用户名密码，可选，默认为空 webServer.user = &#34;admin&#34; webServer.password = &#34;admin&#34; 打开浏览器通过 http://[server addr]:7500 访问 Dashboard 界面，输入用户名密码 admin。
 你也可以通过配置 TLS 证书来启用 HTTPS 接口:
 webServer.tls.certFile = &#34;server.crt&#34; webServer.tls.keyFile = &#34;server.key&#34; 客户端管理界面 frpc 内置的 Admin UI 可以帮助用户通过浏览器来查询和管理客户端的 proxy 状态和配置。">
-  <meta itemprop="dateModified" content="2026-03-07T23:16:10+08:00">
-  <meta itemprop="wordCount" content="116">
+  <meta itemprop="dateModified" content="2026-03-30T00:12:29+08:00">
+  <meta itemprop="wordCount" content="151">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Web 界面">
   <meta name="twitter:description" content="目前 frpc 和 frps 分别内置了相应的 Web 界面方便用户使用。
@@ -178,7 +178,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -469,7 +469,11 @@ var _hmt = _hmt || [];
             <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#服务端-dashboard">服务端 Dashboard</a></li>
-    <li><a href="#客户端管理界面">客户端管理界面</a></li>
+    <li><a href="#客户端管理界面">客户端管理界面</a>
+      <ul>
+        <li><a href="#动态代理管理-store">动态代理管理 (Store)</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
 
@@ -523,6 +527,14 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">webServer</span><span class="p">.</span><span class="nx">user</span> <span class="p">=</span> <span class="s2">&#34;admin&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">webServer</span><span class="p">.</span><span class="nx">password</span> <span class="p">=</span> <span class="s2">&#34;admin&#34;</span>
 </span></span></code></pre></div><p>打开浏览器通过 <code>http://127.0.0.1:7400</code> 访问 Admin UI。</p>
+<h3 id="动态代理管理-store">动态代理管理 (Store)</h3>
+<p>支持在运行时通过 Web UI 或 API 动态创建、修改和删除代理及访问者，无需重启 frpc。</p>
+<p>通过配置 <code>store.path</code> 指定持久化存储文件来启用此功能：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">store</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;./db.json&#34;</span>
+</span></span></code></pre></div><p>注意：需要同时启用客户端管理界面（webServer）才能通过 Web UI 和 API 管理 Store 中的条目。未启用 webServer 时，Store 中的数据仍会在启动时加载，但无法在运行时动态修改。</p>
+<p>通过 Store 管理的代理和访问者会保存到磁盘，frpc 重启后自动恢复。它们与配置文件中定义的代理共同工作，当名称冲突时 Store 中的配置优先。</p>
 <p>如果想要在外网环境访问 Admin UI，可以将 7400 端口通过 frp 映射出去即可，但需要重视安全风险。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># frpc.toml</span>
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">proxies</span><span class="p">]]</span>
@@ -532,7 +544,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">remotePort</span> <span class="p">=</span> <span class="mi">7400</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 March 7, 2026: <a href="https://github.com/gofrp/frp-doc/commit/471e19d0ac398495c04325e957b5a6954281d524">docs: update deprecated tcp_mux and tcp_mux_keepalive_interval to camelCase (#107) (471e19d)</a>
+  最后修改 March 30, 2026: <a href="https://github.com/gofrp/frp-doc/commit/5cde690bc02c7bd18f06d6f9a3b273bdfce2ce0a">update docs for frp v0.68.0 new features (#108) (5cde690)</a>
 </div>
 
 </div>

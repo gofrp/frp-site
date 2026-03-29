@@ -40,7 +40,7 @@ frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2026-03-07T23:16:10+08:00">
+    <meta property="article:modified_time" content="2026-03-30T00:12:29+08:00">
 
   <meta itemprop="name" content="身份认证">
   <meta itemprop="description" content="目前 frpc 和 frps 之间支持两种身份验证方式，token 和 oidc，默认为 token。这些认证方式允许您验证客户端与服务端之间的通信，并确保只有授权用户能够建立连接。
@@ -51,7 +51,7 @@ frp 支持使用 tokenSource 从文件中加载认证 token，而不是在配置
 服务端配置示例：
 # frps.toml bindPort = 7000 auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/server_token&#34; 客户端配置示例：
 # frpc.toml auth.tokenSource.type = &#34;file&#34; auth.tokenSource.file.path = &#34;/etc/frp/client_token&#34; 注意事项 token 文件应该设置适当的权限（如 600），确保只有运行 frp 的用户可以读取 文件中的 token 会自动去除首尾空白字符 tokenSource 在配置加载时解析，不支持运行时动态重新加载 通过外部命令获取 Token Added in v0.">
-  <meta itemprop="dateModified" content="2026-03-07T23:16:10+08:00">
+  <meta itemprop="dateModified" content="2026-03-30T00:12:29+08:00">
   <meta itemprop="wordCount" content="171">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="身份认证">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
     aria-label="站内搜索…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4c19f1825a20b0d23586b70f81ae03e7.json"
+    data-offline-search-index-json-src="/offline-search-index.618ff0f7d28521830ea4c7c1bd18a7c1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -573,7 +573,7 @@ var _hmt = _hmt || [];
 </span></span><span class="line"><span class="cl"><span class="nx">auth</span><span class="p">.</span><span class="nx">oidc</span><span class="p">.</span><span class="nx">tokenEndpointURL</span> <span class="p">=</span> <span class="s2">&#34;https://example-oidc-endpoint.com/oauth2/v2.0/token&#34;</span>
 </span></span></code></pre></div>
 	<div class="td-page-meta__lastmod">
-  最后修改 March 7, 2026: <a href="https://github.com/gofrp/frp-doc/commit/471e19d0ac398495c04325e957b5a6954281d524">docs: update deprecated tcp_mux and tcp_mux_keepalive_interval to camelCase (#107) (471e19d)</a>
+  最后修改 March 30, 2026: <a href="https://github.com/gofrp/frp-doc/commit/5cde690bc02c7bd18f06d6f9a3b273bdfce2ce0a">update docs for frp v0.68.0 new features (#108) (5cde690)</a>
 </div>
 
 </div>
